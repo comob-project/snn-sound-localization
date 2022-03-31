@@ -18,7 +18,8 @@ Multiple installation methods are supported: conda (environment.yml), poetry (py
 
 ### Conda
 
-[someone else has to fill this out, I don't know how to use conda]
+1. `conda env create -f environment.yml`
+2. `conda activate ssl`
 
 ### Poetry
 
