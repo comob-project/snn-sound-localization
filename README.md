@@ -1,2 +1,2 @@
-# snn-sound-localisation
-Training spiking neural networks for sound localisation
+# snn-sound-localization
+Training spiking neural networks for sound localization
