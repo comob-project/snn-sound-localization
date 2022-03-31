@@ -1,4 +1,4 @@
-name: ssl
+name: spikeloc
 channels:
   - conda-forge
 dependencies:

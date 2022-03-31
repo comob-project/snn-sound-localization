@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ssl"
+name = "spikeloc"
 version = "0.0.1"
 description = "Collaborative project for modelling sound localization with SNNs"
 authors = ["Your Name <you@example.com>"]
