@@ -4,6 +4,8 @@ The project for collaborative modelling of the brain grew out of the 2022 Cosyne
 
 This is the first project in the community, so the exact workflow for collaboration is still a work in progress.
 
+Visit the official website [here](https://comob-project.github.io/).
+
 # Joining the organization
 
 If you're not already a part of the COMOB community, but you want to get involved, you should open a pull request here
@@ -31,4 +33,10 @@ and then places your commits at the end of the sequence. You shouldn't use `git 
 incompatible sequences of commits.
 
 Of course if you need help with any of this, then please ask and someone will help out!
+
+# The Paper
+
+When the project matures, we will attempt to organise the mass of results into a coherent, linear paper. Project organizers will
+get first/last author positions as a reward for their extra work, and the remaining authors will be randomly ordered. Everyone who
+contributed code/text/figure gets to be an author regardless of whether or not their contribution is directly included in the final paper.
 
