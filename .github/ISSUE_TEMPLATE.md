@@ -1,10 +1,8 @@
 ---
-name: Enhancement Template
-about: An enhancement for the project
-labels: enhancement
+name: Misc issue
+about: An issue not fitting the other categories
+labels: default-issue-template
 title: ""
 ---
 
-Description
-===========
 A clear and concise description of what the issue is about.

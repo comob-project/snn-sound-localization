@@ -5,18 +5,14 @@ labels: enhancement
 title: "enhancement: "
 ---
 
-Current Situation
-=================
+## Current Situation
 A clear and concise description of what the current functionality is.
 
-Enhancement
-===========
+## Enhancement
 A quick description of the proposed enhancement
 
-Reasoning
-=========
+## Reasoning
 Why should this enhancement be added to the repository?
 
-Implementation
-==============
+## Implementation
 Overview of possible implementations
