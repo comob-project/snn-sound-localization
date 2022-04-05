@@ -1,0 +1,11 @@
+name: comob-soundloc-jb       # `jb` is the standard abbreviation for jupyter-book.
+
+channels:
+  - conda-forge
+  - nodefaults                # only use one channel (`conda-forge`).
+
+dependencies:
+  - python = 3.10             # To be able to use the newest syntax in build script.
+                              # (But patch version is free).
+  - jupyter-book = 0.12.3     # Newest release at time of writing.
+                              # Pinned so that the website build keeps working as expected.
