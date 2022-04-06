@@ -34,6 +34,12 @@ incompatible sequences of commits.
 
 Of course if you need help with any of this, then please ask and someone will help out!
 
+## Writing commit messages
+
+Try to make your commit message informative, without going over ~50 characters. Some of us like to use [Conventional
+Commits](https://www.conventionalcommits.org/en/v1.0.0/), which look like `<type>: <message>`. For example, `fix: fixes
+a bug with the fano factor algorithm`, or `feat: adds a new figure for cross-correlation`.
+
 # The Paper
 
 When the project matures, we will attempt to organise the mass of results into a coherent, linear paper. Project organizers will
