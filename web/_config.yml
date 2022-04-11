@@ -1,7 +1,9 @@
 # JupyterBook settings. See https://jupyterbook.org/customize/config.html
 
-title: SNN Sound localization
-author: "the COMOB project: Colaboratively Modelling the Brain"
+title: Sound localization SNNs
+author: "the COMOB project: Collaborative Modelling of the Brain"
+  # Starts with a lowercase "the", because this field is printed by
+  # jupyterbook (in the footer) prefixed by "By ".
 
 execute:
   execute_notebooks: "off"  # Do not try to re-run notebooks when building the website.
@@ -20,13 +22,13 @@ html:
   home_page_in_navbar:   false   # Clicking website logo/title already brings you to
                                  # home page. No need for extra TOC entry.
   extra_navbar: ""               # Text under TOC. Default: "Powered by JupyterBook".
-  use_repository_button: true    # gh logo to go to repo
+  use_repository_button: true    # gh logo, click to go to repo
   use_issues_button:     false   # "Open issue" button in gh logo dropdown
   use_edit_page_button:  true    # "Suggest edit" button in gh logo dropdown.
   comments:
     hypothesis: true             # Adds the Hypothesis script to every page, which adds
-                                 # a sidebar to add and see in-situ comments.
+                                 # a sidebar, for in-situ comments.
 
 repository:
   url: https://github.com/comob-project/snn-sound-localization
-  # branch: main
+  branch: main  # Default: master

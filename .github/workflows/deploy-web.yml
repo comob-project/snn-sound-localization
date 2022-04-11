@@ -1,0 +1,21 @@
+name: deploy-jupyterbook-website
+
+on:
+  push:
+    branches: [ "*" ]
+  workflow_dispatch:
+    #  Allow running this workflow manually, from the Actions tab
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+
+    - name: Push html to GitHub Pages branch.
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        source_dir: temp/_build
+        destination_dir: BRAAAAAAAnch
