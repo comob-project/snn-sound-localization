@@ -13,26 +13,10 @@ If you need help with using git/Github, just ask in the discord and someone will
 
 ## Installation
 
-Multiple installation methods are supported: conda (environment.yml), poetry (pyproject.toml), pip
-(requirements.txt), docker (DOCKERFILE)
-
 ### Conda
 
 1. `conda env create -f environment.yml`
 2. `conda activate spikeloc`
-
-### Poetry
-
-1. Install [Poetry](https://python-poetry.org/)
-2. (optional) Create a virtualenv: `python -m venv .venv`
-3. (optional) Source the newly created virtualenv: `source .venv/bin/activate`
-4. Run `poetry install`
-
-### Pip
-
-1. Create a virtualenv: `python -m venv .venv`
-2. Source the newly created virtualenv: `source .venv/bin/activate`
-3. Run `pip install -r requirements.txt`
 
 ## Community
 
