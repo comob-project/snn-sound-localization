@@ -35,11 +35,13 @@ jobs:
       with:
         miniforge-version: latest
         environment-file: web/conda-environment.yml
-        activate-environment: comob-soundloc-jb
+        # activate-environment: comob-soundloc-jb
+          # This does not seem to work as expected.
 
     - name: Log env info
       run: |
         conda info
+        conda activate comob-soundloc-jb
         conda list
 
     # - name: Cache conda env creation
@@ -50,7 +52,9 @@ jobs:
     # See https://github.com/marketplace/actions/setup-miniconda#caching
 
     - name: Run build script
-      run: python web/build.py
+      run: |
+        conda activate comob-soundloc-jb
+        python web/build.py
 
     - name: Push html to gh-pages branch.
       uses: peaceiris/actions-gh-pages@v3
