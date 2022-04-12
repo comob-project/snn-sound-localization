@@ -9,6 +9,8 @@ on:
 
   push:
     branches: [ "*" ]
+    # This seems to exclude pushes to branches with an open PR.
+    # Hence also explicitly trigger on `pull_request:`
 
   pull_request: {}
 
@@ -35,14 +37,13 @@ jobs:
       with:
         miniforge-version: latest
         environment-file: web/conda-environment.yml
-        # activate-environment: comob-soundloc-jb
-          # This does not seem to work as expected.
+        activate-environment: comob-soundloc-jb  # This does not seem to work as expected.
 
     - name: Log env info
       run: |
         conda info
-        conda activate comob-soundloc-jb
         conda list
+      shell: bash -l {0}
 
     # - name: Cache conda env creation
     #   uses: actions/cache@v2
@@ -52,9 +53,8 @@ jobs:
     # See https://github.com/marketplace/actions/setup-miniconda#caching
 
     - name: Run build script
-      run: |
-        conda activate comob-soundloc-jb
-        python web/build.py
+      run: python web/build.py
+      shell: bash -l {0}
 
     - name: Push html to gh-pages branch.
       uses: peaceiris/actions-gh-pages@v3
