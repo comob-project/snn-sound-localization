@@ -10,6 +10,8 @@ on:
   push:
     branches: [ "*" ]
 
+  pull_request: {}
+
   workflow_dispatch: {}
     # Allow triggering this workflow manually, from the Actions tab.
     # Branch can be chosen there.
