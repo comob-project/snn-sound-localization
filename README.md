@@ -21,3 +21,10 @@ If you need help with using git/Github, just ask in the discord and someone will
 ## Community
 
 Find us on Discord [here](https://discord.gg/Zpd6RYYyuf)
+
+## Inspiration
+
+We were inspired by the [Polymath Project](https://en.wikipedia.org/wiki/Polymath_Project) which managed to successfully
+solve previously unsolved mathematical problems in a similar open fashion. Science ought to be a collaborative enterprise,
+not a competition. This project is an experiment to see if this approach can be successful in the field of computational
+neuroscience, which, like mathematics, only requires a computer and access to the internet to contribute to.
