@@ -6,6 +6,7 @@ name: deploy-jupyterbook-website
 # `uses` steps below.
 
 on:
+
   push:
     branches: [ "*" ]
 
@@ -15,13 +16,16 @@ on:
 
 jobs:
   build-and-deploy:
+
     runs-on: ubuntu-latest
+
     # concurrency:
       # To build books for multiple people simultaneously, to avoid queuing.
       # No need yet.
+
     steps:
 
-    - name: Download repo   # ..to $GITHUB_WORKSPACE directory. But that's `.`.
+    - name: Download repo   # ..to $GITHUB_WORKSPACE directory, aka cwd.
       uses: actions/checkout@v3
 
     - name: Set-up conda
