@@ -1,21 +1,58 @@
 name: deploy-jupyterbook-website
 
+# Relevant docs: https://docs.github.com/en/actions/learn-github-actions/
+# Specifically 'contexts' (`${{ github. }}`) and 'environment variables'.
+# Also see the readme's (== gh actions Marketplace descriptions) of the
+# `uses` steps below.
+
 on:
   push:
     branches: [ "*" ]
-  workflow_dispatch:
-    #  Allow running this workflow manually, from the Actions tab
 
+  workflow_dispatch: {}
+    # Allow triggering this workflow manually, from the Actions tab.
+    # Branch can be chosen there.
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # concurrency:
+      # To build books for multiple people simultaneously, to avoid queuing.
+      # No need yet.
     steps:
 
+    - name: Download repo   # ..to $GITHUB_WORKSPACE directory. But that's `.`.
+      uses: actions/checkout@v3
 
-    - name: Push html to GitHub Pages branch.
+    - name: Set-up conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniforge-version: latest
+        environment-file: web/conda-environment.yml
+        activate-environment: comob-soundloc-jb
+
+    - name: Log env info
+      run: |
+        conda info
+        conda list
+
+    # - name: Cache conda env creation
+    #   uses: actions/cache@v2
+    #   ..
+    # Commented out, as incomplete, and not essential.
+    # Complete if need for speed / carbon reduction.
+    # See https://github.com/marketplace/actions/setup-miniconda#caching
+
+    - name: Run build script
+      run: python web/build.py
+
+    - name: Push html to gh-pages branch.
       uses: peaceiris/actions-gh-pages@v3
       with:
+        source_dir: web/_generated/_build/html
+        destination_dir: ${{ github.refname }}
+          # refname = branch (or tag) that triggered workflow (i.e. was pushed to)
+        full_commit_message: deploy ${{ github.refname }} ${GITHUB_SHA::7} (${{ github.event.head_commit.message }})
+          # `::7` is bash syntax to trim long string
+          # (`${var:pos:len}`, https://tldp.org/LDP/abs/html/parameter-substitution.html)
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        source_dir: temp/_build
-        destination_dir: BRAAAAAAAnch

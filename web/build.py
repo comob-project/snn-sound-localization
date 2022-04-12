@@ -7,6 +7,7 @@
 
 from util import read, write, run
 
+from os import environ
 from pathlib import Path
 from shutil import rmtree
 
@@ -19,9 +20,13 @@ reporoot = Path.cwd()
 nbdir = reporoot / "notebooks"
 webdir = reporoot / "web"
 outdir = webdir / "_generated"
-rmtree(outdir, ignore_errors=True)
-# Delete leftovers from previous builds. These cause confusion when debugging
-# manually. Error is raised when outdir does not exist.
+
+if outdir.exists():
+    rmtree(outdir)
+    # Delete leftovers from previous builds.
+    # These cause confusion when debugging manually.
+    print(f"Cleared {outdir}")
+
 outdir.mkdir()
 
 
@@ -31,9 +36,8 @@ outdir.mkdir()
 
 toc = read(webdir / "_toc.yml")
 
-
 def to_toc_entry(p: Path):
-    # See the incomplete _toc.yml for expected syntax
+    # To generate yaml output of the form "- notebooks/introduction".
     return {"file": p.relative_to(reporoot).with_suffix("").as_posix()}
 
 toc["chapters"] = [to_toc_entry(nbpath) for nbpath in nbdir.glob("*.ipynb")]
@@ -49,15 +53,16 @@ write(toc, tocfile)
 
 config = read(webdir / "_config.yml")
 
-config["repository"]["branch"] = "main"
+config["repository"]["branch"] = environ.get("GITHUB_REF_NAME", "unknown-branch")
+# This setting is used to create links to source. If we're not running on Githhub
+# Actions (i.e. testing locally), we don't bother getting the branch name.
+# Env var from https://docs.github.com/en/actions/learn-github-actions/environment-variables
 
 configfile = outdir / "_config__completed.yml"
 write(config, configfile)
 
 
 
-
-# -------------
 # Generate html
 
 run(
