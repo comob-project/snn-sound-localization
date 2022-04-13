@@ -2,14 +2,12 @@ name: deploy-jupyterbook-website
 
 # Relevant docs: https://docs.github.com/en/actions/learn-github-actions/
 # Specifically 'contexts' (`${{ github. }}`) and 'environment variables'.
-# Also see the readme's (== gh actions Marketplace descriptions) of the
-# `uses` steps below.
 
 on:
   push:
     branches: [ "**" ]
-    # Two asterisks, to also trigger on branches containing slashes.
-    # https://stackoverflow.com/a/57903434/2611913
+      # Two asterisks, to also trigger on branches containing slashes.
+      # https://stackoverflow.com/a/57903434/2611913
 
   workflow_dispatch: {}
     # Allow triggering this workflow manually, from the Actions tab.
@@ -60,12 +58,10 @@ jobs:
       run: python web/build.py
 
     - name: Push html to gh-pages branch.
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v3  # https://github.com/peaceiris/actions-gh-pages
       with:
         publish_dir: web/_generated/_build/html
-        destination_dir: ${{ github.refname }}
+        destination_dir: ${{ github.ref_name }}
           # refname = branch (or tag) that triggered workflow (i.e. was pushed to)
-        full_commit_message: deploy ${{ github.refname }} ${GITHUB_SHA::7} (${{ github.event.head_commit.message }})
-          # `::7` is bash syntax to trim long string
-          # (`${var:pos:len}`, https://tldp.org/LDP/abs/html/parameter-substitution.html)
+        full_commit_message: deploy ${{ github.ref_name }} ${{ github.sha }} (${{ github.event.head_commit.message }})
         github_token: ${{ secrets.GITHUB_TOKEN }}
