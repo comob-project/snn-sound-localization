@@ -6,13 +6,10 @@ name: deploy-jupyterbook-website
 # `uses` steps below.
 
 on:
-
   push:
-    branches: [ "*" ]
-    # This seems to exclude pushes to branches with an open PR.
-    # Hence also explicitly trigger on `pull_request:`
-
-  pull_request: {}
+    branches: [ "**" ]
+    # Two asterisks, to also trigger on branches containing slashes.
+    # https://stackoverflow.com/a/57903434/2611913
 
   workflow_dispatch: {}
     # Allow triggering this workflow manually, from the Actions tab.
@@ -27,6 +24,14 @@ jobs:
       # To build books for multiple people simultaneously, to avoid queuing.
       # No need yet.
 
+    defaults:
+      run:
+        shell: bash --login {0}
+        # The default shell on github actions is a non-login shell,
+        # but to make `conda activate` work, we need one:
+        # https://github.com/conda-incubator/setup-miniconda#important
+        # I don't know what `{0}` is.
+
     steps:
 
     - name: Download repo   # ..to $GITHUB_WORKSPACE directory, aka cwd.
@@ -37,13 +42,12 @@ jobs:
       with:
         miniforge-version: latest
         environment-file: web/conda-environment.yml
-        activate-environment: comob-soundloc-jb  # This does not seem to work as expected.
+        activate-environment: comob-soundloc-jb
 
     - name: Log env info
       run: |
         conda info
         conda list
-      shell: bash -l {0}
 
     # - name: Cache conda env creation
     #   uses: actions/cache@v2
@@ -54,12 +58,11 @@ jobs:
 
     - name: Run build script
       run: python web/build.py
-      shell: bash -l {0}
 
     - name: Push html to gh-pages branch.
       uses: peaceiris/actions-gh-pages@v3
       with:
-        source_dir: web/_generated/_build/html
+        publish_dir: web/_generated/_build/html
         destination_dir: ${{ github.refname }}
           # refname = branch (or tag) that triggered workflow (i.e. was pushed to)
         full_commit_message: deploy ${{ github.refname }} ${GITHUB_SHA::7} (${{ github.event.head_commit.message }})
