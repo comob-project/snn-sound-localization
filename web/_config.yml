@@ -1,12 +1,14 @@
 # JupyterBook settings. See https://jupyterbook.org/customize/config.html
 
-title: Sound localization SNNs
+title: SNN Sound localization
 author: "the COMOB project: Collaborative Modelling of the Brain"
   # Starts with a lowercase "the", because this field is printed by
-  # jupyterbook (in the footer) prefixed by "By ".
+  # jupyterbook prefixed by "By " (in the footer).
 
 execute:
-  execute_notebooks: "off"  # Do not try to re-run notebooks when building the website.
+  execute_notebooks: "off"
+    # Do not try to re-run notebooks when building the website. Rather use images and
+    # other outputs already embedded in the notebook.
 
 # Do not try and convert files to html that are not explicitly listed in the generated
 # table of contents. We still need to explicitly exclude files in hidden folders from
@@ -31,4 +33,4 @@ html:
 
 repository:
   url: https://github.com/comob-project/snn-sound-localization
-  branch: main  # Default: master
+  branch: main  # this is overridden by build.py
