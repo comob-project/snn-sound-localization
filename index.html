@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The COMOB project – SNN Sound localization</title>
+
+    <!-- Add some nice and easy styling -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+
+</head>
+<body>
+    <main>  <!-- `main` container required by pico css. -->
+        <h1>
+            JupyterBooks on SNN Sound localization
+        </h1>
+        <p>
+            These are the different JupyterBook websites built for the COMOB SNN
+            Sound localization project:
+        </p>
+        <ul id="books-list">
+            <li>Querying branches from github api…</li>
+        </ul>
+    </main>
+
+    <script type="module">  // `module` necessary for top-level `await`.
+        // Fetch branch names via public github API.
+        const url = "https://api.github.com/repos/comob-project/snn-sound-localization/branches"
+        const response = await (await fetch(url)).json()
+        const branchNames = response.map(el => el["name"])
+        const builtBranches = branchNames.filter(name => name != "gh-pages")
+        // Convert branch names to html elements
+        const listItems = builtBranches.map(branch_name => {
+            const listItem = document.createElement("li")
+            const anchor = document.createElement("a")
+            anchor.setAttribute("href", branch_name)
+            anchor.textContent = branch_name
+            listItem.appendChild(anchor)
+            return listItem
+        })
+        const list = document.getElementById("books-list")
+        list.replaceChildren(...listItems)
+    </script>
+</body>
+</html>
