@@ -9,7 +9,7 @@ on:
       # Two asterisks, to also trigger on branches containing slashes.
       # https://stackoverflow.com/a/57903434/2611913
 
-  workflow_dispatch: {}
+  workflow_dispatch:
     # Allow triggering this workflow manually, from the Actions tab.
     # Branch can be chosen there.
 
