@@ -9,7 +9,7 @@ on:
       # Two asterisks, to also trigger on branches containing slashes.
       # https://stackoverflow.com/a/57903434/2611913
 
-  workflow_dispatch:
+  workflow_dispatch: {}
     # Allow triggering this workflow manually, from the Actions tab.
     # Branch can be chosen there.
 
@@ -26,33 +26,43 @@ jobs:
       run:
         shell: bash --login {0}
         # The default shell on github actions is a non-login shell,
-        # but to make `conda activate` work, we need one:
+        # but to make `conda activate` work, we need a login shell:
         # https://github.com/conda-incubator/setup-miniconda#important
-        # I don't know what `{0}` is.
+        # (No idea what `{0}` is).
 
     steps:
 
     - name: Download repo   # ..to $GITHUB_WORKSPACE directory, aka cwd.
       uses: actions/checkout@v3
 
-    - name: Set-up conda
+    - name: Set-up conda (Miniforge) & create empty env
       uses: conda-incubator/setup-miniconda@v2
       with:
         miniforge-version: latest
-        environment-file: web/conda-environment.yml
         activate-environment: comob-soundloc-jb
+          # this will be the activated conda env for `run` commands in subsequent steps.
+
+    # Creating a conda env from .yml file on gh actions takes ~1m46s, while other steps
+    # take just 1s (gh-pages) to 3s (build.py). So, we cache package version resolving,
+    # downloading & unpacking, for faster deploys. See
+    # https://github.com/marketplace/actions/setup-miniconda#caching-environments
+    - name: Cache conda package installation
+      id: cache-conda-package-install
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.CONDA }}/envs  # Cached dir.
+        key: ${{ hashFiles('web/conda-environment.yml') }}
+          # Invalidate cache if the contents (and thus hash) of this file change.
+
+    - name: Install packages in the current (==`comob-soundloc-jb`) conda env
+            # ..but only if this is not already done by restoring the cached dir.
+      if: steps.cache-conda-package-install.outputs.cache-hit != 'true'
+      run: conda env update -f web/conda-environment.yml
 
     - name: Log env info
       run: |
         conda info
         conda list
-
-    # - name: Cache conda env creation
-    #   uses: actions/cache@v2
-    #   ..
-    # Commented out, as incomplete, and not essential.
-    # Complete if need for speed / carbon reduction.
-    # See https://github.com/marketplace/actions/setup-miniconda#caching
 
     - name: Run build script
       run: python web/build.py
