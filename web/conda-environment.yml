@@ -1,4 +1,5 @@
-name: comob-soundloc-jb       # `jb` is the standard abbreviation for jupyter-book.
+name: comob_soundloc_build-jb-website
+  # (`jb` is the standard abbreviation for JupyterBook).
 
 channels:
   - conda-forge

@@ -39,7 +39,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         miniforge-version: latest
-        activate-environment: comob-soundloc-jb
+        activate-environment: comob_soundloc_build-jb-website
           # this will be the activated conda env for `run` commands in subsequent steps.
 
     # Creating a conda env from .yml file on gh actions takes ~1m46s, while other steps
@@ -54,7 +54,7 @@ jobs:
         key: ${{ hashFiles('web/conda-environment.yml') }}
           # Invalidate cache if the contents (and thus hash) of this file change.
 
-    - name: Install packages in the current (==`comob-soundloc-jb`) conda env
+    - name: Install packages in our conda env
             # ..but only if this is not already done by restoring the cached dir.
       if: steps.cache-conda-package-install.outputs.cache-hit != 'true'
       run: conda env update -f web/conda-environment.yml
