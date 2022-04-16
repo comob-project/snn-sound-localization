@@ -1,5 +1,14 @@
 
-# Contributor Covenant Code of Conduct
+# Code of Conduct
+
+This document describes behaviour that is unacceptable in our community, how to report it, and what the consequences are.
+
+It is based on Coraline Ada Ehmke *et al.*'s 'Contributor Covenant'.
+<!-- Differences between that text and our code of conduct (CoC) can be seen [here](insert gh compare url) -->
+
+Some common objections and questions regarding CoCs are addressed in the
+[Contributor Covenant FAQ](https://www.contributor-covenant.org/faq/).
+
 
 ## Our Pledge
 
