@@ -73,13 +73,16 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behaviour may be
-reported to the project organizers responsible for enforcement at
-[INSERT CONTACT METHOD].
+reported to any or all of the project organizers responsible for enforcement:
+
+- Dan Goodman  — <d.goodman@imperial.ac.uk>
+- Tomas Fiers  — <tomas.fiers@gmail.com>   
+- Marcus Ghosh — <m.ghosh@imperial.ac.uk>  
+
 All complaints will be reviewed and investigated promptly and fairly.
 
 All project organizers are obligated to respect the privacy and security of the
 reporter of any incident.
-
 
 ## Enforcement guidelines
 
