@@ -50,12 +50,12 @@ Examples of unacceptable behaviour include:
 
 ## Enforcement Responsibilities
 
-Community leaders are responsible for clarifying and enforcing our standards of
+Project organizers are responsible for clarifying and enforcing our standards of
 acceptable behaviour and will take appropriate and fair corrective action in
 response to any behaviour that they deem inappropriate, threatening, offensive,
 or harmful.
 
-Community leaders have the right and responsibility to remove, edit, or reject
+Project organizers have the right and responsibility to remove, edit, or reject
 comments, commits, code, wiki edits, issues, and other contributions that are
 not aligned to this Code of Conduct, and will communicate reasons for moderation
 decisions when appropriate.
@@ -73,17 +73,17 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behaviour may be
-reported to the community leaders responsible for enforcement at
+reported to the project organizers responsible for enforcement at
 [INSERT CONTACT METHOD].
 All complaints will be reviewed and investigated promptly and fairly.
 k
-All community leaders are obligated to respect the privacy and security of the
+All project organizers are obligated to respect the privacy and security of the
 reporter of any incident.
 
 
 ## Enforcement Guidelines
 
-Community leaders will follow these Community Impact Guidelines in determining
+Project organizers will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
 
 ### 1. Correction
@@ -91,7 +91,7 @@ the consequences for any action they deem in violation of this Code of Conduct:
 **Community Impact**: Use of inappropriate language or other behaviour deemed
 unprofessional or unwelcome in the community.
 
-**Consequence**: A private, written warning from community leaders, providing
+**Consequence**: A private, written warning from project organizers, providing
 clarity around the nature of the violation and an explanation of why the
 behaviour was inappropriate. A public apology may be requested.
 
