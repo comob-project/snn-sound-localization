@@ -48,7 +48,7 @@ Examples of unacceptable behaviour include:
   professional setting
 
 
-## Enforcement Responsibilities
+## Enforcement responsibilities
 
 Project organizers are responsible for clarifying and enforcing our standards of
 acceptable behaviour and will take appropriate and fair corrective action in
@@ -76,12 +76,12 @@ Instances of abusive, harassing, or otherwise unacceptable behaviour may be
 reported to the project organizers responsible for enforcement at
 [INSERT CONTACT METHOD].
 All complaints will be reviewed and investigated promptly and fairly.
-k
+
 All project organizers are obligated to respect the privacy and security of the
 reporter of any incident.
 
 
-## Enforcement Guidelines
+## Enforcement guidelines
 
 Project organizers will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
