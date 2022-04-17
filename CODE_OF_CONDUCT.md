@@ -3,12 +3,12 @@
 
 This document describes behaviour that is unacceptable in our community, how to report it, and what the consequences are. It also describes the kind of constructive communication we strive towards.
 
-It is based on Coraline Ada Ehmke *et al.*'s 'Contributor Covenant'.
-Differences between that text and our code of conduct (CoC) can be seen
-[here](https://github.com/comob-project/snn-sound-localization/compare/cf5e710...main).
+It is based on Coraline Ada Ehmke *et al.*'s 'Contributor Covenant' (specifically [version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html)).
+The differences (which are not very substantial) between that text and our code of conduct can be seen [here](https://github.com/comob-project/snn-sound-localization/compare/cf5e710...add-code-of-conduct).
+<!-- PR branch name (`add-code-of-conduct`) to be changed to `main` here just before merging. -->
 
-Some common objections and questions regarding CoCs are addressed in the
-[Contributor Covenant FAQ](https://www.contributor-covenant.org/faq/).
+Some common objections and questions regarding codes of conduct are addressed in the
+[_Contributor Covenant_ FAQ](https://www.contributor-covenant.org/faq/).
 
 
 ## Our Pledge
@@ -135,23 +135,3 @@ individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
-
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 2.1, available at
-[https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
-
-Community Impact Guidelines were inspired by
-[Mozilla's code of conduct enforcement ladder][Mozilla CoC].
-
-For answers to common questions about this code of conduct, see the FAQ at
-[https://www.contributor-covenant.org/faq][FAQ]. Translations are available at
-[https://www.contributor-covenant.org/translations][translations].
-
-[homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[Mozilla CoC]: https://github.com/mozilla/diversity
-[FAQ]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
