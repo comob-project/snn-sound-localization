@@ -1,0 +1,77 @@
+name: deploy-jupyterbook-website
+
+# Relevant docs: https://docs.github.com/en/actions/learn-github-actions/
+# Specifically 'contexts' (`${{ github. }}`) and 'environment variables'.
+
+on:
+  push:
+    branches: [ "**" ]
+      # Two asterisks, to also trigger on branches containing slashes.
+      # https://stackoverflow.com/a/57903434/2611913
+
+  workflow_dispatch: {}
+    # Allow triggering this workflow manually, from the Actions tab.
+    # Branch can be chosen there.
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    # concurrency:
+      # To build books for multiple people simultaneously, to avoid queuing.
+      # No need yet.
+
+    defaults:
+      run:
+        shell: bash --login {0}
+        # The default shell on github actions is a non-login shell,
+        # but to make `conda activate` work, we need a login shell:
+        # https://github.com/conda-incubator/setup-miniconda#important
+        # (No idea what `{0}` is).
+
+    steps:
+
+    - name: Download repo   # ..to $GITHUB_WORKSPACE directory, aka cwd.
+      uses: actions/checkout@v3
+
+    - name: Set-up conda (Miniforge) & create empty env
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniforge-version: latest
+        activate-environment: comob_soundloc_build-jb-website
+          # this will be the activated conda env for `run` commands in subsequent steps.
+
+    # Creating a conda env from .yml file on gh actions takes ~1m46s, while other steps
+    # take just 1s (gh-pages) to 3s (build.py). So, we cache package version resolving,
+    # downloading & unpacking, for faster deploys. See
+    # https://github.com/marketplace/actions/setup-miniconda#caching-environments
+    - name: Cache conda package installation
+      id: cache-conda-package-install
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.CONDA }}/envs  # Cached dir.
+        key: ${{ hashFiles('web/conda-environment.yml') }}
+          # Invalidate cache if the contents (and thus hash) of this file change.
+
+    - name: Install packages in our conda env
+            # ..but only if this is not already done by restoring the cached dir.
+      if: steps.cache-conda-package-install.outputs.cache-hit != 'true'
+      run: conda env update -f web/conda-environment.yml
+
+    - name: Log env info
+      run: |
+        conda info
+        conda list
+
+    - name: Run build script
+      run: python web/build.py
+
+    - name: Push html to gh-pages branch.
+      uses: peaceiris/actions-gh-pages@v3  # https://github.com/peaceiris/actions-gh-pages
+      with:
+        publish_dir: web/_generated/_build/html
+        destination_dir: ${{ github.ref_name }}
+          # refname = branch (or tag) that triggered workflow (i.e. was pushed to)
+        full_commit_message: deploy ${{ github.ref_name }} ${{ github.sha }} (${{ github.event.head_commit.message }})
+        github_token: ${{ secrets.GITHUB_TOKEN }}
