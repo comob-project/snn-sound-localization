@@ -1,0 +1,38 @@
+# JupyterBook settings. See https://jupyterbook.org/customize/config.html
+
+title: SNN Sound localization
+author: "COMOB, the project for collaborative modelling of the brain"
+  # This is used by jb in the footer (prefixed by "By ")
+
+execute:
+  execute_notebooks: "off"
+    # Do not try to re-run notebooks when building the website. Rather use images and
+    # other outputs already embedded in the notebook.
+
+# Do not try and convert files to html that are not explicitly listed in the generated
+# table of contents. We still need to explicitly exclude files in hidden folders from
+# being build (weirdly). See https://jupyterbook.org/structure/configure.html#disable-building-files-that-arent-in-the-table-of-contents
+only_build_toc_files: true
+exclude_patterns: [.github/*]
+
+# bibtex_bibfiles:
+  # - references.bib
+
+html:
+  baseurl: https://comob-project.github.io/snn-sound-localization
+  home_page_in_navbar:   false   # Clicking website logo/title already brings you to
+                                 # home page. No need for extra TOC entry.
+  extra_navbar: ""               # Text under TOC. Default: "Powered by JupyterBook".
+  use_repository_button: true    # gh logo, click to go to repo
+  use_issues_button:     false   # "Open issue" button in gh logo dropdown
+  use_edit_page_button:  true    # "Suggest edit" button in gh logo dropdown.
+  comments:
+    hypothesis: true             # Adds the Hypothesis script to every page, which adds
+                                 # a sidebar, for in-situ comments.
+
+repository:
+  url: https://github.com/comob-project/snn-sound-localization
+  branch: main  # this is overridden by build.py
+# The `repository` settings are used by jb to create a link to the source of a web-page
+# (i.e. the underlying .ipynb or .md file) -- used for the "Suggest edit" button under
+# the gh logo.
