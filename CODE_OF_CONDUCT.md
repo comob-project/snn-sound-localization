@@ -4,8 +4,7 @@
 This document describes behaviour that is unacceptable in our community, how to report it, and what the consequences are. It also describes the kind of constructive communication we strive towards.
 
 It is based on Coraline Ada Ehmke *et al.*'s 'Contributor Covenant' (specifically [version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html)).
-The differences (which are not very substantial) between that text and our code of conduct can be seen [here](https://github.com/comob-project/snn-sound-localization/compare/cf5e710...add-code-of-conduct).
-<!-- PR branch name (`add-code-of-conduct`) to be changed to `main` here just before merging. -->
+The differences (which are not very substantial) between that text and our code of conduct can be seen [here](https://github.com/comob-project/snn-sound-localization/compare/cf5e710...main).
 
 Some common objections and questions regarding codes of conduct are addressed in the
 [_Contributor Covenant_ FAQ](https://www.contributor-covenant.org/faq/).
