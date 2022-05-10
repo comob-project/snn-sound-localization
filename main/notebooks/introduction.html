@@ -523,6 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Plot a few just to show how it looks</span>
 <span class="n">ipd</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -688,16 +689,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=5.04371
-Epoch 2: loss=3.02612
-Epoch 3: loss=2.70813
-Epoch 4: loss=2.50026
-Epoch 5: loss=2.30678
-Epoch 6: loss=2.26582
-Epoch 7: loss=2.13161
-Epoch 8: loss=1.99974
-Epoch 9: loss=1.96945
-Epoch 10: loss=1.86101
+Epoch 1: loss=4.59507
+Epoch 2: loss=2.93829
+Epoch 3: loss=2.65264
+Epoch 4: loss=2.54299
+Epoch 5: loss=2.33253
+Epoch 6: loss=2.44905
+Epoch 7: loss=2.10417
+Epoch 8: loss=2.08372
+Epoch 9: loss=1.95506
+Epoch 10: loss=1.97803
 </pre></div>
 </div>
 <img alt="../_images/introduction_18_1.png" src="../_images/introduction_18_1.png" />
@@ -723,7 +724,7 @@ Epoch 10: loss=1.86101
         <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_local</span> <span class="o">==</span> <span class="n">am</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>  <span class="c1"># compare to labels</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_local</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">am</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()):</span>
             <span class="n">confusion</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">ipd_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local_orig</span><span class="p">)</span>
+        <span class="n">ipd_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local_orig</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
         <span class="n">ipd_est</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">continuise</span><span class="p">(</span><span class="n">am</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
         <span class="n">accs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
     <span class="n">ipd_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">ipd_true</span><span class="p">)</span>
@@ -760,11 +761,11 @@ Epoch 10: loss=1.86101
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 33.8%
-Train absolute error: 17.7 deg
+Train classifier accuracy: 32.3%
+Train absolute error: 17.4 deg
 
-Test classifier accuracy: 7.6%
-Test absolute error: 54.0 deg
+Test classifier accuracy: 1.9%
+Test absolute error: 95.8 deg
 </pre></div>
 </div>
 <img alt="../_images/introduction_20_1.png" src="../_images/introduction_20_1.png" />
@@ -914,16 +915,16 @@ Test absolute error: 54.0 deg
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.12117
-Epoch 2: loss=1.27166
-Epoch 3: loss=0.97130
-Epoch 4: loss=0.85132
-Epoch 5: loss=0.73458
-Epoch 6: loss=0.67741
-Epoch 7: loss=0.60464
-Epoch 8: loss=0.56484
-Epoch 9: loss=0.55740
-Epoch 10: loss=0.50806
+Epoch 1: loss=2.14284
+Epoch 2: loss=1.22394
+Epoch 3: loss=0.94674
+Epoch 4: loss=0.79248
+Epoch 5: loss=0.72592
+Epoch 6: loss=0.66021
+Epoch 7: loss=0.63419
+Epoch 8: loss=0.58170
+Epoch 9: loss=0.52558
+Epoch 10: loss=0.50736
 </pre></div>
 </div>
 <img alt="../_images/introduction_28_1.png" src="../_images/introduction_28_1.png" />
@@ -944,11 +945,11 @@ Epoch 10: loss=0.50806
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 81.1%
-Train absolute error: 4.9 deg
+Train classifier accuracy: 82.9%
+Train absolute error: 4.7 deg
 
-Test classifier accuracy: 61.5%
-Test absolute error: 8.2 deg
+Test classifier accuracy: 54.8%
+Test absolute error: 7.9 deg
 </pre></div>
 </div>
 <img alt="../_images/introduction_30_1.png" src="../_images/introduction_30_1.png" />
