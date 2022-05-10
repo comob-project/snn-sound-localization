@@ -1,7 +1,13 @@
 name: spikeloc
 channels:
+  - pytorch
   - conda-forge
 dependencies:
-  - python>=3.8
+  - python=3
   - matplotlib
   - jupyter
+  - notebook
+  - ipykernel
+  - ipywidgets
+  - ipympl
+  - pytorch
