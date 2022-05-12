@@ -19,7 +19,7 @@ on every push to that branch on GitHub.
 These JupyterBooks are hosted at https://comob-project.github.io/snn-sound-localization/
 
 The configuration of this automatic building is at
-[`../.github/worfklows/deploy-web.yml`](../.github/worfklows/deploy-web.yml).
+[`../.github/workflows/deploy-web.yml`](../.github/workflows/deploy-web.yml).
 
 
 
