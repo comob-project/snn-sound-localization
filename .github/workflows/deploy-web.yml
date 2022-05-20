@@ -5,22 +5,15 @@ name: deploy-jupyterbook-website
 
 on:
   push:
-    branches: [ "**" ]
-      # Two asterisks, to also trigger on branches containing slashes.
-      # https://stackoverflow.com/a/57903434/2611913
+    branches: [ "main" ]
 
   workflow_dispatch: {}
     # Allow triggering this workflow manually, from the Actions tab.
-    # Branch can be chosen there.
 
 jobs:
   build-and-deploy:
 
     runs-on: ubuntu-latest
-
-    # concurrency:
-      # To build books for multiple people simultaneously, to avoid queuing.
-      # No need yet.
 
     defaults:
       run:
@@ -71,7 +64,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3  # https://github.com/peaceiris/actions-gh-pages
       with:
         publish_dir: web/_generated/_build/html
-        destination_dir: ${{ github.ref_name }}
-          # refname = branch (or tag) that triggered workflow (i.e. was pushed to)
-        full_commit_message: deploy ${{ github.ref_name }} ${{ github.sha }} (${{ github.event.head_commit.message }})
+        commit_message: deploy ${{ github.sha }} (${{ github.event.head_commit.message }})
         github_token: ${{ secrets.GITHUB_TOKEN }}
