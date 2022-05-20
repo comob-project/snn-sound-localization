@@ -36,7 +36,7 @@ conda env create -f web/conda-environment.yml
 
 To then build the website, activate the newly created conda environment:
 ```
-conda activate comob_soundloc_build-jb-website
+conda activate comob-soundloc-web
 ```
 Then, still in the repo root, run
 ```

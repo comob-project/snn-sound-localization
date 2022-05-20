@@ -1,4 +1,4 @@
-name: comob_soundloc_build-jb-website
+name: comob-soundloc-web
   # (`jb` is the standard abbreviation for JupyterBook).
 
 channels:

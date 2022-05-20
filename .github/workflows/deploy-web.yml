@@ -32,7 +32,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         miniforge-version: latest
-        activate-environment: comob_soundloc_build-jb-website
+        activate-environment: comob-soundloc-web
           # this will be the activated conda env for `run` commands in subsequent steps.
 
     # Creating a conda env from .yml file on gh actions takes ~1m46s, while other steps
