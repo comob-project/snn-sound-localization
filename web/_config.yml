@@ -36,3 +36,7 @@ repository:
 # The `repository` settings are used by jb to create a link to the source of a web-page
 # (i.e. the underlying .ipynb or .md file) -- used for the "Suggest edit" button under
 # the gh logo.
+
+launch_buttons:
+  colab_url: https://colab.research.google.com
+  # Binder button is enabled by default.
