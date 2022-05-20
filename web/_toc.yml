@@ -1,7 +1,7 @@
 # Jupyter Book table of contents. See https://jupyterbook.org/structure/toc.html
 
 format: jb-book
-root: web/home-page
+root: index
 chapters:
 # This is filled in by `build.py`.
 # format:
