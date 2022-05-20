@@ -9,7 +9,6 @@ from util import read, write, run  # local helper functions
 
 from pathlib import Path
 from shutil import rmtree
-from os import environ
 
 
 
@@ -46,22 +45,6 @@ write(toc, tocfile := outdir / "_toc__completed.yml")
 
 
 
-
-# -------------------------------
-# Complete the JupyterBook config
-
-config = read(webdir / "_config.yml")
-
-config["repository"]["branch"] = environ.get("GITHUB_REF_NAME", "unknown-branch")
-# If we're not running on Githhub Actions (i.e. testing locally), we don't bother
-# getting the current branch name [we could, by calling `git`].
-# Env var from
-# https://docs.github.com/en/actions/learn-github-actions/environment-variables
-
-write(config, configfile := outdir / "_config__completed.yml")
-
-
-
 # -------------
 # Generate html
 
@@ -69,5 +52,5 @@ run(
     f"jb build ."
     f" --path-output {outdir}"  # (creates "_build" subdir automatically).
     f" --toc {tocfile}"
-    f" --config {configfile}"
+    f" --config {webdir / '_config.yml'}"
 )
