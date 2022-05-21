@@ -23,6 +23,11 @@ html:
   home_page_in_navbar:   false   # Clicking website logo/title already brings you to
                                  # home page. No need for extra TOC entry.
   extra_navbar: ""               # Text under TOC. Default: "Powered by JupyterBook".
+  extra_footer: |
+    <small>
+      Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>:
+      You may use this work, with attribution, in other freely available works.
+    </small>
   use_repository_button: true    # gh logo, click to go to repo
   use_issues_button:     false   # "Open issue" button in gh logo dropdown
   use_edit_page_button:  true    # "Suggest edit" button in gh logo dropdown.
@@ -40,3 +45,7 @@ repository:
 launch_buttons:
   colab_url: https://colab.research.google.com
   # Binder button is enabled by default.
+
+sphinx:
+  config:
+    html_show_copyright: false   # Remove "© Copyright 2022." in footer
