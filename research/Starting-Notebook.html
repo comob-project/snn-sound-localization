@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; SNN Sound localization</title>
+    <title>Starting Notebook &#8212; SNN Sound localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,10 +54,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/notebooks/introduction.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Starting-Notebook.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="SNN Sound localization" href="../index.html" />
+    <link rel="prev" title="Questions &amp; challenges" href="Questions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,10 +89,39 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contributing.html">
+   How to contribute
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Background.html">
+   Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Questions.html">
+   Questions &amp; challenges
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Introduction
+   Starting Notebook
   </a>
  </li>
 </ul>
@@ -132,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/introduction.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/research/Starting-Notebook.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -152,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/notebooks/introduction.ipynb"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Starting-Notebook.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -172,7 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/notebooks/introduction.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Starting-Notebook.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -180,7 +209,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/notebooks/introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -199,84 +228,52 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introduction
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sound-localization-stimuli">
+   Sound localization stimuli
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelling-questions-aims">
-   Modelling questions / aims
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-approach">
+   Classification approach
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   Background
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
+   Membrane only (no spiking neurons)
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature">
-   Literature
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#technical-challenges">
-   Technical challenges
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cosyne-tutorial-2022-notebook">
-   Cosyne tutorial 2022 notebook
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sound-localisation-stimuli">
-     Sound localisation stimuli
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-approach">
-     Classification approach
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-results">
+     Analysis of results
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-     Membrane only (no spiking neurons)
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spiking-model">
+   Spiking model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+     Surrogate gradient descent
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training">
-       Training
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analysis-of-results">
-       Analysis of results
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spiking-model">
-     Spiking model
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updated-model">
+     Updated model
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-       Surrogate gradient descent
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#updated-model">
-       Updated model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training-and-analysing">
-       Training and analysing
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-and-analysing">
+     Training and analysing
+    </a>
    </li>
   </ul>
  </li>
@@ -290,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Starting Notebook</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -300,84 +297,52 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introduction
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sound-localization-stimuli">
+   Sound localization stimuli
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelling-questions-aims">
-   Modelling questions / aims
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-approach">
+   Classification approach
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   Background
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
+   Membrane only (no spiking neurons)
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#literature">
-   Literature
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#technical-challenges">
-   Technical challenges
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cosyne-tutorial-2022-notebook">
-   Cosyne tutorial 2022 notebook
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sound-localisation-stimuli">
-     Sound localisation stimuli
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     Training
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-approach">
-     Classification approach
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-results">
+     Analysis of results
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-     Membrane only (no spiking neurons)
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spiking-model">
+   Spiking model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+     Surrogate gradient descent
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training">
-       Training
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analysis-of-results">
-       Analysis of results
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spiking-model">
-     Spiking model
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updated-model">
+     Updated model
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-       Surrogate gradient descent
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#updated-model">
-       Updated model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training-and-analysing">
-       Training and analysing
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-and-analysing">
+     Training and analysing
+    </a>
    </li>
   </ul>
  </li>
@@ -390,67 +355,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This is an introduction to the <a class="reference external" href="https://comob-project.github.io/">collaborative modelling of the brain (COMOB)</a> project on sound localization using spiking neural networks.</p>
-<p>At the bottom is the notebook for the <a class="reference external" href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">2022 Cosyne tutorial</a> that started this whole thing off.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="modelling-questions-aims">
-<h1>Modelling questions / aims<a class="headerlink" href="#modelling-questions-aims" title="Permalink to this headline">¶</a></h1>
-<p>Starting point:</p>
-<ul class="simple">
-<li><p>What are the best strategies for localising sounds with a spiking neural network?</p></li>
-<li><p>Can we train networks end-to-end to perform as well or better than hand-crafted solutions?</p></li>
-<li><p>Technical challenge: can we train delays with surrogate gradient descent?</p></li>
-<li><p>Can we understand what these trained networks are doing in a high level way?</p></li>
-<li><p>Do these networks do something similar to what has been proposed in the literature (labelled line models, hemispheric models, pattern match decoders) or something completely different?</p></li>
-<li><p>Do different optimal models emerge in different parameter regimes (head size, signal to noise ratio, multiple sound sources)?</p></li>
-<li><p>How do the results depend on the neuron model and available dynamics? For example, does adaptation matter and in which conditions?</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="background">
-<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
-<p>This is a VERY brief intro to the auditory system and sound localisation.</p>
-<p>Depending on the direction that a sound arrives from, the signals at the left/right ears are different, and we can use this to infer the direction the sound is arriving from.</p>
-<p><strong>ITD.</strong> There’s an arrival time difference because depending on the direction the sound is coming from it has further to travel to one ear than the other, in a way that depends on head size. This interaural time difference (ITD) is frequency-dependent (larger ITDs at lower frequencies). These time differences are on the order of up to around 700 microseconds for a typical human, although effective ITDs can be as large as 1ms at low frequencies.</p>
-<p>For narrow-band signals like a tone, ITD is ambiguous because - for example - for a sine wave you could add a delay of 1/f and you would have the same signal. What is always unambiguous is the interaural phase difference (IPD). The duplex theory says that because of this we use ITD only at low frequencies where the IPDs and ITDs can be unambiguously translated. However, you can resolve this ambiguity by combining information across multiple frequencies, or by looking at ITDs in the envelope rather than the carrier of the signal. This is all still somewhat debated.</p>
-<p><strong>ILD.</strong> There’s a level difference due essentially to the sound having to pass through the head making it quieter at one ear than the other. I think off the top of my head these go to a maximum of around 10-20 dB. This is also level dependent, with larger ILDs at higher frequencies.</p>
-<p><strong>Monaural filtering.</strong> It’s actually possible - if you know the sound source - to localise the sound with just one ear because the shape of the pinna (the fleshy flappy bit we call our ears) filters the sound differently depending on the direction. You can learn these direction-dependent filters.</p>
-<p><strong>HRTF.</strong> We can summarise all these transformations with a linear filter, the head-related transfer function (HRTF). We can measure these in people and animals. The model in my 2010 paper (below) is basically that we can set up neural filters that can match the acoustic filters, and we can detect that they’re matching with coincidence detection. It would be fascinating to see if this emerges as a strategy with surrogate gradient descent!</p>
-<p><strong>Cochlear filtering.</strong> When the sound arrives at the ear it gets bandpass filtered into different frequency bands. The centre frequencies of these bands and bandwidths are roughly log scale, so that at higher frequencies there is a larger gap between the centre frequencies, but the bandwidths are larger, meaning the overlap stays around the same. In humans we have around 3000 filters per ear covering the 20 Hz - 20 kHz range (older adults will typically have lost some of their high frequencies). In my work, I often model these with a gammatone filter, which is a simple linear filter that matches the auditory system fairly well. It definitely misses a lot of interesting nonlinear stuff (cross-frequency effects, dynamic gain control, etc.), and whether or not that is relevant for this project is unclear.</p>
-<p><strong>Inner hair cells</strong> are connected to the cochlea and have a graded synapse to the auditory nerve fibres. They can be modelled simply as a ReLU followed by being raised to the power ⅓ (compression). The latter may not be relevant for this project.</p>
-<p><strong>Auditory nerve fibres</strong> are the first spiking neuron in the auditory system. A reasonable model is that they fire Poisson spikes with a time varying firing rate given by the output of the inner hair cell model. They are also adaptive, and you can have one, two or more vesicle pools to model this adaptation. Various models of different complexity can be used. Probably a single vesicle pool model is good enough for this project. Some simple models covered in this paper.</p>
-<p><img alt="Auditory pathways" src="../_images/auditory-pathways.png" /></p>
-<p>After the auditory nerve, signals go to the <strong>cochlear nucleus</strong> where there are various cell types and computations, some of which include onset sensitive cells and cells that sharpen spike timing. From there they travel to the <strong>superior olive</strong> where there are the first binaural neurons, including the lateral superior olive (<strong>LSO</strong>, believed to process ILDs, often modelled as excitation/inhibition) and the medial superior olive (<strong>MSO</strong>, believed to process ITDs, often modelled with coincidence detection). Finally they go through various further stages before getting to the auditory cortex. If you’re familiar with the visual system, there’s a lot more going on here before you get to cortex.</p>
-<p>You can compute <strong>tuning curves</strong> for binaural cells, e.g. ITD tuning curves. You can form a distribution of the best delays (peak of the ITD tuning curve) and best frequencies (peak of the frequency tuning curve) and plot these (see the decoding paper below). You can ask what is the optimal way to decode sound localisation given the set of outputs of these. This is the subject of the decoding paper below. However, none of these questions are settled.</p>
-<p>What are the key mechanisms underlying all of this? How do they depend on the acoustic environment? Etc. Many questions without fully satisfying answers.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="literature">
-<h1>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h1>
-<p>This is a very limited sample, not a comprehensive review. I’d read these papers and follow some of their references as a starting point to get us all on the same page.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://neural-reckoning.org/pub_decoding_soundloc.html">Decoding neural responses to temporal cues for sound localisation (2013)</a>. My paper comparing the Jeffress labelled line decoder, David McAlpine’s hemispheric decoder, and our proposed pattern match / perceptron decoder. Non-spiking. This paper is a good starting point because it points to a lot of the relevant literature.</p></li>
-<li><p><a class="reference external" href="http://neural-reckoning.org/pub_spike_timing_sound_loc.html">Spike-timing-based computation in sound localisation (2010)</a> and <a class="reference external" href="http://neural-reckoning.org/pub_learning_localisation.html">Learning to localise sounds with spiking neural networks (2010)</a>. Two of my early papers using SNNs to model sound localisation based on coincidence detection. The first one is a hand-crafted network and the second one is a very simple-minded extension to show that this could be learned.</p></li>
-<li><p><a class="reference external" href="https://www.nature.com/articles/s41562-021-01244-z">Deep neural network models of sound localization reveal how perception is adapted to real-world environments (2022)</a> (and <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.07.21.214486v1">biorxiv link</a>). Recent paper from Josh McDermott’s lab doing a non-spiking version of something like what I’m proposing here. The big missing thing that they don’t cover is trying to understand how the learned model works.</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="technical-challenges">
-<h1>Technical challenges<a class="headerlink" href="#technical-challenges" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Delay learning. Can we do this?</p></li>
-<li><p>Alternatives to surrogate gradient descent?</p></li>
-<li><p>Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).</p></li>
-<li><p>Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration&gt;=100ms so more than 1000 time steps.</p></li>
-<li><p>Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).</p></li>
-<li><p>Consider multiple architectures, potentially matching the auditory system.</p></li>
-<li><p>Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?</p></li>
-<li><p>How to understand what the learned network does?</p></li>
-<li><p>Use regression instead of classification</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="cosyne-tutorial-2022-notebook">
-<h1>Cosyne tutorial 2022 notebook<a class="headerlink" href="#cosyne-tutorial-2022-notebook" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we’re going to use surrogate gradient descent to find a solution to the sound localisation problem we solved by hand in the previous notebook. The surrogate gradient descent approach and code is heavily inspired by (certainly not stolen) from <a class="reference external" href="https://github.com/fzenke/spytorch">Friedemann Zenke’s SPyTorch tutorial</a>, which I recommend for a deeper dive into the maths.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="starting-notebook">
+<h1>Starting Notebook<a class="headerlink" href="#starting-notebook" title="Permalink to this headline">¶</a></h1>
+<p>Duplicate this notebook and experiment away.</p>
+<p>In this notebook (which is based on the third notebook of the <a class="reference external" href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">2022 Cosyne tutorial</a>), we’re going to use surrogate gradient descent to find a solution to the sound localisation problem. The surrogate gradient descent approach and code is heavily inspired by (certainly not stolen) from <a class="reference external" href="https://github.com/fzenke/spytorch">Friedemann Zenke’s SPyTorch tutorial</a>, which I recommend for a deeper dive into the maths.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -475,8 +383,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="sound-localisation-stimuli">
-<h2>Sound localisation stimuli<a class="headerlink" href="#sound-localisation-stimuli" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sound-localization-stimuli">
+<h2>Sound localization stimuli<a class="headerlink" href="#sound-localization-stimuli" title="Permalink to this headline">¶</a></h2>
 <p>The following function creates a set of stimuli that can be used for training or testing. We have two ears (0 and 1), and ear 1 will get a version of the signal delayed by an IPD we can write as <span class="math notranslate nohighlight">\(\alpha\)</span> in equations (<code class="docutils literal notranslate"><span class="pre">ipd</span></code> in code). The basic signal is a sine wave as in the previous notebook, made positive, so <span class="math notranslate nohighlight">\((1/2)(1+\sin(\theta)\)</span>. In addition, for each ear there will be <span class="math notranslate nohighlight">\(N_a\)</span> neurons per ear (<code class="docutils literal notranslate"><span class="pre">anf_per_ear</span></code> because these are auditory nerve fibres). Each neuron generates Poisson spikes at a certain firing rate, and these Poisson spike trains are independent. In addition, since it is hard to train delays, we seed it with uniformly distributed delays from a minimum of 0 to a maximum of <span class="math notranslate nohighlight">\(\pi/2\)</span> in each ear, so that the differences between the two ears can cover the range of possible IPDs (<span class="math notranslate nohighlight">\(-\pi/2\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span>). We do this directly by adding a phase delay to each neuron. So for ear <span class="math notranslate nohighlight">\(i\in\{0,1\}\)</span> and neuron <span class="math notranslate nohighlight">\(j\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> the angle <span class="math notranslate nohighlight">\(\theta=2\pi f t+i\alpha+j\pi/2N_a\)</span>. Finally, we generate Poisson spike trains with a rate <span class="math notranslate nohighlight">\(R_\mathrm{max}((1/2)(1+\sin(\theta)))^k\)</span>. <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> (<code class="docutils literal notranslate"><span class="pre">rate_max</span></code>) is the maximum instantaneous firing rate, and <span class="math notranslate nohighlight">\(k\)</span> (<code class="docutils literal notranslate"><span class="pre">envelope_power</span></code>) is a constant that sharpens the envelope. The higher <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> the easier the problem (try it out on the cell below to see why).</p>
 <p>Here’s a picture of the architecture for the stimuli:</p>
 <p><img alt="Stimuli architecture" src="../_images/arch-stimuli.png" /></p>
@@ -543,7 +451,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/introduction_9_0.png" src="../_images/introduction_9_0.png" />
+<img alt="../_images/Starting-Notebook_5_0.png" src="../_images/Starting-Notebook_5_0.png" />
 </div>
 </div>
 <p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
@@ -706,7 +614,7 @@ Epoch 9: loss=1.95506
 Epoch 10: loss=1.97803
 </pre></div>
 </div>
-<img alt="../_images/introduction_18_1.png" src="../_images/introduction_18_1.png" />
+<img alt="../_images/Starting-Notebook_14_1.png" src="../_images/Starting-Notebook_14_1.png" />
 </div>
 </div>
 </div>
@@ -773,8 +681,8 @@ Test classifier accuracy: 1.9%
 Test absolute error: 95.8 deg
 </pre></div>
 </div>
-<img alt="../_images/introduction_20_1.png" src="../_images/introduction_20_1.png" />
-<img alt="../_images/introduction_20_2.png" src="../_images/introduction_20_2.png" />
+<img alt="../_images/Starting-Notebook_16_1.png" src="../_images/Starting-Notebook_16_1.png" />
+<img alt="../_images/Starting-Notebook_16_2.png" src="../_images/Starting-Notebook_16_2.png" />
 </div>
 </div>
 <p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
@@ -932,7 +840,7 @@ Epoch 9: loss=0.52558
 Epoch 10: loss=0.50736
 </pre></div>
 </div>
-<img alt="../_images/introduction_28_1.png" src="../_images/introduction_28_1.png" />
+<img alt="../_images/Starting-Notebook_24_1.png" src="../_images/Starting-Notebook_24_1.png" />
 </div>
 </div>
 <p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
@@ -957,8 +865,8 @@ Test classifier accuracy: 54.8%
 Test absolute error: 7.9 deg
 </pre></div>
 </div>
-<img alt="../_images/introduction_30_1.png" src="../_images/introduction_30_1.png" />
-<img alt="../_images/introduction_30_2.png" src="../_images/introduction_30_2.png" />
+<img alt="../_images/Starting-Notebook_26_1.png" src="../_images/Starting-Notebook_26_1.png" />
+<img alt="../_images/Starting-Notebook_26_2.png" src="../_images/Starting-Notebook_26_2.png" />
 </div>
 </div>
 <p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
@@ -980,11 +888,10 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/introduction_32_0.png" src="../_images/introduction_32_0.png" />
+<img alt="../_images/Starting-Notebook_28_0.png" src="../_images/Starting-Notebook_28_0.png" />
 </div>
 </div>
 <p>Hmm, hard to interpret.</p>
-<p><strong>Exercise.</strong> Any ideas?</p>
 <p>Here’s what I’ve got so far…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1037,8 +944,8 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/introduction_34_0.png" src="../_images/introduction_34_0.png" />
-<img alt="../_images/introduction_34_1.png" src="../_images/introduction_34_1.png" />
+<img alt="../_images/Starting-Notebook_30_0.png" src="../_images/Starting-Notebook_30_0.png" />
+<img alt="../_images/Starting-Notebook_30_1.png" src="../_images/Starting-Notebook_30_1.png" />
 </div>
 </div>
 </div>
@@ -1058,7 +965,7 @@ Test absolute error: 7.9 deg
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks"
+            path: "./research"
         },
         predefinedOutput: true
     }
@@ -1070,11 +977,11 @@ Test absolute error: 7.9 deg
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Questions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">SNN Sound localization</p>
+            <p class="prev-next-title">Questions &amp; challenges</p>
         </div>
     </a>
 </div>
