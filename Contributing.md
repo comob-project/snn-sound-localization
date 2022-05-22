@@ -4,13 +4,12 @@
 
 ## 1. Join the community
 
-[Join our Discord](https://discord.gg/GtdS9tQyU7), to chat about the project and follow announcements.
+[Join our Discord](https://discord.gg/GtdS9tQyU7), to chat about the project and follow announcements. <!-- (This is a never-expiring discord invite link) -->
 If you have any questions, ask them on [our GitHub Discussions page](https://github.com/comob-project/snn-sound-localization/discussions).
 
-<!-- link coc -->
+Participation in our community is subject to our [Code of Conduct](Code-of-Conduct.md).
 
-<iframe src="https://getethermap.org/m/comob"></iframe>
-<!-- (closing tag needed, there's no single-tag 'iframe') -->
+Check out where other members are located in the world and add yourself on [this map 🗺](https://getethermap.org/m/comob).
 
 
 ## 2. Learn the background
