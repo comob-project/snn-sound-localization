@@ -20,7 +20,7 @@ exclude_patterns: [.github/*]
 
 html:
   baseurl: https://comob-project.github.io/snn-sound-localization
-  home_page_in_navbar:   false   # Clicking website logo/title already brings you to
+  home_page_in_navbar:   true    # Clicking website logo/title already brings you to
                                  # home page. No need for extra TOC entry.
   extra_navbar: ""               # Text under TOC. Default: "Powered by JupyterBook".
   extra_footer: |
