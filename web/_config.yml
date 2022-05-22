@@ -9,11 +9,10 @@ execute:
     # Do not try to re-run notebooks when building the website. Rather use images and
     # other outputs already embedded in the notebook.
 
-# Do not try and convert files to html that are not explicitly listed in the generated
-# table of contents. We still need to explicitly exclude files in hidden folders from
-# being build (weirdly). See https://jupyterbook.org/structure/configure.html#disable-building-files-that-arent-in-the-table-of-contents
-only_build_toc_files: true
-exclude_patterns: [.github/*]
+only_build_toc_files: false
+  # We want to build CoC (have it be linkable to on website), but not be in TOC.
+
+exclude_patterns: [.github/*]  # .. but do not build the files here
 
 # bibtex_bibfiles:
   # - references.bib
