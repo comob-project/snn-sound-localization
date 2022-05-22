@@ -9,6 +9,9 @@ If you have any questions, ask them on [our GitHub Discussions page](https://git
 
 <!-- link coc -->
 
+<iframe src="https://getethermap.org/m/comob"></iframe>
+<!-- (closing tag needed, there's no single-tag 'iframe') -->
+
 
 ## 2. Learn the background
 
