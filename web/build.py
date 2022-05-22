@@ -11,12 +11,11 @@ from pathlib import Path
 from shutil import rmtree
 
 
-
 # -----------------
 # Define directories
 
 reporoot = Path.cwd()
-nbdir = reporoot / "notebooks"
+contentdir = reporoot / "research"
 webdir = reporoot / "web"
 outdir = webdir / "_generated"
 
@@ -29,20 +28,34 @@ if outdir.exists():
 outdir.mkdir()
 
 
-
 # ------------------------------
 # Complete the table of contents
 
 toc = read(webdir / "_toc.yml")
 
+
 def to_toc_entry(p: Path):
-    # To generate yaml output of the form "- notebooks/introduction".
+    # To generate yaml output of the form "- file: research/Starting-Notebook".
     return {"file": p.relative_to(reporoot).with_suffix("").as_posix()}
 
-toc["chapters"] = [to_toc_entry(nbpath) for nbpath in nbdir.glob("*.ipynb")]
+
+# Add notebooks and markdown files in "Research" to the "Research" part of toc..
+#  - ..if they're not already there (like Background.md)
+#  - ..sorted with most recently edited first
+
+research_toc = toc["parts"][1]["chapters"]
+
+all_content_files = [p for p in contentdir.iterdir() if p.suffix in (".ipynb", ".md")]
+new_content_files = [
+    p for p in all_content_files if to_toc_entry(p) not in research_toc
+]
+last_modified_first = sorted(
+    new_content_files, key=lambda p: p.stat().st_mtime, reverse=True
+)
+    # More recently modified files have larger (later) mtimes, and must come first.
+research_toc += [to_toc_entry(p) for p in last_modified_first]
 
 write(toc, tocfile := outdir / "_toc__completed.yml")
-
 
 
 # -------------

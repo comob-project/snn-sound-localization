@@ -2,7 +2,16 @@
 
 format: jb-book
 root: index
-chapters:
-# This is filled in by `build.py`.
-# format:
-# - file: notebooks/introduction
+parts:
+  - chapters:
+    # I'd like to add the home/about page (`index`) to this 'part', and then name the
+    # part something like "About". Alas jb doesn't seem to allow that.
+    - file: Contributing
+  - caption: Research
+    chapters:
+    - file: research/Background
+    - file: research/Questions
+    - file: research/Starting-Notebook
+    # This is filled in by `build.py`.
+    # format:
+    # - file: research/introduction
