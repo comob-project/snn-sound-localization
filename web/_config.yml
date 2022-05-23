@@ -1,6 +1,6 @@
 # JupyterBook settings. See https://jupyterbook.org/customize/config.html
 
-title: SNN Sound localization
+title: SNN Sound Localization
 author: "COMOB, the project for collaborative modelling of the brain"
   # This is used by jb in the footer (prefixed by "By ")
 
@@ -19,8 +19,8 @@ exclude_patterns: [.github/*]  # .. but do not build the files here
 
 html:
   baseurl: https://comob-project.github.io/snn-sound-localization
-  home_page_in_navbar:   true    # Clicking website logo/title already brings you to
-                                 # home page. No need for extra TOC entry.
+  favicon: web/headphone-logo.png
+  home_page_in_navbar:   true
   extra_navbar: ""               # Text under TOC. Default: "Powered by JupyterBook".
   extra_footer: |
     <small>
@@ -43,7 +43,7 @@ repository:
 
 launch_buttons:
   colab_url: https://colab.research.google.com
-  # Binder button is enabled by default.
+  # (Binder button is enabled by default).
 
 sphinx:
   config:
