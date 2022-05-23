@@ -242,11 +242,6 @@ const thebe_selector_output = ".output, .cell_output"
    7. Help write the paper
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   …
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -302,11 +297,6 @@ const thebe_selector_output = ".output, .cell_output"
    7. Help write the paper
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   …
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -322,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="join-the-community">
 <h2>1. Join the community<a class="headerlink" href="#join-the-community" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://discord.gg/GtdS9tQyU7"><strong>Join the Discord</strong></a>, to chat about the project and follow announcements.
-If you have any questions, ask them on <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/discussions">our GitHub Discussions page</a>.
+If you have a question, use <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/discussions/categories/q-a">our Q&amp;A forum on GitHub</a>.
 Participation in the community is subject to our <a class="reference internal" href="Code-of-Conduct.html"><span class="doc std std-doc">Code of Conduct</span></a>.</p>
 <p>You can check out where others are located in the world, and add yourself, on <a class="reference external" href="https://getethermap.org/m/comob">this map 🗺</a>.</p>
 <!-- (This discord invite link is never-expiring) -->
@@ -364,12 +354,13 @@ This part is still relevant insofar that the introduced concepts are used in the
 <p>Then, read <a class="reference internal" href="research/Background.html"><span class="doc std std-doc">Background</span></a> for a brief introduction to the auditory system and sound localization, and for links to previous modelling work in sound localization.</p>
 </div>
 <div class="section" id="pick-a-research-question">
-<h2>3. Pick a research question<a class="headerlink" href="#pick-a-research-question" title="Permalink to this headline">¶</a></h2>
+<span id="step-3-pick-a-research-question"></span><h2>3. Pick a research question<a class="headerlink" href="#pick-a-research-question" title="Permalink to this headline">¶</a></h2>
 <p>Visit <a class="reference internal" href="research/Questions.html"><span class="doc std std-doc">Questions &amp; challenges</span></a> to find inspiration for something you’d like to try out or investigate.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>It is hard to say beforehand where research will lead you, so you can of course change this at any time.</p>
 </div>
+<!-- This is a note on the following paragraph; but annoying must come before it here in the source. -->
 <p>Edit that page and <strong>add your name to an item</strong>, or add a new item:</p>
 <div class="dropdown admonition">
 <p class="admonition-title">How to edit the Questions page</p>
@@ -434,6 +425,7 @@ $ jupyter notebook
 </ol>
 <p>Detailed steps (click to expand):</p>
 <!-- Factoring out to external file, as it's quite long -->
+<!-- This is based on https://github.com/neural-reckoning/cosyne-tutorial-2022#run-locally- -->
 <details>
 <summary>1. <b>Install Conda</b></summary>
 <ul>
@@ -559,35 +551,53 @@ Other ways to work<div class="summary-down docutils">
 </details></div>
 <div class="section" id="share-your-work">
 <h2>5. Share your work<a class="headerlink" href="#share-your-work" title="Permalink to this headline">¶</a></h2>
-<p>[drag and drop]</p>
+<p>When you have some finished work to share:</p>
+<ol class="simple">
+<li><p>Rename your notebook file to something reflective of its contents.</p></li>
+</ol>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+How the filename and title are used on the website<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">The notebook’s filename (e.g. <code class="docutils literal notranslate"><span class="pre">Learning-delays.ipynb</span></code>) is used to create the URL for your notebook on this website.</p>
+<ul>
+<li><p class="card-text">Use dashes and underscores rather than spaces: spaces get converted to noisy <code class="docutils literal notranslate"><span class="pre">%20</span></code>s in URLs.</p></li>
+<li><p class="card-text">Avoid changing the filename after the notebook has been integrated in the website: that would break existing links to it.</p></li>
+<li><p class="card-text">Filename are also used to cross-reference pages within this website: for example, the markdown <code class="docutils literal notranslate"><span class="pre">[](research/Starting-Notebook)</span></code> gets rendered as <a class="reference internal" href="research/Starting-Notebook.html"><span class="doc std std-doc">Starting Notebook</span></a>.</p></li>
+</ul>
+</li>
+<li><p class="card-text">The notebook’s title (the markdown header in the first cell, e.g. <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Learning</span> <span class="pre">delays</span></code>) is used in the table of contents of the website (the menu on the left here).</p></li>
+</ul>
+</div>
+</details><ol class="simple">
+<li><p>Upload the notebook file to our GitHub repository</p>
+<ul class="simple">
+<li><p>You should already be a member of our GitHub organization from editing the <a class="reference internal" href="research/Questions.html"><span class="doc std std-doc">Questions &amp; challenges</span></a> page in <a class="reference internal" href="#step-3-pick-a-research-question"><span class="std std-ref">3. Pick a research question</span></a>.</p></li>
+<li><p>Go to the <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/tree/main/research"><code class="docutils literal notranslate"><span class="pre">research/</span></code> directory on GitHub</a>, and drag and drop your notebook onto the page (or use the “Add file” button).
+Choose “Commit directly to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch” and click “Commit changes”.</p>
+<ul>
+<li><p>This same procedure can also be used to update a file that is already on the website: simply upload a file with the same name as the existing one.</p></li>
+</ul>
+</li>
+<li><p>(If you <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>d the repository earlier, you can also just push your notebook to main).</p></li>
+</ul>
+</li>
+</ol>
+<p>After your commit, the website will be automatically rebuilt. Your notebook should appear on the website in a short while.</p>
 </div>
 <div class="section" id="check-out-others-work">
 <h2>6. Check out others’ work<a class="headerlink" href="#check-out-others-work" title="Permalink to this headline">¶</a></h2>
 <p>All our notebooks and research notes appear under the ‘Research’ rubric to the left.</p>
-<p>You can <strong>comment</strong> in-situ on notebooks and other pages of this website (even this one, try it out!). Select some text and click ‘Annotate’. You’ll be prompted to login or sign up for a <em>Hypothesis</em> account, after which you can comment and reply.</p>
-<p>You can see others’ comments using the far right sidebar.</p>
+<p>You can <strong>comment</strong> on notebooks and other pages of this website (even this one, try it out!): select some text and click ‘Annotate’. You’ll be prompted to login or sign up for a <em>Hypothesis</em> account, after which you can comment and reply.</p>
+<p>Instead of commenting on some specific part (“Annotations”), you can also comment on the entire page (“Page notes”). To do so, click the little sticky note icon in the gray sidebar on the far right of the page. In this sidebar you can also see others’ comments.</p>
 </div>
 <div class="section" id="help-write-the-paper">
 <h2>7. Help write the paper<a class="headerlink" href="#help-write-the-paper" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id1">
-<h2>…<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<!-- If you are already a member of the [COMOB github organization][1]: simply drag and drop your notebook file into the [`notebooks` directory on github][2].
-Choose 'commit directly to the `main` branch' and press the 'Commit changes' button.
-The website will be rebuilt automatically, and your notebook should appear on the website when this is done (the website build status can be checked [here][3])
-
-If not, [fork the project, make PR], we'll merge and add you as org member so you can do as above.
-
-
-pieter test → fork, then upload in your repo (it'll prompt to PR)
-
-what about changes. drag and drop overwrite? yes :)
-
-can colab edit? no. so: File > Download .ipynb > [upload as before]
-
-[1]: https://github.com/comob-project
-[2]: https://github.com/comob-project/snn-sound-localization/tree/main/notebooks
-[3]: https://github.com/comob-project/snn-sound-localization/actions/workflows/deploy-web.yml -->
+<p>Once the story is clearer, we’ll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph(s) for your work, comment on the overall flow of the text and improve it, etc.</p>
 </div>
 </div>
 

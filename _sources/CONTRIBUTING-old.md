@@ -15,9 +15,6 @@ We will be organizing regular meetings to talk about progress, you might want to
 
 The aim is to get your subproject into the final form of a figure or table that can be included in the paper we'll write at the end. Let us know when your subproject gets to this stage by opening a pull request to merge into the main branch. We'll do a more thorough review at this stage, and ask you to cut out any extraneous stuff and refactor a little to use the current version of the shared code to keep it all maintainable.
 
-## Step 6: Help write the paper
-
-Once the story is clearer, we'll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph for your subproject. Comment on the overall flow of the text and improve it, etc.
 
 # Technical stuff
 

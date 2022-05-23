@@ -1,3 +1,5 @@
+<!-- This is based on https://github.com/neural-reckoning/cosyne-tutorial-2022#run-locally- -->
+
 <details>
 <summary>1. <b>Install Conda</b></summary>
 
