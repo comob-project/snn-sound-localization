@@ -12,7 +12,7 @@ execute:
 only_build_toc_files: false
   # We want to build the code of conduct (have it be linkable to on website), but not have it in TOC.
 
-exclude_patterns: [.github/*, ReadMe.md, web/*]  # .. but do not build the files here
+exclude_patterns: [.github/*, ReadMe.md, web/ReadMe.md]  # .. but do not build the files here
 
 # bibtex_bibfiles:
   # - references.bib
