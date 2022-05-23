@@ -65,7 +65,7 @@ It is hard to say beforehand where research will lead you, so you can of course 
 
 Edit that page and **add your name to an item**, or add a new item:
 
-```{admonition} How to edit the Questions page
+```{admonition} How to edit the Questions page ✏
 :class: dropdown
 
 On the [](research/Questions.md) page, **via the GitHub logo at the top, click "suggest edit"** (or go there directly using [this link][edit-questions]).
@@ -73,7 +73,7 @@ Sign up / log in to GitHub if needed, and edit the markdown text there to add yo
 
 If you are not already a member of our GitHub organization, GitHub will warn you that "You’re making changes in a project you don’t have write access to."
 Make your edit anyway and click the green "Propose changes" button.
-This will make a Pull Request to our project. We will merge it, and add you to our GitHub organization.
+This will make a Pull Request to our project. We will merge it, and **add you as a member to our GitHub organization**.
 
 If you are already a member, you can simply choose "Commit directly to the `main` branch".
 ```
@@ -86,13 +86,13 @@ If you are already a member, you can simply choose "Commit directly to the `main
 
 The [](research/Starting-Notebook) contains a basic analysis pipeline.
 
-```{dropdown} Overview of the Starting notebook
+- ```{dropdown} Overview of the Starting notebook
 
-- A simple sound localization task is defined, and input/output data for it are generated.
-    - The task: given a pure tone that arrives with a delay in one ear, calculate the interaural phase difference (IPD).
-- An SNN model is defined, and trained on this data, using surrogate gradient descent.
-- The model's performance is analyzed, and its learned weights are visualized.
-```
+  - A simple sound localization task is defined, and input/output data for it are generated.
+      - The task: given a pure tone that arrives with a delay in one ear, calculate the interaural phase difference (IPD).
+  - An SNN model is defined, and trained on this data, using surrogate gradient descent.
+  - The model's performance is analyzed, and its learned weights are visualized.
+  ```
 
 This notebook is a good starting point for your own experiments.
 **Duplicate the Starting notebook** and work on your experiment in this copy. You can do this using either Google Colab or a local setup:
@@ -141,13 +141,13 @@ Detailed steps (click to expand):
 
 Duplicating the starting notebook is a suggestion. You could also do one of the following:
 
-```{dropdown} Other ways to work
-
-- Duplicate another notebook than the 'Starting' one, if you want to build on someone else's work.
-- Start from scratch in a new notebook.
-- If no code is needed, write a simple markdown file. ('[](research/Background.md)' is an example of this).
-- If you prefer scripts to Jupyter Notebooks, upload 1) the script (`.py` file), 2) the generated plots (image files), and 3) a `.md` file that describes the analysis and includes the plots (preferably placed in a subdirectory).
-```
+- ```{dropdown} Other ways to work
+  
+  - Duplicate another notebook than the 'Starting' one, if you want to build on someone else's work.
+  - Start from scratch in a new notebook.
+  - If no code is needed, write a simple markdown file. ('[](research/Background.md)' is an example of this).
+  - If you prefer scripts to Jupyter Notebooks, upload 1) the script (`.py` file), 2) the generated plots (image files), and 3) a `.md` file that describes the analysis and includes the plots (preferably placed in a subdirectory).
+  ```
 
 
 
@@ -155,23 +155,23 @@ Duplicating the starting notebook is a suggestion. You could also do one of the 
 
 When you have some finished work to share: 
 
-1. Rename your notebook file to something reflective of its contents.
+- Step 1: **Rename your notebook** file to something reflective of its contents.
 
-```{dropdown} How the filename and title are used on the website
+    - ```{dropdown} How the filename and title are used on the website
 
-- The notebook's filename (e.g. `Learning-delays.ipynb`) is used to create the URL for your notebook on this website.
-    - Use dashes and underscores rather than spaces: spaces get converted to noisy `%20`s in URLs.
-    - Avoid changing the filename after the notebook has been integrated in the website: that would break existing links to it.
-    - Filename are also used to cross-reference pages within this website: for example, the markdown `[](research/Starting-Notebook)` gets rendered as [](research/Starting-Notebook).
-- The notebook's title (the markdown header in the first cell, e.g. `# Learning delays`) is used in the table of contents of the website (the menu on the left here).
-```
+      - The notebook's filename (e.g. `Learning-delays.ipynb`) is used to create the URL for your notebook (e.g: `https://comob-project.github.io/snn-sound-localization/research/Learning-delays.html`).
+          - Use dashes and underscores rather than spaces: spaces get converted to noisy `%20`s in URLs.
+          - Avoid changing the filename after the notebook has been integrated in the website: that would break existing links to it.
+          - Filenames are also used to cross-reference pages within this website: for example, the markdown `[](research/Starting-Notebook)` gets rendered as [](research/Starting-Notebook).
+      - The notebook's title (the markdown header in the first cell, e.g. `# Learning delays`) is used in the table of contents (the menu on the left here on the website).
+      ```
 
-2. Upload the notebook file to our GitHub repository
-    - You should already be a member of our GitHub organization from editing the [](research/Questions.md) page in [](step-3-pick-a-research-question).
+- Step 2: **Upload the notebook** file to our GitHub repository
+    - You should already be a member of our GitHub organization from editing the 'Questions' page in [](step-3-pick-a-research-question).
     - Go to the [`research/` directory on GitHub][dir], and drag and drop your notebook onto the page (or use the "Add file" button).
     Choose "Commit directly to the `main` branch" and click "Commit changes".
         - This same procedure can also be used to update a file that is already on the website: simply upload a file with the same name as the existing one.
-    - (If you `git clone`d the repository earlier, you can also just push your notebook to main).
+        - (If you `git clone`d the repository earlier, you can also just push your notebook to `main`).
 
 After your commit, the website will be automatically rebuilt. Your notebook should appear on the website in a short while.
 
