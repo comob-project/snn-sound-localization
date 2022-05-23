@@ -6,19 +6,26 @@ Follow these steps to get started.
 
 ## 1. Join the community
 
-[Join the Discord](https://discord.gg/GtdS9tQyU7), to chat about the project and follow announcements. <!-- (This is a never-expiring discord invite link) -->
-If you have any questions, ask them on [our GitHub Discussions page](https://github.com/comob-project/snn-sound-localization/discussions).
-Participation in the community is subject to our [Code of Conduct](Code-of-Conduct.md).
+[**Join the Discord**][1], to chat about the project and follow announcements. 
+If you have any questions, ask them on [our GitHub Discussions page][2].
+Participation in the community is subject to our [](Code-of-Conduct.md).
 
-You can check out where others are located in the world and add yourself on [this map 🗺](https://getethermap.org/m/comob).
+You can check out where others are located in the world, and add yourself, on [this map 🗺][3].
+
+
+[1]: https://discord.gg/GtdS9tQyU7
+<!-- (This discord invite link is never-expiring) -->
+[2]: https://github.com/comob-project/snn-sound-localization/discussions
+[3]: https://getethermap.org/m/comob
+
 
 
 ## 2. Get acquainted with the subject
 
-[Watch][vids-pl] the two videos of Dan Goodman's tutorial on spiking neural network (SNN) models.
+[**Watch the two videos**][vids] of Dan Goodman's tutorial on spiking neural network (SNN) models.
 
-<!-- The following is MyST syntax to create a collapsible container.
-     See: https://jupyterbook.org/en/stable/interactive/hiding.html
+<!-- The following is MyST syntax to create a collapsible container
+    ("Click to show more"). → https://jupyterbook.org/en/stable/interactive/hiding.html
 -->
 ```{admonition} Topics covered in the videos
 :class: dropdown
@@ -37,24 +44,37 @@ You can check out where others are located in the world and add yourself on [thi
 ```
 The slides, and links for learning more, are available at the [tutorial website](https://neural-reckoning.github.io/cosyne-tutorial-2022/).
 
-[vids-pl]: https://www.youtube.com/playlist?list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4
+Then, read [](research/Background.md) for a brief introduction to the auditory system and sound localization, and for links to previous modelling work on sound localization.
+
+
+[vids]: https://www.youtube.com/playlist?list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4
 [vid1]: https://www.youtube.com/watch?v=GTXTQ_sOxak&list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4&index=1
 [vid2]: https://www.youtube.com/watch?v=rfck_p0JrIc&list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4&index=2
 [vid2-nb]: https://youtu.be/rfck_p0JrIc?list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4&t=1116
 
 
-Then, read [](research/Background.md) for a brief intro to the auditory system and sound localization, and for links to previous modelling work on sound localization.
 
-
-## 3. Pick a problem
+## 3. Pick a research question
 
 Visit [](research/Questions.md) to find inspiration for something you'd like to try out or investigate.
 
-<!-- fork -->
+Edit that page and **add your name to an item**, or add a new item.
 
-[Edit that page](https://github.com/comob-project/snn-sound-localization/edit/main/research/Questions.md) and add your name to an existing item in the lists, or add a new item.
+```{admonition} How to edit the Questions page
+:class: dropdown
 
-<!-- todo: how to collaps box. mayb text on page ipso (not so important) -->
+On the [](research/Questions.md) page, **via the GitHub logo at the top, click "suggest edit"** (or go there directly using [this link][edit-questions]).
+Sign up / log in to GitHub if needed, and edit the markdown text there to add your name / research question.
+
+If you are not already a member of our GitHub organization, GitHub will warn you that "You’re making changes in a project you don’t have write access to."
+Make your edit anyway and click the green "Propose changes" button.
+This will make a Pull Request to our project. We will merge it, and add you to our GitHub organization.
+
+If you are already a member, you can simply choose "Commit directly to the `main` branch".
+```
+
+[edit-questions]: https://github.com/comob-project/snn-sound-localization/edit/main/research/Questions.md
+
 
 
 ## 4. Work in a notebook
