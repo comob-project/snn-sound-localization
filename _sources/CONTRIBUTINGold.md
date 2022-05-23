@@ -1,12 +1,9 @@
 # Contributing guide
 
-The project for collaborative modelling of the brain grew out of the 2022 Cosyne tutorial. The aim is to work together, openly on a large scale computational brain modelling project. Visit the official website [here](https://comob-project.github.io/). Our first project is a spiking neural network model of sound localization trained using surrogate gradient descent that came out of the [Cosyne 2022 tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) (freely available). Ultimately, the aim is to write a massive joint paper and everyone who contributes will get to be an author of that paper, regardless of whether or not their work is included in the final draft.
-
 Here's how we're currently organizing contributions, although note that this is the first project in the community, so the exact workflow for collaboration is still a work in progress and may change over time.
 
 ## Step 1: Get familiar with the project
 
-For background to this project, [check out the freely available Cosyne 2022 tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) and the [introductory notebook](https://comob-project.github.io/snn-sound-localization/main/notebooks/introduction.html) in this project.
 
 You can get a quick feel for the current activity by [starting here](https://comob-project.github.io/snn-sound-localization/main/web/home-page.html). This automatically generated website collates all the parallel subprojects currently underway, listing them in order of how finished they are and how recently they've been modified, so that the most relevant stuff will be at the top.
 
