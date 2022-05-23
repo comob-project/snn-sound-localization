@@ -53,6 +53,7 @@ Then, read [](research/Background.md) for a brief introduction to the auditory s
 
 
 
+(step-3-pick-a-research-question)=
 ## 3. Pick a research question
 
 Visit [](research/Questions.md) to find inspiration for something you'd like to try out or investigate.
@@ -60,6 +61,7 @@ Visit [](research/Questions.md) to find inspiration for something you'd like to 
 ```{margin}
 It is hard to say beforehand where research will lead you, so you can of course change this at any time.
 ```
+<!-- This is a note on the following paragraph; but annoying must come before it here in the source. -->
 
 Edit that page and **add your name to an item**, or add a new item:
 
@@ -154,11 +156,26 @@ Duplicating the starting notebook is a suggestion. You could also do one of the 
 When you have some finished work to share: 
 
 1. Rename your notebook file to something reflective of its contents.
-    - The notebook's filename (e.g. `Learning-delays.ipynb`) is used to create the URL for your notebook on this website
-    - The notebook's title (the markdown in the first cell, e.g. `# Learning delays`)
+
+```{dropdown} How the filename and title are used on the website
+
+- The notebook's filename (e.g. `Learning-delays.ipynb`) is used to create the URL for your notebook on this website.
+    - Use dashes and underscores rather than spaces: spaces get converted to noisy `%20`s in URLs.
+    - Avoid changing the filename after the notebook has been integrated in the website: that would break existing links to it.
+    - Filename are also used to cross-reference pages within this website: for example, the markdown `[](research/Starting-Notebook)` gets rendered as [](research/Starting-Notebook).
+- The notebook's title (the markdown header in the first cell, e.g. `# Learning delays`) is used in the table of contents of the website (the menu on the left here).
+```
+
 2. Upload the notebook file to our GitHub repository
+    - You should already be a member of our GitHub organization from editing the [](research/Questions.md) page in [](step-3-pick-a-research-question).
+    - Go to the [`research/` directory on GitHub][dir], and drag and drop your notebook onto the page (or use the "Add file" button).
+    Choose "Commit directly to the `main` branch" and click "Commit changes".
+        - This same procedure can also be used to update a file that is already on the website: simply upload a file with the same name as the existing one.
+    - (If you `git clone`d the repository earlier, you can also just push your notebook to main).
 
+After your commit, the website will be automatically rebuilt. Your notebook should appear on the website in a short while.
 
+[dir]: https://github.com/comob-project/snn-sound-localization/tree/main/research
 
 
 
@@ -166,32 +183,12 @@ When you have some finished work to share:
 
 All our notebooks and research notes appear under the 'Research' rubric to the left.
 
-You can **comment** on notebooks and other pages of this website (even this one, try it out!). Select some text and click 'Annotate'. You'll be prompted to login or sign up for a _Hypothesis_ account, after which you can comment and reply.
+You can **comment** on notebooks and other pages of this website (even this one, try it out!): select some text and click 'Annotate'. You'll be prompted to login or sign up for a _Hypothesis_ account, after which you can comment and reply.
 
 Instead of commenting on some specific part ("Annotations"), you can also comment on the entire page ("Page notes"). To do so, click the little sticky note icon in the gray sidebar on the far right of the page. In this sidebar you can also see others' comments.
 
 
+
 ## 7. Help write the paper
 
-Once the story is clearer, we'll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph for your subproject. Comment on the overall flow of the text and improve it, etc.
-
-
-## ...
-
-
-<!-- If you are already a member of the [COMOB github organization][1]: simply drag and drop your notebook file into the [`notebooks` directory on github][2].
-Choose 'commit directly to the `main` branch' and press the 'Commit changes' button.
-The website will be rebuilt automatically, and your notebook should appear on the website when this is done (the website build status can be checked [here][3])
-
-If not, [fork the project, make PR], we'll merge and add you as org member so you can do as above.
-
-
-pieter test → fork, then upload in your repo (it'll prompt to PR)
-
-what about changes. drag and drop overwrite? yes :)
-
-can colab edit? no. so: File > Download .ipynb > [upload as before]
-
-[1]: https://github.com/comob-project
-[2]: https://github.com/comob-project/snn-sound-localization/tree/main/notebooks
-[3]: https://github.com/comob-project/snn-sound-localization/actions/workflows/deploy-web.yml -->
+Once the story is clearer, we'll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph(s) for your work, comment on the overall flow of the text and improve it, etc.
