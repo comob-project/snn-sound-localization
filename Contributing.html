@@ -232,8 +232,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#share-your-notebook">
-     5. Share your notebook
+    <a class="reference internal nav-link" href="#share-your-work">
+     5. Share your work
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -299,8 +299,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#share-your-notebook">
-     5. Share your notebook
+    <a class="reference internal nav-link" href="#share-your-work">
+     5. Share your work
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -370,11 +370,15 @@ This part is still relevant insofar that the introduced concepts are used in the
 </ul>
 </div>
 <p>The slides, and links for learning more, are available at the <a class="reference external" href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">tutorial website</a>.</p>
-<p>Then, read <a class="reference internal" href="research/Background.html"><span class="doc std std-doc">Background</span></a> for a brief introduction to the auditory system and sound localization, and for links to previous modelling work on sound localization.</p>
+<p>Then, read <a class="reference internal" href="research/Background.html"><span class="doc std std-doc">Background</span></a> for a brief introduction to the auditory system and sound localization, and for links to previous modelling work in sound localization.</p>
 </div>
 <div class="section" id="pick-a-research-question">
 <h2>3. Pick a research question<a class="headerlink" href="#pick-a-research-question" title="Permalink to this headline">¶</a></h2>
 <p>Visit <a class="reference internal" href="research/Questions.html"><span class="doc std std-doc">Questions &amp; challenges</span></a> to find inspiration for something you’d like to try out or investigate.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>It is hard to say beforehand where research will lead you, so you can of course change this at any time.</p>
+</div>
 <p>Edit that page and <strong>add your name to an item</strong>, or add a new item.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">How to edit the Questions page</p>
@@ -388,10 +392,47 @@ This will make a Pull Request to our project. We will merge it, and add you to o
 </div>
 <div class="section" id="work-in-a-notebook">
 <h2>4. Work in a notebook<a class="headerlink" href="#work-in-a-notebook" title="Permalink to this headline">¶</a></h2>
-<p>[colab or local]</p>
+<p>The <a class="reference internal" href="research/Starting-Notebook.html"><span class="doc std std-doc">Starting Notebook</span></a> contains a basic analysis pipeline.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Overview of the Starting Notebook</p>
+<ul class="simple">
+<li><p>A simple sound localization task is defined, and input/output data for it are generated.</p>
+<ul>
+<li><p>The task: given a pure tone that arrives with a delay in one ear, calculate the interaural phase difference (IPD).</p></li>
+</ul>
+</li>
+<li><p>An SNN model is defined, and trained on this data, using surrogate gradient descent.</p></li>
+<li><p>The model’s performance is analyzed, and its learned weights are visualized.</p></li>
+</ul>
 </div>
-<div class="section" id="share-your-notebook">
-<h2>5. Share your notebook<a class="headerlink" href="#share-your-notebook" title="Permalink to this headline">¶</a></h2>
+<p>This notebook is a good starting point for you own experiments.<br />
+<strong>Duplicate the <a class="reference internal" href="research/Starting-Notebook.html"><span class="doc std std-doc">Starting Notebook</span></a></strong> and work on your experiment in this copy:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">How to work with Google Colab ☁</p>
+<p>On the <a class="reference internal" href="research/Starting-Notebook.html"><span class="doc std std-doc">Starting Notebook</span></a> page, <strong>via the rocket icon at the top, click “Colab”</strong> (or go there directly via <a class="reference external" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb">this link</a>).</p>
+<p>For an intro to the Colab interface and keyboard shortcuts, see <a class="reference external" href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb">here</a>.</p>
+<p>To save your changes, use one of the “Save a copy …” options in the File menu.
+(You can choose either your personal GitHub / GitHub Gists, or your Google Drive).</p>
+<p>When you have something ready to share, Download the .ipynb file via the File menu.
+Upload this file to our website here (see below).</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">How to work locally 💻</p>
+<p>f</p>
+</div>
+<p>The above is a suggestion. You could also do one of the following.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Other ways to work</p>
+<ul class="simple">
+<li><p>Duplicate another notebook than the ‘Starting’ one, if you want to build on someone else’s work</p></li>
+<li><p>Start from scratch in a new notebook</p></li>
+<li><p>If no code is needed, write a simple markdown file (‘<a class="reference internal" href="research/Background.html"><span class="doc std std-doc">Background</span></a>’ is an example of this).</p></li>
+<li><p>If you prefer scripts to Jupyter Notebooks, upload 1) the script (<code class="docutils literal notranslate"><span class="pre">.py</span></code> file), 2) the generated plots (image files), and 3) a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file describing the analysis, and including the plots.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="share-your-work">
+<h2>5. Share your work<a class="headerlink" href="#share-your-work" title="Permalink to this headline">¶</a></h2>
 <p>[drag and drop]</p>
 </div>
 <div class="section" id="check-out-others-work">

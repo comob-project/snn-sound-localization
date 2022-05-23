@@ -4,6 +4,7 @@
 Follow these steps to get started.
 
 
+
 ## 1. Join the community
 
 [**Join the Discord**][1], to chat about the project and follow announcements. 
@@ -11,7 +12,6 @@ If you have any questions, ask them on [our GitHub Discussions page][2].
 Participation in the community is subject to our [](Code-of-Conduct.md).
 
 You can check out where others are located in the world, and add yourself, on [this map 🗺][3].
-
 
 [1]: https://discord.gg/GtdS9tQyU7
 <!-- (This discord invite link is never-expiring) -->
@@ -44,8 +44,7 @@ You can check out where others are located in the world, and add yourself, on [t
 ```
 The slides, and links for learning more, are available at the [tutorial website](https://neural-reckoning.github.io/cosyne-tutorial-2022/).
 
-Then, read [](research/Background.md) for a brief introduction to the auditory system and sound localization, and for links to previous modelling work on sound localization.
-
+Then, read [](research/Background.md) for a brief introduction to the auditory system and sound localization, and for links to previous modelling work in sound localization.
 
 [vids]: https://www.youtube.com/playlist?list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4
 [vid1]: https://www.youtube.com/watch?v=GTXTQ_sOxak&list=PL09WqqDbQWHGJd7Il3yVxiBts5nRSxvJ4&index=1
@@ -57,6 +56,10 @@ Then, read [](research/Background.md) for a brief introduction to the auditory s
 ## 3. Pick a research question
 
 Visit [](research/Questions.md) to find inspiration for something you'd like to try out or investigate.
+
+```{margin}
+It is hard to say beforehand where research will lead you, so you can of course change this at any time.
+```
 
 Edit that page and **add your name to an item**, or add a new item.
 
@@ -79,12 +82,56 @@ If you are already a member, you can simply choose "Commit directly to the `main
 
 ## 4. Work in a notebook
 
-[colab or local]
+The [](research/Starting-Notebook) contains a basic analysis pipeline.
+
+```{admonition} Overview of the Starting Notebook
+:class: dropdown
+- A simple sound localization task is defined, and input/output data for it are generated.
+    - The task: given a pure tone that arrives with a delay in one ear, calculate the interaural phase difference (IPD).
+- An SNN model is defined, and trained on this data, using surrogate gradient descent.
+- The model's performance is analyzed, and its learned weights are visualized.
+```
+
+This notebook is a good starting point for you own experiments.\
+**Duplicate the [](research/Starting-Notebook)** and work on your experiment in this copy:
+
+```{admonition} How to work with Google Colab ☁
+:class: dropdown
+On the [](research/Starting-Notebook) page, **via the rocket icon at the top, click "Colab"** (or go there directly via [this link][colab-start-nb]).
+
+For an intro to the Colab interface and keyboard shortcuts, see [here][colab-help].
+
+To save your changes, use one of the "Save a copy …" options in the File menu.
+(You can choose either your personal GitHub / GitHub Gists, or your Google Drive).
+
+When you have something ready to share, Download the .ipynb file via the File menu.
+Upload this file to our website here (see below).
+```
+
+[colab-start-nb]: https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb
+[colab-help]: https://colab.research.google.com/notebooks/basic_features_overview.ipynb
+
+```{admonition} How to work locally 💻
+:class: dropdown
+f
+```
+
+The above is a suggestion. You could also do one of the following.
+
+```{admonition} Other ways to work
+:class: dropdown
+
+- Duplicate another notebook than the 'Starting' one, if you want to build on someone else's work
+- Start from scratch in a new notebook
+- If no code is needed, write a simple markdown file ('[](research/Background.md)' is an example of this).
+- If you prefer scripts to Jupyter Notebooks, upload 1) the script (`.py` file), 2) the generated plots (image files), and 3) a `.md` file describing the analysis, and including the plots.
+```
 
 
-## 5. Share your notebook
+## 5. Share your work
 
 [drag and drop]
+
 
 
 ## 6. Check out others' work
