@@ -30,6 +30,8 @@ You can compute **tuning curves** for binaural cells, e.g. ITD tuning curves. Yo
 What are the key mechanisms underlying all of this? How do they depend on the acoustic environment? Etc. Many questions without fully satisfying answers.
 
 
+<br>
+
 # Literature
 
 This is a very limited sample, not a comprehensive review. I’d read these papers and follow some of their references as a starting point to get us all on the same page.
