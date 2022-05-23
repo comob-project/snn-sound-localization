@@ -48,3 +48,4 @@ launch_buttons:
 sphinx:
   config:
     html_show_copyright: false   # Remove "© Copyright 2022." in footer
+    html_static_path: ["web/_static"]  # default is `_static`, but cleaner to hide in `web/`.
