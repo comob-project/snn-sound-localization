@@ -8,14 +8,14 @@ Follow these steps to get started.
 ## 1. Join the community
 
 [**Join the Discord**][1], to chat about the project and follow announcements. 
-If you have any questions, ask them on [our GitHub Discussions page][2].
+If you have a question, use [our Q&A forum on GitHub][2].
 Participation in the community is subject to our [](Code-of-Conduct.md).
 
 You can check out where others are located in the world, and add yourself, on [this map 🗺][3].
 
 [1]: https://discord.gg/GtdS9tQyU7
 <!-- (This discord invite link is never-expiring) -->
-[2]: https://github.com/comob-project/snn-sound-localization/discussions
+[2]: https://github.com/comob-project/snn-sound-localization/discussions/categories/q-a
 [3]: https://getethermap.org/m/comob
 
 
@@ -147,9 +147,18 @@ Duplicating the starting notebook is a suggestion. You could also do one of the 
 - If you prefer scripts to Jupyter Notebooks, upload 1) the script (`.py` file), 2) the generated plots (image files), and 3) a `.md` file that describes the analysis and includes the plots (preferably placed in a subdirectory).
 ```
 
+
+
 ## 5. Share your work
 
-[drag and drop]
+When you have some finished work to share: 
+
+1. Rename your notebook file to something reflective of its contents.
+    - The notebook's filename (e.g. `Learning-delays.ipynb`) is used to create the URL for your notebook on this website
+    - The notebook's title (the markdown in the first cell, e.g. `# Learning delays`)
+2. Upload the notebook file to our GitHub repository
+
+
 
 
 
@@ -157,12 +166,14 @@ Duplicating the starting notebook is a suggestion. You could also do one of the 
 
 All our notebooks and research notes appear under the 'Research' rubric to the left.
 
-You can **comment** in-situ on notebooks and other pages of this website (even this one, try it out!). Select some text and click 'Annotate'. You'll be prompted to login or sign up for a _Hypothesis_ account, after which you can comment and reply.
+You can **comment** on notebooks and other pages of this website (even this one, try it out!). Select some text and click 'Annotate'. You'll be prompted to login or sign up for a _Hypothesis_ account, after which you can comment and reply.
 
-You can see others' comments using the far right sidebar.
+Instead of commenting on some specific part ("Annotations"), you can also comment on the entire page ("Page notes"). To do so, click the little sticky note icon in the gray sidebar on the far right of the page. In this sidebar you can also see others' comments.
 
 
 ## 7. Help write the paper
+
+Once the story is clearer, we'll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph for your subproject. Comment on the overall flow of the text and improve it, etc.
 
 
 ## ...
