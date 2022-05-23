@@ -10,9 +10,9 @@ execute:
     # other outputs already embedded in the notebook.
 
 only_build_toc_files: false
-  # We want to build CoC (have it be linkable to on website), but not be in TOC.
+  # We want to build the code of conduct (have it be linkable to on website), but not have it in TOC.
 
-exclude_patterns: [.github/*]  # .. but do not build the files here
+exclude_patterns: [.github/*, ReadMe.md, web/*]  # .. but do not build the files here
 
 # bibtex_bibfiles:
   # - references.bib
