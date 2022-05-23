@@ -9,22 +9,7 @@ You can get a quick feel for the current activity by [starting here](https://com
 
 We will be organizing regular meetings to talk about progress, you might want to come along to these. We'll add a link to those here when we have a regular venue, but for the moment sign up to our [Github Discussions](https://github.com/comob-project/snn-sound-localization/discussions) page and [discord](https://discord.gg/Zpd6RYYyuf) where we'll announce everything.
 
-## Step 2: Pick a problem
 
-We'll try to leave plenty of open questions clearly marked in our notebooks. Does one of them tickle your fancy? If so, check if anyone else is working on it, and if not, dive in!
-
-Make a fork of the repository and start editing your own Jupyter Notebooks in the `notebooks/` folder. You might name the notebook `notebooks/your_name.ipynb`, for example. You
-can essentially do whatever you want in your notebook!
-
-## Step 3: Join the community
-
-Once you have something you'd like to show to others and discuss, open a pull request. We'll review your contribution (just to make sure it's not spam, nothing scary), and add you to the Github repository. We'll include your fork as a branch in the repository that you can continue to work on. Your contribution doesn't have to be finished at this point, just enough to want to start showing it and discussing with others. Once it's included in the repository, the current state will start automatically showing up in the automatically generated [JupyterBook](https://comob-project.github.io/snn-sound-localization/main/web/home-page.html).
-
-## Step 4: Interact with the community
-
-Now that your work is visible in the [JupyterBook](https://comob-project.github.io/snn-sound-localization/main/web/home-page.html), others will comment on your work. You can also comment on their work. Join our meetings and discuss the overall direction of the project. [Be nice!](CODE_OF_CONDUCT.md)
-
-As part of this, you might want to join the team that works on refactoring code that is used in several subprojects and generating a reusable Python package. If you're a strong Python user, this might be something you'd enjoy, but it's entirely optional!
 
 ## Step 5: Finalise your subproject
 
