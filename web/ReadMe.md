@@ -1,9 +1,9 @@
 
 ## What is this?
 
-This directory contains configuration and code to generate web pages
-(hosted [here](https://comob-project.github.io/snn-sound-localization/))
-based on content in this repository (most notably the Jupyter Notebooks in `../notebooks/`).
+This directory contains configuration and code to generate
+[this repository's website](https://comob-project.github.io/snn-sound-localization/),
+based on content in this repository (most notably the files in `../research/`).
 
 This conversion into HTML is done using [JupyterBook](https://jupyterbook.org/)
 (which is [based on](https://jupyterbook.org/explain/sphinx.html)
@@ -14,9 +14,8 @@ the [Sphinx](https://www.sphinx-doc.org) HTML generator).
 
 ## Automatic build with GitHub Actions
 
-A GitHub computer automatically builds a JupyterBook website
-(by running [`build.py`](build.py)) for every branch,
-on every push to that branch on GitHub.
+A GitHub computer automatically builds the JupyterBook website (by running [`build.py`](build.py)) 
+on every push to the `main` branch on GitHub.
 
 This process is defined in 
 [`../.github/workflows/deploy-web.yml`](../.github/workflows/deploy-web.yml)
