@@ -1,3 +1,7 @@
+These are remnants of the previous Contributing.md file.
+It is kept around for now, for reference, because the content below is not all integrated in the current website.
+
+
 # Contributing guide
 
 Here's how we're currently organizing contributions, although note that this is the first project in the community, so the exact workflow for collaboration is still a work in progress and may change over time.
