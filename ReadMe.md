@@ -1,6 +1,6 @@
 # COMOB · SNN Sound Localization project 🎧
 
-This is the repository behind the _SNN Sound Localization_ project. Check out [the website](https://comob-project.github.io/snn-sound-localization/) for more information about the project.
+This is the repository behind the _SNN Sound Localization_ project. Check out [the website](https://comob-project.github.io/snn-sound-localization/) for more information about the project and how to join and contribute.
 
 
 ## Contents
