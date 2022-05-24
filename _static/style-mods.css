@@ -10,7 +10,7 @@ code {
 
 
 /* Add some more space between page sections. */
-h2, h3, h4 {
+h2 {
     margin-top: 3.75rem;  /* default: 2.75rem */
 }
 
@@ -28,3 +28,7 @@ h2, h3, h4 {
 /* Reposition the expand/collapse arrows after the above fix: */
 .dropdown > .summary-title > .summary-down { top: 0.3em }
 .dropdown > .summary-title > .summary-up   { top: 0.3em }
+
+
+/* Default 'admonition' dropdown titles are too heavy wrt the rest of the content */
+.admonition-title { font-weight: 500 !important }  /* 500 is medium, between the default 700 (bold) and normal.*/
