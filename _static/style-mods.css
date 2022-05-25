@@ -32,3 +32,6 @@ h2 {
 
 /* Default 'admonition' dropdown titles are too heavy wrt the rest of the content */
 .admonition-title { font-weight: 500 !important }  /* 500 is medium, between the default 700 (bold) and normal.*/
+
+/* Indent collapsible boxes a bit: they are not part of the main flow, but rather give more info on the preceding paragraph */
+.dropdown, div.admonition { margin-left: 1.2em }
