@@ -21,6 +21,7 @@ Starting point:
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
 * Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration>=100ms so more than 1000 time steps.
 * Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).
+  - _Tomas_: experiment with this, starting with multi-frequency noise
 * Consider multiple architectures, potentially matching the auditory system.
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
 * How to understand what the learned network does?
