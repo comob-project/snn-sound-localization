@@ -26,3 +26,4 @@ Starting point:
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
 * How to understand what the learned network does?
 * Use regression instead of classification
+* Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
