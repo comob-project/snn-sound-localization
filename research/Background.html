@@ -216,6 +216,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#literature">
    Literature
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelling">
+     Modelling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neuromorphic-hardware-implementations">
+     Neuromorphic/Hardware Implementations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -246,6 +258,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#literature">
    Literature
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelling">
+     Modelling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neuromorphic-hardware-implementations">
+     Neuromorphic/Hardware Implementations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -277,11 +301,20 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="tex2jax_ignore mathjax_ignore section" id="literature">
 <h1>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h1>
 <p>This is a very limited sample, not a comprehensive review. I’d read these papers and follow some of their references as a starting point to get us all on the same page.</p>
+<div class="section" id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://neural-reckoning.org/pub_decoding_soundloc.html">Decoding neural responses to temporal cues for sound localisation (2013)</a>. My paper comparing the Jeffress labelled line decoder, David McAlpine’s hemispheric decoder, and our proposed pattern match / perceptron decoder. Non-spiking. This paper is a good starting point because it points to a lot of the relevant literature.</p></li>
 <li><p><a class="reference external" href="http://neural-reckoning.org/pub_spike_timing_sound_loc.html">Spike-timing-based computation in sound localisation (2010)</a> and <a class="reference external" href="http://neural-reckoning.org/pub_learning_localisation.html">Learning to localise sounds with spiking neural networks (2010)</a>. Two of my early papers using SNNs to model sound localisation based on coincidence detection. The first one is a hand-crafted network and the second one is a very simple-minded extension to show that this could be learned.</p></li>
 <li><p><a class="reference external" href="https://www.nature.com/articles/s41562-021-01244-z">Deep neural network models of sound localization reveal how perception is adapted to real-world environments (2022)</a> (and <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.07.21.214486v1">biorxiv link</a>). Recent paper from Josh McDermott’s lab doing a non-spiking version of something like what I’m proposing here. The big missing thing that they don’t cover is trying to understand how the learned model works.</p></li>
 </ul>
+</div>
+<div class="section" id="neuromorphic-hardware-implementations">
+<h2>Neuromorphic/Hardware Implementations<a class="headerlink" href="#neuromorphic-hardware-implementations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.1109/IJCNN.2013.6706828">Neuromorphic learning towards nano second precision</a> Abstract: Temporal coding is one approach to representing information in spiking neural networks. An example of its application is the location of sounds by barn owls that requires especially precise temporal coding. Dependent upon the azimuthal angle, the arrival times of sound signals are shifted between both ears. In order to determine these interaural time differences, the phase difference of the signals is measured. We implemented this biologically inspired network on a neuromorphic hardware system and demonstrate spike-timing dependent plasticity on an analog, highly accelerated hardware substrate. Our neuromorphic implementation enables the resolution of time differences of less than 50 ns. On-chip Hebbian learning mechanisms select inputs from a pool of neurons which code for the same sound frequency. Hence, noise caused by different synaptic delays across these inputs is reduced. Furthermore, learning compensates for variations on neuronal and synaptic parameters caused by device mismatch intrinsic to the neuromorphic substrate.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
