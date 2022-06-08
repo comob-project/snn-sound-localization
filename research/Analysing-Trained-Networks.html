@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starting Notebook &#8212; SNN Sound Localization</title>
+    <title>Analysing trained networks &#8212; SNN Sound Localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,14 +53,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Starting-Notebook.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Analysing-Trained-Networks.html" />
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Analysing trained networks" href="Analysing-Trained-Networks.html" />
-    <link rel="prev" title="Questions &amp; challenges" href="Questions.html" />
+    <link rel="prev" title="Starting Notebook" href="Starting-Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,13 +124,13 @@ const thebe_selector_output = ".output, .cell_output"
    Questions &amp; challenges
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Starting-Notebook.html">
    Starting Notebook
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Analysing-Trained-Networks.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Analysing trained networks
   </a>
  </li>
@@ -174,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/research/Analysing-Trained-Networks.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -194,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Starting-Notebook.ipynb"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Analysing-Trained-Networks.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -214,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Analysing-Trained-Networks.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -222,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Analysing-Trained-Networks.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -242,53 +239,19 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+  <a class="reference internal nav-link" href="#explanation">
+   Explanation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
+  <a class="reference internal nav-link" href="#further-analyses">
+   Further analyses
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
+  <a class="reference internal nav-link" href="#things-to-do">
+   Things to do
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -300,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Starting Notebook</h1>
+                <h1>Analysing trained networks</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -311,53 +274,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+  <a class="reference internal nav-link" href="#explanation">
+   Explanation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
+  <a class="reference internal nav-link" href="#further-analyses">
+   Further analyses
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
+  <a class="reference internal nav-link" href="#things-to-do">
+   Things to do
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -368,14 +297,16 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="starting-notebook">
-<h1>Starting Notebook<a class="headerlink" href="#starting-notebook" title="Permalink to this headline">¶</a></h1>
-<p>Duplicate this notebook and experiment away.<br />
-See <a class="reference internal" href="../Contributing.html"><span class="doc std std-doc">How to Contribute</span></a> (steps 4 and 5) for help with this.</p>
-<p>In this notebook (which is based on the third notebook of the <a class="reference external" href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">2022 Cosyne tutorial</a>), we’re going to use surrogate gradient descent to find a solution to the sound localisation problem. The surrogate gradient descent approach and code is heavily inspired by (certainly not stolen) from <a class="reference external" href="https://github.com/fzenke/spytorch">Friedemann Zenke’s SPyTorch tutorial</a>, which I recommend for a deeper dive into the maths.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="analysing-trained-networks">
+<h1>Analysing trained networks<a class="headerlink" href="#analysing-trained-networks" title="Permalink to this headline">¶</a></h1>
+<p>Currently working on this: Dan Goodman</p>
+<div class="section" id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h2>
+<p>First of all, we reproduce the results of the starting notebook but with more training examples and iterations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tqdm
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -384,6 +315,8 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span><span class="p">,</span> <span class="n">tqdm</span>
+
 <span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
 
 <span class="c1"># Check whether a GPU is available</span>
@@ -391,18 +324,16 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>     
 <span class="k">else</span><span class="p">:</span>
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-    
-<span class="n">my_computer_is_slow</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># set this to True if using Colab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm in d:\miniconda3\envs\spikeloc\lib\site-packages (4.64.0)
+Requirement already satisfied: colorama in d:\miniconda3\envs\spikeloc\lib\site-packages (from tqdm) (0.4.4)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="sound-localization-stimuli">
-<h2>Sound localization stimuli<a class="headerlink" href="#sound-localization-stimuli" title="Permalink to this headline">¶</a></h2>
-<p>The following function creates a set of stimuli that can be used for training or testing. We have two ears (0 and 1), and ear 1 will get a version of the signal delayed by an IPD we can write as <span class="math notranslate nohighlight">\(\alpha\)</span> in equations (<code class="docutils literal notranslate"><span class="pre">ipd</span></code> in code). The basic signal is a sine wave as in the previous notebook, made positive, so <span class="math notranslate nohighlight">\((1/2)(1+\sin(\theta)\)</span>. In addition, for each ear there will be <span class="math notranslate nohighlight">\(N_a\)</span> neurons per ear (<code class="docutils literal notranslate"><span class="pre">anf_per_ear</span></code> because these are auditory nerve fibres). Each neuron generates Poisson spikes at a certain firing rate, and these Poisson spike trains are independent. In addition, since it is hard to train delays, we seed it with uniformly distributed delays from a minimum of 0 to a maximum of <span class="math notranslate nohighlight">\(\pi/2\)</span> in each ear, so that the differences between the two ears can cover the range of possible IPDs (<span class="math notranslate nohighlight">\(-\pi/2\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span>). We do this directly by adding a phase delay to each neuron. So for ear <span class="math notranslate nohighlight">\(i\in\{0,1\}\)</span> and neuron <span class="math notranslate nohighlight">\(j\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> the angle <span class="math notranslate nohighlight">\(\theta=2\pi f t+i\alpha+j\pi/2N_a\)</span>. Finally, we generate Poisson spike trains with a rate <span class="math notranslate nohighlight">\(R_\mathrm{max}((1/2)(1+\sin(\theta)))^k\)</span>. <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> (<code class="docutils literal notranslate"><span class="pre">rate_max</span></code>) is the maximum instantaneous firing rate, and <span class="math notranslate nohighlight">\(k\)</span> (<code class="docutils literal notranslate"><span class="pre">envelope_power</span></code>) is a constant that sharpens the envelope. The higher <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> the easier the problem (try it out on the cell below to see why).</p>
-<p>Here’s a picture of the architecture for the stimuli:</p>
-<p><img alt="Stimuli architecture" src="../_images/arch-stimuli.png" /></p>
-<p>The functions below return two arrays <code class="docutils literal notranslate"><span class="pre">ipd</span></code> and <code class="docutils literal notranslate"><span class="pre">spikes</span></code>. <code class="docutils literal notranslate"><span class="pre">ipd</span></code> is an array of length <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> that gives the true IPD, and <code class="docutils literal notranslate"><span class="pre">spikes</span></code> is an array of 0 (no spike) and 1 (spike) of shape <code class="docutils literal notranslate"><span class="pre">(num_samples,</span> <span class="pre">duration_steps,</span> <span class="pre">2*anf_per_ear)</span></code>, where <code class="docutils literal notranslate"><span class="pre">duration_steps</span></code> is the number of time steps there are in the stimulus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not using Brian so we just use these constants to make equations look nicer below</span>
@@ -448,32 +379,23 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
         <span class="n">spikes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ipd</span><span class="p">,</span> <span class="n">spikes</span>
 
-<span class="c1"># Plot a few just to show how it looks</span>
-<span class="n">ipd</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;True IPD = </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">ipd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="si">}</span><span class="s1"> deg&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">4</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (steps)&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">4</span>==0:
-        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Input neuron index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># # Plot a few just to show how it looks</span>
+<span class="c1"># ipd, spikes = random_ipd_input_signal(8)</span>
+<span class="c1"># spikes = spikes.cpu()</span>
+<span class="c1"># plt.figure(figsize=(10, 4), dpi=100)</span>
+<span class="c1"># for i in range(8):</span>
+<span class="c1">#     plt.subplot(2, 4, i+1)</span>
+<span class="c1">#     plt.imshow(spikes[i, :, :].T, aspect=&#39;auto&#39;, interpolation=&#39;nearest&#39;, cmap=plt.cm.gray_r)</span>
+<span class="c1">#     plt.title(f&#39;True IPD = {int(ipd[i]*180/np.pi)} deg&#39;)</span>
+<span class="c1">#     if i&gt;=4:</span>
+<span class="c1">#         plt.xlabel(&#39;Time (steps)&#39;)</span>
+<span class="c1">#     if i%4==0:</span>
+<span class="c1">#         plt.ylabel(&#39;Input neuron index&#39;)</span>
+<span class="c1"># plt.tight_layout()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_5_0.png" src="../_images/Starting-Notebook_5_0.png" />
 </div>
-</div>
-<p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
-</div>
-<div class="section" id="classification-approach">
-<h2>Classification approach<a class="headerlink" href="#classification-approach" title="Permalink to this headline">¶</a></h2>
-<p>We discretise the IPD range of <span class="math notranslate nohighlight">\([-\pi/2, \pi/2]\)</span> into <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) equal width segments. Replace angle <span class="math notranslate nohighlight">\(\phi\)</span> with the integer part (floor) of <span class="math notranslate nohighlight">\((\phi+\pi/2)N_c/\pi\)</span>. We also convert the arrays into PyTorch tensors for later use. The algorithm will now guess the index <span class="math notranslate nohighlight">\(i\)</span> of the segment, converting that to the midpoint of the segment <span class="math notranslate nohighlight">\(\phi_i=a+(i+1/2)(b-a)/N_c\)</span> when needed.</p>
-<p>The algorithm will work by outputting a length <span class="math notranslate nohighlight">\(N_c\)</span> vector <span class="math notranslate nohighlight">\(y\)</span> and the index of the maximum value of y will be the guess as to the class (1-hot encoding), i.e. <span class="math notranslate nohighlight">\(i_\mathrm{est}=\mathrm{argmax}_i y_i\)</span>. We will perform the training with a softmax and negative loss likelihood loss, which is a standard approach in machine learning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># classes at 15 degree increments</span>
@@ -494,61 +416,85 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="membrane-only-no-spiking-neurons">
-<h2>Membrane only (no spiking neurons)<a class="headerlink" href="#membrane-only-no-spiking-neurons" title="Permalink to this headline">¶</a></h2>
-<p>Before we get to spiking, we’re going to warm up with a non-spiking network that shows some of the features of the full model but without any coincidence detection, it can’t do the task. We basically create a neuron model that has everything except spiking, so the membrane potential dynamics are there and it takes spikes as input. The neuron model we’ll use is just the LIF model we’ve already seen. We’ll use a time constant <span class="math notranslate nohighlight">\(\tau\)</span> of 20 ms, and we pre-calculate a constant <span class="math notranslate nohighlight">\(\alpha=\exp(-dt/\tau)\)</span> so that updating the membrane potential <span class="math notranslate nohighlight">\(v\)</span> is just multiplying by <span class="math notranslate nohighlight">\(\alpha\)</span> (as we saw in the first notebook). We store the input spikes in a vector <span class="math notranslate nohighlight">\(s\)</span> of 0s and 1s for each time step, and multiply by the weight matrix <span class="math notranslate nohighlight">\(W\)</span> to get the input, i.e. <span class="math notranslate nohighlight">\(v\leftarrow \alpha v+Ws\)</span>.</p>
-<p>We initialise the weight matrix <span class="math notranslate nohighlight">\(W\)</span> uniformly with bounds proportionate to the inverse square root of the number of inputs (fairly standard, and works here).</p>
-<p>The output of this will be a vector of <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) membrane potential traces. We sum these traces over time and use this as the output vector (the largest one will be our prediction of the class and therefore the IPD).</p>
-<p><img alt="Membrane only architecture" src="../_images/arch-membrane.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Weights and uniform weight initialisation</span>
-<span class="k">def</span> <span class="nf">init_weight_matrix</span><span class="p">():</span>
-    <span class="c1"># Note that the requires_grad=True argument tells PyTorch that we&#39;ll be computing gradients with</span>
-    <span class="c1"># respect to the values in this tensor and thereby learning those values. If you want PyTorch to</span>
-    <span class="c1"># learn some gradients, make sure it has this on.</span>
-    <span class="n">W</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">input_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-    <span class="n">fan_in</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">_calculate_fan_in_and_fan_out</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">class</span> <span class="nc">SurrGradSpike</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">return</span> <span class="n">out</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
+        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span>
+        <span class="c1"># Original SPyTorch/SuperSpike gradient</span>
+        <span class="c1"># This seems to be a typo or error? But it works well</span>
+        <span class="c1">#grad = grad_output/(100*torch.abs(input)+1.0)**2</span>
+        <span class="c1"># Sigmoid</span>
+        <span class="n">grad</span> <span class="o">=</span> <span class="n">grad_output</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="nb">input</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="nb">input</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">grad</span>
+
+<span class="n">spike_fn</span>  <span class="o">=</span> <span class="n">SurrGradSpike</span><span class="o">.</span><span class="n">apply</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1"># Weights and uniform weight initialisation</span>
+<span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">():</span>
+    <span class="c1"># Input to hidden layer</span>
+    <span class="n">W1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">input_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">fan_in</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">_calculate_fan_in_and_fan_out</span><span class="p">(</span><span class="n">W1</span><span class="p">)</span>
     <span class="n">bound</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fan_in</span><span class="p">)</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">W</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
+    <span class="c1"># Hidden layer to output</span>
+    <span class="n">W2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">fan_in</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">_calculate_fan_in_and_fan_out</span><span class="p">(</span><span class="n">W2</span><span class="p">)</span>
+    <span class="n">bound</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fan_in</span><span class="p">)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">W2</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span>
 
 <span class="c1"># Run the simulation</span>
-<span class="k">def</span> <span class="nf">membrane_only</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">ms</span><span class="p">):</span>
-    <span class="c1"># Input has shape (batch_size, duration_steps, input_size)</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="c1"># v_rec will store the membrane in each time step</span>
-    <span class="n">v_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
-    <span class="c1"># Batch matrix multiplication all time steps</span>
-    <span class="c1"># Equivalent to matrix multiply input_spikes[b, :, :] x W for all b, but faster</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
-    <span class="c1"># precalculate multiplication factor</span>
+<span class="k">def</span> <span class="nf">snn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">ms</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">):</span>
+    <span class="c1"># First layer: input to hidden</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">s_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W1</span><span class="p">))</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dt</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
-    <span class="c1"># Update membrane and spikes one time step at a time</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">duration_steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">new_v</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="c1"># multiply by 0 after a spike</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">spike_fn</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># threshold of 1</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">new_v</span>
+        <span class="n">s_rec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">s_rec</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Second layer: hidden to output</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">v_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">W2</span><span class="p">))</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dt</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">duration_steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:]</span>
         <span class="n">v_rec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="c1"># return the recorded membrane potentials stacked into a single tensor</span>
-    <span class="n">v_rec</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">v_rec</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (batch_size, duration_steps, num_classes)</span>
+    <span class="n">v_rec</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">v_rec</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Return recorded membrane potential of output</span>
     <span class="k">return</span> <span class="n">v_rec</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="training">
-<h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
-<p>We train this by dividing the input data into batches and computing gradients across batches. In this notebook, batch and data size is small so that it can be run on a laptop in a couple of minutes, but normally you’d use larger batches and more data. Let’s start with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters for training. These aren&#39;t optimal, but instead designed</span>
-<span class="c1"># to give a reasonable result in a small amount of time for the tutorial!</span>
-<span class="k">if</span> <span class="n">my_computer_is_slow</span><span class="p">:</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
-    <span class="n">n_training_batches</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
-    <span class="n">n_training_batches</span> <span class="o">=</span> <span class="mi">128</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters for training.</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">n_training_batches</span> <span class="o">=</span> <span class="mi">64</span>
 <span class="n">n_testing_batches</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="n">batch_size</span><span class="o">*</span><span class="n">n_training_batches</span>
 
@@ -568,43 +514,44 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 </div>
-<p>Now we run the training. We generate the training data, initialise the weight matrix, set the training parameters, and run for a few epochs, printing the training loss as we go. We use the all-powerful Adam optimiser, softmax and negative log likelihood loss.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training parameters</span>
-<span class="n">nb_epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># quick, it won&#39;t have converged</span>
+<span class="n">nb_epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># 50 still not enough to converge!</span>
 <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># learning rate</span>
 
 <span class="c1"># Generate the training data</span>
 <span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
 
-<span class="c1"># Initialise a weight matrix</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">init_weight_matrix</span><span class="p">()</span>
+<span class="c1"># Initialise a weight matrices</span>
+<span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
 
 <span class="c1"># Optimiser and loss function</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
 <span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span> <span class="c1"># negative log likelihood loss</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Want loss for epoch 1 to be about </span><span class="si">{</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, multiply m by constant to get this&quot;</span><span class="p">)</span>
 
 <span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">):</span>
-    <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
-        <span class="c1"># Run network</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">membrane_only</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
-        <span class="c1"># Compute cross entropy loss</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.01</span>  <span class="c1"># Sum time dimension</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
-        <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-        <span class="c1"># Update gradients</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">trange</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;batch&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
+        <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
+            <span class="c1"># Run network</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
+            <span class="c1"># Compute cross entropy loss</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Mean across time dimension</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
+            <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="c1"># Update gradients</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
-    <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">)))</span>
+        <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
+        <span class="c1">#print(&quot;Epoch %i: loss=%.5f&quot;%(e+1, np.mean(local_loss)))</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
 
 <span class="c1"># Plot the loss function over time</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
@@ -616,25 +563,13 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=4.59507
-Epoch 2: loss=2.93829
-Epoch 3: loss=2.65264
-Epoch 4: loss=2.54299
-Epoch 5: loss=2.33253
-Epoch 6: loss=2.44905
-Epoch 7: loss=2.10417
-Epoch 8: loss=2.08372
-Epoch 9: loss=1.95506
-Epoch 10: loss=1.97803
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_14_1.png" src="../_images/Starting-Notebook_14_1.png" />
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "ba755972e5b8481da092c59f15cd5dfb", "version_major": 2, "version_minor": 0}
+</script><img alt="../_images/Analysing-Trained-Networks_7_2.png" src="../_images/Analysing-Trained-Networks_7_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="analysis-of-results">
-<h3>Analysis of results<a class="headerlink" href="#analysis-of-results" title="Permalink to this headline">¶</a></h3>
-<p>Now we compute the training and test accuracy, and plot histograms and confusion matrices to understand the errors it’s making.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
@@ -677,190 +612,7 @@ Epoch 10: loss=1.97803
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>    
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">membrane_only</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
-<span class="n">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
-<span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
-<span class="n">analyse</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
-
-Train classifier accuracy: 32.3%
-Train absolute error: 17.4 deg
-
-Test classifier accuracy: 1.9%
-Test absolute error: 95.8 deg
-</pre></div>
-</div>
-<img alt="../_images/Starting-Notebook_16_1.png" src="../_images/Starting-Notebook_16_1.png" />
-<img alt="../_images/Starting-Notebook_16_2.png" src="../_images/Starting-Notebook_16_2.png" />
-</div>
-</div>
-<p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
-</div>
-</div>
-<div class="section" id="spiking-model">
-<h2>Spiking model<a class="headerlink" href="#spiking-model" title="Permalink to this headline">¶</a></h2>
-<p>Next we’ll implement a version of the model with spikes to see how that changes performance. We’ll just add a single hidden feed-forward layer of spiking neurons between the input and the output layers. This layer will be spiking, so we need to use the surrogate gradient descent approach.</p>
-<p><img alt="Full architecture" src="../_images/arch-full.png" /></p>
-<div class="section" id="surrogate-gradient-descent">
-<h3>Surrogate gradient descent<a class="headerlink" href="#surrogate-gradient-descent" title="Permalink to this headline">¶</a></h3>
-<p>First, this is the key part of surrogate gradient descent, a function where we override the computation of the gradient to replace it with a smoothed gradient. You can see that in the forward pass (method <code class="docutils literal notranslate"><span class="pre">forward</span></code>) it returns the Heaviside function of the input (takes value 1 if the input is <code class="docutils literal notranslate"><span class="pre">&gt;0</span></code>) or value 0 otherwise. In the backwards pass, it returns the gradient of a sigmoid function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="k">class</span> <span class="nc">SurrGradSpike</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">[</span><span class="nb">input</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="k">return</span> <span class="n">out</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
-        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_tensors</span>
-        <span class="c1"># Original SPyTorch/SuperSpike gradient</span>
-        <span class="c1"># This seems to be a typo or error? But it works well</span>
-        <span class="c1">#grad = grad_output/(100*torch.abs(input)+1.0)**2</span>
-        <span class="c1"># Sigmoid</span>
-        <span class="n">grad</span> <span class="o">=</span> <span class="n">grad_output</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="nb">input</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="nb">input</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">grad</span>
-
-<span class="n">spike_fn</span>  <span class="o">=</span> <span class="n">SurrGradSpike</span><span class="o">.</span><span class="n">apply</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="updated-model">
-<h3>Updated model<a class="headerlink" href="#updated-model" title="Permalink to this headline">¶</a></h3>
-<p>The code for the updated model is very similar to the membrane only layer. First, for initialisation we now need two weight matrices, <span class="math notranslate nohighlight">\(W_1\)</span> from the input to the hidden layer, and <span class="math notranslate nohighlight">\(W_2\)</span> from the hidden layer to the output layer. Second, we run two passes of the loop that you saw above for the membrane only model.</p>
-<p>The first pass computes the output spikes of the hidden layer. The second pass computes the output layer and is exactly the same as before except using the spikes from the hidden layer instead of the input layer.</p>
-<p>For the first pass, we modify the function in two ways.</p>
-<p>Firstly, we compute the spikes with the line <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">spike_fn(v-1)</span></code>. In the forward pass this just computes the Heaviside function of <span class="math notranslate nohighlight">\(v-1\)</span>, i.e. returns 1 if <span class="math notranslate nohighlight">\(v&gt;1\)</span>, otherwise 0, which is the spike threshold function for the LIF neuron. In the backwards pass, it returns a gradient of the smoothed version of the Heaviside function.</p>
-<p>The other line we change is the membrane potential update line. Now, we multiply by <span class="math notranslate nohighlight">\(1-s\)</span> where (<span class="math notranslate nohighlight">\(s=1\)</span> if there was a spike in the previous time step, otherwise <span class="math notranslate nohighlight">\(s=0\)</span>), so that the membrane potential is reset to 0 after a spike (but in a differentiable way rather than just setting it to 0).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="c1"># Weights and uniform weight initialisation</span>
-<span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">():</span>
-    <span class="c1"># Input to hidden layer</span>
-    <span class="n">W1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">input_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-    <span class="n">fan_in</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">_calculate_fan_in_and_fan_out</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">bound</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fan_in</span><span class="p">)</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
-    <span class="c1"># Hidden layer to output</span>
-    <span class="n">W2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-    <span class="n">fan_in</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">_calculate_fan_in_and_fan_out</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-    <span class="n">bound</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fan_in</span><span class="p">)</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">W2</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span>
-
-<span class="c1"># Run the simulation</span>
-<span class="k">def</span> <span class="nf">snn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">ms</span><span class="p">):</span>
-    <span class="c1"># First layer: input to hidden</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">s_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">]</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">W1</span><span class="p">))</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dt</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">duration_steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">new_v</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="c1"># multiply by 0 after a spike</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">spike_fn</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># threshold of 1</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="n">new_v</span>
-        <span class="n">s_rec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">s_rec</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1"># Second layer: hidden to output</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="n">v_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">W2</span><span class="p">))</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dt</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">duration_steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">v_rec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="n">v_rec</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">v_rec</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1"># Return recorded membrane potential of output</span>
-    <span class="k">return</span> <span class="n">v_rec</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="training-and-analysing">
-<h3>Training and analysing<a class="headerlink" href="#training-and-analysing" title="Permalink to this headline">¶</a></h3>
-<p>We train it as before, except that we modify the functions to take the two weight matrices into account.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training parameters</span>
-<span class="n">nb_epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># quick, it won&#39;t have converged</span>
-<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># learning rate</span>
-
-<span class="c1"># Generate the training data</span>
-<span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
-
-<span class="c1"># Initialise a weight matrices</span>
-<span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
-
-<span class="c1"># Optimiser and loss function</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-<span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Want loss for epoch 1 to be about </span><span class="si">{</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, multiply m by constant to get this&quot;</span><span class="p">)</span>
-
-<span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">):</span>
-    <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
-        <span class="c1"># Run network</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
-        <span class="c1"># Compute cross entropy loss</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Mean across time dimension</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
-        <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-        <span class="c1"># Update gradients</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-
-    <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">)))</span>
-
-<span class="c1"># Plot the loss function over time</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.14284
-Epoch 2: loss=1.22394
-Epoch 3: loss=0.94674
-Epoch 4: loss=0.79248
-Epoch 5: loss=0.72592
-Epoch 6: loss=0.66021
-Epoch 7: loss=0.63419
-Epoch 8: loss=0.58170
-Epoch 9: loss=0.52558
-Epoch 10: loss=0.50736
-</pre></div>
-</div>
-<img alt="../_images/Starting-Notebook_24_1.png" src="../_images/Starting-Notebook_24_1.png" />
-</div>
-</div>
-<p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyse</span>
+<span class="c1"># Analyse</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
 <span class="n">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
@@ -872,18 +624,17 @@ Epoch 10: loss=0.50736
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 82.9%
-Train absolute error: 4.7 deg
+Train classifier accuracy: 78.8%
+Train absolute error: 5.1 deg
 
-Test classifier accuracy: 54.8%
-Test absolute error: 7.9 deg
+Test classifier accuracy: 48.7%
+Test absolute error: 11.2 deg
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_26_1.png" src="../_images/Starting-Notebook_26_1.png" />
-<img alt="../_images/Starting-Notebook_26_2.png" src="../_images/Starting-Notebook_26_2.png" />
+<img alt="../_images/Analysing-Trained-Networks_8_1.png" src="../_images/Analysing-Trained-Networks_8_1.png" />
+<img alt="../_images/Analysing-Trained-Networks_8_2.png" src="../_images/Analysing-Trained-Networks_8_2.png" />
 </div>
 </div>
-<p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -902,11 +653,9 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_28_0.png" src="../_images/Starting-Notebook_28_0.png" />
+<img alt="../_images/Analysing-Trained-Networks_9_0.png" src="../_images/Analysing-Trained-Networks_9_0.png" />
 </div>
 </div>
-<p>Hmm, hard to interpret.</p>
-<p>Here’s what I’ve got so far…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w1</span> <span class="o">=</span> <span class="n">W1</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
@@ -958,11 +707,61 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_30_0.png" src="../_images/Starting-Notebook_30_0.png" />
-<img alt="../_images/Starting-Notebook_30_1.png" src="../_images/Starting-Notebook_30_1.png" />
+<img alt="../_images/Analysing-Trained-Networks_10_0.png" src="../_images/Analysing-Trained-Networks_10_0.png" />
+<img alt="../_images/Analysing-Trained-Networks_10_1.png" src="../_images/Analysing-Trained-Networks_10_1.png" />
 </div>
 </div>
 </div>
+<div class="section" id="further-analyses">
+<h2>Further analyses<a class="headerlink" href="#further-analyses" title="Permalink to this headline">¶</a></h2>
+<p>What else can we do to try to understand what’s going on?</p>
+<p>Let’s try computing tuning curves of the output class neurons.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ipds_test shape (num_samples)</span>
+<span class="c1"># spikes_test shape (num_samples, duration_steps, 2*anf_per_ear)</span>
+<span class="n">all_m</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">all_ipd</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span> <span class="c1"># shape (batch_size, duration_steps, num_classes)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># shape (batch_size, num_classes)</span>
+<span class="c1">#     m = log_softmax_fn(m)</span>
+    <span class="n">all_m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">all_ipd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local</span><span class="p">)</span>
+<span class="n">cls_output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">all_m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1"># shape (num_samples, num_classes)</span>
+<span class="n">ipds_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">all_ipd</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_classes</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ipds_</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">cls_output</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">continuise</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">//</span><span class="mi">4</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IPD (deg)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">4</span>==0:
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Class neuron output&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">cls_output</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">cls_output</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Output of class neurons as a function of IPD&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Analysing-Trained-Networks_14_0.png" src="../_images/Analysing-Trained-Networks_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="things-to-do">
+<h2>Things to do<a class="headerlink" href="#things-to-do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Compute tuning curves of hidden layer</p></li>
+<li><p>Compute how hidden layer neurons are working (look at some examples in detail)</p></li>
+</ul>
 </div>
 </div>
 
@@ -991,19 +790,12 @@ Test absolute error: 7.9 deg
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Questions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Starting-Notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Questions &amp; challenges</p>
+            <p class="prev-next-title">Starting Notebook</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Analysing-Trained-Networks.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Analysing trained networks</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
