@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analysing trained networks &#8212; SNN Sound Localization</title>
+    <title>(WIP) Analysing trained networks &#8212; SNN Sound Localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -131,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Analysing trained networks
+   (WIP) Analysing trained networks
   </a>
  </li>
 </ul>
@@ -263,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analysing trained networks</h1>
+                <h1>(WIP) Analysing trained networks</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -297,12 +297,13 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="analysing-trained-networks">
-<h1>Analysing trained networks<a class="headerlink" href="#analysing-trained-networks" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="wip-analysing-trained-networks">
+<h1>(WIP) Analysing trained networks<a class="headerlink" href="#wip-analysing-trained-networks" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note</strong>. This is a work in progress, unfinished notebook building on the <a class="reference internal" href="Starting-Notebook.html"><span class="doc std std-doc">Starting Notebook</span></a>. The current results are at the end, so scroll down to <a class="reference external" href="#Further-analyses">Further Analyses</a> to see the new stuff.</p>
 <p>Currently working on this: Dan Goodman</p>
 <div class="section" id="explanation">
 <h2>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h2>
-<p>First of all, we reproduce the results of the starting notebook but with more training examples and iterations.</p>
+<p>First of all, we reproduce the results of the starting notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tqdm
@@ -755,12 +756,16 @@ Test absolute error: 11.2 deg
 <img alt="../_images/Analysing-Trained-Networks_14_0.png" src="../_images/Analysing-Trained-Networks_14_0.png" />
 </div>
 </div>
+<p>Each subplot is one of the output class neurons. Each blue dot is (on the y-axis) its summed membrane potential (used to make the decision) in response to a particular IPD (x-axis). The red line is the estimated IPD if that neuron has the highest value compared to the other neurons (in other words, its “best” IPD).</p>
+<p>That’s pretty cool. We can see that these tuning curves look not unlike the tuning curves of real neurons. But, this still doesn’t tell us HOW these neurons are doing what they’re doing.</p>
 </div>
 <div class="section" id="things-to-do">
 <h2>Things to do<a class="headerlink" href="#things-to-do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Compute tuning curves of hidden layer</p></li>
 <li><p>Compute how hidden layer neurons are working (look at some examples in detail)</p></li>
+<li><p>Are they using coincidence detection or using some other trick?</p></li>
+<li><p>What strategy are they using for weighting different values?</p></li>
 </ul>
 </div>
 </div>
