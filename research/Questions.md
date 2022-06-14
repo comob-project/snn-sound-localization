@@ -22,11 +22,15 @@ Starting point:
 * Delay learning: can we train delays with surrogate gradient descent?
 * Alternatives to surrogate gradient descent?
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
+  - _Danish_:  I have a simple biophysical model of filtering in the auditory periphery which I could quickly test here.
 * Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration>=100ms so more than 1000 time steps.
 * Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).
   - _Tomas_: experiment with this, starting with multi-frequency sounds
+  - _Danish_: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here. 
 * Consider multiple architectures, potentially matching the auditory system.
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
+  - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principly capture timing and ITD information.
 * How to understand what the learned network does?
 * Use regression instead of classification
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
+- _Danish_:  Very interesting question that I would like to explore.
