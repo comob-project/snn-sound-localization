@@ -13,8 +13,10 @@ Starting point:
 * Do these networks do something similar to what has been proposed in the literature (labelled line models, hemispheric models, pattern match decoders) or something completely different?
   - _Lavinia_: I'm interested into looking at this (how spiking neural networks can be used to model observed neural representations).
 * Do different optimal models emerge in different parameter regimes (head size, signal to noise ratio, multiple sound sources)?
+  - _Danish_:  I have some previous work on head size scaling which could be relevant here.
 * How do the results depend on the neuron model and available dynamics? For example, does adaptation matter and in which conditions?
   - _Alberto_: I'm interested into looking at this (neuron and synapse model, plasticity). 
+  - _Danish_: I'm also interested in looking at this from the perspective of synaptic plasticity and auditory spatial working memory models.
 
 
 ## Technical challenges
