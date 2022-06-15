@@ -284,10 +284,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>Lavinia</em>: I’m interested into looking at this (how spiking neural networks can be used to model observed neural representations).</p></li>
 </ul>
 </li>
-<li><p>Do different optimal models emerge in different parameter regimes (head size, signal to noise ratio, multiple sound sources)?</p></li>
+<li><p>Do different optimal models emerge in different parameter regimes (head size, signal to noise ratio, multiple sound sources)?</p>
+<ul>
+<li><p><em>Danish</em>:  I have some previous work on head size scaling which could be relevant here.</p></li>
+</ul>
+</li>
 <li><p>How do the results depend on the neuron model and available dynamics? For example, does adaptation matter and in which conditions?</p>
 <ul>
 <li><p><em>Alberto</em>: I’m interested into looking at this (neuron and synapse model, plasticity).</p></li>
+<li><p><em>Danish</em>: I’m also interested in looking at this from the perspective of synaptic plasticity and auditory spatial working memory models.</p></li>
 </ul>
 </li>
 </ul>
@@ -297,18 +302,36 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Delay learning: can we train delays with surrogate gradient descent?</p></li>
 <li><p>Alternatives to surrogate gradient descent?</p></li>
-<li><p>Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).</p></li>
+</ul>
+<ul class="simple">
+<li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).</p>
+<ul>
+<li><p><em>Danish</em>:  I have a simple vertebrate biophysical model of filtering in the auditory periphery which I could quickly test here.</p></li>
+</ul>
+</li>
 <li><p>Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration&gt;=100ms so more than 1000 time steps.</p></li>
 <li><p>Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).</p>
 <ul>
 <li><p><em>Tomas</em>: experiment with this, starting with multi-frequency sounds</p></li>
+<li><p><em>Danish</em>: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here.</p></li>
 </ul>
 </li>
 <li><p>Consider multiple architectures, potentially matching the auditory system.</p></li>
-<li><p>Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?</p></li>
+<li><p>Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?</p>
+<ul>
+<li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principly learn timing and ITD information.</p></li>
+</ul>
+</li>
 <li><p>How to understand what the learned network does?</p></li>
 <li><p>Use regression instead of classification</p></li>
-<li><p>Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?</p></li>
+<li><p>Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?</p>
+<ul>
+<li><p><em>Danish</em>:  Very interesting question that I would like to explore.</p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
