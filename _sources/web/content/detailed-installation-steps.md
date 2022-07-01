@@ -80,7 +80,7 @@
   - On most other OSes (including MacOS), prepend `sudo` to the command;
     i.e. `sudo conda env create …`, and enter the password when prompted.
 
-- When the installation was succesful, run
+- When the installation was successful, run
   ```
   conda activate spikeloc
   ```
@@ -105,7 +105,7 @@
 - Open the newly created `Starting-Notebook-Copy1.ipynb` file by clicking on it.
 
   Try running some of the cells using `Shift`-`Enter`.
-  If no errors apear below these cells: congratulations! The installation was succesful.
+  If no errors appear below these cells: congratulations! The installation was successful.
 
 - Some more information on how to work with a Jupyter Notebook can be found
   e.g. [here](https://realpython.com/jupyter-notebook-introduction/#running-cells).
