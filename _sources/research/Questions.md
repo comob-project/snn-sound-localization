@@ -8,6 +8,7 @@ Starting point:
 
 * What are the best strategies for localising sounds with a spiking neural network?
 * Can we train networks end-to-end to perform as well or better than hand-crafted solutions?
+  - _Zachary_: I'm going to try a few things to improve performance
 * Can we understand what these trained networks are doing in a high level way?
   - _Dan_: I'm going to try out a few ideas for this.
 * Do these networks do something similar to what has been proposed in the literature (labelled line models, hemispheric models, pattern match decoders) or something completely different?
