@@ -32,7 +32,7 @@ Starting point:
   - _Danish_: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here.
 * Consider multiple architectures, potentially matching the auditory system.
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
-  - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principly learn timing and ITD information.
+  - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.
 * How to understand what the learned network does?
 * Use regression instead of classification
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
