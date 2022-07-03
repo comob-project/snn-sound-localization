@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starting Notebook &#8212; SNN Sound Localization</title>
+    <title>Improving Performance: Optimizing the membrane time constant &#8212; SNN Sound Localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,12 +55,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Starting-Notebook.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Optimizing-Membrane-Time-Constant.html" />
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Improving Performance: Optimizing the membrane time constant" href="Optimizing-Membrane-Time-Constant.html" />
-    <link rel="prev" title="Questions &amp; challenges" href="Questions.html" />
+    <link rel="next" title="Sound localisation with excitatory-only inputs surrogate gradient descent" href="Excitatory-only-localisation.html" />
+    <link rel="prev" title="Starting Notebook" href="Starting-Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,13 +127,13 @@ const thebe_selector_output = ".output, .cell_output"
    Questions &amp; challenges
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Starting-Notebook.html">
    Starting Notebook
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Improving Performance: Optimizing the membrane time constant
   </a>
  </li>
@@ -184,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/research/Optimizing-Membrane-Time-Constant.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Starting-Notebook.ipynb"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Optimizing-Membrane-Time-Constant.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -224,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Optimizing-Membrane-Time-Constant.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -232,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Optimizing-Membrane-Time-Constant.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -251,54 +251,75 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Improving Performance: Optimizing the membrane time constant
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-localization-stimuli">
+     Sound localization stimuli
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-approach">
+     Classification approach
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training">
+       Training
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-results">
+       Analysis of results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spiking-model">
+     Spiking model
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+       Surrogate gradient descent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#updated-model">
+       Updated model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-and-analysing">
+       Training and analysing
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chagning-the-membrane-time-constant">
+   Chagning the membrane time constant
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weight-structure-of-small-membrane-time-constant-tau-2-ms">
+   Weight structure of small membrane time constant (
+   <span class="math notranslate nohighlight">
+    \(\tau\)
+   </span>
+   = 2 ms)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-work">
+   Future Work
+  </a>
  </li>
 </ul>
 
@@ -310,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Starting Notebook</h1>
+                <h1>Improving Performance: Optimizing the membrane time constant</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -320,54 +341,75 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Improving Performance: Optimizing the membrane time constant
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-localization-stimuli">
+     Sound localization stimuli
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-approach">
+     Classification approach
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training">
+       Training
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-results">
+       Analysis of results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spiking-model">
+     Spiking model
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+       Surrogate gradient descent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#updated-model">
+       Updated model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-and-analysing">
+       Training and analysing
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chagning-the-membrane-time-constant">
+   Chagning the membrane time constant
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weight-structure-of-small-membrane-time-constant-tau-2-ms">
+   Weight structure of small membrane time constant (
+   <span class="math notranslate nohighlight">
+    \(\tau\)
+   </span>
+   = 2 ms)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-work">
+   Future Work
+  </a>
  </li>
 </ul>
 
@@ -378,11 +420,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="starting-notebook">
-<h1>Starting Notebook<a class="headerlink" href="#starting-notebook" title="Permalink to this headline">¶</a></h1>
-<p>Duplicate this notebook and experiment away.<br />
-See <a class="reference internal" href="../Contributing.html"><span class="doc std std-doc">How to Contribute</span></a> (steps 4 and 5) for help with this.</p>
-<p>In this notebook (which is based on the third notebook of the <a class="reference external" href="https://neural-reckoning.github.io/cosyne-tutorial-2022/">2022 Cosyne tutorial</a>), we’re going to use surrogate gradient descent to find a solution to the sound localisation problem. The surrogate gradient descent approach and code is heavily inspired by (certainly not stolen) from <a class="reference external" href="https://github.com/fzenke/spytorch">Friedemann Zenke’s SPyTorch tutorial</a>, which I recommend for a deeper dive into the maths.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="improving-performance-optimizing-the-membrane-time-constant">
+<h1>Improving Performance: Optimizing the membrane time constant<a class="headerlink" href="#improving-performance-optimizing-the-membrane-time-constant" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook I investigate if changing the membrane time constant improves performance.</p>
+<p><strong>tl;dr</strong> Test accuracy drastically increases for decreasing membrane time constant. Learned weights seem to have a different structure than previous notebooks. Future work may want to learn the optimial membrane time constant jointy with the synaptic weights.</p>
+<p>Currently working on this: Zachary Friedenberger</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -395,6 +437,8 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 <span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">trange</span>
 
 <span class="c1"># Check whether a GPU is available</span>
 <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
@@ -475,7 +519,7 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_5_0.png" src="../_images/Starting-Notebook_5_0.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_4_0.png" src="../_images/Optimizing-Membrane-Time-Constant_4_0.png" />
 </div>
 </div>
 <p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
@@ -504,13 +548,6 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="membrane-only-no-spiking-neurons">
-<h2>Membrane only (no spiking neurons)<a class="headerlink" href="#membrane-only-no-spiking-neurons" title="Permalink to this headline">¶</a></h2>
-<p>Before we get to spiking, we’re going to warm up with a non-spiking network that shows some of the features of the full model but without any coincidence detection, it can’t do the task. We basically create a neuron model that has everything except spiking, so the membrane potential dynamics are there and it takes spikes as input. The neuron model we’ll use is just the LIF model we’ve already seen. We’ll use a time constant <span class="math notranslate nohighlight">\(\tau\)</span> of 20 ms, and we pre-calculate a constant <span class="math notranslate nohighlight">\(\alpha=\exp(-dt/\tau)\)</span> so that updating the membrane potential <span class="math notranslate nohighlight">\(v\)</span> is just multiplying by <span class="math notranslate nohighlight">\(\alpha\)</span> (as we saw in the first notebook). We store the input spikes in a vector <span class="math notranslate nohighlight">\(s\)</span> of 0s and 1s for each time step, and multiply by the weight matrix <span class="math notranslate nohighlight">\(W\)</span> to get the input, i.e. <span class="math notranslate nohighlight">\(v\leftarrow \alpha v+Ws\)</span>.</p>
-<p>We initialise the weight matrix <span class="math notranslate nohighlight">\(W\)</span> uniformly with bounds proportionate to the inverse square root of the number of inputs (fairly standard, and works here).</p>
-<p>The output of this will be a vector of <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) membrane potential traces. We sum these traces over time and use this as the output vector (the largest one will be our prediction of the class and therefore the IPD).</p>
-<p><img alt="Membrane only architecture" src="../_images/arch-membrane.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Weights and uniform weight initialisation</span>
@@ -579,75 +616,13 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 <p>Now we run the training. We generate the training data, initialise the weight matrix, set the training parameters, and run for a few epochs, printing the training loss as we go. We use the all-powerful Adam optimiser, softmax and negative log likelihood loss.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training parameters</span>
-<span class="n">nb_epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># quick, it won&#39;t have converged</span>
-<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># learning rate</span>
-
-<span class="c1"># Generate the training data</span>
-<span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
-
-<span class="c1"># Initialise a weight matrix</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">init_weight_matrix</span><span class="p">()</span>
-
-<span class="c1"># Optimiser and loss function</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-<span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span> <span class="c1"># negative log likelihood loss</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Want loss for epoch 1 to be about </span><span class="si">{</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, multiply m by constant to get this&quot;</span><span class="p">)</span>
-
-<span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">):</span>
-    <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
-        <span class="c1"># Run network</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">membrane_only</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
-        <span class="c1"># Compute cross entropy loss</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.01</span>  <span class="c1"># Sum time dimension</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
-        <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-        <span class="c1"># Update gradients</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-
-    <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">)))</span>
-
-<span class="c1"># Plot the loss function over time</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=4.59507
-Epoch 2: loss=2.93829
-Epoch 3: loss=2.65264
-Epoch 4: loss=2.54299
-Epoch 5: loss=2.33253
-Epoch 6: loss=2.44905
-Epoch 7: loss=2.10417
-Epoch 8: loss=2.08372
-Epoch 9: loss=1.95506
-Epoch 10: loss=1.97803
-</pre></div>
-</div>
-<img alt="../_images/Starting-Notebook_14_1.png" src="../_images/Starting-Notebook_14_1.png" />
-</div>
-</div>
 </div>
 <div class="section" id="analysis-of-results">
 <h3>Analysis of results<a class="headerlink" href="#analysis-of-results" title="Permalink to this headline">¶</a></h3>
 <p>Now we compute the training and test accuracy, and plot histograms and confusion matrices to understand the errors it’s making.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">accs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ipd_true</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ipd_est</span> <span class="o">=</span> <span class="p">[]</span>
@@ -667,46 +642,35 @@ Epoch 10: loss=1.97803
     <span class="n">ipd_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">ipd_true</span><span class="p">)</span>
     <span class="n">ipd_est</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">ipd_est</span><span class="p">)</span>
     <span class="n">abs_errors_deg</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ipd_true</span><span class="o">-</span><span class="n">ipd_est</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-    <span class="nb">print</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> classifier accuracy: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accs</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> absolute error: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">abs_errors_deg</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg&quot;</span><span class="p">)</span>
+    <span class="c1">#print()</span>
+    <span class="c1">#print(f&quot;{label} classifier accuracy: {100*np.mean(accs):.1f}%&quot;)</span>
+    <span class="c1">#print(f&quot;{label} absolute error: {np.mean(abs_errors_deg):.1f} deg&quot;)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ipd_true</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ipd_est</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estimated&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;IPD&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-    <span class="n">confusion</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">confusion</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confusion</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True IPD&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Estimated IPD&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>    
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">membrane_only</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
-<span class="n">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
-<span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
-<span class="n">analyse</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+        
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> classifier accuracy: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accs</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> absolute error: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">abs_errors_deg</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg&quot;</span><span class="p">)</span>
+    
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ipd_true</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ipd_est</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estimated&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;IPD&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+        <span class="n">confusion</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">confusion</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confusion</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True IPD&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Estimated IPD&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">accs</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
-
-Train classifier accuracy: 32.3%
-Train absolute error: 17.4 deg
-
-Test classifier accuracy: 1.9%
-Test absolute error: 95.8 deg
-</pre></div>
-</div>
-<img alt="../_images/Starting-Notebook_16_1.png" src="../_images/Starting-Notebook_16_1.png" />
-<img alt="../_images/Starting-Notebook_16_2.png" src="../_images/Starting-Notebook_16_2.png" />
 </div>
 </div>
 <p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
@@ -807,90 +771,86 @@ Test absolute error: 95.8 deg
 <p>We train it as before, except that we modify the functions to take the two weight matrices into account.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training parameters</span>
-<span class="n">nb_epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># quick, it won&#39;t have converged</span>
-<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># learning rate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_snn</span><span class="p">(</span><span class="n">tau_m</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 
-<span class="c1"># Generate the training data</span>
-<span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="c1"># Training parameters</span>
+    <span class="c1">#nb_epochs = 10 # quick, it won&#39;t have converged</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># learning rate</span>
 
-<span class="c1"># Initialise a weight matrices</span>
-<span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
+    <span class="c1"># Generate the training data</span>
+    <span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
 
-<span class="c1"># Optimiser and loss function</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-<span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span>
+    <span class="c1"># Initialise a weight matrices</span>
+    <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Want loss for epoch 1 to be about </span><span class="si">{</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, multiply m by constant to get this&quot;</span><span class="p">)</span>
+    <span class="c1"># Optimiser and loss function</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+    <span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span>
 
-<span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">):</span>
-    <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
-        <span class="c1"># Run network</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
-        <span class="c1"># Compute cross entropy loss</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Mean across time dimension</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
-        <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-        <span class="c1"># Update gradients</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="c1">#tau_m = 5*ms</span>
 
-    <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">)))</span>
+    <span class="c1">#print(f&quot;Want loss for epoch 1 to be about {-np.log(1/num_classes):.2f}, multiply m by constant to get this&quot;)</span>
 
-<span class="c1"># Plot the loss function over time</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_epochs</span><span class="p">):</span>
+        <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
+            <span class="c1"># Run network</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau_m</span><span class="p">)</span>
+            <span class="c1"># Compute cross entropy loss</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Mean across time dimension</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">log_softmax_fn</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y_local</span><span class="p">)</span>
+            <span class="n">local_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="c1"># Update gradients</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">))</span>
+        <span class="c1">#print(&quot;Epoch %i: loss=%.5f&quot;%(e+1, np.mean(local_loss)))</span>
+
+    <span class="c1"># Plot the loss function over time</span>
+    <span class="c1">#plt.plot(loss_hist)</span>
+    <span class="c1">#plt.xlabel(&#39;Epoch&#39;)</span>
+    <span class="c1">#plt.ylabel(&#39;Loss&#39;)</span>
+    <span class="c1">#plt.title(tau_m)</span>
+    <span class="c1">#plt.tight_layout()</span>
+    
+    <span class="k">return</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">loss_hist</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.14284
-Epoch 2: loss=1.22394
-Epoch 3: loss=0.94674
-Epoch 4: loss=0.79248
-Epoch 5: loss=0.72592
-Epoch 6: loss=0.66021
-Epoch 7: loss=0.63419
-Epoch 8: loss=0.58170
-Epoch 9: loss=0.52558
-Epoch 10: loss=0.50736
-</pre></div>
-</div>
-<img alt="../_images/Starting-Notebook_24_1.png" src="../_images/Starting-Notebook_24_1.png" />
 </div>
 </div>
 <p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyse</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_testing_batches</span><span class="o">=</span><span class="mi">32</span>
+<span class="c1"># Analyse</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
+<span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau_m</span><span class="p">)</span>
 <span class="n">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
 <span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
 <span class="n">analyse</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes_test</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 82.9%
-Train absolute error: 4.7 deg
+Train classifier accuracy: 91.0%
+Train absolute error: 4.2 deg
+torch.Size([4096, 100, 200])
 
-Test classifier accuracy: 54.8%
-Test absolute error: 7.9 deg
+Test classifier accuracy: 76.5%
+Test absolute error: 5.1 deg
+torch.Size([2048, 100, 200])
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_26_1.png" src="../_images/Starting-Notebook_26_1.png" />
-<img alt="../_images/Starting-Notebook_26_2.png" src="../_images/Starting-Notebook_26_2.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_23_1.png" src="../_images/Optimizing-Membrane-Time-Constant_23_1.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_23_2.png" src="../_images/Optimizing-Membrane-Time-Constant_23_2.png" />
 </div>
 </div>
 <p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
@@ -912,7 +872,7 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_28_0.png" src="../_images/Starting-Notebook_28_0.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_25_0.png" src="../_images/Optimizing-Membrane-Time-Constant_25_0.png" />
 </div>
 </div>
 <p>Hmm, hard to interpret.</p>
@@ -968,12 +928,226 @@ Test absolute error: 7.9 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_30_0.png" src="../_images/Starting-Notebook_30_0.png" />
-<img alt="../_images/Starting-Notebook_30_1.png" src="../_images/Starting-Notebook_30_1.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_27_0.png" src="../_images/Optimizing-Membrane-Time-Constant_27_0.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_27_1.png" src="../_images/Optimizing-Membrane-Time-Constant_27_1.png" />
 </div>
 </div>
 </div>
 </div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="chagning-the-membrane-time-constant">
+<h1>Chagning the membrane time constant<a class="headerlink" href="#chagning-the-membrane-time-constant" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_accuracy_versus_time_constant</span><span class="p">():</span>
+    
+    <span class="n">time_constants</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">num_test_samples</span> <span class="o">=</span> <span class="mi">10</span>
+    
+    <span class="n">test_acc_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_constants</span><span class="p">))</span>
+    <span class="n">test_acc_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_constants</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_constants</span><span class="p">)):</span> 
+        
+        <span class="c1"># Train network with fixed membrane time constant</span>
+        <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">train_snn</span><span class="p">(</span><span class="n">time_constants</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">ms</span><span class="p">)</span>
+        
+        <span class="c1"># Get test accuracy</span>
+        <span class="n">n_testing_batches</span> <span class="o">=</span> <span class="mi">64</span>
+        <span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">time_constants</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">ms</span><span class="p">)</span>
+        
+        <span class="n">test_acc_tmp</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_test_samples</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_test_samples</span><span class="p">):</span>
+            <span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
+            <span class="n">test_acc</span> <span class="o">=</span> <span class="n">analyse</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">test_acc_tmp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_acc</span>
+        
+        <span class="n">test_acc_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_acc_tmp</span><span class="p">)</span>
+        <span class="n">test_acc_error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">test_acc_tmp</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    
+    
+    <span class="k">return</span> <span class="n">time_constants</span><span class="p">,</span> <span class="n">test_acc_mean</span><span class="p">,</span> <span class="n">test_acc_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_constants</span><span class="p">,</span> <span class="n">test_acc_mean</span><span class="p">,</span> <span class="n">test_acc_error</span> <span class="o">=</span> <span class="n">test_accuracy_versus_time_constant</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 10/10 [11:21&lt;00:00, 68.11s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_constants</span><span class="p">,</span> <span class="n">test_acc_mean</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">time_constants</span><span class="p">,</span> <span class="n">test_acc_mean</span><span class="p">,</span> <span class="n">test_acc_error</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\tau$ [ms]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Test Accuracy [%]&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Optimizing-Membrane-Time-Constant_31_0.png" src="../_images/Optimizing-Membrane-Time-Constant_31_0.png" />
+</div>
+</div>
+<p>The above plot shows the test accuracy vs. the membrane time constant. As exepected it decreases with increasing time constant (small time constants = better for coincidence detection). Each SNN was trained with only 10 epochs. Error bars show the varaition in the test accuracy for different samples of test spikes (i.e., it doesn’t show varaition from retraining the model multiple times.)</p>
+<p>What do the weights look like for smaller membrane time constants?</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="weight-structure-of-small-membrane-time-constant-tau-2-ms">
+<h1>Weight structure of small membrane time constant (<span class="math notranslate nohighlight">\(\tau\)</span> = 2 ms)<a class="headerlink" href="#weight-structure-of-small-membrane-time-constant-tau-2-ms" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_m</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">ms</span>
+<span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">loss_hist</span> <span class="o">=</span> <span class="n">train_snn</span><span class="p">(</span><span class="n">tau_m</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Optimizing-Membrane-Time-Constant_34_0.png" src="../_images/Optimizing-Membrane-Time-Constant_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_testing_batches</span><span class="o">=</span><span class="mi">32</span>
+<span class="c1"># Analyse</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">num_classes</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau_m</span><span class="p">)</span>
+<span class="n">analyse</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
+<span class="n">analyse</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="n">run_func</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spikes_test</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
+
+Train classifier accuracy: 83.9%
+Train absolute error: 4.4 deg
+torch.Size([4096, 100, 200])
+
+Test classifier accuracy: 84.4%
+Test absolute error: 4.5 deg
+torch.Size([2048, 100, 200])
+</pre></div>
+</div>
+<img alt="../_images/Optimizing-Membrane-Time-Constant_35_1.png" src="../_images/Optimizing-Membrane-Time-Constant_35_1.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_35_2.png" src="../_images/Optimizing-Membrane-Time-Constant_35_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w1</span> <span class="o">=</span> <span class="n">W1</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">W2</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="c1"># for each column of w1, compute the weighted mean and re-order according to that</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">weighted_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">A</span><span class="o">*</span><span class="n">w1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">weighted_mean</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">.5</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">weighted_mean</span><span class="p">)</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="n">w1</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">w2</span><span class="p">[</span><span class="n">I</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># Plot the re-ordered weight matrices</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Input neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hidden layer neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$W_1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Hidden layer neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Output neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$W_2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w1</span><span class="nd">@w2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Input neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Output neuron index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$W_1W_2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Plot some sample weights for hidden neurons</span>
+<span class="n">I_nz</span><span class="p">,</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">I_nz</span><span class="p">))[:</span><span class="mi">15</span><span class="p">]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">w1</span><span class="p">[:</span><span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Left ear&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">w1</span><span class="p">[</span><span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Right ear&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Individual $W_1$ weights&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Phase delay (deg)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Optimizing-Membrane-Time-Constant_36_0.png" src="../_images/Optimizing-Membrane-Time-Constant_36_0.png" />
+<img alt="../_images/Optimizing-Membrane-Time-Constant_36_1.png" src="../_images/Optimizing-Membrane-Time-Constant_36_1.png" />
+</div>
+</div>
+<p>Both weight matricies appear to have some structure to them that is different from the other notebooks. Not clear to me yet how the network is solving the problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ipds_test shape (num_samples)</span>
+<span class="c1"># spikes_test shape (num_samples, duration_steps, 2*anf_per_ear)</span>
+<span class="n">all_m</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">all_ipd</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">snn</span><span class="p">(</span><span class="n">x_local</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">tau_m</span><span class="p">)</span> <span class="c1"># shape (batch_size, duration_steps, num_classes)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># shape (batch_size, num_classes)</span>
+<span class="c1">#     m = log_softmax_fn(m)</span>
+    <span class="n">all_m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">all_ipd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local</span><span class="p">)</span>
+<span class="n">cls_output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">all_m</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1"># shape (num_samples, num_classes)</span>
+<span class="n">ipds_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">all_ipd</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_classes</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ipds_</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">cls_output</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">continuise</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">//</span><span class="mi">4</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IPD (deg)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">4</span>==0:
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Class neuron output&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">cls_output</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">cls_output</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Output of class neurons as a function of IPD&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Optimizing-Membrane-Time-Constant_38_0.png" src="../_images/Optimizing-Membrane-Time-Constant_38_0.png" />
+</div>
+</div>
+<p>Output tuning curves look like they have a stronger peak than before!</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="future-work">
+<h1>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Optimize the membrane time constant with the connection weights at the same time</p></li>
+<li><p>How does this change in performance depend on the neruon model? (e.g., adaptation)</p></li>
+<li><p>Do good solutions exists for slow integrators? (large time constants)</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1001,17 +1175,17 @@ Test absolute error: 7.9 deg
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Questions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Starting-Notebook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Questions &amp; challenges</p>
+            <p class="prev-next-title">Starting Notebook</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Optimizing-Membrane-Time-Constant.html" title="next page">
+    <a class='right-next' id="next-link" href="Excitatory-only-localisation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Improving Performance: Optimizing the membrane time constant</p>
+        <p class="prev-next-title">Sound localisation with excitatory-only inputs surrogate gradient descent</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
