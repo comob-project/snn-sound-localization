@@ -23,6 +23,7 @@ Starting point:
 ## Technical challenges
 
 * Delay learning: can we train delays with surrogate gradient descent?
+  - _Jakub_: I'm interested in looking into this.
 * Alternatives to surrogate gradient descent?
 - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
