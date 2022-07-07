@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starting Notebook &#8212; SNN Sound Localization</title>
+    <title>Modified from starting Notebook &#8212; SNN Sound Localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,12 +55,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Starting-Notebook.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/SNN_sound_W1W2_threshold_plot.html" />
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Workshop 1 Write-up" href="Workshop_1_Write_Up.html" />
-    <link rel="prev" title="Questions &amp; challenges" href="Questions.html" />
+    <link rel="next" title="Improving Performance: Optimizing the membrane time constant" href="Optimizing-Membrane-Time-Constant.html" />
+    <link rel="prev" title="Workshop 1 Write-up" href="Workshop_1_Write_Up.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,8 +127,8 @@ const thebe_selector_output = ".output, .cell_output"
    Questions &amp; challenges
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Starting-Notebook.html">
    Starting Notebook
   </a>
  </li>
@@ -137,8 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
    Workshop 1 Write-up
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Modified from starting Notebook
   </a>
  </li>
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/research/SNN_sound_W1W2_threshold_plot.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -214,7 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Starting-Notebook.ipynb"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/SNN_sound_W1W2_threshold_plot.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Starting-Notebook.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/SNN_sound_W1W2_threshold_plot.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -242,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Starting-Notebook.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/SNN_sound_W1W2_threshold_plot.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -261,52 +261,64 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Modified from starting Notebook
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#starting-notebook">
+   Starting Notebook
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-localization-stimuli">
+     Sound localization stimuli
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-approach">
+     Classification approach
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
+     Membrane only (no spiking neurons)
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training">
+       Training
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-results">
+       Analysis of results
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spiking-model">
+     Spiking model
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+       Surrogate gradient descent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#updated-model">
+       Updated model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-and-analysing">
+       Training and analysing
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -320,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Starting Notebook</h1>
+                <h1>Modified from starting Notebook</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -330,52 +342,64 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sound-localization-stimuli">
-   Sound localization stimuli
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Modified from starting Notebook
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-approach">
-   Classification approach
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#starting-notebook">
+   Starting Notebook
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
-   Membrane only (no spiking neurons)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training">
-     Training
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-localization-stimuli">
+     Sound localization stimuli
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis-of-results">
-     Analysis of results
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-approach">
+     Classification approach
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spiking-model">
-   Spiking model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surrogate-gradient-descent">
-     Surrogate gradient descent
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
+     Membrane only (no spiking neurons)
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training">
+       Training
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-results">
+       Analysis of results
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updated-model">
-     Updated model
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spiking-model">
+     Spiking model
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-and-analysing">
-     Training and analysing
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#surrogate-gradient-descent">
+       Surrogate gradient descent
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#updated-model">
+       Updated model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-and-analysing">
+       Training and analysing
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -388,7 +412,12 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="starting-notebook">
+  <div class="tex2jax_ignore mathjax_ignore section" id="modified-from-starting-notebook">
+<h1>Modified from starting Notebook<a class="headerlink" href="#modified-from-starting-notebook" title="Permalink to this headline">¶</a></h1>
+<p>This is just a warm up, and I am starting with a simple thresholding on the W1W2 plot to improve the contrast.</p>
+<p>My code is placed between <code class="docutils literal notranslate"><span class="pre">###</span> <span class="pre">Begin</span> <span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">###</span> <span class="pre">End</span> <span class="pre">code</span></code></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="starting-notebook">
 <h1>Starting Notebook<a class="headerlink" href="#starting-notebook" title="Permalink to this headline">¶</a></h1>
 <p>Duplicate this notebook and experiment away.<br />
 See <a class="reference internal" href="../Contributing.html"><span class="doc std std-doc">How to Contribute</span></a> (steps 4 and 5) for help with this.</p>
@@ -421,7 +450,7 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 <h2>Sound localization stimuli<a class="headerlink" href="#sound-localization-stimuli" title="Permalink to this headline">¶</a></h2>
 <p>The following function creates a set of stimuli that can be used for training or testing. We have two ears (0 and 1), and ear 1 will get a version of the signal delayed by an IPD we can write as <span class="math notranslate nohighlight">\(\alpha\)</span> in equations (<code class="docutils literal notranslate"><span class="pre">ipd</span></code> in code). The basic signal is a sine wave as in the previous notebook, made positive, so <span class="math notranslate nohighlight">\((1/2)(1+\sin(\theta)\)</span>. In addition, for each ear there will be <span class="math notranslate nohighlight">\(N_a\)</span> neurons per ear (<code class="docutils literal notranslate"><span class="pre">anf_per_ear</span></code> because these are auditory nerve fibres). Each neuron generates Poisson spikes at a certain firing rate, and these Poisson spike trains are independent. In addition, since it is hard to train delays, we seed it with uniformly distributed delays from a minimum of 0 to a maximum of <span class="math notranslate nohighlight">\(\pi/2\)</span> in each ear, so that the differences between the two ears can cover the range of possible IPDs (<span class="math notranslate nohighlight">\(-\pi/2\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span>). We do this directly by adding a phase delay to each neuron. So for ear <span class="math notranslate nohighlight">\(i\in\{0,1\}\)</span> and neuron <span class="math notranslate nohighlight">\(j\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> the angle <span class="math notranslate nohighlight">\(\theta=2\pi f t+i\alpha+j\pi/2N_a\)</span>. Finally, we generate Poisson spike trains with a rate <span class="math notranslate nohighlight">\(R_\mathrm{max}((1/2)(1+\sin(\theta)))^k\)</span>. <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> (<code class="docutils literal notranslate"><span class="pre">rate_max</span></code>) is the maximum instantaneous firing rate, and <span class="math notranslate nohighlight">\(k\)</span> (<code class="docutils literal notranslate"><span class="pre">envelope_power</span></code>) is a constant that sharpens the envelope. The higher <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> the easier the problem (try it out on the cell below to see why).</p>
 <p>Here’s a picture of the architecture for the stimuli:</p>
-<p><img alt="Stimuli architecture" src="../_images/arch-stimuli.png" /></p>
+<p><img alt="Stimuli architecture" src="https://github.com/comob-project/snn-sound-localization/blob/main/research/diagrams/arch-stimuli.png?raw=1" /></p>
 <p>The functions below return two arrays <code class="docutils literal notranslate"><span class="pre">ipd</span></code> and <code class="docutils literal notranslate"><span class="pre">spikes</span></code>. <code class="docutils literal notranslate"><span class="pre">ipd</span></code> is an array of length <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> that gives the true IPD, and <code class="docutils literal notranslate"><span class="pre">spikes</span></code> is an array of 0 (no spike) and 1 (spike) of shape <code class="docutils literal notranslate"><span class="pre">(num_samples,</span> <span class="pre">duration_steps,</span> <span class="pre">2*anf_per_ear)</span></code>, where <code class="docutils literal notranslate"><span class="pre">duration_steps</span></code> is the number of time steps there are in the stimulus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,7 +514,7 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_5_0.png" src="../_images/Starting-Notebook_5_0.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_5_0.png" src="../_images/SNN_sound_W1W2_threshold_plot_5_0.png" />
 </div>
 </div>
 <p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
@@ -520,7 +549,7 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 <p>Before we get to spiking, we’re going to warm up with a non-spiking network that shows some of the features of the full model but without any coincidence detection, it can’t do the task. We basically create a neuron model that has everything except spiking, so the membrane potential dynamics are there and it takes spikes as input. The neuron model we’ll use is just the LIF model we’ve already seen. We’ll use a time constant <span class="math notranslate nohighlight">\(\tau\)</span> of 20 ms, and we pre-calculate a constant <span class="math notranslate nohighlight">\(\alpha=\exp(-dt/\tau)\)</span> so that updating the membrane potential <span class="math notranslate nohighlight">\(v\)</span> is just multiplying by <span class="math notranslate nohighlight">\(\alpha\)</span> (as we saw in the first notebook). We store the input spikes in a vector <span class="math notranslate nohighlight">\(s\)</span> of 0s and 1s for each time step, and multiply by the weight matrix <span class="math notranslate nohighlight">\(W\)</span> to get the input, i.e. <span class="math notranslate nohighlight">\(v\leftarrow \alpha v+Ws\)</span>.</p>
 <p>We initialise the weight matrix <span class="math notranslate nohighlight">\(W\)</span> uniformly with bounds proportionate to the inverse square root of the number of inputs (fairly standard, and works here).</p>
 <p>The output of this will be a vector of <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) membrane potential traces. We sum these traces over time and use this as the output vector (the largest one will be our prediction of the class and therefore the IPD).</p>
-<p><img alt="Membrane only architecture" src="../_images/arch-membrane.png" /></p>
+<p><img alt="Membrane only architecture" src="https://github.com/comob-project/snn-sound-localization/blob/main/research/diagrams/arch-membrane.png?raw=1" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Weights and uniform weight initialisation</span>
@@ -636,19 +665,19 @@ See <a class="reference internal" href="../Contributing.html"><span class="doc s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=4.59507
-Epoch 2: loss=2.93829
-Epoch 3: loss=2.65264
-Epoch 4: loss=2.54299
-Epoch 5: loss=2.33253
-Epoch 6: loss=2.44905
-Epoch 7: loss=2.10417
-Epoch 8: loss=2.08372
-Epoch 9: loss=1.95506
-Epoch 10: loss=1.97803
+Epoch 1: loss=5.70716
+Epoch 2: loss=3.43899
+Epoch 3: loss=3.10986
+Epoch 4: loss=2.80508
+Epoch 5: loss=2.91624
+Epoch 6: loss=2.61735
+Epoch 7: loss=2.42906
+Epoch 8: loss=2.28650
+Epoch 9: loss=2.31200
+Epoch 10: loss=2.31793
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_14_1.png" src="../_images/Starting-Notebook_14_1.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_14_1.png" src="../_images/SNN_sound_W1W2_threshold_plot_14_1.png" />
 </div>
 </div>
 </div>
@@ -708,15 +737,15 @@ Epoch 10: loss=1.97803
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 32.3%
-Train absolute error: 17.4 deg
+Train classifier accuracy: 25.9%
+Train absolute error: 22.8 deg
 
-Test classifier accuracy: 1.9%
-Test absolute error: 95.8 deg
+Test classifier accuracy: 6.9%
+Test absolute error: 69.6 deg
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_16_1.png" src="../_images/Starting-Notebook_16_1.png" />
-<img alt="../_images/Starting-Notebook_16_2.png" src="../_images/Starting-Notebook_16_2.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_16_1.png" src="../_images/SNN_sound_W1W2_threshold_plot_16_1.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_16_2.png" src="../_images/SNN_sound_W1W2_threshold_plot_16_2.png" />
 </div>
 </div>
 <p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
@@ -725,7 +754,7 @@ Test absolute error: 95.8 deg
 <div class="section" id="spiking-model">
 <h2>Spiking model<a class="headerlink" href="#spiking-model" title="Permalink to this headline">¶</a></h2>
 <p>Next we’ll implement a version of the model with spikes to see how that changes performance. We’ll just add a single hidden feed-forward layer of spiking neurons between the input and the output layers. This layer will be spiking, so we need to use the surrogate gradient descent approach.</p>
-<p><img alt="Full architecture" src="../_images/arch-full.png" /></p>
+<p><img alt="Full architecture" src="https://github.com/comob-project/snn-sound-localization/blob/main/research/diagrams/arch-full.png?raw=1" /></p>
 <div class="section" id="surrogate-gradient-descent">
 <h3>Surrogate gradient descent<a class="headerlink" href="#surrogate-gradient-descent" title="Permalink to this headline">¶</a></h3>
 <p>First, this is the key part of surrogate gradient descent, a function where we override the computation of the gradient to replace it with a smoothed gradient. You can see that in the forward pass (method <code class="docutils literal notranslate"><span class="pre">forward</span></code>) it returns the Heaviside function of the input (takes value 1 if the input is <code class="docutils literal notranslate"><span class="pre">&gt;0</span></code>) or value 0 otherwise. In the backwards pass, it returns the gradient of a sigmoid function.</p>
@@ -862,19 +891,19 @@ Test absolute error: 95.8 deg
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.14284
-Epoch 2: loss=1.22394
-Epoch 3: loss=0.94674
-Epoch 4: loss=0.79248
-Epoch 5: loss=0.72592
-Epoch 6: loss=0.66021
-Epoch 7: loss=0.63419
-Epoch 8: loss=0.58170
-Epoch 9: loss=0.52558
-Epoch 10: loss=0.50736
+Epoch 1: loss=2.31418
+Epoch 2: loss=1.52960
+Epoch 3: loss=1.20145
+Epoch 4: loss=1.02208
+Epoch 5: loss=0.90604
+Epoch 6: loss=0.83974
+Epoch 7: loss=0.78551
+Epoch 8: loss=0.72863
+Epoch 9: loss=0.71221
+Epoch 10: loss=0.65615
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_24_1.png" src="../_images/Starting-Notebook_24_1.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_24_1.png" src="../_images/SNN_sound_W1W2_threshold_plot_24_1.png" />
 </div>
 </div>
 <p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
@@ -892,41 +921,18 @@ Epoch 10: loss=0.50736
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 82.9%
-Train absolute error: 4.7 deg
+Train classifier accuracy: 74.2%
+Train absolute error: 5.6 deg
 
-Test classifier accuracy: 54.8%
-Test absolute error: 7.9 deg
+Test classifier accuracy: 66.4%
+Test absolute error: 6.4 deg
 </pre></div>
 </div>
-<img alt="../_images/Starting-Notebook_26_1.png" src="../_images/Starting-Notebook_26_1.png" />
-<img alt="../_images/Starting-Notebook_26_2.png" src="../_images/Starting-Notebook_26_2.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_26_1.png" src="../_images/SNN_sound_W1W2_threshold_plot_26_1.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_26_2.png" src="../_images/SNN_sound_W1W2_threshold_plot_26_2.png" />
 </div>
 </div>
 <p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">W1</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Input neuron index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hidden layer neuron index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Weight&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">W2</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Hidden layer neuron index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Output neuron index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Weight&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_28_0.png" src="../_images/Starting-Notebook_28_0.png" />
-</div>
-</div>
-<p>Hmm, hard to interpret.</p>
-<p>Here’s what I’ve got so far…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w1</span> <span class="o">=</span> <span class="n">W1</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
@@ -939,6 +945,17 @@ Test absolute error: 7.9 deg
 <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">weighted_mean</span><span class="p">)</span>
 <span class="n">w1</span> <span class="o">=</span> <span class="n">w1</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span>
 <span class="n">w2</span> <span class="o">=</span> <span class="n">w2</span><span class="p">[</span><span class="n">I</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1">### Begin code </span>
+
+<span class="c1"># set top th_percent% entry to 1.0, bottom th_percent% to -1.0, the rest to 0.0</span>
+<span class="n">th_percent</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">w1_w2_raw</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">@</span> <span class="n">w2</span>
+<span class="n">w1_w2</span> <span class="o">=</span> <span class="n">w1_w2_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">w1_w2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w1_w2_raw</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">w1_w2_raw</span><span class="p">,(</span><span class="mi">100</span><span class="o">-</span><span class="n">th_percent</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">w1_w2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">w1_w2</span><span class="p">))</span> <span class="o">+</span> \
+    <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w1_w2_raw</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">w1_w2_raw</span><span class="p">,</span><span class="n">th_percent</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">w1_w2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">w1_w2</span><span class="p">))</span>
+
+<span class="c1">### End code</span>
 
 <span class="c1"># Plot the re-ordered weight matrices</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -955,31 +972,32 @@ Test absolute error: 7.9 deg
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$W_2$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w1</span><span class="nd">@w2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="c1">### Begin code </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w1_w2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="c1">### End code</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Input neuron index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Output neuron index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$W_1W_2$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-<span class="c1"># Plot some sample weights for hidden neurons</span>
-<span class="n">I_nz</span><span class="p">,</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">I_nz</span><span class="p">))[:</span><span class="mi">15</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">w1</span><span class="p">[:</span><span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Left ear&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">w1</span><span class="p">[</span><span class="n">w1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Right ear&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Individual $W_1$ weights&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Phase delay (deg)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1">## Plot some sample weights for hidden neurons</span>
+<span class="c1">#I_nz, = (np.max(np.abs(w1), axis=0)&gt;.5).nonzero()</span>
+<span class="c1">#plt.figure(figsize=(10, 5), dpi=80)</span>
+<span class="c1">#phi = np.linspace(-np.pi/2, np.pi/2, w1.shape[0]//2)</span>
+<span class="c1">#for i, j in list(enumerate(I_nz))[:15]:</span>
+<span class="c1">#    plt.subplot(3, 5, i+1)</span>
+<span class="c1">#    plt.plot(phi*180/np.pi, w1[:w1.shape[0]//2, j], label=&quot;Left ear&quot;)</span>
+<span class="c1">#    plt.plot(phi*180/np.pi, w1[w1.shape[0]//2:, j], label=&quot;Right ear&quot;)</span>
+<span class="c1">#plt.suptitle(&quot;Individual $W_1$ weights&quot;)</span>
+<span class="c1">#plt.legend(loc=&#39;best&#39;)</span>
+<span class="c1">#plt.xlabel(&#39;Phase delay (deg)&#39;)</span>
+<span class="c1">#plt.tight_layout()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Starting-Notebook_30_0.png" src="../_images/Starting-Notebook_30_0.png" />
-<img alt="../_images/Starting-Notebook_30_1.png" src="../_images/Starting-Notebook_30_1.png" />
+<img alt="../_images/SNN_sound_W1W2_threshold_plot_28_0.png" src="../_images/SNN_sound_W1W2_threshold_plot_28_0.png" />
 </div>
 </div>
 </div>
@@ -1011,17 +1029,17 @@ Test absolute error: 7.9 deg
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Questions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Workshop_1_Write_Up.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Questions &amp; challenges</p>
+            <p class="prev-next-title">Workshop 1 Write-up</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Workshop_1_Write_Up.html" title="next page">
+    <a class='right-next' id="next-link" href="Optimizing-Membrane-Time-Constant.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Workshop 1 Write-up</p>
+        <p class="prev-next-title">Improving Performance: Optimizing the membrane time constant</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
