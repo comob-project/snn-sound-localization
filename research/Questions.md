@@ -23,6 +23,7 @@ Starting point:
 ## Technical challenges
 
 * Delay learning: can we train delays with surrogate gradient descent?
+  - _Jakub_: I'm interested in looking into this.
 * Alternatives to surrogate gradient descent?
 - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
@@ -35,6 +36,7 @@ Starting point:
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
   - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.
 * How to understand what the learned network does?
+  - _Helena_:  This is just a warm up, and I am starting with a simple thresholding on the W1W2 plot to improve the contrast. I am going to push file named as SNN_sound_W1W2_threshold_plot.ipynb. I will probably come back to this later. 
 * Use regression instead of classification
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
   - _Danish_:  Very interesting question that I would like to explore.
