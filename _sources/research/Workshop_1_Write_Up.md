@@ -1,6 +1,6 @@
 # Workshop 1 Write-up 
 
-08.07.2022 
+08.07.2022\ 
 Organised by Marcus Ghosh (France, Postdoc)
 
 ## Introduction 
@@ -9,9 +9,9 @@ Our first workshop brought together 16 researchers (undergraduates, doctoral stu
 ## Teams 
 ### Time Constants 
 #### Members 
-Chen Li (UK, Manchester)
-Rory Byrne (UK, Masters) 
-Zachary Friedenberger (Canada, PhD)
+Chen Li (UK, Manchester)\
+Rory Byrne (UK, Masters)\  
+Zachary Friedenberger (Canada, PhD)\  
 
 #### Questions
 1. How do membrane time constants affect network performance? 
@@ -29,9 +29,9 @@ https://www.nature.com/articles/s41467-021-26022-3
 
 ### Dale's Law  
 #### Members 
-Bena Gabriel (UK, PhD) 
-Jose Gomes (Portugal, PhD)
-Peter Crowe (Germany, Undergraduate)
+Bena Gabriel (UK, PhD)\ 
+Jose Gomes (Portugal, PhD)\
+Peter Crowe (Germany, Undergraduate)\
 
 #### Questions 
 1. Can networks with only positive weights learn the task? 
@@ -46,8 +46,8 @@ https://www.biorxiv.org/content/10.1101/2020.11.02.364968v2
 
 ### Learning delays 
 #### Members 
-Karim Habashy (Germany, PhD)
-Leonidas Richter (Germany, PhD)
+Karim Habashy (Germany, PhD)\
+Leonidas Richter (Germany, PhD)\
 
 #### Questions
 1. With a random weight matrix - can you solve the task by just learning input delays?
@@ -58,11 +58,11 @@ Leonidas Richter (Germany, PhD)
     
 ### Analysing trained networks 
 #### Members 
-Gabryel Mason-Williams (UK, Undergraduate)
-Josh Bourne (UK, Masters)
-Tanushri Kabra (India, Masters)
-Tomas Fiers (UK, PhD)
-Zekai Xu (UK, Undergraduate)    
+Gabryel Mason-Williams (UK, Undergraduate)\
+Josh Bourne (UK, Masters)\
+Tanushri Kabra (India, Masters)\
+Tomas Fiers (UK, PhD)\
+Zekai Xu (UK, Undergraduate)\    
 
 #### Questions
 1. How can we interpret the spiking activity of trained networks? 
@@ -74,13 +74,12 @@ Zekai Xu (UK, Undergraduate)
 3. Smaller networks (2 or 7 hidden units, as opposed to 30) worked significantly better than chance, but not as well as the larger networks 
 
 #### Next steps
-Train networks until convergence 
-Test the impact of dropout (drop units or connections)
-Regularize network spiking (e.g. using a lower and upper bound) 
+Train networks until convergence\ 
+Test the impact of dropout (drop units or connections)\
+Regularize network spiking (e.g. using a lower and upper bound)\ 
 
 #### Discussion 
-Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).
+Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).\
 
-Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a resonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synpases,  
-heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task. 
+Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a resonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synpases, heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task. 
 
