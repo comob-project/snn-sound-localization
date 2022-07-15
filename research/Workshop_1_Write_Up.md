@@ -9,7 +9,7 @@ Our first workshop brought together 16 researchers (undergraduates, doctoral stu
 ## Teams 
 ### Time Constants 
 #### Members 
-Chen Li (UK, Manchester)  
+Chen Li (UK, Masters)  
 Rory Byrne (UK, Masters)    
 Zachary Friedenberger (Canada, PhD)   
 
