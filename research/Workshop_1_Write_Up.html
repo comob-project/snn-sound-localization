@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modified from starting Notebook" href="SNN_sound_W1W2_threshold_plot.html" />
+    <link rel="next" title="Improving Performance: Optimizing the membrane time constant" href="Optimizing-Membrane-Time-Constant.html" />
     <link rel="prev" title="Starting Notebook" href="Starting-Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -136,13 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
-   Modified from starting Notebook
+  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
+   Improving Performance: Optimizing the membrane time constant
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
-   Improving Performance: Optimizing the membrane time constant
+  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
+   Modified from starting Notebook
   </a>
  </li>
  <li class="toctree-l1">
@@ -518,7 +518,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="workshop-1-write-up">
 <h1>Workshop 1 Write-up<a class="headerlink" href="#workshop-1-write-up" title="Permalink to this headline">¶</a></h1>
-<p>08.07.2022\
+<p>08.07.2022<br />
 Organised by Marcus Ghosh (France, Postdoc)</p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -531,8 +531,8 @@ Organised by Marcus Ghosh (France, Postdoc)</p>
 <div class="section" id="members">
 <h4>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h4>
 <p>Chen Li (UK, Manchester)<br />
-Rory Byrne (UK, Masters)\<br />
-Zachary Friedenberger (Canada, PhD)\</p>
+Rory Byrne (UK, Masters)<br />
+Zachary Friedenberger (Canada, PhD)</p>
 </div>
 <div class="section" id="questions">
 <h4>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h4>
@@ -560,9 +560,9 @@ Zachary Friedenberger (Canada, PhD)\</p>
 <h3>Dale’s Law<a class="headerlink" href="#dale-s-law" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
 <h4>Members<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Bena Gabriel (UK, PhD)\
+<p>Bena Gabriel (UK, PhD)<br />
 Jose Gomes (Portugal, PhD)<br />
-Peter Crowe (Germany, Undergraduate)\</p>
+Peter Crowe (Germany, Undergraduate)</p>
 </div>
 <div class="section" id="id2">
 <h4>Questions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
@@ -588,7 +588,7 @@ Peter Crowe (Germany, Undergraduate)\</p>
 <div class="section" id="id5">
 <h4>Members<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>Karim Habashy (Germany, PhD)<br />
-Leonidas Richter (Germany, PhD)\</p>
+Leonidas Richter (Germany, PhD)</p>
 </div>
 <div class="section" id="id6">
 <h4>Questions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
@@ -612,7 +612,7 @@ Leonidas Richter (Germany, PhD)\</p>
 Josh Bourne (UK, Masters)<br />
 Tanushri Kabra (India, Masters)<br />
 Tomas Fiers (UK, PhD)<br />
-Zekai Xu (UK, Undergraduate)\</p>
+Zekai Xu (UK, Undergraduate)</p>
 </div>
 <div class="section" id="id9">
 <h4>Questions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
@@ -631,13 +631,13 @@ Zekai Xu (UK, Undergraduate)\</p>
 </div>
 <div class="section" id="next-steps">
 <h4>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h4>
-<p>Train networks until convergence\
+<p>Train networks until convergence<br />
 Test the impact of dropout (drop units or connections)<br />
-Regularize network spiking (e.g. using a lower and upper bound)\</p>
+Regularize network spiking (e.g. using a lower and upper bound)</p>
 </div>
 <div class="section" id="discussion">
 <h4>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h4>
-<p>Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).\</p>
+<p>Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).</p>
 <p>Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a resonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synpases, heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task.</p>
 </div>
 </div>
@@ -676,10 +676,10 @@ Regularize network spiking (e.g. using a lower and upper bound)\</p>
             <p class="prev-next-title">Starting Notebook</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="SNN_sound_W1W2_threshold_plot.html" title="next page">
+    <a class='right-next' id="next-link" href="Optimizing-Membrane-Time-Constant.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Modified from starting Notebook</p>
+        <p class="prev-next-title">Improving Performance: Optimizing the membrane time constant</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
