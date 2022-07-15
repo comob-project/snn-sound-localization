@@ -4,7 +4,7 @@
 Organised by Marcus Ghosh (France, Postdoc)
 
 ## Introduction 
-Our first workshop brought together 16 researchers (undergraduates, doctoral students and postdocs) from 7 countries! We started the day by discussing ideas for the project and what work people had already commited to the repository. Our ideas fell into roughly four themes: time constants, Dale's law, learning delays and analysing trained networks, so we created these breakout rooms and allowed everyone to join their team of interest. In most teams one person shared their screen and wrote code, while the rest of team provided ideas / input and read relevant literature. Below are some notes on each teams work, and our cross-team discussion at the end of the day.  
+Our first workshop brought together 16 researchers (undergraduates, doctoral students and postdocs) from 8 countries! We started the day by discussing ideas for the project and what work people had already commited to the repository. Our ideas fell into roughly four themes: time constants, Dale's law, learning delays and analysing trained networks, so we created these breakout rooms and allowed everyone to join their team of interest. In most teams one person shared their screen and wrote code, while the rest of team provided ideas / input and read relevant literature. Below are some notes on each teams work, and our cross-team discussion at the end of the day.  
 
 ## Teams 
 ### Time Constants 
