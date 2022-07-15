@@ -17,7 +17,7 @@ Zachary Friedenberger (Canada, PhD)
 1. How do membrane time constants affect network performance? 
 2. If we train the membrane time constants - what distribution emerges?   
 3. Do heterogenous time constants improve performance?   
-4. What happens if we allow seperate time constant per layer?  
+4. What happens if we allow seperate time constants per layer?  
 
 #### Results
 1. Model performance decreases as the membrane time constant increases 
