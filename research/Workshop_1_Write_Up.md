@@ -10,7 +10,7 @@ Our first workshop brought together 16 researchers (undergraduates, doctoral stu
 ### Time Constants 
 #### Members 
 Chen Li (UK, Masters)  
-Peter Crowe (Germany, Undergraduate)
+Peter Crowe (Germany, Undergraduate) 
 Rory Byrne (UK, Masters)    
 Zachary Friedenberger (Canada, PhD)   
 
