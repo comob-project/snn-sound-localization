@@ -9,10 +9,10 @@ Our first workshop brought together 16 researchers (undergraduates, doctoral stu
 ## Teams 
 ### Time Constants 
 #### Members 
-Chen Li (UK, Masters)  
+Chen Li (UK, Masters)
+Peter Crowe (Germany, Undergraduate) 
 Rory Byrne (UK, Masters)    
-Zachary Friedenberger (Canada, PhD)   
-Peter Crowe (Germany, Undergraduate)  
+Zachary Friedenberger (Canada, PhD)    
 
 #### Questions
 1. How do membrane time constants affect network performance? 
