@@ -10,6 +10,7 @@ Our first workshop brought together 16 researchers (undergraduates, doctoral stu
 ### Time Constants 
 #### Members 
 Chen Li (UK, Masters)  
+Peter Crowe (Germany, Undergraduate)
 Rory Byrne (UK, Masters)    
 Zachary Friedenberger (Canada, PhD)   
 
@@ -30,8 +31,7 @@ https://www.nature.com/articles/s41467-021-26022-3
 ### Dale's Law  
 #### Members 
 Bena Gabriel (UK, PhD)   
-Jose Gomes (Portugal, PhD)  
-Peter Crowe (Germany, Undergraduate)  
+Jose Gomes (Portugal, PhD)
 
 #### Questions 
 1. Can networks with only positive weights learn the task? 
