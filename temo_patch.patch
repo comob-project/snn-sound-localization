@@ -1,0 +1,34 @@
+diff --git a/research/Learning_delays.ipynb b/research/Learning_delays.ipynb
+index a7a7063..a871bb7 100644
+--- a/research/Learning_delays.ipynb
++++ b/research/Learning_delays.ipynb
+@@ -3,7 +3,7 @@
+     {
+       "cell_type": "markdown",
+       "source": [
+-        # Learning delays
++        "#Learning delays",
+         "\n",
+         "\n",
+         "Edit1: I have collected most of the delay related functions and variables to a DelayLayer class. Applied surrogate update to delays as suggested by (Tomas Fiers, Markus Ghosh and Alessandro Galloni). Method B was applied. The delay is applied only to the first layer. Appling the delay with Method B subtracts a duration=delay_max from the input durection. So every sunsequent push through a layer decreases the duration(or effective duration). So, for applying multiple delay layers, the duration of the inputs needs to be appended with delay_max*number_delay_layer."
+diff --git a/research/Questions.md b/research/Questions.md
+index dcea951..59bfd8c 100644
+--- a/research/Questions.md
++++ b/research/Questions.md
+@@ -25,7 +25,7 @@ Starting point:
+ * Delay learning: can we train delays with surrogate gradient descent?
+   - _Jakub_: I'm interested in looking into this.
+ * Alternatives to surrogate gradient descent?
+-- _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.
++  - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.
+ * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
+   - _Danish_:  I have a simple vertebrate biophysical model of filtering in the auditory periphery which I could quickly test here.
+ * Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration>=100ms so more than 1000 time steps.
+@@ -35,6 +35,7 @@ Starting point:
+ * Consider multiple architectures, potentially matching the auditory system.
+ * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
+   - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.
++  - _Ido_: Might be interesting to consider multi compartment biophysical neuron models. For starters, I'd be interested to try to add dendrites to the individual units (for example by using https://github.com/Poirazi-Lab/dendrify).
+ * How to understand what the learned network does?
+   - _Helena_:  This is just a warm up, and I am starting with a simple thresholding on the W1W2 plot to improve the contrast. I am going to push file named as SNN_sound_W1W2_threshold_plot.ipynb. I will probably come back to this later. 
+ * Use regression instead of classification
