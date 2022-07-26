@@ -136,13 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
-   Improving Performance: Optimizing the membrane time constant
+  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
+   Modified from starting Notebook
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
-   Modified from starting Notebook
+  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
+   Improving Performance: Optimizing the membrane time constant
   </a>
  </li>
  <li class="toctree-l1">
@@ -339,12 +339,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>Jakub</em>: I’m interested in looking into this.</p></li>
 </ul>
 </li>
-<li><p>Alternatives to surrogate gradient descent?</p></li>
-</ul>
-<ul class="simple">
+<li><p>Alternatives to surrogate gradient descent?</p>
+<ul>
 <li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.</p></li>
 </ul>
-<ul class="simple">
+</li>
 <li><p>Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).</p>
 <ul>
 <li><p><em>Danish</em>:  I have a simple vertebrate biophysical model of filtering in the auditory periphery which I could quickly test here.</p></li>
@@ -361,6 +360,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?</p>
 <ul>
 <li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.</p></li>
+<li><p><em>Ido</em>: Might be interesting to consider multi compartment biophysical neuron models. For starters, I’d be interested to try to add dendrites to the individual units (for example by using <a class="reference external" href="https://github.com/Poirazi-Lab/dendrify">https://github.com/Poirazi-Lab/dendrify</a>).</p></li>
 </ul>
 </li>
 <li><p>How to understand what the learned network does?</p>
