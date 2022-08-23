@@ -34,11 +34,13 @@ Starting point:
   - _Danish_: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here.
 * Consider multiple architectures, potentially matching the auditory system.
   - _Alicja_: I'll look into that, beginning with checking the effect of adding more hidden layers.
+  - _Mingxuan_: I'll experiment with this starting with altering the output neurons.
 * Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?
   - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.
   - _Ido_: Might be interesting to consider multi compartment biophysical neuron models. For starters, I'd be interested to try to add dendrites to the individual units (for example by using https://github.com/Poirazi-Lab/dendrify).
 * How to understand what the learned network does?
   - _Helena_:  This is just a warm up, and I am starting with a simple thresholding on the W1W2 plot to improve the contrast. I am going to push file named as SNN_sound_W1W2_threshold_plot.ipynb. I will probably come back to this later. 
 * Use regression instead of classification
+  - _Mingxuan_: I'd like to experiment with this idea.
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
   - _Danish_:  Very interesting question that I would like to explore.
