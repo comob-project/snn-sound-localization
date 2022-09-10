@@ -44,3 +44,5 @@ Starting point:
   - _Mingxuan_: I'd like to experiment with this idea.
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
   - _Danish_:  Very interesting question that I would like to explore.
+* Level of biological realism and impact on performace - Dale law.
+  - _Jose_: Looking into this
