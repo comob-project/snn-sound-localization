@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Altering-output-neurons.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Altering_output_neurons.html" />
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -147,13 +147,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Excitatory-only-localisation.html">
-   Sound localisation with excitatory-only inputs surrogate gradient descent
+  <a class="reference internal" href="Analysing-Trained-Networks.html">
+   (WIP) Analysing trained networks
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Analysing-Trained-Networks.html">
-   (WIP) Analysing trained networks
+  <a class="reference internal" href="Excitatory-only-localisation.html">
+   Sound localisation with excitatory-only inputs surrogate gradient descent
   </a>
  </li>
  <li class="toctree-l1">
@@ -203,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/research/Altering-output-neurons.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/research/Altering_output_neurons.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -223,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Altering-output-neurons.ipynb"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Altering_output_neurons.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Altering-output-neurons.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comob-project/snn-sound-localization/main?urlpath=tree/research/Altering_output_neurons.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -251,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Altering-output-neurons.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/comob-project/snn-sound-localization/blob/main/research/Altering_output_neurons.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -568,7 +568,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Findings:</p>
 <ul class="simple">
-<li><p>Fr model is the best 20ms model, but its performance in the 2ms case is worse than oc</p></li>
+<li><p>In 20ms case, fr model is the best, with similar median and smaller fluctuation when compared with oc</p></li>
+<li><p>In 2ms case, oc is still the best among the three</p></li>
 <li><p>Max model does not fit well for this task, performing the worst in all cases</p></li>
 </ul>
 <div class="cell docutils container">
@@ -595,19 +596,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Change this to your own path</span>
 
-<span class="c1"># from google.colab import drive</span>
-<span class="c1"># drive.mount(&#39;/content/drive&#39;, force_remount=True)</span>
-
-<span class="c1"># import os</span>
-<span class="c1"># os.chdir(&#39;/content/drive/MyDrive/Summer_research/Results_stage1&#39;)</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/root/research/SR/Results_stage2&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/Shareddrives/SNN_sound_localization/Results_stage2/oc_vs_fr&#39;</span><span class="p">)</span>
+
+<span class="c1"># import os</span>
+<span class="c1"># os.chdir(&#39;/root/research/SR/Results_stage2&#39;)</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oc_vs_fr_acc.png  oc_vs_fr_err.png  saved_results
+oc_vs_fr_acc.svg  oc_vs_fr_err.svg  wd
 </pre></div>
 </div>
 </div>
@@ -683,7 +702,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Altering-output-neurons_7_0.png" src="../_images/Altering-output-neurons_7_0.png" />
+<img alt="../_images/Altering_output_neurons_8_0.png" src="../_images/Altering_output_neurons_8_0.png" />
 </div>
 </div>
 <p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
@@ -846,7 +865,7 @@ Epoch 9: loss=2.20243
 Epoch 10: loss=2.05727
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_16_1.png" src="../_images/Altering-output-neurons_16_1.png" />
+<img alt="../_images/Altering_output_neurons_17_1.png" src="../_images/Altering_output_neurons_17_1.png" />
 </div>
 </div>
 </div>
@@ -913,8 +932,8 @@ Test classifier accuracy: 9.4%
 Test absolute error: 57.2 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_18_1.png" src="../_images/Altering-output-neurons_18_1.png" />
-<img alt="../_images/Altering-output-neurons_18_2.png" src="../_images/Altering-output-neurons_18_2.png" />
+<img alt="../_images/Altering_output_neurons_19_1.png" src="../_images/Altering_output_neurons_19_1.png" />
+<img alt="../_images/Altering_output_neurons_19_2.png" src="../_images/Altering_output_neurons_19_2.png" />
 </div>
 </div>
 <p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
@@ -1072,7 +1091,7 @@ Epoch 9: loss=0.64462
 Epoch 10: loss=0.61308
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_26_1.png" src="../_images/Altering-output-neurons_26_1.png" />
+<img alt="../_images/Altering_output_neurons_27_1.png" src="../_images/Altering_output_neurons_27_1.png" />
 </div>
 </div>
 <p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
@@ -1097,8 +1116,8 @@ Test classifier accuracy: 60.7%
 Test absolute error: 7.8 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_28_1.png" src="../_images/Altering-output-neurons_28_1.png" />
-<img alt="../_images/Altering-output-neurons_28_2.png" src="../_images/Altering-output-neurons_28_2.png" />
+<img alt="../_images/Altering_output_neurons_29_1.png" src="../_images/Altering_output_neurons_29_1.png" />
+<img alt="../_images/Altering_output_neurons_29_2.png" src="../_images/Altering_output_neurons_29_2.png" />
 </div>
 </div>
 <p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
@@ -1120,7 +1139,7 @@ Test absolute error: 7.8 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Altering-output-neurons_30_0.png" src="../_images/Altering-output-neurons_30_0.png" />
+<img alt="../_images/Altering_output_neurons_31_0.png" src="../_images/Altering_output_neurons_31_0.png" />
 </div>
 </div>
 <p>Hmm, hard to interpret.</p>
@@ -1176,8 +1195,8 @@ Test absolute error: 7.8 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Altering-output-neurons_32_0.png" src="../_images/Altering-output-neurons_32_0.png" />
-<img alt="../_images/Altering-output-neurons_32_1.png" src="../_images/Altering-output-neurons_32_1.png" />
+<img alt="../_images/Altering_output_neurons_33_0.png" src="../_images/Altering_output_neurons_33_0.png" />
+<img alt="../_images/Altering_output_neurons_33_1.png" src="../_images/Altering_output_neurons_33_1.png" />
 </div>
 </div>
 </div>
@@ -1257,7 +1276,7 @@ Test absolute error: 7.8 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Altering-output-neurons_39_0.png" src="../_images/Altering-output-neurons_39_0.png" />
+<img alt="../_images/Altering_output_neurons_40_0.png" src="../_images/Altering_output_neurons_40_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1703,188 +1722,188 @@ Test absolute error: 7.8 deg
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.28055
-Epoch 2: loss=1.41947
-Epoch 3: loss=1.07422
-Epoch 4: loss=0.92954
-Epoch 5: loss=0.86147
-Epoch 6: loss=0.75593
-Epoch 7: loss=0.66495
-Epoch 8: loss=0.61844
-Epoch 9: loss=0.58438
-Epoch 10: loss=0.60981
+Epoch 1: loss=2.30230
+Epoch 2: loss=1.44778
+Epoch 3: loss=1.09132
+Epoch 4: loss=0.91280
+Epoch 5: loss=0.80248
+Epoch 6: loss=0.74836
+Epoch 7: loss=0.67611
+Epoch 8: loss=0.65565
+Epoch 9: loss=0.60655
+Epoch 10: loss=0.55965
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 78.1%
+Train classifier accuracy: 76.9%
+Train absolute error: 5.2 deg
+
+Test classifier accuracy: 66.4%
+Test absolute error: 6.3 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.47346
+Epoch 2: loss=1.73753
+Epoch 3: loss=1.31806
+Epoch 4: loss=1.08091
+Epoch 5: loss=0.95101
+Epoch 6: loss=0.86727
+Epoch 7: loss=0.81084
+Epoch 8: loss=0.75728
+Epoch 9: loss=0.74232
+Epoch 10: loss=0.69324
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 77.1%
+Train absolute error: 5.3 deg
+
+Test classifier accuracy: 25.0%
+Test absolute error: 30.9 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.12104
+Epoch 2: loss=1.26101
+Epoch 3: loss=0.99096
+Epoch 4: loss=0.85545
+Epoch 5: loss=0.76997
+Epoch 6: loss=0.70945
+Epoch 7: loss=0.67392
+Epoch 8: loss=0.62177
+Epoch 9: loss=0.58624
+Epoch 10: loss=0.55506
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 81.2%
+Train absolute error: 4.8 deg
+
+Test classifier accuracy: 43.2%
+Test absolute error: 29.2 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.14631
+Epoch 2: loss=1.20166
+Epoch 3: loss=0.93246
+Epoch 4: loss=0.80638
+Epoch 5: loss=0.72083
+Epoch 6: loss=0.65647
+Epoch 7: loss=0.63656
+Epoch 8: loss=0.57304
+Epoch 9: loss=0.53173
+Epoch 10: loss=0.53101
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 77.6%
+Train absolute error: 5.3 deg
+
+Test classifier accuracy: 65.3%
+Test absolute error: 6.5 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.00829
+Epoch 2: loss=1.18301
+Epoch 3: loss=0.95123
+Epoch 4: loss=0.84278
+Epoch 5: loss=0.75725
+Epoch 6: loss=0.70151
+Epoch 7: loss=0.66731
+Epoch 8: loss=0.61849
+Epoch 9: loss=0.61753
+Epoch 10: loss=0.59045
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 82.0%
+Train absolute error: 4.8 deg
+
+Test classifier accuracy: 52.4%
+Test absolute error: 9.6 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.05730
+Epoch 2: loss=1.36346
+Epoch 3: loss=1.13530
+Epoch 4: loss=1.00824
+Epoch 5: loss=0.92950
+Epoch 6: loss=0.88064
+Epoch 7: loss=0.83347
+Epoch 8: loss=0.77994
+Epoch 9: loss=0.74756
+Epoch 10: loss=0.71461
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 77.0%
+Train absolute error: 5.3 deg
+
+Test classifier accuracy: 41.3%
+Test absolute error: 11.4 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.35310
+Epoch 2: loss=1.72459
+Epoch 3: loss=1.23175
+Epoch 4: loss=1.00985
+Epoch 5: loss=0.88888
+Epoch 6: loss=0.85241
+Epoch 7: loss=0.75736
+Epoch 8: loss=0.71086
+Epoch 9: loss=0.69708
+Epoch 10: loss=0.67688
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 78.0%
 Train absolute error: 5.1 deg
 
-Test classifier accuracy: 43.7%
-Test absolute error: 22.5 deg
+Test classifier accuracy: 51.8%
+Test absolute error: 8.5 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.16454
-Epoch 2: loss=1.60982
-Epoch 3: loss=1.35263
-Epoch 4: loss=1.17647
-Epoch 5: loss=1.07950
-Epoch 6: loss=0.99089
-Epoch 7: loss=0.94305
-Epoch 8: loss=0.87563
-Epoch 9: loss=0.87622
-Epoch 10: loss=0.82081
+Epoch 1: loss=2.23767
+Epoch 2: loss=1.35868
+Epoch 3: loss=1.07066
+Epoch 4: loss=0.92129
+Epoch 5: loss=0.83105
+Epoch 6: loss=0.77032
+Epoch 7: loss=0.70995
+Epoch 8: loss=0.66596
+Epoch 9: loss=0.62811
+Epoch 10: loss=0.59548
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 74.6%
+Train classifier accuracy: 78.0%
+Train absolute error: 5.2 deg
+
+Test classifier accuracy: 30.9%
+Test absolute error: 14.4 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.19264
+Epoch 2: loss=1.36677
+Epoch 3: loss=1.11540
+Epoch 4: loss=0.98164
+Epoch 5: loss=0.91029
+Epoch 6: loss=0.83342
+Epoch 7: loss=0.77361
+Epoch 8: loss=0.74515
+Epoch 9: loss=0.73537
+Epoch 10: loss=0.68700
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 75.2%
 Train absolute error: 5.5 deg
 
-Test classifier accuracy: 43.6%
-Test absolute error: 11.3 deg
+Test classifier accuracy: 27.4%
+Test absolute error: 14.0 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.49946
-Epoch 2: loss=2.19437
-Epoch 3: loss=1.82777
-Epoch 4: loss=1.68646
-Epoch 5: loss=1.59997
-Epoch 6: loss=1.54304
-Epoch 7: loss=1.49761
-Epoch 8: loss=1.48716
-Epoch 9: loss=1.45140
-Epoch 10: loss=1.44498
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 45.3%
-Train absolute error: 16.3 deg
-
-Test classifier accuracy: 33.4%
-Test absolute error: 26.5 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.57947
-Epoch 2: loss=1.94963
-Epoch 3: loss=1.53237
-Epoch 4: loss=1.26438
-Epoch 5: loss=1.10475
-Epoch 6: loss=1.00007
-Epoch 7: loss=0.93741
-Epoch 8: loss=0.86964
-Epoch 9: loss=0.82698
-Epoch 10: loss=0.80969
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 73.7%
-Train absolute error: 5.6 deg
-
-Test classifier accuracy: 44.8%
-Test absolute error: 15.2 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.19779
-Epoch 2: loss=1.43951
-Epoch 3: loss=1.02872
-Epoch 4: loss=0.87088
-Epoch 5: loss=0.78542
-Epoch 6: loss=0.73164
-Epoch 7: loss=0.66840
-Epoch 8: loss=0.63217
-Epoch 9: loss=0.58310
-Epoch 10: loss=0.57461
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 79.6%
-Train absolute error: 5.0 deg
-
-Test classifier accuracy: 53.5%
-Test absolute error: 9.1 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.12708
-Epoch 2: loss=1.32971
-Epoch 3: loss=1.06405
-Epoch 4: loss=0.92821
-Epoch 5: loss=0.81608
-Epoch 6: loss=0.73314
-Epoch 7: loss=0.67437
-Epoch 8: loss=0.64110
-Epoch 9: loss=0.60402
-Epoch 10: loss=0.57869
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 82.6%
-Train absolute error: 4.7 deg
-
-Test classifier accuracy: 38.9%
-Test absolute error: 14.5 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.31593
-Epoch 2: loss=1.47019
-Epoch 3: loss=1.10613
-Epoch 4: loss=0.95507
-Epoch 5: loss=0.85447
-Epoch 6: loss=0.79307
-Epoch 7: loss=0.74799
-Epoch 8: loss=0.70406
-Epoch 9: loss=0.64911
-Epoch 10: loss=0.64566
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 71.9%
-Train absolute error: 5.7 deg
-
-Test classifier accuracy: 40.8%
-Test absolute error: 11.2 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.55469
-Epoch 2: loss=2.09040
-Epoch 3: loss=1.82940
-Epoch 4: loss=1.59265
-Epoch 5: loss=1.21461
-Epoch 6: loss=1.07006
-Epoch 7: loss=0.99860
-Epoch 8: loss=0.93411
-Epoch 9: loss=0.90828
-Epoch 10: loss=0.85119
+Epoch 1: loss=2.46377
+Epoch 2: loss=1.77466
+Epoch 3: loss=1.36694
+Epoch 4: loss=1.17316
+Epoch 5: loss=1.05272
+Epoch 6: loss=0.97872
+Epoch 7: loss=0.90114
+Epoch 8: loss=0.85341
+Epoch 9: loss=0.80216
+Epoch 10: loss=0.76964
 Chance accuracy level: 8.3%
 
 Train classifier accuracy: 77.9%
-Train absolute error: 5.1 deg
+Train absolute error: 5.2 deg
 
-Test classifier accuracy: 24.4%
-Test absolute error: 13.1 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.30373
-Epoch 2: loss=1.40756
-Epoch 3: loss=1.09249
-Epoch 4: loss=0.94835
-Epoch 5: loss=0.83522
-Epoch 6: loss=0.76597
-Epoch 7: loss=0.72762
-Epoch 8: loss=0.66380
-Epoch 9: loss=0.63943
-Epoch 10: loss=0.61124
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 80.0%
-Train absolute error: 4.9 deg
-
-Test classifier accuracy: 28.8%
-Test absolute error: 18.9 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=1.97532
-Epoch 2: loss=1.15104
-Epoch 3: loss=0.90918
-Epoch 4: loss=0.77910
-Epoch 5: loss=0.69364
-Epoch 6: loss=0.64336
-Epoch 7: loss=0.59643
-Epoch 8: loss=0.55825
-Epoch 9: loss=0.50668
-Epoch 10: loss=0.50363
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 86.8%
-Train absolute error: 4.4 deg
-
-Test classifier accuracy: 58.0%
-Test absolute error: 8.5 deg
+Test classifier accuracy: 75.1%
+Test absolute error: 5.3 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_59_1.png" src="../_images/Altering-output-neurons_59_1.png" />
+<img alt="../_images/Altering_output_neurons_60_1.png" src="../_images/Altering_output_neurons_60_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1954,188 +1973,188 @@ Test absolute error: 8.5 deg
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.11136
-Epoch 2: loss=1.45565
-Epoch 3: loss=1.13073
-Epoch 4: loss=0.94887
-Epoch 5: loss=0.82013
-Epoch 6: loss=0.72570
-Epoch 7: loss=0.65773
-Epoch 8: loss=0.59961
-Epoch 9: loss=0.55714
-Epoch 10: loss=0.52521
+Epoch 1: loss=2.02348
+Epoch 2: loss=1.36441
+Epoch 3: loss=1.03763
+Epoch 4: loss=0.87292
+Epoch 5: loss=0.75750
+Epoch 6: loss=0.68027
+Epoch 7: loss=0.62352
+Epoch 8: loss=0.56535
+Epoch 9: loss=0.52661
+Epoch 10: loss=0.49049
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 88.9%
-Train absolute error: 4.1 deg
-
-Test classifier accuracy: 84.3%
-Test absolute error: 4.3 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.01519
-Epoch 2: loss=1.33346
-Epoch 3: loss=1.04387
-Epoch 4: loss=0.88707
-Epoch 5: loss=0.77502
-Epoch 6: loss=0.69121
-Epoch 7: loss=0.64235
-Epoch 8: loss=0.56964
-Epoch 9: loss=0.53302
-Epoch 10: loss=0.49191
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 91.8%
-Train absolute error: 4.0 deg
-
-Test classifier accuracy: 86.6%
-Test absolute error: 4.2 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.10446
-Epoch 2: loss=1.50795
-Epoch 3: loss=1.19939
-Epoch 4: loss=1.00722
-Epoch 5: loss=0.88339
-Epoch 6: loss=0.79426
-Epoch 7: loss=0.73119
-Epoch 8: loss=0.67000
-Epoch 9: loss=0.63122
-Epoch 10: loss=0.59359
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 89.6%
-Train absolute error: 4.1 deg
-
-Test classifier accuracy: 85.2%
-Test absolute error: 4.3 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.00580
-Epoch 2: loss=1.38177
-Epoch 3: loss=1.11828
-Epoch 4: loss=0.96766
-Epoch 5: loss=0.85614
-Epoch 6: loss=0.78693
-Epoch 7: loss=0.71480
-Epoch 8: loss=0.65882
-Epoch 9: loss=0.61573
-Epoch 10: loss=0.57931
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 88.3%
+Train classifier accuracy: 89.5%
 Train absolute error: 4.2 deg
 
-Test classifier accuracy: 83.5%
-Test absolute error: 4.5 deg
+Test classifier accuracy: 84.8%
+Test absolute error: 4.3 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.08779
-Epoch 2: loss=1.45179
-Epoch 3: loss=1.10816
-Epoch 4: loss=0.92368
-Epoch 5: loss=0.79693
-Epoch 6: loss=0.70755
-Epoch 7: loss=0.64523
-Epoch 8: loss=0.59427
-Epoch 9: loss=0.54703
-Epoch 10: loss=0.50460
+Epoch 1: loss=2.06977
+Epoch 2: loss=1.40666
+Epoch 3: loss=1.10106
+Epoch 4: loss=0.92715
+Epoch 5: loss=0.82256
+Epoch 6: loss=0.73506
+Epoch 7: loss=0.66997
+Epoch 8: loss=0.62335
+Epoch 9: loss=0.57391
+Epoch 10: loss=0.54942
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 88.3%
+Train classifier accuracy: 89.9%
+Train absolute error: 4.1 deg
+
+Test classifier accuracy: 85.7%
+Test absolute error: 4.3 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.09535
+Epoch 2: loss=1.44243
+Epoch 3: loss=1.13481
+Epoch 4: loss=0.96115
+Epoch 5: loss=0.83400
+Epoch 6: loss=0.74520
+Epoch 7: loss=0.67719
+Epoch 8: loss=0.62562
+Epoch 9: loss=0.58451
+Epoch 10: loss=0.54286
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 87.6%
+Train absolute error: 4.3 deg
+
+Test classifier accuracy: 83.6%
+Test absolute error: 4.5 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.01811
+Epoch 2: loss=1.41488
+Epoch 3: loss=1.13798
+Epoch 4: loss=0.94257
+Epoch 5: loss=0.82124
+Epoch 6: loss=0.73380
+Epoch 7: loss=0.66603
+Epoch 8: loss=0.60775
+Epoch 9: loss=0.57211
+Epoch 10: loss=0.52037
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 86.9%
+Train absolute error: 4.3 deg
+
+Test classifier accuracy: 84.4%
+Test absolute error: 4.3 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.00878
+Epoch 2: loss=1.33324
+Epoch 3: loss=1.05499
+Epoch 4: loss=0.89620
+Epoch 5: loss=0.78643
+Epoch 6: loss=0.71380
+Epoch 7: loss=0.64497
+Epoch 8: loss=0.59571
+Epoch 9: loss=0.55636
+Epoch 10: loss=0.51595
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 90.6%
+Train absolute error: 4.0 deg
+
+Test classifier accuracy: 86.4%
+Test absolute error: 4.3 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.02574
+Epoch 2: loss=1.34653
+Epoch 3: loss=1.05305
+Epoch 4: loss=0.89516
+Epoch 5: loss=0.79073
+Epoch 6: loss=0.70717
+Epoch 7: loss=0.64316
+Epoch 8: loss=0.59863
+Epoch 9: loss=0.56227
+Epoch 10: loss=0.52342
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 87.9%
+Train absolute error: 4.2 deg
+
+Test classifier accuracy: 84.9%
+Test absolute error: 4.3 deg
+Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
+Epoch 1: loss=2.22964
+Epoch 2: loss=1.68812
+Epoch 3: loss=1.31980
+Epoch 4: loss=1.10441
+Epoch 5: loss=0.95786
+Epoch 6: loss=0.85644
+Epoch 7: loss=0.77388
+Epoch 8: loss=0.70658
+Epoch 9: loss=0.65512
+Epoch 10: loss=0.61213
+Chance accuracy level: 8.3%
+
+Train classifier accuracy: 87.8%
 Train absolute error: 4.2 deg
 
 Test classifier accuracy: 84.5%
-Test absolute error: 4.4 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.08463
-Epoch 2: loss=1.43393
-Epoch 3: loss=1.13464
-Epoch 4: loss=0.96226
-Epoch 5: loss=0.85472
-Epoch 6: loss=0.77698
-Epoch 7: loss=0.71116
-Epoch 8: loss=0.65286
-Epoch 9: loss=0.60246
-Epoch 10: loss=0.56136
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 90.7%
-Train absolute error: 4.1 deg
-
-Test classifier accuracy: 83.3%
 Test absolute error: 4.5 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.10112
-Epoch 2: loss=1.44639
-Epoch 3: loss=1.13621
-Epoch 4: loss=0.96601
-Epoch 5: loss=0.85563
-Epoch 6: loss=0.77316
-Epoch 7: loss=0.70842
-Epoch 8: loss=0.65353
-Epoch 9: loss=0.60647
-Epoch 10: loss=0.57074
+Epoch 1: loss=2.15882
+Epoch 2: loss=1.55220
+Epoch 3: loss=1.24342
+Epoch 4: loss=1.02989
+Epoch 5: loss=0.88836
+Epoch 6: loss=0.78712
+Epoch 7: loss=0.71451
+Epoch 8: loss=0.65720
+Epoch 9: loss=0.61365
+Epoch 10: loss=0.57002
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 90.3%
+Train classifier accuracy: 89.8%
 Train absolute error: 4.1 deg
 
-Test classifier accuracy: 85.3%
+Test classifier accuracy: 83.5%
 Test absolute error: 4.4 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=1.96864
-Epoch 2: loss=1.33754
-Epoch 3: loss=1.07194
-Epoch 4: loss=0.91707
-Epoch 5: loss=0.80098
-Epoch 6: loss=0.71795
-Epoch 7: loss=0.65791
-Epoch 8: loss=0.60577
-Epoch 9: loss=0.57075
-Epoch 10: loss=0.52778
+Epoch 1: loss=2.10566
+Epoch 2: loss=1.42674
+Epoch 3: loss=1.07815
+Epoch 4: loss=0.89576
+Epoch 5: loss=0.77488
+Epoch 6: loss=0.68891
+Epoch 7: loss=0.62323
+Epoch 8: loss=0.57279
+Epoch 9: loss=0.54375
+Epoch 10: loss=0.49914
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 91.0%
+Train classifier accuracy: 90.6%
 Train absolute error: 4.1 deg
 
-Test classifier accuracy: 85.9%
-Test absolute error: 4.3 deg
+Test classifier accuracy: 86.4%
+Test absolute error: 4.1 deg
 Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=1.96524
-Epoch 2: loss=1.31331
-Epoch 3: loss=1.03959
-Epoch 4: loss=0.89264
-Epoch 5: loss=0.78354
-Epoch 6: loss=0.69659
-Epoch 7: loss=0.64109
-Epoch 8: loss=0.59479
-Epoch 9: loss=0.54956
-Epoch 10: loss=0.51690
+Epoch 1: loss=2.04730
+Epoch 2: loss=1.40978
+Epoch 3: loss=1.10789
+Epoch 4: loss=0.94492
+Epoch 5: loss=0.83529
+Epoch 6: loss=0.74991
+Epoch 7: loss=0.69115
+Epoch 8: loss=0.63494
+Epoch 9: loss=0.58842
+Epoch 10: loss=0.55357
 Chance accuracy level: 8.3%
 
-Train classifier accuracy: 86.3%
+Train classifier accuracy: 87.9%
 Train absolute error: 4.3 deg
 
-Test classifier accuracy: 82.9%
+Test classifier accuracy: 82.7%
 Test absolute error: 4.5 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-Epoch 1: loss=2.07435
-Epoch 2: loss=1.41639
-Epoch 3: loss=1.08307
-Epoch 4: loss=0.90916
-Epoch 5: loss=0.79629
-Epoch 6: loss=0.71304
-Epoch 7: loss=0.64899
-Epoch 8: loss=0.60299
-Epoch 9: loss=0.55812
-Epoch 10: loss=0.52329
-Chance accuracy level: 8.3%
-
-Train classifier accuracy: 90.0%
-Train absolute error: 4.1 deg
-
-Test classifier accuracy: 86.7%
-Test absolute error: 4.3 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_60_1.png" src="../_images/Altering-output-neurons_60_1.png" />
+<img alt="../_images/Altering_output_neurons_61_1.png" src="../_images/Altering_output_neurons_61_1.png" />
 </div>
 </div>
 </div>
@@ -2389,7 +2408,7 @@ Test classifier accuracy: 17.0%
 Test absolute error: 53.1 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_62_1.png" src="../_images/Altering-output-neurons_62_1.png" />
+<img alt="../_images/Altering_output_neurons_63_1.png" src="../_images/Altering_output_neurons_63_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2640,7 +2659,7 @@ Test classifier accuracy: 25.3%
 Test absolute error: 15.6 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_63_1.png" src="../_images/Altering-output-neurons_63_1.png" />
+<img alt="../_images/Altering_output_neurons_64_1.png" src="../_images/Altering_output_neurons_64_1.png" />
 </div>
 </div>
 </div>
@@ -2894,7 +2913,7 @@ Test classifier accuracy: 43.8%
 Test absolute error: 10.9 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_65_1.png" src="../_images/Altering-output-neurons_65_1.png" />
+<img alt="../_images/Altering_output_neurons_66_1.png" src="../_images/Altering_output_neurons_66_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3145,7 +3164,7 @@ Test classifier accuracy: 54.0%
 Test absolute error: 8.3 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_66_1.png" src="../_images/Altering-output-neurons_66_1.png" />
+<img alt="../_images/Altering_output_neurons_67_1.png" src="../_images/Altering_output_neurons_67_1.png" />
 </div>
 </div>
 </div>
@@ -3208,14 +3227,15 @@ Test absolute error: 8.3 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Altering-output-neurons_68_0.png" src="../_images/Altering-output-neurons_68_0.png" />
-<img alt="../_images/Altering-output-neurons_68_1.png" src="../_images/Altering-output-neurons_68_1.png" />
+<img alt="../_images/Altering_output_neurons_69_0.png" src="../_images/Altering_output_neurons_69_0.png" />
+<img alt="../_images/Altering_output_neurons_69_1.png" src="../_images/Altering_output_neurons_69_1.png" />
 </div>
 </div>
 <p>The plot above shows that:</p>
 <ul class="simple">
-<li><p>Fr model is the best 20ms model, but its performance in the 2ms case is worse than oc</p></li>
-<li><p>Max model does not fit well for this task</p></li>
+<li><p>In 20ms case, fr model is the best, with similar median and smaller fluctuation when compared with oc</p></li>
+<li><p>In 2ms case, oc is still the best among the three</p></li>
+<li><p>Max model does not fit well for this task, performing the worst in all cases</p></li>
 </ul>
 </div>
 </div>
@@ -3300,11 +3320,11 @@ Test classifier accuracy: 48.8%
 Test absolute error: 9.2 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_71_1.png" src="../_images/Altering-output-neurons_71_1.png" />
-<img alt="../_images/Altering-output-neurons_71_2.png" src="../_images/Altering-output-neurons_71_2.png" />
-<img alt="../_images/Altering-output-neurons_71_3.png" src="../_images/Altering-output-neurons_71_3.png" />
-<img alt="../_images/Altering-output-neurons_71_4.png" src="../_images/Altering-output-neurons_71_4.png" />
-<img alt="../_images/Altering-output-neurons_71_5.png" src="../_images/Altering-output-neurons_71_5.png" />
+<img alt="../_images/Altering_output_neurons_72_1.png" src="../_images/Altering_output_neurons_72_1.png" />
+<img alt="../_images/Altering_output_neurons_72_2.png" src="../_images/Altering_output_neurons_72_2.png" />
+<img alt="../_images/Altering_output_neurons_72_3.png" src="../_images/Altering_output_neurons_72_3.png" />
+<img alt="../_images/Altering_output_neurons_72_4.png" src="../_images/Altering_output_neurons_72_4.png" />
+<img alt="../_images/Altering_output_neurons_72_5.png" src="../_images/Altering_output_neurons_72_5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3386,11 +3406,11 @@ Test classifier accuracy: 63.0%
 Test absolute error: 7.2 deg
 </pre></div>
 </div>
-<img alt="../_images/Altering-output-neurons_72_1.png" src="../_images/Altering-output-neurons_72_1.png" />
-<img alt="../_images/Altering-output-neurons_72_2.png" src="../_images/Altering-output-neurons_72_2.png" />
-<img alt="../_images/Altering-output-neurons_72_3.png" src="../_images/Altering-output-neurons_72_3.png" />
-<img alt="../_images/Altering-output-neurons_72_4.png" src="../_images/Altering-output-neurons_72_4.png" />
-<img alt="../_images/Altering-output-neurons_72_5.png" src="../_images/Altering-output-neurons_72_5.png" />
+<img alt="../_images/Altering_output_neurons_73_1.png" src="../_images/Altering_output_neurons_73_1.png" />
+<img alt="../_images/Altering_output_neurons_73_2.png" src="../_images/Altering_output_neurons_73_2.png" />
+<img alt="../_images/Altering_output_neurons_73_3.png" src="../_images/Altering_output_neurons_73_3.png" />
+<img alt="../_images/Altering_output_neurons_73_4.png" src="../_images/Altering_output_neurons_73_4.png" />
+<img alt="../_images/Altering_output_neurons_73_5.png" src="../_images/Altering_output_neurons_73_5.png" />
 </div>
 </div>
 </div>
