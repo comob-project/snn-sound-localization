@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop 1 Write-up &#8212; SNN Sound Localization</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style-mods.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Workshop_1_Write_Up.html" />
+    <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modified from starting Notebook" href="SNN_sound_W1W2_threshold_plot.html" />
+    <link rel="prev" title="Starting Notebook" href="Starting-Notebook.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">SNN Sound Localization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contributing.html">
+   How to contribute
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/discussions/categories/q-a">
+   Discussion forum
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Background.html">
+   Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Questions.html">
+   Questions &amp; challenges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Starting-Notebook.html">
+   Starting Notebook
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Workshop 1 Write-up
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
+   Modified from starting Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
+   Improving Performance: Optimizing the membrane time constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Excitatory-only-localisation.html">
+   Sound localisation with excitatory-only inputs surrogate gradient descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamic_threshold.html">
+   Dynamic threshold
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dales_law.html">
+   Sound localisation following Dale’ law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Analysing-Trained-Networks.html">
+   (WIP) Analysing trained networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Analysing-Trained-Networks-Part2.html">
+   Analysing trained networks - workshop edition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Altering_output_neurons.html">
+   Altering Output Neurons
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/research/Workshop_1_Write_Up.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comob-project/snn-sound-localization"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Workshop_1_Write_Up.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teams">
+   Teams
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-constants">
+     Time Constants
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#members">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#questions">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#results">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#references">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dale-s-law">
+     Dale’s Law
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-delays">
+     Learning delays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysing-trained-networks">
+     Analysing trained networks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#next-steps">
+       Next steps
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discussion">
+       Discussion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Workshop 1 Write-up</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teams">
+   Teams
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-constants">
+     Time Constants
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#members">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#questions">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#results">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#references">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dale-s-law">
+     Dale’s Law
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-delays">
+     Learning delays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysing-trained-networks">
+     Analysing trained networks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Members
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Questions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#next-steps">
+       Next steps
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discussion">
+       Discussion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="workshop-1-write-up">
+<h1>Workshop 1 Write-up<a class="headerlink" href="#workshop-1-write-up" title="Permalink to this headline">¶</a></h1>
+<p>08.07.2022<br />
+Organised by Marcus Ghosh (France, Postdoc)</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Our first workshop brought together 16 researchers (undergraduates, doctoral students and postdocs) from 8 countries! We started the day by discussing ideas for the project and what work people had already commited to the repository. Our ideas fell into roughly four themes: time constants, Dale’s law, learning delays and analysing trained networks, so we created these breakout rooms and allowed everyone to join their team of interest. In most teams one person shared their screen and wrote code, while the rest of team provided ideas / input and read relevant literature. Below are some notes on each teams work, and our cross-team discussion at the end of the day.</p>
+</div>
+<div class="section" id="teams">
+<h2>Teams<a class="headerlink" href="#teams" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="time-constants">
+<h3>Time Constants<a class="headerlink" href="#time-constants" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="members">
+<h4>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h4>
+<p>Chen Li (UK, Masters)<br />
+Peter Crowe (Germany, Undergraduate)
+Rory Byrne (UK, Masters)<br />
+Zachary Friedenberger (Canada, PhD)</p>
+</div>
+<div class="section" id="questions">
+<h4>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>How do membrane time constants affect network performance?</p></li>
+<li><p>If we train the membrane time constants - what distribution emerges?</p></li>
+<li><p>Do heterogenous time constants improve performance?</p></li>
+<li><p>What happens if we allow seperate time constants per layer?</p></li>
+</ol>
+</div>
+<div class="section" id="results">
+<h4>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Model performance decreases as the membrane time constant increases</p></li>
+<li><p>Performance seemed to increase with small output unit time constants too</p></li>
+<li><p>Code to train the membrane time constants seemed to be working</p></li>
+</ol>
+</div>
+<div class="section" id="references">
+<h4>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.nature.com/articles/s41467-021-26022-3">https://www.nature.com/articles/s41467-021-26022-3</a></p>
+</div>
+</div>
+<div class="section" id="dale-s-law">
+<h3>Dale’s Law<a class="headerlink" href="#dale-s-law" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Members<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Bena Gabriel (UK, PhD)<br />
+Jose Gomes (Portugal, PhD)</p>
+</div>
+<div class="section" id="id2">
+<h4>Questions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Can networks with only positive weights learn the task?</p></li>
+<li><p>If we implement Dale’s law (i.e. units can only have positive or negative output connections weights) - how does performance change as a function of the ratio of excitatory:inhibitory units?</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h4>Results<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Wrote code to enforce Dale’s law and change the ratio of excitatory:inhibitory units</p></li>
+<li><p>Preliminary results suggest this is a promising direction to explore!</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h4>References<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.11.02.364968v2">https://www.biorxiv.org/content/10.1101/2020.11.02.364968v2</a></p>
+</div>
+</div>
+<div class="section" id="learning-delays">
+<h3>Learning delays<a class="headerlink" href="#learning-delays" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Members<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Karim Habashy (Germany, PhD)<br />
+Leonidas Richter (Germany, PhD)</p>
+</div>
+<div class="section" id="id6">
+<h4>Questions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>With a random weight matrix - can you solve the task by just learning input delays?</p></li>
+<li><p>With a bit of weight pretraining - can you improve performance by learning input delays?</p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h4>Results<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Learning the input delays didn’t seem to improve performance, but we discussed how a surrogate gradient-esq trick could help with this in future.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="analysing-trained-networks">
+<h3>Analysing trained networks<a class="headerlink" href="#analysing-trained-networks" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>Members<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Gabryel Mason-Williams (UK, Undergraduate)<br />
+Josh Bourne (UK, Masters)<br />
+Tanushri Kabra (India, Masters)<br />
+Tomas Fiers (UK, PhD)<br />
+Zekai Xu (UK, Undergraduate)</p>
+</div>
+<div class="section" id="id9">
+<h4>Questions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>How can we interpret the spiking activity of trained networks?</p></li>
+<li><p>Is it helpful to rank unit’s importance (by the impact of ablation on task performance)?</p></li>
+</ol>
+</div>
+<div class="section" id="id10">
+<h4>Results<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Only some hidden units spike - ablating those degrades performance, while ablating the others does not</p></li>
+<li><p>Hidden units seem continuously tuned to the input angles</p></li>
+<li><p>Smaller networks (2 or 7 hidden units, as opposed to 30) worked significantly better than chance, but not as well as the larger networks</p></li>
+</ol>
+</div>
+<div class="section" id="next-steps">
+<h4>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h4>
+<p>Train networks until convergence<br />
+Test the impact of dropout (drop units or connections)<br />
+Regularize network spiking (e.g. using a lower and upper bound)</p>
+</div>
+<div class="section" id="discussion">
+<h4>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h4>
+<p>Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).</p>
+<p>Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a resonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synpases, heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./research"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Starting-Notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Starting Notebook</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SNN_sound_W1W2_threshold_plot.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modified from starting Notebook</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By COMOB, the project for collaborative modelling of the brain<br/>
+    
+      <div class="extra_footer">
+        <small>
+  Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>:
+  You may use this work, with attribution, in other freely available works.
+</small>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+
+/* Inline code blocks not as red text, but rather as on GitHub (in grey 'box').  */
+code {
+    color: black;
+    background-color: rgba(27,31,35,.05);
+    border-radius: 6px;
+    padding: .11em .35em;
+    border: 1px solid #eee;
+}
+
+
+/* Add some more space between page sections. */
+h2 {
+    margin-top: 3.75rem;  /* default: 2.75rem */
+}
+
+/* Headers are too large by default */
+:root {
+    --pst-font-size-h1: 36px;
+    --pst-font-size-h2: 26px;  /* default: 32px */
+    --pst-font-size-h3: 21px;  /* default: 26px */
+    --pst-font-size-h4: 18px;  /* default: 21px */
+}
+
+
+/* This padding is huge by default */
+.dropdown > .summary-title { padding: 0.2em 0.6em }
+/* Reposition the expand/collapse arrows after the above fix: */
+.dropdown > .summary-title > .summary-down { top: 0.3em }
+.dropdown > .summary-title > .summary-up   { top: 0.3em }
+
+
+/* Default 'admonition' dropdown titles are too heavy wrt the rest of the content */
+.admonition-title { font-weight: 500 !important }  /* 500 is medium, between the default 700 (bold) and normal.*/
+
+/* Indent collapsible boxes a bit: they are not part of the main flow, but rather give more info on the preceding paragraph */
+.dropdown, div.admonition { margin-left: 1.2em }

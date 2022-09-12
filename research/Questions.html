@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questions &amp; challenges &#8212; SNN Sound Localization</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style-mods.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/research/Questions.html" />
+    <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Starting Notebook" href="Starting-Notebook.html" />
+    <link rel="prev" title="Background" href="Background.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">SNN Sound Localization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   About
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contributing.html">
+   How to contribute
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/discussions/categories/q-a">
+   Discussion forum
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Background.html">
+   Background
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Questions &amp; challenges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Starting-Notebook.html">
+   Starting Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Workshop_1_Write_Up.html">
+   Workshop 1 Write-up
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SNN_sound_W1W2_threshold_plot.html">
+   Modified from starting Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Optimizing-Membrane-Time-Constant.html">
+   Improving Performance: Optimizing the membrane time constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Excitatory-only-localisation.html">
+   Sound localisation with excitatory-only inputs surrogate gradient descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamic_threshold.html">
+   Dynamic threshold
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dales_law.html">
+   Sound localisation following Dale’ law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Analysing-Trained-Networks.html">
+   (WIP) Analysing trained networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Analysing-Trained-Networks-Part2.html">
+   Analysing trained networks - workshop edition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Altering_output_neurons.html">
+   Altering Output Neurons
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/research/Questions.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comob-project/snn-sound-localization"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/research/Questions.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling-questions-aims">
+   Modelling questions / aims
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#technical-challenges">
+   Technical challenges
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Questions & challenges</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling-questions-aims">
+   Modelling questions / aims
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#technical-challenges">
+   Technical challenges
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="questions-challenges">
+<h1>Questions &amp; challenges<a class="headerlink" href="#questions-challenges" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modelling-questions-aims">
+<h2>Modelling questions / aims<a class="headerlink" href="#modelling-questions-aims" title="Permalink to this headline">¶</a></h2>
+<p>Starting point:</p>
+<ul class="simple">
+<li><p>What are the best strategies for localising sounds with a spiking neural network?</p></li>
+<li><p>Can we train networks end-to-end to perform as well or better than hand-crafted solutions?</p>
+<ul>
+<li><p><em>Zachary</em>: I’m going to try a few things to improve performance</p></li>
+</ul>
+</li>
+<li><p>Can we understand what these trained networks are doing in a high level way?</p>
+<ul>
+<li><p><em>Dan</em>: I’m going to try out a few ideas for this.</p></li>
+</ul>
+</li>
+<li><p>Do these networks do something similar to what has been proposed in the literature (labelled line models, hemispheric models, pattern match decoders) or something completely different?</p>
+<ul>
+<li><p><em>Lavinia</em>: I’m interested into looking at this (how spiking neural networks can be used to model observed neural representations).</p></li>
+</ul>
+</li>
+<li><p>Do different optimal models emerge in different parameter regimes (head size, signal to noise ratio, multiple sound sources)?</p>
+<ul>
+<li><p><em>Danish</em>:  I have some previous work on head size scaling which could be relevant here.</p></li>
+</ul>
+</li>
+<li><p>How do the results depend on the neuron model and available dynamics? For example, does adaptation matter and in which conditions?</p>
+<ul>
+<li><p><em>Alberto</em>: I’m interested into looking at this (neuron and synapse model, plasticity).</p></li>
+<li><p><em>Danish</em>: I’m also interested in looking at this from the perspective of synaptic plasticity and auditory spatial working memory models.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="technical-challenges">
+<h2>Technical challenges<a class="headerlink" href="#technical-challenges" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Delay learning: can we train delays with surrogate gradient descent?</p>
+<ul>
+<li><p><em>Jakub</em>: I’m interested in looking into this.</p></li>
+</ul>
+</li>
+<li><p>Alternatives to surrogate gradient descent?</p>
+<ul>
+<li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.</p></li>
+</ul>
+</li>
+<li><p>Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).</p>
+<ul>
+<li><p><em>Danish</em>:  I have a simple vertebrate biophysical model of filtering in the auditory periphery which I could quickly test here.</p></li>
+</ul>
+</li>
+<li><p>Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration&gt;=100ms so more than 1000 time steps.</p></li>
+<li><p>Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).</p>
+<ul>
+<li><p><em>Tomas</em>: experiment with this, starting with multi-frequency sounds</p></li>
+<li><p><em>Danish</em>: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here.</p></li>
+</ul>
+</li>
+<li><p>Consider multiple architectures, potentially matching the auditory system.</p>
+<ul>
+<li><p><em>Alicja</em>: I’ll look into that, beginning with checking the effect of adding more hidden layers.</p></li>
+<li><p><em>Mingxuan</em>: I’ll experiment with this starting with altering the output neurons.</p></li>
+</ul>
+</li>
+<li><p>Consider more complicated neuron models and perhaps make some of these neuron model parameters trainable; for what situations can that help?</p>
+<ul>
+<li><p><em>Danish</em>:  I use a correlation learning model of synaptic plasticity which could in principle learn timing and ITD information.</p></li>
+<li><p><em>Ido</em>: Might be interesting to consider multi compartment biophysical neuron models. For starters, I’d be interested to try to add dendrites to the individual units (for example by using <a class="reference external" href="https://github.com/Poirazi-Lab/dendrify">https://github.com/Poirazi-Lab/dendrify</a>).</p></li>
+</ul>
+</li>
+<li><p>How to understand what the learned network does?</p>
+<ul>
+<li><p><em>Helena</em>:  This is just a warm up, and I am starting with a simple thresholding on the W1W2 plot to improve the contrast. I am going to push file named as SNN_sound_W1W2_threshold_plot.ipynb. I will probably come back to this later.</p></li>
+</ul>
+</li>
+<li><p>Use regression instead of classification</p>
+<ul>
+<li><p><em>Mingxuan</em>: I’d like to experiment with this idea.</p></li>
+</ul>
+</li>
+<li><p>Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?</p>
+<ul>
+<li><p><em>Danish</em>:  Very interesting question that I would like to explore.</p></li>
+</ul>
+</li>
+<li><p>Level of biological realism and impact on performace - Dale law.</p>
+<ul>
+<li><p><em>Jose</em>: Looking into this</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./research"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Background.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Background</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Starting-Notebook.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Starting Notebook</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By COMOB, the project for collaborative modelling of the brain<br/>
+    
+      <div class="extra_footer">
+        <small>
+  Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>:
+  You may use this work, with attribution, in other freely available works.
+</small>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
