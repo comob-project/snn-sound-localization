@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What does this notebook do? &#8212; SNN Sound Localization</title>
+    <title>Compute hessians (jax version) &#8212; SNN Sound Localization</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   What does this notebook do?
+   Compute hessians (jax version)
   </a>
  </li>
  <li class="toctree-l1">
@@ -286,69 +286,69 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-this-notebook-do">
    What does this notebook do?
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-are-we-doing-this">
    Why are we doing this?
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#testing-performed">
    Testing performed
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#known-bugs-limitations">
    Known bugs/limitations
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sound-localization-stimuli">
    Sound localization stimuli
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#classification-approach">
    Classification approach
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
    Membrane only (no spiking neurons)
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training">
      Training
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analysis-of-results">
      Analysis of results
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spiking-model">
    Spiking model
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#surrogate-gradient-descent">
      Surrogate gradient descent
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#updated-model">
      Updated model
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training-and-analysing">
      Training and analysing
     </a>
@@ -365,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>What does this notebook do?</h1>
+                <h1>Compute hessians (jax version)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -375,69 +375,69 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-this-notebook-do">
    What does this notebook do?
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-are-we-doing-this">
    Why are we doing this?
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#testing-performed">
    Testing performed
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#known-bugs-limitations">
    Known bugs/limitations
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sound-localization-stimuli">
    Sound localization stimuli
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#classification-approach">
    Classification approach
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membrane-only-no-spiking-neurons">
    Membrane only (no spiking neurons)
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training">
      Training
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analysis-of-results">
      Analysis of results
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spiking-model">
    Spiking model
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#surrogate-gradient-descent">
      Surrogate gradient descent
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#updated-model">
      Updated model
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training-and-analysing">
      Training and analysing
     </a>
@@ -453,16 +453,18 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="what-does-this-notebook-do">
-<h1>What does this notebook do?<a class="headerlink" href="#what-does-this-notebook-do" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="compute-hessians-jax-version">
+<h1>Compute hessians (jax version)<a class="headerlink" href="#compute-hessians-jax-version" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-does-this-notebook-do">
+<h2>What does this notebook do?<a class="headerlink" href="#what-does-this-notebook-do" title="Permalink to this headline">¶</a></h2>
 <p>An example / proof of concept of using automatic differentiation to compute the Hessian of the model at a given point in parameter space.</p>
 </div>
 <div class="section" id="why-are-we-doing-this">
-<h1>Why are we doing this?<a class="headerlink" href="#why-are-we-doing-this" title="Permalink to this headline">¶</a></h1>
+<h2>Why are we doing this?<a class="headerlink" href="#why-are-we-doing-this" title="Permalink to this headline">¶</a></h2>
 <p>To perform various kind of second-order sensitivity analyses on learned models. See <a class="reference external" href="https://github.com/comob-project/snn-sound-localization/discussions/60">discussion thread</a>.</p>
 </div>
 <div class="section" id="testing-performed">
-<h1>Testing performed<a class="headerlink" href="#testing-performed" title="Permalink to this headline">¶</a></h1>
+<h2>Testing performed<a class="headerlink" href="#testing-performed" title="Permalink to this headline">¶</a></h2>
 <p>I’ve defined the perturbation function; verified that it gives zero for the zero-perturbation, that its gradient is zero at the zero-perturbation (since it’s a minima of the pertubration function), but that the Hessian is not. Also, the block-ish structure of the Hessian is typical for such analysis. So I <em>think</em> this is correct. :-) Obiously, still a lot to do, here:</p>
 <ol class="simple">
 <li><p>Make the jax code more efficient (shouldn’t be hard to do).</p></li>
@@ -471,7 +473,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="known-bugs-limitations">
-<h1>Known bugs/limitations<a class="headerlink" href="#known-bugs-limitations" title="Permalink to this headline">¶</a></h1>
+<h2>Known bugs/limitations<a class="headerlink" href="#known-bugs-limitations" title="Permalink to this headline">¶</a></h2>
 <p>Hessian calculation is quite long, which limits iteration speed. I’m sure we can speed it up, but not sure by how much. We can use simpler estimators if we just want the trace of the Hessians (using Hutchinson’s trace estimator).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,7 +494,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="sound-localization-stimuli">
-<h1>Sound localization stimuli<a class="headerlink" href="#sound-localization-stimuli" title="Permalink to this headline">¶</a></h1>
+<h2>Sound localization stimuli<a class="headerlink" href="#sound-localization-stimuli" title="Permalink to this headline">¶</a></h2>
 <p>The following function creates a set of stimuli that can be used for training or testing. We have two ears (0 and 1), and ear 1 will get a version of the signal delayed by an IPD we can write as <span class="math notranslate nohighlight">\(\alpha\)</span> in equations (<code class="docutils literal notranslate"><span class="pre">ipd</span></code> in code). The basic signal is a sine wave as in the previous notebook, made positive, so <span class="math notranslate nohighlight">\((1/2)(1+\sin(\theta)\)</span>. In addition, for each ear there will be <span class="math notranslate nohighlight">\(N_a\)</span> neurons per ear (<code class="docutils literal notranslate"><span class="pre">anf_per_ear</span></code> because these are auditory nerve fibres). Each neuron generates Poisson spikes at a certain firing rate, and these Poisson spike trains are independent. In addition, since it is hard to train delays, we seed it with uniformly distributed delays from a minimum of 0 to a maximum of <span class="math notranslate nohighlight">\(\pi/2\)</span> in each ear, so that the differences between the two ears can cover the range of possible IPDs (<span class="math notranslate nohighlight">\(-\pi/2\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span>). We do this directly by adding a phase delay to each neuron. So for ear <span class="math notranslate nohighlight">\(i\in\{0,1\}\)</span> and neuron <span class="math notranslate nohighlight">\(j\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> the angle <span class="math notranslate nohighlight">\(\theta=2\pi f t+i\alpha+j\pi/2N_a\)</span>. Finally, we generate Poisson spike trains with a rate <span class="math notranslate nohighlight">\(R_\mathrm{max}((1/2)(1+\sin(\theta)))^k\)</span>. <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> (<code class="docutils literal notranslate"><span class="pre">rate_max</span></code>) is the maximum instantaneous firing rate, and <span class="math notranslate nohighlight">\(k\)</span> (<code class="docutils literal notranslate"><span class="pre">envelope_power</span></code>) is a constant that sharpens the envelope. The higher <span class="math notranslate nohighlight">\(R_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> the easier the problem (try it out on the cell below to see why).</p>
 <p>Here’s a picture of the architecture for the stimuli:</p>
 <p><img alt="Stimuli architecture" src="../_images/arch-stimuli.png" /></p>
@@ -562,13 +564,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Compute hessians (jax version)_5_0.png" src="../_images/Compute hessians (jax version)_5_0.png" />
+<img alt="../_images/Compute hessians (jax version)_6_0.png" src="../_images/Compute hessians (jax version)_6_0.png" />
 </div>
 </div>
 <p>Now the aim is to take these input spikes and infer the IPD. We can do this either by discretising and using a classification approach, or with a regression approach. For the moment, let’s try it with a classification approach.</p>
 </div>
 <div class="section" id="classification-approach">
-<h1>Classification approach<a class="headerlink" href="#classification-approach" title="Permalink to this headline">¶</a></h1>
+<h2>Classification approach<a class="headerlink" href="#classification-approach" title="Permalink to this headline">¶</a></h2>
 <p>We discretise the IPD range of <span class="math notranslate nohighlight">\([-\pi/2, \pi/2]\)</span> into <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) equal width segments. Replace angle <span class="math notranslate nohighlight">\(\phi\)</span> with the integer part (floor) of <span class="math notranslate nohighlight">\((\phi+\pi/2)N_c/\pi\)</span>. We also convert the arrays into PyTorch tensors for later use. The algorithm will now guess the index <span class="math notranslate nohighlight">\(i\)</span> of the segment, converting that to the midpoint of the segment <span class="math notranslate nohighlight">\(\phi_i=a+(i+1/2)(b-a)/N_c\)</span> when needed.</p>
 <p>The algorithm will work by outputting a length <span class="math notranslate nohighlight">\(N_c\)</span> vector <span class="math notranslate nohighlight">\(y\)</span> and the index of the maximum value of y will be the guess as to the class (1-hot encoding), i.e. <span class="math notranslate nohighlight">\(i_\mathrm{est}=\mathrm{argmax}_i y_i\)</span>. We will perform the training with a softmax and negative loss likelihood loss, which is a standard approach in machine learning.</p>
 <div class="cell docutils container">
@@ -593,7 +595,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="membrane-only-no-spiking-neurons">
-<h1>Membrane only (no spiking neurons)<a class="headerlink" href="#membrane-only-no-spiking-neurons" title="Permalink to this headline">¶</a></h1>
+<h2>Membrane only (no spiking neurons)<a class="headerlink" href="#membrane-only-no-spiking-neurons" title="Permalink to this headline">¶</a></h2>
 <p>Before we get to spiking, we’re going to warm up with a non-spiking network that shows some of the features of the full model but without any coincidence detection, it can’t do the task. We basically create a neuron model that has everything except spiking, so the membrane potential dynamics are there and it takes spikes as input. The neuron model we’ll use is just the LIF model we’ve already seen. We’ll use a time constant <span class="math notranslate nohighlight">\(\tau\)</span> of 20 ms, and we pre-calculate a constant <span class="math notranslate nohighlight">\(\alpha=\exp(-dt/\tau)\)</span> so that updating the membrane potential <span class="math notranslate nohighlight">\(v\)</span> is just multiplying by <span class="math notranslate nohighlight">\(\alpha\)</span> (as we saw in the first notebook). We store the input spikes in a vector <span class="math notranslate nohighlight">\(s\)</span> of 0s and 1s for each time step, and multiply by the weight matrix <span class="math notranslate nohighlight">\(W\)</span> to get the input, i.e. <span class="math notranslate nohighlight">\(v\leftarrow \alpha v+Ws\)</span>.</p>
 <p>We initialise the weight matrix <span class="math notranslate nohighlight">\(W\)</span> uniformly with bounds proportionate to the inverse square root of the number of inputs (fairly standard, and works here).</p>
 <p>The output of this will be a vector of <span class="math notranslate nohighlight">\(N_c\)</span> (<code class="docutils literal notranslate"><span class="pre">num_classes</span></code>) membrane potential traces. We sum these traces over time and use this as the output vector (the largest one will be our prediction of the class and therefore the IPD).</p>
@@ -659,7 +661,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="training">
-<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
 <p>We train this by dividing the input data into batches and computing gradients across batches. In this notebook, batch and data size is small so that it can be run on a laptop in a couple of minutes, but normally you’d use larger batches and more data. Let’s start with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -768,12 +770,12 @@ Epoch 9: loss=1.77886
 Epoch 10: loss=1.78269
 </pre></div>
 </div>
-<img alt="../_images/Compute hessians (jax version)_20_1.png" src="../_images/Compute hessians (jax version)_20_1.png" />
+<img alt="../_images/Compute hessians (jax version)_21_1.png" src="../_images/Compute hessians (jax version)_21_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="analysis-of-results">
-<h2>Analysis of results<a class="headerlink" href="#analysis-of-results" title="Permalink to this headline">¶</a></h2>
+<h3>Analysis of results<a class="headerlink" href="#analysis-of-results" title="Permalink to this headline">¶</a></h3>
 <p>Now we compute the training and test accuracy, and plot histograms and confusion matrices to understand the errors it’s making.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -835,19 +837,19 @@ Test classifier accuracy: 27.4%
 Test absolute error: 18.1 deg
 </pre></div>
 </div>
-<img alt="../_images/Compute hessians (jax version)_22_1.png" src="../_images/Compute hessians (jax version)_22_1.png" />
-<img alt="../_images/Compute hessians (jax version)_22_2.png" src="../_images/Compute hessians (jax version)_22_2.png" />
+<img alt="../_images/Compute hessians (jax version)_23_1.png" src="../_images/Compute hessians (jax version)_23_1.png" />
+<img alt="../_images/Compute hessians (jax version)_23_2.png" src="../_images/Compute hessians (jax version)_23_2.png" />
 </div>
 </div>
 <p>This poor performance isn’t surprising because this network is not actually doing any coincidence detection, just a weighted sum of input spikes.</p>
 </div>
 </div>
 <div class="section" id="spiking-model">
-<h1>Spiking model<a class="headerlink" href="#spiking-model" title="Permalink to this headline">¶</a></h1>
+<h2>Spiking model<a class="headerlink" href="#spiking-model" title="Permalink to this headline">¶</a></h2>
 <p>Next we’ll implement a version of the model with spikes to see how that changes performance. We’ll just add a single hidden feed-forward layer of spiking neurons between the input and the output layers. This layer will be spiking, so we need to use the surrogate gradient descent approach.</p>
 <p><img alt="Full architecture" src="../_images/arch-full.png" /></p>
 <div class="section" id="surrogate-gradient-descent">
-<h2>Surrogate gradient descent<a class="headerlink" href="#surrogate-gradient-descent" title="Permalink to this headline">¶</a></h2>
+<h3>Surrogate gradient descent<a class="headerlink" href="#surrogate-gradient-descent" title="Permalink to this headline">¶</a></h3>
 <p>First, this is the key part of surrogate gradient descent, a function where we override the computation of the gradient to replace it with a smoothed gradient. You can see that in the forward pass (method <code class="docutils literal notranslate"><span class="pre">forward</span></code>) it returns the Heaviside function of the input (takes value 1 if the input is <code class="docutils literal notranslate"><span class="pre">&gt;0</span></code>) or value 0 otherwise. In the backwards pass, it returns the gradient of a sigmoid function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -881,7 +883,7 @@ Test absolute error: 18.1 deg
 </div>
 </div>
 <div class="section" id="updated-model">
-<h2>Updated model<a class="headerlink" href="#updated-model" title="Permalink to this headline">¶</a></h2>
+<h3>Updated model<a class="headerlink" href="#updated-model" title="Permalink to this headline">¶</a></h3>
 <p>The code for the updated model is very similar to the membrane only layer. First, for initialisation we now need two weight matrices, <span class="math notranslate nohighlight">\(W_1\)</span> from the input to the hidden layer, and <span class="math notranslate nohighlight">\(W_2\)</span> from the hidden layer to the output layer. Second, we run two passes of the loop that you saw above for the membrane only model.</p>
 <p>The first pass computes the output spikes of the hidden layer. The second pass computes the output layer and is exactly the same as before except using the spikes from the hidden layer instead of the input layer.</p>
 <p>For the first pass, we modify the function in two ways.</p>
@@ -943,7 +945,7 @@ Test absolute error: 18.1 deg
 </div>
 </div>
 <div class="section" id="training-and-analysing">
-<h2>Training and analysing<a class="headerlink" href="#training-and-analysing" title="Permalink to this headline">¶</a></h2>
+<h3>Training and analysing<a class="headerlink" href="#training-and-analysing" title="Permalink to this headline">¶</a></h3>
 <p>We train it as before, except that we modify the functions to take the two weight matrices into account.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1010,7 +1012,7 @@ Epoch 9: loss=0.54934
 Epoch 10: loss=0.52311
 </pre></div>
 </div>
-<img alt="../_images/Compute hessians (jax version)_34_1.png" src="../_images/Compute hessians (jax version)_34_1.png" />
+<img alt="../_images/Compute hessians (jax version)_35_1.png" src="../_images/Compute hessians (jax version)_35_1.png" />
 </div>
 </div>
 <p>You might already see that the loss functions are lower than before, so maybe performance is better? Let’s see.</p>
@@ -1035,8 +1037,8 @@ Test classifier accuracy: 75.8%
 Test absolute error: 5.3 deg
 </pre></div>
 </div>
-<img alt="../_images/Compute hessians (jax version)_36_1.png" src="../_images/Compute hessians (jax version)_36_1.png" />
-<img alt="../_images/Compute hessians (jax version)_36_2.png" src="../_images/Compute hessians (jax version)_36_2.png" />
+<img alt="../_images/Compute hessians (jax version)_37_1.png" src="../_images/Compute hessians (jax version)_37_1.png" />
+<img alt="../_images/Compute hessians (jax version)_37_2.png" src="../_images/Compute hessians (jax version)_37_2.png" />
 </div>
 </div>
 <p>Yes! Performance is much better and now the confusion matrices look more like what you’d expect too. Let’s take a look at the weight matrices.</p>
@@ -1058,7 +1060,7 @@ Test absolute error: 5.3 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Compute hessians (jax version)_38_0.png" src="../_images/Compute hessians (jax version)_38_0.png" />
+<img alt="../_images/Compute hessians (jax version)_39_0.png" src="../_images/Compute hessians (jax version)_39_0.png" />
 </div>
 </div>
 <p>Hmm, hard to interpret.</p>
@@ -1114,8 +1116,8 @@ Test absolute error: 5.3 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Compute hessians (jax version)_40_0.png" src="../_images/Compute hessians (jax version)_40_0.png" />
-<img alt="../_images/Compute hessians (jax version)_40_1.png" src="../_images/Compute hessians (jax version)_40_1.png" />
+<img alt="../_images/Compute hessians (jax version)_41_0.png" src="../_images/Compute hessians (jax version)_41_0.png" />
+<img alt="../_images/Compute hessians (jax version)_41_1.png" src="../_images/Compute hessians (jax version)_41_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1213,7 +1215,8 @@ Test absolute error: 5.3 deg
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/Compute hessians (jax version)_47_1.png" src="../_images/Compute hessians (jax version)_47_1.png" />
+<img alt="../_images/Compute hessians (jax version)_48_1.png" src="../_images/Compute hessians (jax version)_48_1.png" />
+</div>
 </div>
 </div>
 </div>
