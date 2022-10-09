@@ -29,9 +29,10 @@ Starting point:
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
   - _Danish_:  I have a simple vertebrate biophysical model of filtering in the auditory periphery which I could quickly test here.
 * Number of time steps might be an issue for a more realistic model. May want to use dt=0.1ms and duration>=100ms so more than 1000 time steps.
-* Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources).
+* Add a more realistic sound localisation task (natural sounds, background noise, multiple sound sources, different frequencies).
   - _Tomas_: experiment with this, starting with multi-frequency sounds
   - _Danish_: I have looked into multi-frequency cochlear filtering for speech localization. It may be useful here.
+  - _Divyansh_: How well does the model perform at different frequencies (even if still just pure tones)
 * Consider multiple architectures, potentially matching the auditory system.
   - _Alicja_: I'll look into that, beginning with checking the effect of adding more hidden layers.
   - _Mingxuan_: I'll experiment with this starting with altering the output neurons.
