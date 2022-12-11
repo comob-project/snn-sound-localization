@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compute hessians (jax version)" href="Compute%20hessians%20%28jax%20version%29.html" />
-    <link rel="prev" title="Dynamic threshold" href="Dynamic_threshold.html" />
+    <link rel="next" title="(WIP) Analysing trained networks" href="Analysing-Trained-Networks.html" />
+    <link rel="prev" title="Compute hessians (jax version)" href="Compute%20hessians%20%28jax%20version%29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -160,14 +160,14 @@ const thebe_selector_output = ".output, .cell_output"
    Dynamic threshold
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Sound localisation following Dale’ law
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Compute%20hessians%20%28jax%20version%29.html">
    Compute hessians (jax version)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Sound localisation following Dale’ law
   </a>
  </li>
  <li class="toctree-l1">
@@ -289,15 +289,51 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#future-work">
-   Future work
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sound localisation following Dale’ law
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#baseline-training">
+     Baseline Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sweep-through-inhib-excit-ratio">
+     Sweep through Inhib / Excit Ratio
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     results :
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#seems-like-40-60-ratio-is-best">
+       Seems like 40-60 ratio is best !
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-work">
+     Future work
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-work">
-   Further work
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#old-analysis">
+   Old Analysis :
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-work">
+     Further work
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -319,15 +355,51 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#future-work">
-   Future work
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sound localisation following Dale’ law
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#baseline-training">
+     Baseline Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sweep-through-inhib-excit-ratio">
+     Sweep through Inhib / Excit Ratio
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     results :
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#seems-like-40-60-ratio-is-best">
+       Seems like 40-60 ratio is best !
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-work">
+     Future work
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-work">
-   Further work
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#old-analysis">
+   Old Analysis :
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-work">
+     Further work
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -353,7 +425,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="o">!</span>pip install tqdm
 <span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="k">as</span> <span class="n">pbar</span>
 
 <span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
@@ -362,12 +433,6 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4.64.0)
 </pre></div>
 </div>
 </div>
@@ -437,7 +502,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 
 <span class="k">def</span> <span class="nf">show_examples</span><span class="p">(</span><span class="n">shown</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">ipd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">shown</span><span class="p">)</span>
-    <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes_from_fixed_idp_input_signal</span><span class="p">(</span><span class="n">ipd</span><span class="p">,</span> <span class="n">shown</span><span class="p">)</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes_from_fixed_idp_input_signal</span><span class="p">(</span><span class="n">ipd</span><span class="p">,</span> <span class="n">shown</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shown</span><span class="p">):</span>
@@ -463,7 +528,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_computer_is_slow</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># set this to True if using Colab</span>
 
-<span class="n">N_EPOCHS</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">N_EPOCHS</span> <span class="o">=</span> <span class="mi">40</span>
 
 <span class="c1"># Parameters for training. These aren&#39;t optimal, but instead designed</span>
 <span class="c1"># to give a reasonable result in a small amount of time for the tutorial!</span>
@@ -473,6 +538,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 <span class="k">else</span><span class="p">:</span>
     <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
     <span class="n">n_training_batches</span> <span class="o">=</span> <span class="mi">128</span>
+    
 <span class="n">n_testing_batches</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="n">batch_size</span><span class="o">*</span><span class="n">n_training_batches</span>
 </pre></div>
@@ -508,9 +574,10 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
         <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_local</span> <span class="o">==</span> <span class="n">am</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>  <span class="c1"># compare to labels</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y_local</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">am</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()):</span>
             <span class="n">confusion</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">ipd_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local_orig</span><span class="p">)</span>
+        <span class="n">ipd_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_local_orig</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
         <span class="n">ipd_est</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">continuise</span><span class="p">(</span><span class="n">am</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
         <span class="n">accs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
     <span class="n">ipd_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">ipd_true</span><span class="p">)</span>
     <span class="n">ipd_est</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">ipd_est</span><span class="p">)</span>
 
@@ -574,7 +641,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">sigmoid_deriv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
@@ -600,7 +667,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 <span class="n">spike_fn</span>  <span class="o">=</span> <span class="n">SurrGradSpike</span><span class="o">.</span><span class="n">apply</span>
 
 
-<span class="k">def</span> <span class="nf">membrane_only</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">20</span> <span class="o">*</span> <span class="n">MS</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">membrane_only</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="n">MS</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param input_spikes: has shape (batch_size, duration_steps, input_size)</span>
 <span class="sd">    :param weights: has shape  (input_size, num_classes</span>
@@ -633,8 +700,31 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">get_dales_mask</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">.6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f232836f220&gt;
+</pre></div>
+</div>
+<img alt="../_images/Dales_law_9_1.png" src="../_images/Dales_law_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># noinspection PyProtectedMember</span>
-<span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">(</span><span class="n">inhib_chance</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">get_dales_mask</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_out</span><span class="p">,</span> <span class="n">ie_ratio</span><span class="p">)</span> <span class="p">:</span> 
+
+    <span class="n">d_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_out</span><span class="p">)</span>
+    <span class="c1">#inhib_units = np.random.choice(nb_inputs, int(nb_inputs*ie_ratio), replace=False)</span>
+    <span class="n">inhib_units</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ie_ratio</span><span class="o">*</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1">#print(self.inhib_units)</span>
+    <span class="n">d_mask</span><span class="p">[</span><span class="n">inhib_units</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">d_mask</span>
+
+<span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">(</span><span class="n">ie_ratio</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Weights and uniform weight initialisation&quot;&quot;&quot;</span>
 
     <span class="c1"># Input to hidden layer</span>
@@ -650,11 +740,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="o">-</span><span class="n">bound</span><span class="p">,</span> <span class="n">bound</span><span class="p">)</span>
 
     <span class="c1">#Get fixed signs for the weight, 90% excitatory </span>
-    <span class="n">signs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand_like</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">inhib_chance</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)]</span>
-    
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">signs</span> <span class="p">:</span> 
-      <span class="n">s</span><span class="p">[</span><span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-      <span class="n">s</span><span class="o">.</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">signs</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_dales_mask</span><span class="p">(</span><span class="o">*</span><span class="n">w</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">ie_ratio</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)]</span>
 
     <span class="k">return</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span>
 
@@ -687,6 +773,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="n">s_rec</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">]</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;abc,cd-&gt;abd&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">))</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DT</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span>
+    
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">DURATION_STEPS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">new_v</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">h</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="c1"># multiply by 0 after a spike</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">spike_fn</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># threshold of 1</span>
@@ -704,7 +791,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="k">return</span> <span class="n">v_rec</span>
 
 
-<span class="k">def</span> <span class="nf">snn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">20</span> <span class="o">*</span> <span class="n">MS</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">snn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">5</span> <span class="o">*</span> <span class="n">MS</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Run the simulation&quot;&quot;&quot;</span>
         
     <span class="n">s_rec</span> <span class="o">=</span> <span class="n">layer1</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -718,32 +805,11 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">signs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(0.9028)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param lr: learning rate</span>
 <span class="sd">    :return:</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Initialise a weight matrices</span>
-    <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">()</span>
 
     <span class="c1">####################### MISSING CODE BELOW ########################</span>
     <span class="c1"># You need to learn parameters for two matrices</span>
@@ -752,7 +818,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="n">log_softmax_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Want loss for epoch 1 to be about </span><span class="si">{</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">NUM_CLASSES</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, multiply m by constant to get this&quot;</span><span class="p">)</span>
+    <span class="c1">#print(f&quot;Want loss for epoch 1 to be about {-np.log(1 / NUM_CLASSES):.2f}, multiply m by constant to get this&quot;)</span>
 
     <span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">val_loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -760,7 +826,7 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="n">best_loss</span> <span class="o">=</span> <span class="mf">1e10</span>
     <span class="n">val_loss_best_loss</span> <span class="o">=</span> <span class="mf">1e10</span>
 
-    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N_EPOCHS</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">)):</span>
         <span class="n">local_loss</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">x_local</span><span class="p">,</span> <span class="n">y_local</span> <span class="ow">in</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">),</span> <span class="n">spikes</span><span class="p">):</span>
             <span class="c1"># Run network</span>
@@ -799,11 +865,11 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
 
 
         <span class="c1"># noinspection PyStringFormat</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_loss</span><span class="p">)))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch </span><span class="si">%i</span><span class="s2">: val_loss=</span><span class="si">%.5f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">val_local_loss</span><span class="p">)))</span>
+       <span class="c1"># #print(&quot;Epoch %i: loss=%.5f&quot;%(e+1, np.mean(local_loss)))</span>
+        <span class="c1">#print(&quot;Epoch %i: val_loss=%.5f&quot;%(e+1, np.mean(val_local_loss)))</span>
 
         <span class="c1">#Early Stopping : </span>
-        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">val_loss_hist</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>  <span class="ow">and</span> <span class="n">e</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">val_loss_hist</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>  <span class="ow">and</span> <span class="n">e</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">:</span> 
           <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Early Stop !&#39;</span><span class="p">)</span>
           <span class="k">return</span> <span class="n">best_weights</span>
 
@@ -819,98 +885,20 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (4
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">get_signed_weights</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">get_signed_weights</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">signs</span>
-
-<span class="c1"># Generate the training data</span>
-<span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
-<span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
-
-
-<span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "cea25741aee94bbfa1951bfba1e8e65d", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.45160
-Epoch 1: val_loss=1.75582
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:2: RuntimeWarning: overflow encountered in exp
-  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2: loss=1.60309
-Epoch 2: val_loss=1.59292
-Epoch 3: loss=1.38979
-Epoch 3: val_loss=1.31655
-Epoch 4: loss=1.26190
-Epoch 4: val_loss=1.32020
-Epoch 5: loss=1.14710
-Epoch 5: val_loss=1.14961
-Epoch 6: loss=1.04391
-Epoch 6: val_loss=1.08271
-Epoch 7: loss=0.99179
-Epoch 7: val_loss=1.03300
-Epoch 8: loss=0.98086
-Epoch 8: val_loss=1.03807
-Epoch 9: loss=0.90790
-Epoch 9: val_loss=0.96943
-Epoch 10: loss=0.87957
-Epoch 10: val_loss=0.96627
-Epoch 11: loss=0.86149
-Epoch 11: val_loss=0.93606
-Epoch 12: loss=0.83661
-Epoch 12: val_loss=0.91211
-Epoch 13: loss=0.79214
-Epoch 13: val_loss=0.93772
-Epoch 14: loss=0.79484
-Epoch 14: val_loss=0.90903
-Epoch 15: loss=0.78324
-Epoch 15: val_loss=0.87302
-Epoch 16: loss=0.74987
-Epoch 16: val_loss=0.89056
-Epoch 17: loss=0.71573
-Epoch 17: val_loss=0.79258
-Epoch 18: loss=0.69503
-Epoch 18: val_loss=1.00494
-Epoch 19: loss=0.71391
-Epoch 19: val_loss=0.76984
-Epoch 20: loss=0.70055
-Epoch 20: val_loss=0.80496
-Epoch 21: loss=0.66087
-Epoch 21: val_loss=0.92770
-Epoch 22: loss=0.70846
-Epoch 22: val_loss=0.72629
-Epoch 23: loss=0.65647
-Epoch 23: val_loss=0.82328
-Epoch 24: loss=0.68854
-Epoch 24: val_loss=0.91624
-Epoch 25: loss=0.70432
-Epoch 25: val_loss=0.83824
-Epoch 26: loss=0.64133
-Epoch 26: val_loss=0.73419
-Early Stop !
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss_hist</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-18-c767394424da&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">loss_hist</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the training data</span>
+<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">(</span><span class="n">ie_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;loss_hist&#39; is not defined
+<span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+<span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+
+<span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">)</span>
+<span class="c1">#test test </span>
 </pre></div>
 </div>
 </div>
@@ -923,6 +911,8 @@ Early Stop !
 </div>
 </div>
 </div>
+<div class="section" id="baseline-training">
+<h2>Baseline Training<a class="headerlink" href="#baseline-training" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyse</span>
@@ -938,680 +928,83 @@ Early Stop !
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance accuracy level: 8.3%
 
-Train classifier accuracy: 81.5%
-Train absolute error: 5.0 deg
+Train classifier accuracy: 76.0%
+Train absolute error: 5.6 deg
 
-Test classifier accuracy: 71.2%
-Test absolute error: 5.8 deg
+Test classifier accuracy: 67.5%
+Test absolute error: 6.3 deg
 </pre></div>
 </div>
-<img alt="../_images/Dales_law_15_1.png" src="../_images/Dales_law_15_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.48046875
+</pre></div>
+</div>
 <img alt="../_images/Dales_law_15_2.png" src="../_images/Dales_law_15_2.png" />
+<img alt="../_images/Dales_law_15_3.png" src="../_images/Dales_law_15_3.png" />
 </div>
 </div>
+</div>
+<div class="section" id="sweep-through-inhib-excit-ratio">
+<h2>Sweep through Inhib / Excit Ratio<a class="headerlink" href="#sweep-through-inhib-excit-ratio" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the training data</span>
 <span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
 <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
 
-<span class="n">train_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">test_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">train_losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_losses</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
-    <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">(</span><span class="n">inhib_chance</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span>
-    <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">)</span>
+<span class="n">n_tests</span> <span class="o">=</span> <span class="mi">5</span>
 
-    <span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span><span class="p">)</span>
-    <span class="n">train_loss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)):</span>
+    <span class="n">train_losses</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+    <span class="n">test_losses</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+    <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tests</span><span class="p">)</span> <span class="p">:</span> 
 
-    <span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
-    <span class="n">test_loss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+        <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">init_weight_matrices</span><span class="p">(</span><span class="n">ie_ratio</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">)</span>
+
+        <span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span><span class="p">)</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+
+        <span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
+        <span class="n">test_loss</span> <span class="o">=</span> <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+
+        <span class="n">train_losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+        <span class="n">test_losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
+
+<span class="n">train_losses</span><span class="p">,</span> <span class="n">test_losses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_losses</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_losses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>results :<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">train_losses</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ratio of Inhibitory to Excitatory&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Train Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5c2da60086bb41bf9379e5d5ad5509bf", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.32383
-Epoch 1: val_loss=1.83923
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:2: RuntimeWarning: overflow encountered in exp
-  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2: loss=1.58033
-Epoch 2: val_loss=1.60969
-Epoch 3: loss=1.37485
-Epoch 3: val_loss=1.45469
-Epoch 4: loss=1.23552
-Epoch 4: val_loss=1.40714
-Epoch 5: loss=1.12968
-Epoch 5: val_loss=1.44195
-Epoch 6: loss=1.08965
-Epoch 6: val_loss=1.24560
-Epoch 7: loss=0.98850
-Epoch 7: val_loss=1.17588
-Epoch 8: loss=0.95648
-Epoch 8: val_loss=1.14515
-Epoch 9: loss=0.93911
-Epoch 9: val_loss=1.15681
-Epoch 10: loss=0.88180
-Epoch 10: val_loss=1.13883
-Epoch 11: loss=0.84614
-Epoch 11: val_loss=1.02746
-Epoch 12: loss=0.81782
-Epoch 12: val_loss=1.22521
-Epoch 13: loss=0.79602
-Epoch 13: val_loss=0.99110
-Epoch 14: loss=0.77118
-Epoch 14: val_loss=1.07433
-Epoch 15: loss=0.75480
-Epoch 15: val_loss=0.99758
-Epoch 16: loss=0.72674
-Epoch 16: val_loss=1.12289
-Epoch 17: loss=0.72402
-Epoch 17: val_loss=0.94172
-Epoch 18: loss=0.70763
-Epoch 18: val_loss=0.89095
-Epoch 19: loss=0.71368
-Epoch 19: val_loss=1.22109
-Epoch 20: loss=0.73130
-Epoch 20: val_loss=0.95658
-Epoch 21: loss=0.70152
-Epoch 21: val_loss=1.03324
-Epoch 22: loss=0.66075
-Epoch 22: val_loss=1.06480
-Early Stop !
-
-Train classifier accuracy: 72.9%
-Train absolute error: 5.8 deg
-
-Test classifier accuracy: 66.6%
-Test absolute error: 6.5 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "00962a0bf84d458e97fc468c3c168e0b", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.18469
-Epoch 1: val_loss=1.80430
-Epoch 2: loss=1.59778
-Epoch 2: val_loss=1.68441
-Epoch 3: loss=1.39172
-Epoch 3: val_loss=1.47725
-Epoch 4: loss=1.27560
-Epoch 4: val_loss=1.52343
-Epoch 5: loss=1.16718
-Epoch 5: val_loss=1.39909
-Epoch 6: loss=1.08792
-Epoch 6: val_loss=1.30133
-Epoch 7: loss=1.03043
-Epoch 7: val_loss=1.25315
-Epoch 8: loss=1.00496
-Epoch 8: val_loss=1.19662
-Epoch 9: loss=0.96631
-Epoch 9: val_loss=1.35709
-Epoch 10: loss=0.94079
-Epoch 10: val_loss=1.15007
-Epoch 11: loss=0.88974
-Epoch 11: val_loss=1.06937
-Epoch 12: loss=0.86900
-Epoch 12: val_loss=1.08042
-Epoch 13: loss=0.84516
-Epoch 13: val_loss=1.10884
-Epoch 14: loss=0.80554
-Epoch 14: val_loss=1.04891
-Epoch 15: loss=0.80565
-Epoch 15: val_loss=1.04808
-Epoch 16: loss=0.77290
-Epoch 16: val_loss=1.01911
-Epoch 17: loss=0.79229
-Epoch 17: val_loss=0.96662
-Epoch 18: loss=0.75452
-Epoch 18: val_loss=1.02399
-Epoch 19: loss=0.72938
-Epoch 19: val_loss=1.03382
-Epoch 20: loss=0.69511
-Epoch 20: val_loss=0.99946
-Epoch 21: loss=0.74219
-Epoch 21: val_loss=1.18982
-Early Stop !
-
-Train classifier accuracy: 68.8%
-Train absolute error: 6.3 deg
-
-Test classifier accuracy: 59.7%
-Test absolute error: 7.4 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7af026c36ca0473ab74ef7abf7da4bce", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.31732
-Epoch 1: val_loss=1.92572
-Epoch 2: loss=1.53800
-Epoch 2: val_loss=1.53640
-Epoch 3: loss=1.33558
-Epoch 3: val_loss=1.48808
-Epoch 4: loss=1.19339
-Epoch 4: val_loss=1.38677
-Epoch 5: loss=1.13032
-Epoch 5: val_loss=1.32889
-Epoch 6: loss=1.05563
-Epoch 6: val_loss=1.43737
-Epoch 7: loss=0.99680
-Epoch 7: val_loss=1.24341
-Epoch 8: loss=0.99797
-Epoch 8: val_loss=1.16495
-Epoch 9: loss=0.91942
-Epoch 9: val_loss=1.12776
-Epoch 10: loss=0.88892
-Epoch 10: val_loss=1.08980
-Epoch 11: loss=0.85673
-Epoch 11: val_loss=1.02183
-Epoch 12: loss=0.84667
-Epoch 12: val_loss=1.11181
-Epoch 13: loss=0.82319
-Epoch 13: val_loss=1.02525
-Epoch 14: loss=0.82416
-Epoch 14: val_loss=1.07900
-Epoch 15: loss=0.78888
-Epoch 15: val_loss=1.05506
-Early Stop !
-
-Train classifier accuracy: 69.0%
-Train absolute error: 6.1 deg
-
-Test classifier accuracy: 59.5%
-Test absolute error: 7.2 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9caa5c0edf43401ea30cb9f62ef0a58a", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.48382
-Epoch 1: val_loss=1.78196
-Epoch 2: loss=1.61233
-Epoch 2: val_loss=1.54569
-Epoch 3: loss=1.41284
-Epoch 3: val_loss=1.57238
-Epoch 4: loss=1.26034
-Epoch 4: val_loss=1.36126
-Epoch 5: loss=1.14243
-Epoch 5: val_loss=1.29258
-Epoch 6: loss=1.07944
-Epoch 6: val_loss=1.22268
-Epoch 7: loss=1.01269
-Epoch 7: val_loss=1.27669
-Epoch 8: loss=0.96312
-Epoch 8: val_loss=1.13975
-Epoch 9: loss=0.94487
-Epoch 9: val_loss=1.22333
-Epoch 10: loss=0.91903
-Epoch 10: val_loss=1.17375
-Epoch 11: loss=0.89206
-Epoch 11: val_loss=1.11811
-Epoch 12: loss=0.84308
-Epoch 12: val_loss=1.28549
-Epoch 13: loss=0.85684
-Epoch 13: val_loss=1.12784
-Epoch 14: loss=0.80808
-Epoch 14: val_loss=1.18693
-Epoch 15: loss=0.78951
-Epoch 15: val_loss=1.28390
-Early Stop !
-
-Train classifier accuracy: 63.3%
-Train absolute error: 6.8 deg
-
-Test classifier accuracy: 54.2%
-Test absolute error: 8.0 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "32787368dee948128690fd7a0dc34b8f", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.38532
-Epoch 1: val_loss=1.83016
-Epoch 2: loss=1.59686
-Epoch 2: val_loss=1.60188
-Epoch 3: loss=1.38907
-Epoch 3: val_loss=1.46105
-Epoch 4: loss=1.24346
-Epoch 4: val_loss=1.39038
-Epoch 5: loss=1.17298
-Epoch 5: val_loss=1.30614
-Epoch 6: loss=1.07873
-Epoch 6: val_loss=1.31279
-Epoch 7: loss=1.01861
-Epoch 7: val_loss=1.20694
-Epoch 8: loss=0.98948
-Epoch 8: val_loss=1.31688
-Epoch 9: loss=0.96612
-Epoch 9: val_loss=1.17905
-Epoch 10: loss=0.91059
-Epoch 10: val_loss=1.08945
-Epoch 11: loss=0.89059
-Epoch 11: val_loss=1.10841
-Epoch 12: loss=0.86687
-Epoch 12: val_loss=1.15619
-Epoch 13: loss=0.81380
-Epoch 13: val_loss=1.13286
-Epoch 14: loss=0.79368
-Epoch 14: val_loss=1.02552
-Epoch 15: loss=0.78831
-Epoch 15: val_loss=0.99966
-Epoch 16: loss=0.78496
-Epoch 16: val_loss=1.00417
-Epoch 17: loss=0.75363
-Epoch 17: val_loss=0.92109
-Epoch 18: loss=0.74898
-Epoch 18: val_loss=0.91926
-Epoch 19: loss=0.72472
-Epoch 19: val_loss=0.94949
-Epoch 20: loss=0.72298
-Epoch 20: val_loss=0.94213
-Epoch 21: loss=0.70959
-Epoch 21: val_loss=0.95983
-Epoch 22: loss=0.66721
-Epoch 22: val_loss=0.93608
-Early Stop !
-
-Train classifier accuracy: 79.3%
-Train absolute error: 5.1 deg
-
-Test classifier accuracy: 69.3%
-Test absolute error: 5.8 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "94b745d5969647c9a786e3339bb836e2", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.44165
-Epoch 1: val_loss=1.83963
-Epoch 2: loss=1.59123
-Epoch 2: val_loss=1.72383
-Epoch 3: loss=1.38439
-Epoch 3: val_loss=1.37713
-Epoch 4: loss=1.21056
-Epoch 4: val_loss=1.33605
-Epoch 5: loss=1.12064
-Epoch 5: val_loss=1.26706
-Epoch 6: loss=1.08076
-Epoch 6: val_loss=1.21253
-Epoch 7: loss=1.00299
-Epoch 7: val_loss=1.16498
-Epoch 8: loss=0.96358
-Epoch 8: val_loss=1.16091
-Epoch 9: loss=0.95767
-Epoch 9: val_loss=1.10795
-Epoch 10: loss=0.88664
-Epoch 10: val_loss=1.16682
-Epoch 11: loss=0.85384
-Epoch 11: val_loss=1.04018
-Epoch 12: loss=0.84255
-Epoch 12: val_loss=1.07733
-Epoch 13: loss=0.79668
-Epoch 13: val_loss=1.07597
-Epoch 14: loss=0.78778
-Epoch 14: val_loss=1.05453
-Epoch 15: loss=0.76467
-Epoch 15: val_loss=1.04748
-Early Stop !
-
-Train classifier accuracy: 69.8%
-Train absolute error: 6.1 deg
-
-Test classifier accuracy: 62.3%
-Test absolute error: 7.0 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "763c9ce606df4b978bb414c24a6d82bc", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.27270
-Epoch 1: val_loss=1.81264
-Epoch 2: loss=1.53751
-Epoch 2: val_loss=1.64727
-Epoch 3: loss=1.33711
-Epoch 3: val_loss=1.39494
-Epoch 4: loss=1.23498
-Epoch 4: val_loss=1.45194
-Epoch 5: loss=1.19639
-Epoch 5: val_loss=1.41695
-Epoch 6: loss=1.08029
-Epoch 6: val_loss=1.16916
-Epoch 7: loss=1.00567
-Epoch 7: val_loss=1.20786
-Epoch 8: loss=0.98267
-Epoch 8: val_loss=1.15124
-Epoch 9: loss=0.91535
-Epoch 9: val_loss=1.09134
-Epoch 10: loss=0.88662
-Epoch 10: val_loss=1.13420
-Epoch 11: loss=0.87437
-Epoch 11: val_loss=1.05763
-Epoch 12: loss=0.88724
-Epoch 12: val_loss=1.27448
-Epoch 13: loss=0.82034
-Epoch 13: val_loss=0.99914
-Epoch 14: loss=0.78151
-Epoch 14: val_loss=1.01816
-Epoch 15: loss=0.77874
-Epoch 15: val_loss=0.97393
-Epoch 16: loss=0.77544
-Epoch 16: val_loss=0.96800
-Epoch 17: loss=0.76776
-Epoch 17: val_loss=0.90890
-Epoch 18: loss=0.74044
-Epoch 18: val_loss=1.01833
-Epoch 19: loss=0.76219
-Epoch 19: val_loss=0.94001
-Epoch 20: loss=0.69928
-Epoch 20: val_loss=0.99949
-Epoch 21: loss=0.67742
-Epoch 21: val_loss=0.90291
-Epoch 22: loss=0.68525
-Epoch 22: val_loss=0.97413
-Epoch 23: loss=0.66063
-Epoch 23: val_loss=0.86761
-Epoch 24: loss=0.70053
-Epoch 24: val_loss=0.87717
-Epoch 25: loss=0.68533
-Epoch 25: val_loss=0.88034
-Epoch 26: loss=0.64395
-Epoch 26: val_loss=0.85686
-Epoch 27: loss=0.64002
-Epoch 27: val_loss=0.86899
-Epoch 28: loss=0.66394
-Epoch 28: val_loss=1.11783
-Epoch 29: loss=0.61196
-Epoch 29: val_loss=0.83853
-Epoch 30: loss=0.59939
-Epoch 30: val_loss=0.94319
-Epoch 31: loss=0.60442
-Epoch 31: val_loss=0.81066
-Epoch 32: loss=0.59963
-Epoch 32: val_loss=0.85819
-Epoch 33: loss=0.59906
-Epoch 33: val_loss=0.91687
-Epoch 34: loss=0.60042
-Epoch 34: val_loss=0.82491
-Epoch 35: loss=0.56700
-Epoch 35: val_loss=0.85627
-Early Stop !
-
-Train classifier accuracy: 82.0%
-Train absolute error: 4.9 deg
-
-Test classifier accuracy: 63.9%
-Test absolute error: 6.9 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7261441855a74654907c91317f93dbd7", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.26747
-Epoch 1: val_loss=1.78734
-Epoch 2: loss=1.59504
-Epoch 2: val_loss=1.53764
-Epoch 3: loss=1.37862
-Epoch 3: val_loss=1.48290
-Epoch 4: loss=1.24281
-Epoch 4: val_loss=1.38991
-Epoch 5: loss=1.18824
-Epoch 5: val_loss=1.17560
-Epoch 6: loss=1.06745
-Epoch 6: val_loss=1.20258
-Epoch 7: loss=1.04792
-Epoch 7: val_loss=1.14801
-Epoch 8: loss=0.95641
-Epoch 8: val_loss=1.13501
-Epoch 9: loss=0.91089
-Epoch 9: val_loss=1.06432
-Epoch 10: loss=0.85777
-Epoch 10: val_loss=1.15179
-Epoch 11: loss=0.89088
-Epoch 11: val_loss=1.15360
-Epoch 12: loss=0.88252
-Epoch 12: val_loss=1.04038
-Epoch 13: loss=0.80750
-Epoch 13: val_loss=1.05179
-Epoch 14: loss=0.78546
-Epoch 14: val_loss=1.03681
-Epoch 15: loss=0.76862
-Epoch 15: val_loss=0.95611
-Epoch 16: loss=0.74843
-Epoch 16: val_loss=0.97024
-Epoch 17: loss=0.73396
-Epoch 17: val_loss=0.90929
-Epoch 18: loss=0.71315
-Epoch 18: val_loss=0.99314
-Epoch 19: loss=0.69355
-Epoch 19: val_loss=0.86876
-Epoch 20: loss=0.69913
-Epoch 20: val_loss=0.93685
-Epoch 21: loss=0.68068
-Epoch 21: val_loss=0.88280
-Epoch 22: loss=0.66812
-Epoch 22: val_loss=0.85084
-Epoch 23: loss=0.66287
-Epoch 23: val_loss=1.05469
-Epoch 24: loss=0.68151
-Epoch 24: val_loss=0.99117
-Epoch 25: loss=0.68505
-Epoch 25: val_loss=0.92164
-Epoch 26: loss=0.65740
-Epoch 26: val_loss=0.95373
-Early Stop !
-
-Train classifier accuracy: 77.4%
-Train absolute error: 5.4 deg
-
-Test classifier accuracy: 70.2%
-Test absolute error: 5.9 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "1271a36b454844d6883bea19bc03535f", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.18766
-Epoch 1: val_loss=1.83476
-Epoch 2: loss=1.48883
-Epoch 2: val_loss=1.65568
-Epoch 3: loss=1.29887
-Epoch 3: val_loss=1.42888
-Epoch 4: loss=1.16542
-Epoch 4: val_loss=1.34483
-Epoch 5: loss=1.10830
-Epoch 5: val_loss=1.19314
-Epoch 6: loss=1.04386
-Epoch 6: val_loss=1.35090
-Epoch 7: loss=0.99860
-Epoch 7: val_loss=1.21527
-Epoch 8: loss=0.96372
-Epoch 8: val_loss=1.13533
-Epoch 9: loss=0.92965
-Epoch 9: val_loss=1.16387
-Epoch 10: loss=0.90111
-Epoch 10: val_loss=1.06629
-Epoch 11: loss=0.86929
-Epoch 11: val_loss=1.12762
-Epoch 12: loss=0.84614
-Epoch 12: val_loss=1.02672
-Epoch 13: loss=0.80918
-Epoch 13: val_loss=0.93681
-Epoch 14: loss=0.78921
-Epoch 14: val_loss=1.04302
-Epoch 15: loss=0.76463
-Epoch 15: val_loss=0.95561
-Epoch 16: loss=0.73311
-Epoch 16: val_loss=0.98057
-Epoch 17: loss=0.74023
-Epoch 17: val_loss=0.90737
-Epoch 18: loss=0.71704
-Epoch 18: val_loss=1.01202
-Epoch 19: loss=0.70132
-Epoch 19: val_loss=0.93532
-Epoch 20: loss=0.69472
-Epoch 20: val_loss=0.95004
-Epoch 21: loss=0.66669
-Epoch 21: val_loss=0.95454
-Early Stop !
-
-Train classifier accuracy: 75.9%
-Train absolute error: 5.4 deg
-
-Test classifier accuracy: 66.4%
-Test absolute error: 6.3 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "04c55e63f81447c6b9136068f00675a6", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.41833
-Epoch 1: val_loss=1.84040
-Epoch 2: loss=1.52300
-Epoch 2: val_loss=1.61792
-Epoch 3: loss=1.34754
-Epoch 3: val_loss=1.45204
-Epoch 4: loss=1.19636
-Epoch 4: val_loss=1.41759
-Epoch 5: loss=1.11955
-Epoch 5: val_loss=1.31152
-Epoch 6: loss=1.08740
-Epoch 6: val_loss=1.27064
-Epoch 7: loss=1.02270
-Epoch 7: val_loss=1.14898
-Epoch 8: loss=0.99396
-Epoch 8: val_loss=1.15997
-Epoch 9: loss=0.96526
-Epoch 9: val_loss=1.24990
-Epoch 10: loss=0.89942
-Epoch 10: val_loss=1.10099
-Epoch 11: loss=0.88919
-Epoch 11: val_loss=1.06369
-Epoch 12: loss=0.86435
-Epoch 12: val_loss=1.02753
-Epoch 13: loss=0.83323
-Epoch 13: val_loss=1.04797
-Epoch 14: loss=0.80460
-Epoch 14: val_loss=0.95901
-Epoch 15: loss=0.79244
-Epoch 15: val_loss=0.96287
-Epoch 16: loss=0.77950
-Epoch 16: val_loss=0.96806
-Epoch 17: loss=0.80479
-Epoch 17: val_loss=1.01067
-Epoch 18: loss=0.76218
-Epoch 18: val_loss=1.04682
-Early Stop !
-
-Train classifier accuracy: 73.4%
-Train absolute error: 5.7 deg
-
-Test classifier accuracy: 59.0%
-Test absolute error: 7.3 deg
-Want loss for epoch 1 to be about 2.48, multiply m by constant to get this
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "bc0829b835b14618abc78cc061ae9333", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: loss=2.28007
-Epoch 1: val_loss=1.84200
-Epoch 2: loss=1.52336
-Epoch 2: val_loss=1.53510
-Epoch 3: loss=1.32637
-Epoch 3: val_loss=1.56237
-Epoch 4: loss=1.22903
-Epoch 4: val_loss=1.41510
-Epoch 5: loss=1.13919
-Epoch 5: val_loss=1.28183
-Epoch 6: loss=1.08644
-Epoch 6: val_loss=1.28955
-Epoch 7: loss=1.04012
-Epoch 7: val_loss=1.14526
-Epoch 8: loss=0.99668
-Epoch 8: val_loss=1.16941
-Epoch 9: loss=0.95582
-Epoch 9: val_loss=1.30538
-Epoch 10: loss=0.91743
-Epoch 10: val_loss=1.27879
-Epoch 11: loss=0.89265
-Epoch 11: val_loss=1.19913
-Early Stop !
-
-Train classifier accuracy: 67.4%
-Train absolute error: 6.7 deg
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:44: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test classifier accuracy: 54.8%
-Test absolute error: 8.5 deg
-</pre></div>
-</div>
-<img alt="../_images/Dales_law_17_27.png" src="../_images/Dales_law_17_27.png" />
-<img alt="../_images/Dales_law_17_28.png" src="../_images/Dales_law_17_28.png" />
-<img alt="../_images/Dales_law_17_29.png" src="../_images/Dales_law_17_29.png" />
-<img alt="../_images/Dales_law_17_30.png" src="../_images/Dales_law_17_30.png" />
-<img alt="../_images/Dales_law_17_31.png" src="../_images/Dales_law_17_31.png" />
-<img alt="../_images/Dales_law_17_32.png" src="../_images/Dales_law_17_32.png" />
-<img alt="../_images/Dales_law_17_33.png" src="../_images/Dales_law_17_33.png" />
-<img alt="../_images/Dales_law_17_34.png" src="../_images/Dales_law_17_34.png" />
-<img alt="../_images/Dales_law_17_35.png" src="../_images/Dales_law_17_35.png" />
-<img alt="../_images/Dales_law_17_36.png" src="../_images/Dales_law_17_36.png" />
-<img alt="../_images/Dales_law_17_37.png" src="../_images/Dales_law_17_37.png" />
-<img alt="../_images/Dales_law_17_38.png" src="../_images/Dales_law_17_38.png" />
-<img alt="../_images/Dales_law_17_39.png" src="../_images/Dales_law_17_39.png" />
-<img alt="../_images/Dales_law_17_40.png" src="../_images/Dales_law_17_40.png" />
-<img alt="../_images/Dales_law_17_41.png" src="../_images/Dales_law_17_41.png" />
-<img alt="../_images/Dales_law_17_42.png" src="../_images/Dales_law_17_42.png" />
-<img alt="../_images/Dales_law_17_43.png" src="../_images/Dales_law_17_43.png" />
-<img alt="../_images/Dales_law_17_44.png" src="../_images/Dales_law_17_44.png" />
-<img alt="../_images/Dales_law_17_45.png" src="../_images/Dales_law_17_45.png" />
-<img alt="../_images/Dales_law_17_46.png" src="../_images/Dales_law_17_46.png" />
-<img alt="../_images/Dales_law_17_47.png" src="../_images/Dales_law_17_47.png" />
-<img alt="../_images/Dales_law_17_48.png" src="../_images/Dales_law_17_48.png" />
+<img alt="../_images/Dales_law_19_0.png" src="../_images/Dales_law_19_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_loss</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([72.92480469, 68.82324219, 68.99414062, 63.28125   , 79.27246094,
-       69.77539062, 82.00683594, 77.44140625, 75.85449219, 73.4375    ,
-       67.3828125 ])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_loss</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([66.55273438, 59.71679688, 59.47265625, 54.19921875, 69.28710938,
-       62.3046875 , 63.8671875 , 70.21484375, 66.35742188, 59.03320312,
-       54.83398438])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">test_losses</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">test_losses</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_losses</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">test_losses</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">test_losses</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Std&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ratio of Inhibitory to Excitatory&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Test Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1620,15 +1013,8 @@ Test absolute error: 8.5 deg
 <img alt="../_images/Dales_law_20_0.png" src="../_images/Dales_law_20_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Dales_law_21_0.png" src="../_images/Dales_law_21_0.png" />
+<div class="section" id="seems-like-40-60-ratio-is-best">
+<h3>Seems like 40-60 ratio is best !<a class="headerlink" href="#seems-like-40-60-ratio-is-best" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="future-work">
@@ -1642,6 +1028,10 @@ Test absolute error: 8.5 deg
 <li><p>Analyze the the spikes in the layers</p></li>
 <li><p>Stochastic/baseline firing</p></li>
 </ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="old-analysis">
+<h1>Old Analysis :<a class="headerlink" href="#old-analysis" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_single_weight_mat</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
@@ -1668,7 +1058,13 @@ Test absolute error: 8.5 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Dales_law_24_0.png" src="../_images/Dales_law_24_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1678,7 +1074,11 @@ Test absolute error: 8.5 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(0.1139)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
 </pre></div>
 </div>
 </div>
@@ -1711,6 +1111,15 @@ Test absolute error: 8.5 deg
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1806,6 +1215,15 @@ Test absolute error: 8.5 deg
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1816,6 +1234,15 @@ Test absolute error: 8.5 deg
 
 <span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span> <span class="o">=</span> <span class="n">random_ipd_input_signal</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="n">n_testing_batches</span><span class="p">)</span>
 <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_test</span><span class="p">,</span> <span class="n">spikes_test</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
 </pre></div>
 </div>
 </div>
@@ -1887,8 +1314,13 @@ Test absolute error: 8.5 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Dales_law_29_0.png" src="../_images/Dales_law_29_0.png" />
-<img alt="../_images/Dales_law_29_1.png" src="../_images/Dales_law_29_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
+
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
+
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>Note a diagonal trend in W1 as well single contiguous bumps in columns of W2, suggesting a preference for coincidence detection.  However the accuracy gets much worse (50% on test).</p>
@@ -1968,27 +1400,16 @@ Test absolute error: 8.5 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-36-8f7c16292678&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span> 
-<span class="g g-Whitespace">     </span><span class="mi">69</span> 
-<span class="ne">---&gt; </span><span class="mi">70</span> <span class="n">study_single_example</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Running</span> <span class="n">cells</span> <span class="k">with</span> <span class="s1">&#39;Python 3.7.0 (&#39;</span><span class="n">base</span><span class="s1">&#39;)&#39;</span> <span class="n">requires</span> <span class="n">ipykernel</span> <span class="n">package</span><span class="o">.</span>
 
-<span class="nn">&lt;ipython-input-36-8f7c16292678&gt;</span> in <span class="ni">study_single_example</span><span class="nt">(angle, w1, w2)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> 
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">s_rec</span> <span class="o">=</span> <span class="n">layer1</span><span class="p">(</span><span class="n">example_input</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">60</span>     <span class="n">v_rec</span> <span class="o">=</span> <span class="n">layer2</span><span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> 
-<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">example_input</span> <span class="o">=</span> <span class="n">example_input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">command</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;ipykernel&#39;</span> <span class="n">into</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">environment</span><span class="o">.</span> 
 
-<span class="ne">TypeError</span>: layer2() missing 1 required positional argument: &#39;sign2&#39;
+<span class="ne">Command</span>: &#39;conda install -n base ipykernel --update-deps --force-reinstall&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <p>Looking a bit at membrane traces of the output neurions, it seems like the decision is taken mostly in the trough of the sinusoid input, probably because in that period the FRs are low enough that coincidence is more significative for the discrimination.</p>
-</div>
 <div class="section" id="further-work">
 <h2>Further work<a class="headerlink" href="#further-work" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -1996,7 +1417,9 @@ Test absolute error: 8.5 deg
 <li><p>Reduce firing rates of AFN. What are realistic values?</p></li>
 <li><p>Check out Blake Richards’ work showing that you can train ANNs following Dale’s law without loss of performance.</p></li>
 </ul>
-</div>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=8c8e89f8-1633-4423-bd6a-baf7e83aa31b' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -2024,17 +1447,17 @@ Test absolute error: 8.5 deg
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Dynamic_threshold.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Compute%20hessians%20%28jax%20version%29.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Dynamic threshold</p>
+            <p class="prev-next-title">Compute hessians (jax version)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Compute%20hessians%20%28jax%20version%29.html" title="next page">
+    <a class='right-next' id="next-link" href="Analysing-Trained-Networks.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Compute hessians (jax version)</p>
+        <p class="prev-next-title">(WIP) Analysing trained networks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
