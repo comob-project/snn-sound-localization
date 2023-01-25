@@ -151,6 +151,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Learning_delays_major_edit2.html">
+   Learning delays
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Filter-and-Fire_Neuron_Model_SNN.html">
    Filter-and-Fire Neuron Model
   </a>
@@ -506,7 +511,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">input_signal</span><span class="p">(</span><span class="n">ipd</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate an input signal (spike array) from array of true IPDs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">envelope_power</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># higher values make sharper envelopes, easier</span>
@@ -531,7 +536,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">spikes</span>
 
 <span class="k">def</span> <span class="nf">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate the training data</span>
 <span class="sd">    Returns true IPDs from U(-pi/2, pi/2) and corresponding spike arrays</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -614,7 +619,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">spike_fn</span>  <span class="o">=</span> <span class="n">SurrGradSpike</span><span class="o">.</span><span class="n">apply</span>
 
 <span class="k">def</span> <span class="nf">membrane_only</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param input_spikes: has shape (batch_size, duration_steps, input_size)</span>
 <span class="sd">    :param weights: has shape  (input_size, num_classes</span>
 <span class="sd">    :param tau: </span>
@@ -656,7 +661,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">s_rec</span>
 
 <span class="k">def</span> <span class="nf">layer2</span><span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">sign2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Second layer: hidden to output&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Second layer: hidden to output&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">DALES_LAW</span><span class="p">:</span>
         <span class="n">w2</span> <span class="o">=</span> <span class="n">get_signed_weights</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">sign2</span><span class="p">)</span>
 
@@ -664,7 +669,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">v_rec</span>
 
 <span class="k">def</span> <span class="nf">snn</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">MS</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Run the simulation&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the simulation&quot;&quot;&quot;</span>
         
     <span class="n">s_rec</span> <span class="o">=</span> <span class="n">layer1</span><span class="p">(</span><span class="n">input_spikes</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">v_rec</span> <span class="o">=</span> <span class="n">layer2</span><span class="p">(</span><span class="n">s_rec</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">signs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -689,7 +694,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">d_mask</span>
 
 <span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">(</span><span class="n">ie_ratio</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Weights and uniform weight initialisation&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Weights and uniform weight initialisation&quot;&quot;&quot;</span>
 
     <span class="c1"># Input to hidden layer</span>
     <span class="n">w1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">INPUT_SIZE</span><span class="p">,</span> <span class="n">NUM_HIDDEN</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -709,7 +714,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span>
 
 <span class="k">def</span> <span class="nf">get_signed_weights</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">sign</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get the signed value of the weight&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the signed value of the weight&quot;&quot;&quot;</span>
     <span class="c1"># Note abs is in principle not differentiable.</span>
     <span class="c1"># In practice, pytorch will set the derivative to 0 when the values are 0.</span>
     <span class="c1"># (see https://discuss.pytorch.org/t/how-does-autograd-deal-with-non-differentiable-opponents-such-as-abs-and-max/34538)</span>
@@ -733,7 +738,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">ipds_validation</span><span class="p">,</span> <span class="n">spikes_validation</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">MS</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param lr: learning rate</span>
 <span class="sd">    :return:</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -891,7 +896,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyse</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">NUM_CLASSES</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chance accuracy level: </span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">NUM_CLASSES</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">run_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">snn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w1_trained</span><span class="p">,</span> <span class="n">w2_trained</span><span class="p">,</span> <span class="n">signs</span><span class="p">)</span>
 <span class="n">analyse_accuracy</span><span class="p">(</span><span class="n">ipds_training</span><span class="p">,</span> <span class="n">spikes_training</span><span class="p">,</span> <span class="n">run_func</span><span class="p">,</span> <span class="s1">&#39;Train&#39;</span><span class="p">)</span>
 

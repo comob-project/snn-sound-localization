@@ -150,6 +150,11 @@ const thebe_selector_output = ".output, .cell_output"
    Improving Performance: Optimizing the membrane time constant
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning_delays_major_edit2.html">
+   Learning delays
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Filter-and-Fire Neuron Model
@@ -618,7 +623,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tqdm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>tqdm
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -705,7 +710,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">input_signal</span><span class="p">(</span><span class="n">ipd</span><span class="p">,</span> <span class="n">usual_phase_delays</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate an input signal (spike array) from array of true IPDs</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -742,7 +747,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Generate some true IPDs from U(-pi/2, pi/2) and corresponding spike arrays</span>
 <span class="k">def</span> <span class="nf">random_ipd_input_signal</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">usual_phase_delays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate the training data: true IPDs are in U(-pi/2, pi/2) </span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -769,7 +774,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <span class="k">def</span> <span class="nf">discretise</span><span class="p">(</span><span class="n">ipds</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Discretise the ipds in the training data </span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -782,7 +787,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="p">((</span><span class="n">ipds</span><span class="o">+</span><span class="n">PI</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">NUM_CLASSES</span><span class="o">/</span><span class="n">PI</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span> <span class="c1"># assumes input is tensor</span>
 
 <span class="k">def</span> <span class="nf">continuise</span><span class="p">(</span><span class="n">ipd_indices</span><span class="p">):</span> <span class="c1"># convert indices back to IPD midpoints</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Undo the discretisation of ipds</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -798,7 +803,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># Generator function iterates over the data in batches</span>
 <span class="c1"># We randomly permute the order of the data to improve learning</span>
 <span class="k">def</span> <span class="nf">data_generator</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate the whole training data by iterating over the data in the batches.</span>
 <span class="sd">    Order of the data is randomly permuted to improve learning.</span>
 <span class="sd">  </span>
@@ -826,7 +831,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># Plot a few just to show how it looks</span>
 <span class="k">def</span> <span class="nf">plot_some_input_examples</span><span class="p">(</span><span class="n">num_examples</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots some example inputs.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -885,8 +890,8 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">multiple_connections_per_axon</span><span class="p">,</span>
         <span class="n">random_tau_constants</span><span class="p">,</span> 
         <span class="n">minimal_smoothing</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Runs the SNN simulation.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -952,7 +957,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Weights and uniform weight initialisation</span>
 <span class="k">def</span> <span class="nf">init_weight_matrix</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initialises the weight matrix used in the fanin-fanout calculations for the initialisation of W1 and W2.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -971,7 +976,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">W</span>
 
 <span class="k">def</span> <span class="nf">init_weight_matrices</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">multiple_connections_per_axon</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initialises the weight matrices in the SNN: W1, W1_bis and W2.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1028,7 +1033,7 @@ const thebe_selector_output = ".output, .cell_output"
     
     
 <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">usual_phase_delays</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">multiple_connections_per_axon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_tau_constants</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">minimal_smoothing</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Runs the training of the SNN simulation.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1138,7 +1143,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_accuracy</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">run</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the accuracy on data (train or test)</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1184,7 +1189,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">ipd_true</span><span class="p">,</span> <span class="n">ipd_est</span><span class="p">,</span> <span class="n">confusion</span><span class="p">,</span> <span class="n">accs</span>
 
 <span class="k">def</span> <span class="nf">report_accuracy</span><span class="p">(</span><span class="n">ipd_true</span><span class="p">,</span> <span class="n">ipd_est</span><span class="p">,</span> <span class="n">confusion</span><span class="p">,</span> <span class="n">accs</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the accuracy on data (train or test).</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1222,7 +1227,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>    
 
 <span class="k">def</span> <span class="nf">analyse_accuracy</span><span class="p">(</span><span class="n">ipds</span><span class="p">,</span> <span class="n">spikes</span><span class="p">,</span> <span class="n">W1_trained</span><span class="p">,</span> <span class="n">W1_bis</span><span class="p">,</span> <span class="n">W2_trained</span><span class="p">,</span> <span class="n">multiple_connections_per_axon</span><span class="p">,</span><span class="n">random_tau_constants</span><span class="p">,</span> <span class="n">minimal_smoothing</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Analyses the accuracy on data (train or test)</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1266,7 +1271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getRandomTauHyperparameters</span><span class="p">(</span><span class="n">tau_rise_range</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="n">tau_decay_range</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]):</span> <span class="c1"># also add fast ones</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the randomly sampled tau hyperparameters.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1290,7 +1295,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">tau_rise</span><span class="p">,</span> <span class="n">tau_decay</span>
 
 <span class="k">def</span> <span class="nf">getDoubleExpFilteredSpikes_singleBatchExample</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">random_tau_constants</span><span class="p">,</span> <span class="n">minimal_smoothing</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the PSP shapes (smoothed input) for a single batch example.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1353,7 +1358,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">smoothed</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">getDoubleExpFilteredSpikes_allBatchExamples</span><span class="p">(</span><span class="n">presynaptic_input_spikes_tensor</span><span class="p">,</span> <span class="n">random_tau_constants</span><span class="p">,</span> <span class="n">minimal_smoothing</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the PSP shapes (smoothed input) for all batch examples within a batch.</span>
 <span class="sd">  </span>
 <span class="sd">    Parameters:</span>
@@ -1377,7 +1382,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">input_smoothed</span>
 
 <span class="k">def</span> <span class="nf">plot_one_smoothed_neuron_activity</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the smoothed activity of one input neuron in the first example of the first batch.</span>
 <span class="sd">    E.g., 18th neuron out of 2000 neurons, 1st example out of 64, batch number 1</span>
 <span class="sd">  </span>
