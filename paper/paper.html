@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/paper/paper.html" />
     <link rel="shortcut icon" href="../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -281,14 +283,70 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#results">
-   Results
+  <a class="reference internal nav-link" href="#towards-open-collaborative-science">
+   Towards open collaborative science
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infrastructure">
+     Infrastructure
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-worked">
+     What worked?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-could-be-improved">
+     What could be improved?
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methods">
-   Methods
+  <a class="reference internal nav-link" href="#models">
+   Models
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-snns-for-sound-localisation">
+     Training SNNs for sound localisation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-delays">
+     Learning delays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methods">
+       Methods
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#results">
+       Results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-constants">
+     Time constants
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dale-s-law">
+     Dale’s law
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-neuron-models">
+     Alternative neuron models
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion">
@@ -321,14 +379,70 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#results">
-   Results
+  <a class="reference internal nav-link" href="#towards-open-collaborative-science">
+   Towards open collaborative science
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infrastructure">
+     Infrastructure
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-worked">
+     What worked?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-could-be-improved">
+     What could be improved?
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methods">
-   Methods
+  <a class="reference internal nav-link" href="#models">
+   Models
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-snns-for-sound-localisation">
+     Training SNNs for sound localisation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-delays">
+     Learning delays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methods">
+       Methods
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#results">
+       Results
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-constants">
+     Time constants
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dale-s-law">
+     Dale’s law
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-neuron-models">
+     Alternative neuron models
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion">
@@ -356,11 +470,45 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>Introduction text here.</p>
 </div>
-<div class="section" id="results">
-<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="towards-open-collaborative-science">
+<h1>Towards open collaborative science<a class="headerlink" href="#towards-open-collaborative-science" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="infrastructure">
+<h2>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="what-worked">
+<h2>What worked?<a class="headerlink" href="#what-worked" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="what-could-be-improved">
+<h2>What could be improved?<a class="headerlink" href="#what-could-be-improved" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="training-snns-for-sound-localisation">
+<h2>Training SNNs for sound localisation<a class="headerlink" href="#training-snns-for-sound-localisation" title="Permalink to this headline">¶</a></h2>
+<p>This will have the basics of the cosyne tutorial.</p>
+</div>
+<div class="section" id="learning-delays">
+<h2>Learning delays<a class="headerlink" href="#learning-delays" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>We created …</p>
+<p>Using an equation <span class="math notranslate nohighlight">\(e^{i\pi}=-1\)</span>.</p>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>Incredible results!</p>
+</div>
+</div>
+<div class="section" id="time-constants">
+<h2>Time constants<a class="headerlink" href="#time-constants" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dale-s-law">
+<h2>Dale’s law<a class="headerlink" href="#dale-s-law" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="alternative-neuron-models">
+<h2>Alternative neuron models<a class="headerlink" href="#alternative-neuron-models" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 <div class="section" id="discussion">
 <h1>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h1>

@@ -37,8 +37,28 @@ export:
 ```{include} sections/intro.md
 ```
 
-## Results
+## Towards open collaborative science
 
-## Methods
+### Infrastructure
+
+### What worked?
+
+### What could be improved?
+
+## Models
+
+### Training SNNs for sound localisation
+
+This will have the basics of the cosyne tutorial.
+
+% Learning delays
+```{include} sections/habashy.md
+```
+
+### Time constants
+
+### Dale's law
+
+### Alternative neuron models
 
 ## Discussion
