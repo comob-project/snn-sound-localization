@@ -20,5 +20,15 @@ groups could start small and expand gradually over time. But they would essentia
 global network of laboratories to assay how decisionmaking behavior is encoded in the mouse brain.*
 * *The result is a low-hierarchy organization of scientists that remain independent in skills, research interests, and physical location, who contribute individual expertise toward a shared methodology and develop a common vocabulary in order to communicate across large-scale projects* 
 * *it is promising to consider the new types of researchers we can attract if we don’t need to bring them into a single lab, but rather can bring the lab directly to them.*
-* At Experiments need theories, and vice versa 
+
+## Achakulvisut 2021: Towards democratizing and automating online conferences: lessons from the neuromatch conferences
+* https://doi.org/10.1016/j.tics.2021.01.007 
+* 
+
+## Ideas  
+* Large-scale projects in neuroscience: IBL, HBP, Blue-brain project 
+* Exciting, but retain a "legacy" structure which resembles large consortia grants (funding, participating labs etc) and so excludes many willing participants. 
+* Alternative: bench-marking contests (e.g. Brain-score), though these emphasise competition not collaboration.  
+* Here, grass-roots approach (inspired by Polymath project)
+* Outline: the question (sandbox, e.g. results), organisation (onboarding material, github, online workshops, teaching, Discord), participants and participation (insentives, allocating credit), Future.   
 
