@@ -29,7 +29,7 @@ export:
 * We provided great training opportunities.
 * The project functioned as a successful incubator of ideas.
 * We made some progress in modelling sound localisation with spiking neural networks.
-* Future iterations would benefit from clearer paths to participation and more structure.
+* Future iterations would benefit from clearer paths to participation and more structure / more clearly defined goals. 
 +++
 
 ## Introduction
@@ -37,21 +37,16 @@ export:
 ```{include} sections/intro.md
 ```
 
-## Towards open collaborative science
+## Towards open collaborative science 
 
-### Infrastructure
+```{include} sections/meta_science.md
+```
 
-### What worked?
+## Training SNNs for sound localisation
+% This will have the basics of the cosyne tutorial.
 
-### What could be improved?
+### Learning delays
 
-## Models
-
-### Training SNNs for sound localisation
-
-This will have the basics of the cosyne tutorial.
-
-% Learning delays
 ```{include} sections/habashy.md
 ```
 
@@ -62,3 +57,9 @@ This will have the basics of the cosyne tutorial.
 ### Alternative neuron models
 
 ## Discussion
+
+```{include} sections/discussion.md
+```
+
+## References 
+
