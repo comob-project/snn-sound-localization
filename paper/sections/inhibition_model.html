@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes &#8212; SNN Sound Localization</title>
+    <title>Contralateral glycinergic inhibition as key factor in creating ITD sensitivity &#8212; SNN Sound Localization</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/paper/sections/notes.html" />
+    <link rel="canonical" href="https://comob-project.github.io/snn-sound-localization/paper/sections/inhibition_model.html" />
     <link rel="shortcut icon" href="../../_static/headphone-logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -250,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/paper/sections/notes.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/paper/sections/inhibition_model.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -270,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/paper/sections/notes.md"><button
+        <a class="edit-button" href="https://github.com/comob-project/snn-sound-localization/edit/main/paper/sections/inhibition_model.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -295,24 +295,24 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mainen-2016-a-better-way-to-crack-the-brain">
-   Mainen 2016: A better way to crack the brain
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Contralateral glycinergic inhibition as key factor in creating ITD sensitivity
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ibl-2017-an-international-laboratory-for-systems-and-computational-neuroscience">
-   IBL 2017: An International Laboratory for Systems and Computational Neuroscience
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intro">
+   Intro
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wool-2020-knowledge-across-networks-how-to-build-a-global-neuroscience-collaboration">
-   Wool 2020: Knowledge across networks: how to build a global neuroscience collaboration
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#achakulvisut-2021-towards-democratizing-and-automating-online-conferences-lessons-from-the-neuromatch-conferences">
-   Achakulvisut 2021: Towards democratizing and automating online conferences: lessons from the neuromatch conferences
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
   </a>
  </li>
 </ul>
@@ -325,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Notes</h1>
+                <h1>Contralateral glycinergic inhibition as key factor in creating ITD sensitivity</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -335,24 +335,24 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mainen-2016-a-better-way-to-crack-the-brain">
-   Mainen 2016: A better way to crack the brain
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Contralateral glycinergic inhibition as key factor in creating ITD sensitivity
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ibl-2017-an-international-laboratory-for-systems-and-computational-neuroscience">
-   IBL 2017: An International Laboratory for Systems and Computational Neuroscience
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intro">
+   Intro
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wool-2020-knowledge-across-networks-how-to-build-a-global-neuroscience-collaboration">
-   Wool 2020: Knowledge across networks: how to build a global neuroscience collaboration
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#achakulvisut-2021-towards-democratizing-and-automating-online-conferences-lessons-from-the-neuromatch-conferences">
-   Achakulvisut 2021: Towards democratizing and automating online conferences: lessons from the neuromatch conferences
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
   </a>
  </li>
 </ul>
@@ -364,44 +364,24 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="notes">
-<h1>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mainen-2016-a-better-way-to-crack-the-brain">
-<h2>Mainen 2016: A better way to crack the brain<a class="headerlink" href="#mainen-2016-a-better-way-to-crack-the-brain" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doi.org/10.1038/539159a">https://doi.org/10.1038/539159a</a></p></li>
-<li><p><em>propose an alternative strategy: grass-roots collaborations involving researchers who may be distributed around the globe, but who are already working on the same problems. Such self-motivated
-groups could start small and expand gradually over time. But they would essentially be built from the ground up, with those involved encouraged to follow their own shared interests rather than responding to the strictures of funding sources or external directives.</em></p></li>
-<li><p><em>In short, a generation ago, neuroscientists were largely limited by theory and tools. Today, the bigger problem is effectively harnessing, as a community, what is already available.</em></p></li>
-</ul>
+  <div class="section" id="contralateral-glycinergic-inhibition-as-key-factor-in-creating-itd-sensitivity">
+<h1>Contralateral glycinergic inhibition as key factor in creating ITD sensitivity<a class="headerlink" href="#contralateral-glycinergic-inhibition-as-key-factor-in-creating-itd-sensitivity" title="Permalink to this headline">¶</a></h1>
 </div>
-<div class="section" id="ibl-2017-an-international-laboratory-for-systems-and-computational-neuroscience">
-<h2>IBL 2017: An International Laboratory for Systems and Computational Neuroscience<a class="headerlink" href="#ibl-2017-an-international-laboratory-for-systems-and-computational-neuroscience" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doi.org/10.1016/j.neuron.2017.12.013">https://doi.org/10.1016/j.neuron.2017.12.013</a></p></li>
-<li><p>Aim: <em>to develop a standardized mouse decision-making behaviour, to make coordinated measurements of neural activity across the mouse brain, and to use theory and analyses to uncover the neural computations that support decision-making.</em></p></li>
-<li><p><em>Understanding the Brain Demands a Collaborative Approach</em>.</p></li>
-<li><p><em>Overall, there is a disparity in scale between the brain’s complexity and the efforts of individual neuroscience laboratories.</em></p></li>
-<li><p>Allow postdocs to lead hypothesis-driven projects (e.g. on the role of a single brain region), while benefitting from shared resources.</p></li>
-<li><p>Will make data <em>accessible once the results are published</em> - why wait?</p></li>
-</ul>
+<div class="section" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+<p>For the vast majority of animals, sound localization is realized through two classes of hidden acoustic cues: binaural cues and spectral cues. In humans, binaural cues alone are sufficient to discriminate azimuth angle between 0-180 degrees, whereas psychoacoustic evidence has showed how spectral cues have a role in the solution of front-back ambiguities and in angle recognition along the vertical plane (i.e. elevation angles).
+Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies.
+It is clear at first glance how ITDs assume significant values for species with large head sizes while being much smaller, and so much harder to neuronally encode, for smaller animals. ILDs on the other hand occur when the wavelength of the sound stimulus is shorter than the size of the animal’s head, which then generates a significant attenuation at the contralateral ear. For this reason, ILDs significance with respect to ITDs is greater in smaller animals with a middle ear specialised for the transmission of high frequencies.
+These data soon led to the conclusion that in humans, whose audible range is centred on lower frequencies than in other mammals, the ITD was the main binaural cue in discriminating different azimuth angles. For this reason, the most important model that attempts to explain human sound localization, namely the Jeffress Model, only takes ITDs into account and proposes a theoretical circuit consisting of axonal delay lines at the level of the brainstem that can create this type of sensitivity. For many years, Jeffress’s remained the most accepted proposal given the discovery of axonal lines potentially similar to those theorised by Jeffress in the Nucleo Laminaris (NL) of different bird species.
+However, over the years the presence of similar delay lines in the mammalian nucleus called the medial superior olive (MSO), within the superior olivary complex and analogous to the avian NL, has never been demonstrated. Furthermore, some studies have highlighted other critical issues in the Jeffress model, such as the fact that the response peaks in the values of ITD functions were outside the physiological range in many of the mammalian species analysed and that the values of these peaks did not vary according to the different head size as might be expected.
+In the pivotal study of our work, Groethe et al. support the thesis that the neuronal structures of sound localization depend on the evolutionary history of the specific species in question. The original binaural cue used by the ancestor of that species at the time of inner ear development is, according to this thesis, a key factor in determining the neural strategy currently applied in coding the binaural cues. For this reason, humans and all other large mammals may have very different structures than birds for encoding ITDs, because whereas the latter derive from large archosaurs with low-frequency hearing, in which ITD was already the main binaural cue, the former derive from early mammals, which had smaller dimensions and ILDs as a central cue in shaping acoustic spatiality.
+Thus, the strategy we tried to validate in our computational model stands as an alternative to the Jeffress model with regard to the analysis of ITDs. It is more grounded in the neural circuits actually observed in the mammalian brainstem and has glycinergic inhibition from the contralateral ear as its main actor, in a manner similar to the creation of ILD sensitivity in the lateral superior olive (LSO).</p>
 </div>
-<div class="section" id="wool-2020-knowledge-across-networks-how-to-build-a-global-neuroscience-collaboration">
-<h2>Wool 2020: Knowledge across networks: how to build a global neuroscience collaboration<a class="headerlink" href="#wool-2020-knowledge-across-networks-how-to-build-a-global-neuroscience-collaboration" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doi.org/10.1016/j.conb.2020.10.020">https://doi.org/10.1016/j.conb.2020.10.020</a></p></li>
-<li><p><em>the IBL’s approach is to implement a distributed research architecture across a
-global network of laboratories to assay how decisionmaking behavior is encoded in the mouse brain.</em></p></li>
-<li><p><em>The result is a low-hierarchy organization of scientists that remain independent in skills, research interests, and physical location, who contribute individual expertise toward a shared methodology and develop a common vocabulary in order to communicate across large-scale projects</em></p></li>
-<li><p><em>it is promising to consider the new types of researchers we can attract if we don’t need to bring them into a single lab, but rather can bring the lab directly to them.</em></p></li>
-</ul>
+<div class="section" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
 </div>
-<div class="section" id="achakulvisut-2021-towards-democratizing-and-automating-online-conferences-lessons-from-the-neuromatch-conferences">
-<h2>Achakulvisut 2021: Towards democratizing and automating online conferences: lessons from the neuromatch conferences<a class="headerlink" href="#achakulvisut-2021-towards-democratizing-and-automating-online-conferences-lessons-from-the-neuromatch-conferences" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doi.org/10.1016/j.tics.2021.01.007">https://doi.org/10.1016/j.tics.2021.01.007</a></p></li>
-</ul>
-</div>
+<div class="section" id="results">
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
