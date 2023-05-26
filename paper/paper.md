@@ -1,6 +1,12 @@
 ---
 title: Spiking neural network models of sound localisation via a massively collaborative process
 authors:
+ - name: Francesco De Santis
+    affiliations:
+      - NearLab, Politecnico di Milano
+ - name: Alberto Antonietti
+    affiliations:
+      - NearLab, Politecnico di Milano
   - name: Gabriel Béna
     affiliations:
       - Imperial College London
