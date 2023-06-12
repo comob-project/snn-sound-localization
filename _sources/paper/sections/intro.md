@@ -1,6 +1,6 @@
 * Inspired by the success of endeavours like the Human Genome Project (ref) and CERN (ref), neuroscientists are increasingly initiating large-scale collaborations. 
 * Though, how to best structure these projects remains an open-question (ref Zach).  
-* The largest efforts, e.g. The Blue Brain Project (ref), Human Brain Project (ref) and International Brain Laboratory (ref) bring together tens to hundreds of researchers across multiple laboratories.  
+* The largest efforts, e.g. International Brain Laboratory (ref), The Blue Brain Project (ref) and Human Brain Project (ref) bring together tens to hundreds of researchers across multiple laboratories.  
 * However, while these projects represent a step-change in scale, they retain a legacy structure which resembles a consortia grant. 
 * I.e. there are participating laboratories who collaborate together and then make their data, methods and results available upon publication.
 * As such, interested participants face a high barrier to entry: joining a participating laboratory, initiating a collaboration with the project, or awaiting publications. 

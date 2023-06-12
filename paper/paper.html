@@ -146,23 +146,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../research/Quick_Start.html">
-   Quick Start Notebook
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../research/Optimizing-Membrane-Time-Constant.html">
    Improving Performance: Optimizing the membrane time constant
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../research/Noise_robustness.html">
-   Robustness to Noise and Dropout
+  <a class="reference internal" href="../research/Quick_Start.html">
+   Quick Start Notebook
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../research/Learning_delays_major_edit2.html">
    Learning delays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../research/Noise_robustness.html">
+   Robustness to Noise and Dropout
   </a>
  </li>
  <li class="toctree-l1">
@@ -318,25 +318,20 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#onboarding">
-     Onboarding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#communication">
-     Communication
+    <a class="reference internal nav-link" href="#workflow">
+     Workflow
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-neuroscientific-sandbox-what-worked">
-   A neuroscientific sandbox (What worked?)
+  <a class="reference internal nav-link" href="#a-neuroscientific-sandbox-what-worked-well">
+   A neuroscientific sandbox (what worked well?)
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-could-be-improved">
-   What could be improved?
+  <a class="reference internal nav-link" href="#directed-play-in-the-sandbox-what-could-be-improved">
+   Directed play in the sandbox (what could be improved?)
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -443,25 +438,20 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#onboarding">
-     Onboarding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#communication">
-     Communication
+    <a class="reference internal nav-link" href="#workflow">
+     Workflow
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-neuroscientific-sandbox-what-worked">
-   A neuroscientific sandbox (What worked?)
+  <a class="reference internal nav-link" href="#a-neuroscientific-sandbox-what-worked-well">
+   A neuroscientific sandbox (what worked well?)
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-could-be-improved">
-   What could be improved?
+  <a class="reference internal nav-link" href="#directed-play-in-the-sandbox-what-could-be-improved">
+   Directed play in the sandbox (what could be improved?)
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -549,7 +539,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Inspired by the success of endeavours like the Human Genome Project (ref) and CERN (ref), neuroscientists are increasingly initiating large-scale collaborations.</p></li>
 <li><p>Though, how to best structure these projects remains an open-question (ref Zach).</p></li>
-<li><p>The largest efforts, e.g. The Blue Brain Project (ref), Human Brain Project (ref) and International Brain Laboratory (ref) bring together tens to hundreds of researchers across multiple laboratories.</p></li>
+<li><p>The largest efforts, e.g. International Brain Laboratory (ref), The Blue Brain Project (ref) and Human Brain Project (ref) bring together tens to hundreds of researchers across multiple laboratories.</p></li>
 <li><p>However, while these projects represent a step-change in scale, they retain a legacy structure which resembles a consortia grant.</p></li>
 <li><p>I.e. there are participating laboratories who collaborate together and then make their data, methods and results available upon publication.</p></li>
 <li><p>As such, interested participants face a high barrier to entry: joining a participating laboratory, initiating a collaboration with the project, or awaiting publications.</p></li>
@@ -575,32 +565,58 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="github">
 <h2>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>At the heart of our project was our GitHub repository (link) which included</p></li>
-<li></li>
+<li><p>Like many open-source efforts, our public GitHub repository (<a class="reference external" href="https://github.com/comob-project/snn-sound-localization">https://github.com/comob-project/snn-sound-localization</a>) was the heart of our project.</p></li>
+<li><p>This provided us with three main benefits.</p></li>
+<li><p>First, it made joining the project as simple as cloning and committing to the repository.</p></li>
+<li><p>Second, it allowed us to collaborate asynchronously. I.e., we could easily complete work in our own time, and then share it with the group.</p></li>
+<li><p>Third, it allowed us to track contributions to the project. Measured in this way, 24 individuals contributed to the project. However, interpreting this number is challenging, as these contributions vary significantly in size, and participants who worked in pairs or small groups, often contributed under a single username.</p></li>
+<li><p>For those interested in pursuing a similar project our repository template, which we structured as follows, is available here: link.</p></li>
+<li><p>A <em>research</em> folder held Jupyter Notebooks and markdown files which participants added to and edited.</p></li>
+<li><p>A <em>web</em> folder contained code which built our repository into a website, and finally</p></li>
+<li><p>a <em>paper</em> folder held the markdown files which we compiled into this paper.</p></li>
 </ul>
 </div>
-<div class="section" id="onboarding">
-<h2>Onboarding<a class="headerlink" href="#onboarding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Our project grew out of a tutorial at the Cosyne conference (2022) for which we provided video lectures and code online (ref).</p></li>
-<li><p>Participants joining the project were encouraged to review this material, and then to work through an introductory jupyter notebook containing Python code, figures and markdown text, which taught them how to train a spiking neural network to perform a sound localisation task.</p></li>
-<li><p>Participants were then directed to our website where we maintained a list of open scientific and technical questions.</p></li>
-<li><p>For example, how does the use of different neuron models impact networks and can we train the input delays with gradient descent?</p></li>
+<li><p>Participants joining the project were encouraged to review this material, and then to work through an introductory Jupyter Notebook containing Python code, figures and markdown text, which taught them how to train a spiking neural network to perform a sound localisation task.</p></li>
+<li><p>Participants were then directed to our website where we maintained a list of open scientific and technical questions for inspiration.</p></li>
+<li><p>For example, how does the use of different neuron models impact network performance and can we learn input delays with gradient descent?</p></li>
+<li><p>Then, with a proposed or novel question in hand, participants were free to approach their work as they wished.</p></li>
+<li><p>In practice, much like a “typical” research project, most work was conducted individually, shared at monthly online meetings and then iteratively improved upon.</p></li>
+<li><p>For example, several early career researchers tackled questions full-time as their dissertation or thesis work and benefited from external input at monthly workshops.</p></li>
+<li><p>In the following two sections we discuss what worked well with our workflow, and how future efforts could be improved.</p></li>
 </ul>
 </div>
-<div class="section" id="communication">
-<h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="a-neuroscientific-sandbox-what-worked-well">
+<h1>A neuroscientific sandbox (what worked well?)<a class="headerlink" href="#a-neuroscientific-sandbox-what-worked-well" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Synchronous online workshops</p></li>
-<li><p>Aynchronous online communication</p></li>
+<li><p>By providing models which used spiking neurons to transform sensory inputs into behavioural outputs, participants were free to explore in virtually any direction they wished, much like an open-world or sandbox video game.</p></li>
+<li><p>Indeed over the course of the project we explored the full sensory-motor transformation from manipulating the nature of the input signals to perturbing unit activity and assessing network behaviour.</p></li>
+<li><p>Consequently, our code forms an excellent basis for teaching, as concepts from across neuroscience can be introduced and then implemented in class.</p></li>
+<li><p>For example, one could introduce how optogenetics can be used to assess the relationship between neural activity and behaviour, and then students can implement and explore this themselves <em>in silico</em>.</p></li>
+<li><p>Or similarly, an introduction to different neuron models can be followed by an exercise in which students must code and study how each alters network behaviour.</p></li>
+<li><p>In the longer-term, extending our code and written material to a full introduction to neuroscience course remains an exciting future direction.</p></li>
+<li><p>Beyond providing teaching and hands-on research experience, the project also offered many opportunities for participants to improve their “soft” scientific skills.</p></li>
+<li><p>For early career researchers (undergraduate and master’s students) these included learning how to work with Git, collaborate with researchers from diverse countries and career stages, and contribute to a scientific publication.</p></li>
+<li><p>For later career researchers (PhD, Postdoc) the project provided many supervision and leadership opportunities. For example, during online workshops, later career participants were encouraged to lead small groups focussed on tackling specific questions.</p></li>
 </ul>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="a-neuroscientific-sandbox-what-worked">
-<h1>A neuroscientific sandbox (What worked?)<a class="headerlink" href="#a-neuroscientific-sandbox-what-worked" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="what-could-be-improved">
-<h1>What could be improved?<a class="headerlink" href="#what-could-be-improved" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="directed-play-in-the-sandbox-what-could-be-improved">
+<h1>Directed play in the sandbox (what could be improved?)<a class="headerlink" href="#directed-play-in-the-sandbox-what-could-be-improved" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Above, we discussed how the sandbox-like nature of our project worked well.</p></li>
+<li><p>Here, however, we highlight three drawbacks of this approach, and suggest how future projects could be improved.</p></li>
+<li><p>First, through clearer incentives. For both early and later career researchers such projects offer incentives like those discussed above. However, future projects would benefit from clearer communication and guidelines.</p></li>
+<li><p>for later-stage researchers the incentives are perhaps less clear and definitely less rewarded by the current system which emphasises first-author over collaborative papers.</p></li>
+<li><p>Furthermore, our original offer to randomise the full author list, may have been less appealing to later stage researchers.</p></li>
+<li><p>However, how to fairly allocate credit on such projects remains an open question (ref).</p></li>
+<li><p>However, ultimately decided against this, given the range of contributions.</p></li>
+<li><p>Second, through more “bridging” work. I.e. while many participants pursued particular questions, the project would have benefited from more work aimed at bringing these distinct threads together. For example, more standardisation of .</p></li>
+<li><p>Finally, through clearer goals. While the open nature of the project may</p></li>
+</ul>
 <div class="section" id="training-snns-for-sound-localisation">
 <h2>Training SNNs for sound localisation<a class="headerlink" href="#training-snns-for-sound-localisation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="learning-delays">
