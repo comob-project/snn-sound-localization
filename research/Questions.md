@@ -48,3 +48,5 @@ Starting point:
   - _Danish_:  Very interesting question that I would like to explore.
 * Level of biological realism and impact on performace - Dale law.
   - _Jose_: Looking into this
+* Distribution of inhibitory and excitatory neurons using Dale's law
+  - _Sara_: First exploratory and interesting results, warrant further investigation
