@@ -1,6 +1,9 @@
 ---
 title: Spiking neural network models of sound localisation via a massively collaborative process
 authors:
+ - name: Ido Aizenbud
+    affiliations:
+      - The Hebrew University of Jerusalem
  - name: Francesco De Santis
     affiliations:
       - NearLab, Politecnico di Milano
