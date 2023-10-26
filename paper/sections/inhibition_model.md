@@ -14,7 +14,7 @@ For the vast majority of animals, sound localization is realized through two cla
 Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies. 
 It is clear at first glance how ITDs assume significant values for species with large head sizes while being much smaller, and so much harder to neuronally encode, for smaller animals. ILDs on the other hand occur when the wavelength of the sound stimulus is shorter than the size of the animal's head, which then generates a significant attenuation at the contralateral ear. For this reason, ILDs significance with respect to ITDs is greater in smaller animals with a middle ear specialised for the transmission of high frequencies. 
 These data soon led to the conclusion that in humans, whose audible range is centred on lower frequencies than in other mammals, the ITD was the main binaural cue in discriminating different azimuth angles. For this reason, the most important model that attempts to explain human sound localization, namely the Jeffress Model, only takes ITDs into account and proposes a theoretical circuit consisting of axonal delay lines at the level of the brainstem that can create this type of sensitivity. For many years, Jeffress's remained the most accepted proposal, given the discovery of axonal lines potentially similar to those theorised by Jeffress in the Nucleo Laminaris (NL) of different bird species. However, the presence of similar delay lines in the mammalian nucleus called the medial superior olive (MSO), within the superior olivary complex and analogous to the avian NL, has never been demonstrated. Furthermore, there are other critical issues in the Jeffress model: several recent studies suggested that synaptic inhibition coming from the contralateral ear could have a main role in processing ITDs in the MSO, as it does for the sensitivity to ILDs in the contiguous nucleus of the lateral superior olive (LSO). Experiments have also highligted how the characteristic delay (CD) values (the peaks in the ITD function) in mammalian MSO are placed beyond the physiological range in many species, that coincides with the potential range of interaural time differences dictated by the subject head size. Positioning the CDs at long ITD values increases the sensitive slope of the function centered on 0 μs ITDs, where the greatest ITD discrimination is required. This factor would then lead to the assumption that the encoding of different positions in space does not happen with the peaks, but exploits instead different slopes of the firing rate curves. This coding strategy stands in contrast to the Jeffress labeled line arrangement, in which spatial positions are encoded by the peak activity of only a few identified units within an array of heterogeneously (in terms of CD) neurons. Eventually, another study also shown how the values of the ITD peaks did not vary according to the different head size as might be expected. 
-In the pivotal study of our work [Grothe2014], Groethe et al. support the thesis that the neuronal structures of sound localization depend on the evolutionary history of the specific species in question. The original binaural cue used by the ancestor of that species at the time of inner ear development is in fact a key factor in determining the neural strategy currently applied in coding the binaural cues. For this reason, humans and all other large mammals may have very different structures than birds for encoding ITDs, because whereas the latter derive from large archosaurs with low-frequency hearing, in which ITD was already the main binaural cue, the former derive from early mammals, which had smaller dimensions and ILDs as a central cue in shaping acoustic spatiality.
+In the pivotal study of our work [@Grothe2014], Groethe et al. support the thesis that the neuronal structures of sound localization depend on the evolutionary history of the specific species in question. The original binaural cue used by the ancestor of that species at the time of inner ear development is in fact a key factor in determining the neural strategy currently applied in coding the binaural cues. For this reason, humans and all other large mammals may have very different structures than birds for encoding ITDs, because whereas the latter derive from large archosaurs with low-frequency hearing, in which ITD was already the main binaural cue, the former derive from early mammals, which had smaller dimensions and ILDs as a central cue in shaping acoustic spatiality.
 Thus, the strategy we tried to validate in our computational model stands as an alternative to the Jeffress model with regard to the analysis of ITDs. It is more grounded in the neural circuits actually observed in the mammalian brainstem and it has glycinergic inhibition from the contralateral ear as its main actor, in a  way similar to the creation of ILD sensitivity in the lateral superior olive (LSO).
 
 # Methods
@@ -67,11 +67,11 @@ On the other hand, for ipsilateral angles, we can observe a second (negative) sl
 
 The predictions of the entire brainstem network for the different azimuth angles and for the different configurations tested are described by the RMSE, R, and its pvalue presented in Table 1. 
 
-| Configuration: | 1           | 2           | 3           | 4           | 5           | 6            |
+| Configuration: | 1           | 2           | 3           | 4           | 5           | **6**            |
 |----------------|-------------|-------------|-------------|-------------|-------------|--------------|
-| RMSE           | 19.297 deg  | 11.527 deg  | 21.397 deg  | 18.072 deg  | 15.777 deg  | 11.06 deg    |
-| R              | 0.947       | 0.979       | 0.948       | 0.961       | 0.961       | 0.983        |
-| p value        | 9.578*10^-7 | 5.891*10^-9 | 8.782*10^-7 | 1.695*10^-7 | 1.944*10^-7 | 1.658$*10^-9$ |\
+| RMSE           | 19.297 deg  | 11.527 deg  | 21.397 deg  | 18.072 deg  | 15.777 deg  | **11.06 deg**    |
+| R              | 0.947       | 0.979       | 0.948       | 0.961       | 0.961       | **0.983**        |
+| p value        | 9.578*10<sup>-7</sup> | 5.891*10<sup>-9</sup> | 8.782*10<sup>-7</sup> | 1.695*10<sup>-7</sup> | 1.944*10<sup>-7</sup> | **1.658*10<sup>-9</sup>** |\
 
 **Table 1** - Comparison of performance between the six configurations. In bold, the best performance.
 
@@ -80,8 +80,13 @@ The first important result that can be deduced from these data concerns the impr
 ![6](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/c12ccd0e-9bd8-4d6c-8463-009a52da1a16)\
 **Figure 5** - Model’s results for configuration "6", in which predictions are obtained by considering only LSO and MSO contralateral to
 the stimulus. The results were obtained with an input tone of 100 Hz and a duration of 1 s for different azimuth angles.
+
+The results obtained show how the role of fast and dominant inhibitory inputs to the LSO and MSO can be crucial in distinguishing between different azimuth angles.
+The spiking neural network implementation of the brainstem also demonstrated how the encodings of different ITDs do not necessarily have to be generated by the activity peaks of different cells in the MSO but, on the contrary, they can be coded by the slope in the response firing rates within the range of physiological ITDs. Furthermore, this work has shown how the integration of information from LSO and MSO allows for more accurate localizations than the responses of the two nuclei taken individually, at least for pure tones of 100 Hz frequency.
+
+
+
 ---
-@article{Grothe2014,
   doi = {10.3389/fncir.2014.00116},
   url = {https://doi.org/10.3389/fncir.2014.00116},
   year = {2014},
@@ -91,8 +96,6 @@ the stimulus. The results were obtained with an input tone of 100 Hz and a durat
   author = {Benedikt Grothe and Michael Pecka},
   title = {The natural history of sound localization in mammals {\^{a}}{\mbox{\texteuro}}{\textquotedblleft} a story of neuronal inhibition},
   journal = {Frontiers in Neural Circuits}
-}
+  title: "Grothe2014"
+  link-citations: true
 ---
-
-The results obtained show how the role of fast and dominant inhibitory inputs to the LSO and MSO can be crucial in distinguishing between different azimuth angles.
-The spiking neural network implementation of the brainstem also demonstrated how the encodings of different ITDs do not necessarily have to be generated by the activity peaks of different cells in the MSO but, on the contrary, they can be coded by the slope in the response firing rates within the range of physiological ITDs. Furthermore, this work has shown how the integration of information from LSO and MSO allows for more accurate localizations than the responses of the two nuclei taken individually, at least for pure tones of 100 Hz frequency.
