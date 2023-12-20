@@ -1,25 +1,37 @@
 ---
 title: Spiking neural network models of sound localisation via a massively collaborative process
 authors:
- - name: Ido Aizenbud
+  - name: Francesco De Santis
+    affiliations:
+      - NearLab, Politecnico di Milano
+  - name: Dilay Ercelik 
+    affiliations: 
+      - University College London
+  - name: Karim Habashy
+    affiliations: 
+      - University of Bristol
+  - name: Balázs Mészáros
+    affiliations: 
+      - University of Sussex
+  - name: Ido Aizenbud
     affiliations:
       - The Hebrew University of Jerusalem
- - name: Francesco De Santis
-    affiliations:
-      - NearLab, Politecnico di Milano
- - name: Alberto Antonietti
-    affiliations:
-      - NearLab, Politecnico di Milano
   - name: Gabriel Béna
     affiliations:
       - Imperial College London
+  - name: Volker Bormuth
+    affiliations: 
+      - Sorbonne University
+  - name: Alberto Antonietti
+    affiliations:
+      - NearLab, Politecnico di Milano
   - name: Dan F. M. Goodman
     affiliations:
       - Imperial College London
     orcid: 0000-0003-1007-6474
   - name: Marcus Ghosh
     affiliations:
-      - Laboratoire Jean Perrin, Sorbonne Université, Paris
+      - Imperial College London
     orcid: 0000-0002-2428-4605
     email: mghosh@imperial.ac.uk
 license: CC-BY-4.0
