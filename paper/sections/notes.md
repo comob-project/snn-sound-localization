@@ -24,3 +24,5 @@ global network of laboratories to assay how decisionmaking behavior is encoded i
 ## Achakulvisut 2021: Towards democratizing and automating online conferences: lessons from the neuromatch conferences
 * https://doi.org/10.1016/j.tics.2021.01.007    
 
+## Cariani 2011: Jeffress model
+* http://dx.doi.org/10.4249/scholarpedia.2920 
