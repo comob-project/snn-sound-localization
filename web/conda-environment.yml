@@ -11,3 +11,6 @@ dependencies:
   - jupyter-book = 0.12.3     # Newest release at time of writing.
                               # Pinned so that the website build keeps working as expected.
   - pyyaml = 6                # To modify jb's _config.yml and _toc.yml
+  - pip:
+    - lxml[html_clean] > 5    # To keep the website build working.
+                              # https://github.com/comob-project/snn-sound-localization/issues/101
