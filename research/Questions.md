@@ -25,6 +25,7 @@ Starting point:
 
 * Delay learning: can we train delays with surrogate gradient descent?
   - _Jakub_: I'm interested in looking into this.
+  - _Balázs_: I'm looking into this using DCLS as in https://arxiv.org/pdf/2306.17670.pdf
 * Alternatives to surrogate gradient descent?
   - _Danish_:  I use a correlation learning model of synaptic plasticity which could in principle capture timing delays.
 * Add a more realistic auditory periphery (cochlear filtering and more realistic spiking model).
