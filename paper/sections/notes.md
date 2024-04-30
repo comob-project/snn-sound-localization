@@ -1,4 +1,4 @@
-# Notes 
+# Notes (various, not to include in paper)
 
 ## Mainen 2016: A better way to crack the brain 
 * https://doi.org/10.1038/539159a

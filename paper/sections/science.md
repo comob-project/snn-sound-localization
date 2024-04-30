@@ -1,4 +1,4 @@
-# Collective introduction 
+## Collective introduction 
 
 * (Based on new_inh_model.md)
 * For most animals, sound localization is realised through two classes of acoustic signals: binaural and spectral cues. 
@@ -13,7 +13,7 @@
 * However, while such delay lines were found in the avian Nucleus Laminaris (ref) equivalent structures are yet to be found in mammals, and experiments suggest a role for inhibition, as well as excitation in sound localisation (refs).  
 * With these caveats in mind, we set out to explore sound localisation through both simple, and more biologically plausible spiking neural network models.  
 
-# A simple spiking neural network model
+## A simple spiking neural network model
 * To explore how networks of spiking neurons can localise sound, we first considered a simple model, akin to the Jeffress model (ref).
 * Our model consisted of a single layer of leaky integrate-and-fire (LIF) units with inputs from two populations (representing the left and right ears) and feed-forward connections to a layer of non-spiking output units (Fig.x).
 * As inputs we used sine wave signals which arrived at each ear with an inter-aural phase difference (IPD).
@@ -66,7 +66,7 @@ Key points:
 * Can train weights and delays independently. 
 * It would be great to include experimental or conceptual comparisons between DCLS and DDL. 
 
-# A more biologically plausible model (new_inh_model)
+## A more biologically plausible model (new_inh_model)
 * Finally, we developed a more detailed model in which we used over 170,000 units, with conductance-based synapses, to approximate the structure of the mammalian brainstem circuit (Methods).
 * In short, input spectrograms representing sounds at azimuth angles from -90° to +90° were converted into spikes,
 * then passed forward to populations representing the globular and spherical bushy cells, and subsequently the lateral and medial superior olivary nuclei, from which we readout sound source angle predictions (Fig. x). 

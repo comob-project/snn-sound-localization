@@ -39,6 +39,8 @@ export:
   - format: docx
   - format: tex
     template: lapreprint
+  - format: pdf
+    template: lapreprint
 ---
 
 % Add your name, affiliations, etc. at the top of the authors list (in the end we will randomise the order)
@@ -53,25 +55,34 @@ export:
 * Future iterations would benefit from clearer paths to participation and more structure / more clearly defined goals. 
 +++
 
-## Introduction
+# Introduction
 
 ```{include} sections/intro.md
 ```
 
-## Towards open collaborative science 
+# Towards open collaborative science 
 
 ```{include} sections/meta_science.md
 ```
 
-## Training SNNs for sound localisation
+# Training SNNs for sound localisation
 
 ```{include} sections/science.md
 ```
 
-## Discussion
+# Discussion
 
 ```{include} sections/discussion.md
 ```
 
-## References 
+# References 
 
+# Appendices
+
+In this section, each subsection is the detailed results as written up by the author of those results.
+
+```{include} sections/new_inh_model.md
+```
+
+```{include} sections/delays/Delays.md
+```

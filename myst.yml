@@ -1,0 +1,23 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: COMOB Sound Localization Project
+  # description:
+  keywords: []
+  authors:
+    - COMOB, the project for collaborative modelling of the brain
+  github: https://github.com/comob-project/snn-sound-localization
+  # bibliography: []
+  exclude:
+    - web/**
+    - ReadMe.md
+    - paper/sections/**
+site:
+  template: book-theme
+  title: COMOB Sound Localization Project
+  options:
+    favicon: web/headphone-logo.png
+    logo: comob-logo.png
+    logo_text: COMOB Sound Localization Project
+  nav: []
+  domains: []
