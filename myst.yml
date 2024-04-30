@@ -12,6 +12,9 @@ project:
     - web/**
     - ReadMe.md
     - paper/sections/**
+  abbreviations:
+    ITD: interaural time difference
+    ILD: interaural level difference
 site:
   template: book-theme
   title: COMOB Sound Localization Project
