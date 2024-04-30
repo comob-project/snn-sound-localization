@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
 
-      - name: install myst
+      - name: install mystmd
         run: npm install -g myst-cli
         
       - name: build with myst
