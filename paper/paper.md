@@ -40,7 +40,11 @@ export:
   - format: tex
     template: lapreprint
   - format: pdf
-    template: lapreprint
+    id: paper
+    template: lapreprint-typst
+downloads:
+  - id: paper
+    title: Download Paper
 ---
 
 % Add your name, affiliations, etc. at the top of the authors list (in the end we will randomise the order)
