@@ -64,18 +64,9 @@ export:
 ```
 
 ## Training SNNs for sound localisation
-% This will have the basics of the cosyne tutorial.
 
-### Learning delays
-
-```{include} sections/habashy.md
+```{include} sections/science.md
 ```
-
-### Time constants
-
-### Dale's law
-
-### Alternative neuron models
 
 ## Discussion
 
