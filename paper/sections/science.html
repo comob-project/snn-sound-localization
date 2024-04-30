@@ -311,11 +311,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#based-on-new-inh-model-md">
-   Based on new_inh_model.md
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-simple-spiking-neural-network-model">
    A simple spiking neural network model
   </a>
@@ -387,11 +382,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#based-on-new-inh-model-md">
-   Based on new_inh_model.md
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-simple-spiking-neural-network-model">
    A simple spiking neural network model
   </a>
@@ -448,12 +438,10 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="collective-introduction">
 <h1>Collective introduction<a class="headerlink" href="#collective-introduction" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="based-on-new-inh-model-md">
-<h1>Based on new_inh_model.md<a class="headerlink" href="#based-on-new-inh-model-md" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li><p>(Based on new_inh_model.md)</p></li>
 <li><p>For most animals, sound localization is realised through two classes of acoustic signals: binaural and spectral cues.</p></li>
-<li><p>In humans, the former are sufficient to discriminate sounds in the azimuth plane, while the latter help to discriminate vertical angles and resolve font-back ambiguities (ref).</p></li>
+<li><p>In humans, binaural cues are sufficient to discriminate sounds in the azimuth plane, while spectral cues help to discriminate vertical angles and resolve font-back ambiguities (ref).</p></li>
 <li><p>Focussing on binaural cues, animals exploit two differences in the signals arriving at each ear: their interaural time and level difference (ITD and ILD).</p></li>
 <li><p>Though the relative importance of these two cues for a given animal, depends on it’s head size and range of audible frequencies (ref).</p></li>
 <li><p>As our audible range is centred on lower frequencies than other mammals (ref) and y (ref), it has long been assumed that we mainly use ITDs when discriminating between different azimuth angles,</p></li>
@@ -461,7 +449,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>In this model, the acoustic signals arriving at each ear are converted into spike trains, and then passed along monoaural delay lines to a bank of binaural coincidence detectors, via excitatory synapses.</p></li>
 <li><p>As each detector receives each monoaural signal with some delay, each is sensitive to a particular range of ITDs. For example, a sound heard from the left, will proceed through the left delays ahead of the right, until they converge at a coincidence detector tuned to that temporal offset.</p></li>
 <li><p>Finally, the outputs of these coincidence detectors are summed over time and used to estimate the sounds location (Fig. x).</p></li>
-<li><p>However, while such delay lines were found in the avian Nucleus Laminaris (ref) equivalent structures are yet to be found in mammals, and experiments suggest a role for inhibition, as well as excitation in sound localisation (ref).</p></li>
+<li><p>However, while such delay lines were found in the avian Nucleus Laminaris (ref) equivalent structures are yet to be found in mammals, and experiments suggest a role for inhibition, as well as excitation in sound localisation (refs).</p></li>
 <li><p>With these caveats in mind, we set out to explore sound localisation through both simple, and more biologically plausible spiking neural network models.</p></li>
 </ul>
 </div>
@@ -473,7 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>As inputs we used sine wave signals which arrived at each ear with an inter-aural phase difference (IPD).</p></li>
 <li><p>Each ear contained a population of units with uniform phase delays, which generated independent Poisson spike trains (Methods).</p></li>
 <li><p>We discretised the range of IPDs into classes and trained networks, using supervised surrogate gradient descent (ref), to report the most likely IPD range for a given input.</p></li>
-<li><p>Using this setup we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer (Zach’s notebook).</p></li>
+<li><p>Using this setup we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer (Zach’s notebook); emphasising the role of coincidence detection in this task.</p></li>
 <li><p>Building on this base model, we explored two main questions: how changing the neuron model, alters the networks behaviour and how the phase delays (within each ear) can be learned.</p></li>
 </ul>
 <div class="section" id="alternative-neuron-models">
@@ -487,9 +475,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale’s principal (ref),</p></li>
 <li><p>and the Jeffress model uses all excitatory neurons.</p></li>
 <li><p>In contrast, most artificial neural networks, including our base model, allow single units to have both positive and negative output weights.</p></li>
-<li><p>To test the impact of this constraint, we trained our base model across a range of inhibitory:excitatory unit ratios, and tested it’s performance on unseen, test data.</p></li>
-<li><p>We found that networks which balanced excitation and inhibition performed significantly better than both inhibition-only networks - which perform at chance level as no spikes propagate from the hidden to output layer, and excitation-only networks - which were roughly 30% less accurate than balanced networks.</p></li>
-<li><p>Highlighting the importance of inhibition in this model.</p></li>
+<li><p>To test the impact of restricting units to being either excitatory or inhibitory, we trained our base model across a range of inhibitory:excitatory unit ratios, and tested it’s performance on unseen, test data.</p></li>
+<li><p>We found that networks which balanced excitation and inhibition performed significantly better than both inhibition-only networks - which perform at chance level as no spikes propagate from the hidden to output layer, and excitation-only networks - which were roughly 30% less accurate than balanced networks;</p></li>
+<li><p>highlighting the importance of inhibition in this model.</p></li>
 <li><p>To understand where in the network inhibition is required, we then trained a second set of networks in which we forced either the input or hidden units to be all excitatory, and set the remaining units to be half inhibitory and half excitatory.</p></li>
 <li><p>Networks with all excitatory hidden units performed as well as networks with balanced units, while networks with purely excitatory inputs performed significantly worse (Fig. x), demonstrating a role for inhibition in the input-hidden connections / delay lines.</p></li>
 </ul>
@@ -499,7 +487,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Unlike most point neuron models, in which pairs are connected by a single weight, many biological neurons make multiple contacts with their post-synaptic partners at different points along their dendritic tree.</p></li>
 <li><p>These contacts evoke post-synaptic potentials (PSPs) with distinct temporal dynamics, depending on their distance from the soma, with distal/proximal contacts inducing prolonged/brief PSPs (ref).</p></li>
-<li><p>These features are captured by the filter-and-fire neuron model (F&amp;F) (ref), in which units make multiple contacts with their partners and each input is convolved with distance-from-soma dependent synaptic filter.</p></li>
+<li><p>These features are captured by the filter-and-fire neuron model (F&amp;F) (ref), in which units make multiple contacts with their partners and each input is convolved with a distance-from-soma dependent synaptic filter.</p></li>
 <li><p>While networks of F&amp;F units outperform networks of LIF units on a temporal version of MNIST (ref), we hypothesised that this difference would be magnified in our sound localisation task, given it’s natural temporal structure.</p></li>
 <li><p>To test this, we conducted three experiments.</p></li>
 <li><p>First, convolve input_spikes with one single filter, with fixed tau hyperparameters.</p></li>
@@ -510,24 +498,43 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="learning-delays">
 <h2>Learning delays<a class="headerlink" href="#learning-delays" title="Permalink to this headline">¶</a></h2>
-<p>Here we explore how the phase delays can be learned in the network through two methods.</p>
+<p>Many studies which incoroprate axonal and/or dendritic delays include them as non-learnable parameters (refs) like our base model. Here we explore how these phase delays can be learned through two approaches.</p>
 <div class="section" id="with-dilated-convolutions-with-learnable-spacings-dcls">
 <h3>With dilated convolutions with learnable spacings (DCLS)<a class="headerlink" href="#with-dilated-convolutions-with-learnable-spacings-dcls" title="Permalink to this headline">¶</a></h3>
-<p>First, with DCLS. Needs to train weights and delays.</p>
+<p>First, with DCLS (Hammouamri et al., 2023; Khalfaoui-Hassani et al., 2023).
+Key points:</p>
+<ul class="simple">
+<li><p>Use 1D convolutions through time to simulate delays between consecutive layers.</p></li>
+<li><p>Where the kernels include a single non-zero weight per-synapse, which corresponds to the desired delay.</p></li>
+<li><p>Learns both weights and delays.</p></li>
+<li><p>Visualisation of results:</p>
+<ul>
+<li><p>x - learned delay, y - learned weight.</p></li>
+<li><p>Hidden units seperate data spatio-temporally.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="with-a-differentiable-delay-layer-ddl">
 <h3>With a differentiable delay layer (DDL)<a class="headerlink" href="#with-a-differentiable-delay-layer-ddl" title="Permalink to this headline">¶</a></h3>
-<p>Second, with differentiable delays. Can train weights and delays independently.
-Comparisons between DCLS, single-layer, related methods.</p>
+<p>Second, by introducing a differentiable delay layer.
+Key points:</p>
+<ul class="simple">
+<li><p>Can be placed between any two layers in an SNN.</p></li>
+<li><p>Can train weights and delays independently.</p></li>
+<li><p>It would be great to include experimental or conceptual comparisons between DCLS and DDL.</p></li>
+</ul>
 </div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="a-more-biologically-plausible-model-new-inh-model">
 <h1>A more biologically plausible model (new_inh_model)<a class="headerlink" href="#a-more-biologically-plausible-model-new-inh-model" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Finally, we developed a more detailed model in which we used over 170,000 units to capture the structure of the mammalian brainstem circuit (Methods).</p></li>
-<li><p>In short, input spectrograms were converted into spikes, passed forward to populations representing the globular and spherical bushy cells, then the lateral and medial superior olivary nuclei (Fig. x).</p></li>
-<li><p>Note that, unlike the work with our simple model, we did not train any weights or connection strengths here, and instead based these on…</p></li>
+<li><p>Finally, we developed a more detailed model in which we used over 170,000 units, with conductance-based synapses, to approximate the structure of the mammalian brainstem circuit (Methods).</p></li>
+<li><p>In short, input spectrograms representing sounds at azimuth angles from -90° to +90° were converted into spikes,</p></li>
+<li><p>then passed forward to populations representing the globular and spherical bushy cells, and subsequently the lateral and medial superior olivary nuclei, from which we readout sound source angle predictions (Fig. x).</p></li>
+<li><p>Note that, unlike the work with our simple model, we used no learnable parameters in this model, and instead based parameters on neurophysiological data.</p></li>
+<li><p>For example, the MSO units had excitatory inputs from both the ipsi and contralateral SBCs and dominant inhibition from contralateral GBCs (Fig. x).</p></li>
 </ul>
 <p>Results:
 *</p>
