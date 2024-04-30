@@ -2,6 +2,8 @@
 
 This is the repository behind the _SNN Sound Localization_ project. Check out [the website](https://comob-project.github.io/snn-sound-localization/) for more information about the project and how to join and contribute.
 
+[Current version of the paper (pdf)](https://github.com/comob-project/snn-sound-localization/releases/download/latest/paper.pdf) if build ran without error.
+
 
 ## Contents
 
