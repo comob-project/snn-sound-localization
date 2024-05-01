@@ -1,6 +1,11 @@
 ---
 title: Spiking neural network models of sound localisation via a massively collaborative process
 authors:
+  - name: Marcus Ghosh
+    affiliations:
+      - Imperial College London
+    orcid: 0000-0002-2428-4605
+    email: mghosh@imperial.ac.uk
   - name: Francesco De Santis
     affiliations:
       - NearLab, Politecnico di Milano
@@ -29,11 +34,6 @@ authors:
     affiliations:
       - Imperial College London
     orcid: 0000-0003-1007-6474
-  - name: Marcus Ghosh
-    affiliations:
-      - Imperial College London
-    orcid: 0000-0002-2428-4605
-    email: mghosh@imperial.ac.uk
 license: CC-BY-4.0
 export:
   - format: docx
@@ -51,11 +51,12 @@ downloads:
 
 
 +++ {"part": "abstract"}
+* UNFINISHED ABSTRACT NOTES
 * We started a project to run a massively collaborative online modelling project.
 * We built a successful infrastructure to manage this.
 * We provided great training opportunities.
 * The project functioned as a successful incubator of ideas.
-* We made some progress in modelling sound localisation with spiking neural networks.
+* We made some progress in modelling sound localisation with spiking neural networks. (EXPAND ON THIS.)
 * Future iterations would benefit from clearer paths to participation and more structure / more clearly defined goals. 
 +++
 
