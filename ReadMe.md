@@ -2,13 +2,11 @@
 
 This is the repository behind the _SNN Sound Localization_ project. Check out [the website](https://comob-project.github.io/snn-sound-localization/) for more information about the project and how to join and contribute.
 
-[Current version of the paper (pdf)](https://github.com/comob-project/snn-sound-localization/releases/download/latest/paper.pdf) if build ran without error.
-
 
 ## Contents
 
 - `research/`: Jupyter Notebooks and markdown files with research notes, code, and plots. Gets built into the website.
-- `web/`: Code and config to build the website.
+- `paper/`: Markdown files with the paper in progress. Also gets built into the website.
 - `index.md`: Home page ("About") of the website
 - `environment.yml`: conda environment to run the notebooks in `research/`.
 
