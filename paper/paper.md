@@ -79,8 +79,6 @@ downloads:
 ```{include} sections/discussion.md
 ```
 
-# References 
-
 # Appendices
 
 In this section, each subsection is the detailed results as written up by the author of those results.
