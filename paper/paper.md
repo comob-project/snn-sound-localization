@@ -80,6 +80,11 @@ downloads:
 ```{include} sections/discussion.md
 ```
 
+# Contributors
+
+```{include} sections/contributor_table.md
+```
+
 # Appendices
 
 In this section, each subsection is the detailed results as written up by the author of those results.
