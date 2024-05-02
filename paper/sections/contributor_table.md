@@ -2,6 +2,12 @@
 Hello contributors! I have inserted a table of names, websites and GitHub usernames of contributors from the repository below. There is a lot of information missing. Please can you submit pull requests modifying the file [paper/sections/contributor_table.md](https://github.com/comob-project/snn-sound-localization/blob/main/paper/sections/contributor_table.md) to update your information, and also get in touch with us if you would like to be listed as an author. Either email [Dan Goodman](mailto:d.goodman@imperial.ac.uk) or join the [SNUFA discord channel](https://discord.gg/aYvgGakrVK) ``#sound-localisation-paper``.
 ```
 
+If you add a contribution, please use one of the following templates (see examples below):
+
+* Wrote the paper (plus which section if you would like to specify)
+* Conducted research (please give the ``filename.ipynb`` of your notebook or specify another sort of contribution)
+* Supervised research (please give the name of your supervisee)
+
 ```{list-table} Contributors, ordered by GitHub commits.
 :header-rows: 1
 :label: contributors-table
@@ -14,10 +20,10 @@ Hello contributors! I have inserted a table of names, websites and GitHub userna
   - Built the website infrastructure.
 * - [Marcus Ghosh](https://neural-reckoning.org/marcus_ghosh.html)
   - [\@ghoshm](https://github.com/ghoshm)
-  - Managed the project, wrote the paper, gave the Cosyne tutorial.
+  - Managed the project, wrote the paper, conducted research (``4-Quick_Start.ipynb``, ``Dales_law.ipynb``), gave the Cosyne tutorial.
 * - [Dan Goodman](http://neural-reckoning.org/)
   - [\@thesamovar](https://github.com/thesamovar)
-  - Conceived the project, wrote the paper, wrote the Cosyne tutorial. Wrote the [starting notebook](/starting-notebook).
+  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Wrote the [starting notebook](/starting-notebook).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
   - (TODO)
