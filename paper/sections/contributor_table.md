@@ -5,7 +5,7 @@ Hello contributors! I have inserted a table of names, websites and GitHub userna
 If you add a contribution, please use one of the following templates (see examples below):
 
 * Wrote the paper (plus which section if you would like to specify)
-* Conducted research (please give the ``filename.ipynb`` of your notebook or specify another sort of contribution)
+* Conducted research (please give a link to your notebook formatted like this ``[](../research/3-Starting-Notebook.ipynb)``, or specify another sort of contribution)
 * Supervised research (please give the name of your supervisee)
 
 ```{list-table} Contributors, ordered by GitHub commits.
@@ -20,10 +20,10 @@ If you add a contribution, please use one of the following templates (see exampl
   - Built the website infrastructure.
 * - [Marcus Ghosh](https://neural-reckoning.org/marcus_ghosh.html)
   - [\@ghoshm](https://github.com/ghoshm)
-  - Managed the project, wrote the paper, conducted research (``4-Quick_Start.ipynb``, ``Dales_law.ipynb``), gave the Cosyne tutorial.
+  - Managed the project, wrote the paper, conducted research ([](../research/4-Quick_Start.ipynb), [](../research/Dales_law.ipynb)), gave the Cosyne tutorial.
 * - [Dan Goodman](http://neural-reckoning.org/)
   - [\@thesamovar](https://github.com/thesamovar)
-  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Wrote the [starting notebook](/starting-notebook).
+  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
   - (TODO)
