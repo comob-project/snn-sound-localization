@@ -86,7 +86,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - Pietro Monticone
   - [\@pitmonticone](https://github.com/pitmonticone)
-  - (TODO)
+  - Cleaned paper and notebooks
 * - [Adam Haber](http://adamhaber.github.io/)
   - [\@adamhaber](https://github.com/adamhaber)
   - (TODO)
