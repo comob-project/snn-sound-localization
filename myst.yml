@@ -1,0 +1,47 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: COMOB Sound Localization Project
+  # description:
+  keywords: []
+  authors:
+    - COMOB, the project for collaborative modelling of the brain
+  github: https://github.com/comob-project/snn-sound-localization
+  # bibliography: []
+  exclude:
+    - web/**
+    - ReadMe.md
+    - paper/sections/**
+  abbreviations:
+    ITD: interaural time difference
+    ILD: interaural level difference
+    IPD: interaural phase difference
+    SNN: spiking neural network
+    COMOB: collaborative modelling of the brain
+    LIF: leaky integrate-and-fire
+    F&F: filter-and-fire
+    DCLS: dilated convolutions with learnable spacings
+    DDL: differentiable delay layer
+    MSO: medial superior olive
+    LSO: lateral superior olive
+    SBC: spherical bushy cell
+    GBC: globular bushy cell
+    CD: characteristic delay
+    CF: characteristic frequency
+    IHC: inner hair cell
+    ANF: auditory nerve fiber
+    RMSE: root mean square error
+    STDP: spike-timing-dependent plasticity
+    PNG: polychronous neuronal group
+    EM: expectation-maximization
+    STN: spatial transformer network
+    CNN: convolutional neural network
+site:
+  template: book-theme
+  title: COMOB Sound Localization Project
+  options:
+    favicon: comob-logo.png
+    logo: comob-logo.png
+    logo_text: COMOB Sound Localization Project
+  nav: []
+  domains: []

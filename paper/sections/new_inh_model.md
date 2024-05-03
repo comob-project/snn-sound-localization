@@ -1,9 +1,10 @@
-# Contralateral glycinergic inhibition as key factor in creating ITD sensitivity
+## Contralateral glycinergic inhibition as key factor in creating ITD sensitivity
 
-# Intro
+### Intro
 Why a more biological inspired model? 
 - Existance of both ITDs and ILDs for azimuthal sounds localization
-- Jeffress model existance in mammals is not plausible: 3 main critical issues
+- Problem of ITD sensitivity: their duration is in the range of microseonds whereas neuronal dynamics work in the millisecond range.
+- Jeffress model existance in mammals is not sure: 3 main critical issues
   - axonal delay lines absence in mammalian MSO
   - contralateral inhibition role not considered in Jeffress
   - peaks of MSO responses outside physiological range: slopes as the encoding part of the curves
@@ -17,11 +18,14 @@ These data soon led to the conclusion that in humans, whose audible range is cen
 In the pivotal study of our work [@Grothe2014], Groethe et al. support the thesis that the neuronal structures of sound localization depend on the evolutionary history of the specific species in question. The original binaural cue used by the ancestor of that species at the time of inner ear development is in fact a key factor in determining the neural strategy currently applied in coding the binaural cues. For this reason, humans and all other large mammals may have very different structures than birds for encoding ITDs, because whereas the latter derive from large archosaurs with low-frequency hearing, in which ITD was already the main binaural cue, the former derive from early mammals, which had smaller dimensions and ILDs as a central cue in shaping acoustic spatiality.
 Thus, the strategy we tried to validate in our computational model stands as an alternative to the Jeffress model with regard to the analysis of ITDs. It is more grounded in the neural circuits actually observed in the mammalian brainstem and it has glycinergic inhibition from the contralateral ear as its main actor, in a  way similar to the creation of ILD sensitivity in the lateral superior olive (LSO).
 
-# Methods
-The network was mainly developed in Python using the NEST Simulator framework. Inspired by the neurophysiological data, we implemented a complex spiking neural network composed of more than 170,000 spiking units. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in Figure 1. 
+### Methods
+The network was mainly developed in Python using the NEST Simulator framework. Inspired by the neurophysiological data, we implemented a complex spiking neural network composed of more than 170,000 spiking units. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in [](#model_map1). 
 
-![model_map1](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/2a9a3283-e92b-4e37-95f7-3f1d3a88dc28)
-**Figure 1** - The end-to-end system with the network diagram
+```{figure} https://github.com/francescodesantis/snn-sound-localization/assets/96658597/2a9a3283-e92b-4e37-95f7-3f1d3a88dc28
+:label:model_map1
+
+The end-to-end system with the network diagram
+```
 
 The principal inputs to the network are the spectrogram of a sound stimulus arriving at both ears and the azimuth angle from which univocal values of ITD and ILD are computed. With regards to the spectrogram, we covered the whole human audible range of sound between a minimum frequency of 20 Hz and a maximum of 20 kHz. We subdivided it into 3500 channels since this value is the most likely estimate of the number of inner hair cells (IHCs) present in the human cochlea. With the intent to mimic the physiological distribution of IHCs along the basilar membrane, the width of each frequency channel was not constant throughout the range but grew exponentially. Once an azimuth angle was set, the value of ITD was calculated considering the interaural path difference, which is the difference between the paths traveled by the sound starting from the source and arriving at the two ears, and dividing it by the speed of sound in air (i.e., 330 m/s). For ILDs, a maximum attenuation of 2 dB was provided to the ear contralateral to the origin of the sound for azimuth angles of ±90°. 
 
@@ -39,33 +43,44 @@ Finally, six different configurations were tested, consisting in:
    
 The results of each of these six configurations were then quantified by calculating the root mean square error (RMSE) expressed in degrees and the Pearson correlation coefficient R between the real and predicted angles.
 
-# Results
+### Results --> I have to introduce updates
 
 As the first result concerning the spiking activity of brainstem neural populations, a refinement of phase locking was obtained at the level of the spherical and globular bushy cells, which then exhibited a behavior faithful to their biological counterparts. 
 
-With regard to the LSO, the responses in terms of firing rate following stimulation with different pure tones (i.e., with different CFs) presented the desired subtraction process described, regardless of the stimulation CF, as depicted in Figure 2. 
+With regard to the LSO, the responses in terms of firing rate following stimulation with different pure tones (i.e., with different CFs) presented the desired subtraction process described, regardless of the stimulation CF, as depicted in [](#LSO1). 
 
-![LSO1](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/428de33c-d5fb-405f-b44e-949f701374fa)
-**Figure 2** - Firing rates and spike trains of left and right LSO populations after different stimoulus frequencies.
+```{figure} https://github.com/francescodesantis/snn-sound-localization/assets/96658597/428de33c-d5fb-405f-b44e-949f701374fa
+:label: LSO1
+
+Firing rates and spike trains of left and right LSO populations after different stimoulus frequencies.
+```
 
 Indeed, the nuclei on both sides show low response values for stimuli from contralateral azimuth angles, with a minimum at +90° for the left LSO and at -90° for the right LSO. This is due to the greater strength and speed of inhibition compared to ipsilateral excitation.
 
 Considering the right LSO, for sake of simplicity, when the sound arrives from a source placed at -90°, the contralateral ear (left) receives sounds earlier and more intensely than the ipsilateral ear (right). As the azimuth angle proceeds toward 0° (frontal position), the firing rate increases while maintaining a constant slope. This steep segment is the most informative part of the right LSO response curve, as a high sensitivity to changing input azimuth angles is guaranteed. Once past 0°, the firing rate ceases to increase steadily, and the response flattens out to high rate values. Here, the ipsilateral (right) excitation dominates due to positive ITD and ILD with respect to the contralateral ear.
 
-Regarding the MSO, at the microscopic level, inhibition of increasing strength leads to an increasing reduction of the membrane potential in the principal cells. In detail, small inhibitory weights delay the spike instant of the cell and then altogether abolish the potential spike when they take larger values, keeping the membrane potential below the threshold, as depicted in Figure 3.
+Regarding the MSO, at the microscopic level, inhibition of increasing strength leads to an increasing reduction of the membrane potential in the principal cells. In detail, small inhibitory weights delay the spike instant of the cell and then altogether abolish the potential spike when they take larger values, keeping the membrane potential below the threshold, as depicted in [](#inhibition7).
 
+```{figure} https://github.com/francescodesantis/snn-sound-localization/assets/96658597/43aa94a4-1848-4320-8477-3cc709f00af0
+:label: inhibition7
 
-![inhibition7](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/43aa94a4-1848-4320-8477-3cc709f00af0)\
-**Figure 3** - Trend of the membrane potential of two cells belonging to the same battery (same CF) showed on a single period during a pure tone stimulation at 100 Hz at 0° and duration of 100 ms. The inhibitory post-synaptic potential (IPSP) leads to a shift and then, for larger weights, to the cancellation of the neuron spike. As in [2], the contralateral IPSP is fast and anticipates both the ipsilateral and the contralateral excitatory post-synaptic potentials.
+Trend of the membrane potential of two cells belonging to the same battery (same CF) showed on a single period during a pure tone stimulation at 100 Hz at 0° and duration of 100 ms. The inhibitory post-synaptic potential (IPSP) leads to a shift and then, for larger weights, to the cancellation of the neuron spike. As in [2], the contralateral IPSP is fast and anticipates both the ipsilateral and the contralateral excitatory post-synaptic potentials.
+```
 
-On the other hand, on a global level, by evaluating the firing rate of an entire battery of principal cells for different locations we first noticed that only five neurons out of the ten that made up a battery had a significant firing rate, while in the five that received stronger inhibitory synapses from the contralateral side (i.e., weight from -12 to -24 nS) the number of spikes during the entire simulation was too low or even null. The trend in the responses of the first five neurons is similar to that of the LSO, with a steeper and more informative positive slope for contralateral stimuli (Figure 4). 
+On the other hand, on a global level, by evaluating the firing rate of an entire battery of principal cells for different locations we first noticed that only five neurons out of the ten that made up a battery had a significant firing rate, while in the five that received stronger inhibitory synapses from the contralateral side (i.e., weight from -12 to -24 nS) the number of spikes during the entire simulation was too low or even null. The trend in the responses of the first five neurons is similar to that of the LSO, with a steeper and more informative positive slope for contralateral stimuli ([](#mso5)). 
 
-![mso5](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/4900480c-eba9-4d56-b5ae-9adafa29c43d)\
-**Figure 4** - Normalised responses of the first five neurons of the MSO batteries of both sides. Normalisation was obtained by dividing the firing rate of each neuron composing the battery by the maximum attained by spanning all the different azimuth angles. The shaded area corresponds approximately to the physiological range of ITD in the human context.
+```{figure} https://github.com/francescodesantis/snn-sound-localization/assets/96658597/4900480c-eba9-4d56-b5ae-9adafa29c43d
+:label: mso5
 
-On the other hand, for ipsilateral angles, we can observe a second (negative) slope, less steep than the previous one but still potentially more informative than the plateau found in the same region for LSO curves (\ref(Figure 2)).
+Normalised responses of the first five neurons of the MSO batteries of both sides. Normalisation was obtained by dividing the firing rate of each neuron composing the battery by the maximum attained by spanning all the different azimuth angles. The shaded area corresponds approximately to the physiological range of ITD in the human context.
+```
 
-The predictions of the entire brainstem network for the different azimuth angles and for the different configurations tested are described by the RMSE, R, and its pvalue presented in Table 1. 
+On the other hand, for ipsilateral angles, we can observe a second (negative) slope, less steep than the previous one but still potentially more informative than the plateau found in the same region for LSO curves ([](#LSO1)).
+
+The predictions of the entire brainstem network for the different azimuth angles and for the different configurations tested are described by the RMSE, R, and its pvalue presented in [](#performance_inh).
+
+:::{table} Comparison of performance between the six configurations. In bold, the best performance.
+:label: performance_inh
 
 | Configuration: | 1           | 2           | 3           | 4           | 5           | **6**            |
 |----------------|-------------|-------------|-------------|-------------|-------------|--------------|
@@ -73,13 +88,24 @@ The predictions of the entire brainstem network for the different azimuth angles
 | R              | 0.947       | 0.979       | 0.948       | 0.961       | 0.961       | **0.983**        |
 | p value        | 9.578*10<sup>-7</sup> | 5.891*10<sup>-9</sup> | 8.782*10<sup>-7</sup> | 1.695*10<sup>-7</sup> | 1.944*10<sup>-7</sup> | **1.658*10<sup>-9</sup>** |\
 
-**Table 1** - Comparison of performance between the six configurations. In bold, the best performance.
+:::
 
-The first important result that can be deduced from these data concerns the improvement in the overall network performance when integration is made between the LSO and the MSO. Both in the case of configuration "5" compared to "3" and "1", and in the case of "6" compared with "4" and "2", a meaningful improvement in performance was found. This result, therefore, validates the existence of a dual pathway in the mammalian brainstem, in which both binaural cues (ITD and ILD) play an essential role in the accurate recognition of the position in the horizontal plane of a sound stimulus. A second observation can be made about using information from both ipsilateral and contralateral nuclei (configurations "1", "3", and "5") compared to the exploitation of the contralateral nucleus only (configurations "2", "4", and "6"). The information given only by the LSO and MSO contralateral to the input sound stimulus, without integrating the one coming from the ipsilateral ones, improves the model’s performance (Figure 5).
+The first important result that can be deduced from these data concerns the improvement in the overall network performance when integration is made between the LSO and the MSO. Both in the case of configuration "5" compared to "3" and "1", and in the case of "6" compared with "4" and "2", a meaningful improvement in performance was found. This result, therefore, validates the existence of a dual pathway in the mammalian brainstem, in which both binaural cues (ITD and ILD) play an essential role in the accurate recognition of the position in the horizontal plane of a sound stimulus. A second observation can be made about using information from both ipsilateral and contralateral nuclei (configurations "1", "3", and "5") compared to the exploitation of the contralateral nucleus only (configurations "2", "4", and "6"). The information given only by the LSO and MSO contralateral to the input sound stimulus, without integrating the one coming from the ipsilateral ones, improves the model’s performance ([](#inh_results_config_6)).
 
-![6](https://github.com/francescodesantis/snn-sound-localization/assets/96658597/c12ccd0e-9bd8-4d6c-8463-009a52da1a16)\
-**Figure 5** - Model’s results for configuration "6", in which predictions are obtained by considering only LSO and MSO contralateral to
+:::{attention}
+Figure below needs a black background, please update.
+:::
+
+<div style="background-color: black;">
+
+```{figure} https://github.com/francescodesantis/snn-sound-localization/assets/96658597/c12ccd0e-9bd8-4d6c-8463-009a52da1a16
+:label: inh_results_config_6
+
+Model’s results for configuration "6", in which predictions are obtained by considering only LSO and MSO contralateral to
 the stimulus. The results were obtained with an input tone of 100 Hz and a duration of 1 s for different azimuth angles.
+```
+
+</div>
 
 The results obtained show how the role of fast and dominant inhibitory inputs to the LSO and MSO can be crucial in distinguishing between different azimuth angles.
 The spiking neural network implementation of the brainstem also demonstrated how the encodings of different ITDs do not necessarily have to be generated by the activity peaks of different cells in the MSO but, on the contrary, they can be coded by the slope in the response firing rates within the range of physiological ITDs. Furthermore, this work has shown how the integration of information from LSO and MSO allows for more accurate localizations than the responses of the two nuclei taken individually, at least for pure tones of 100 Hz frequency.

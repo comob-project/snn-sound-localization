@@ -1,2 +1,2 @@
-# Participants and participation
+## Participants and participation
 * Insentives, allocating credit
