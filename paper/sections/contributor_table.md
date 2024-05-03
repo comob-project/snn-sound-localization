@@ -57,9 +57,9 @@ If you add a contribution, please use one of the following templates (see exampl
 * - Ido Aizenbud
   - [\@ido4848](https://github.com/ido4848)
   - (TODO)
-* - ???
+* - Balázs Mészáros
   - [\@mbalazs98](https://github.com/mbalazs98)
-  - (TODO)
+  - Wrote the paper (DCLS based delay learning in the appendix). Conducted research ([](../research/Quick_Start_random.ipynb), [](../research/Quick_Start_Delay_DCLS.ipynb))
 * - Sebastian Schmitt
   - [\@schmitts](https://github.com/schmitts)
   - (TODO)
