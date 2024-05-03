@@ -41,7 +41,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Zach Friedenberger](https://zachfriedenberger.github.io/)
   - [\@ZachFriedenberger](https://github.com/ZachFriedenberger)
-  - (TODO)
+  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Helena Yuhan Liu](https://amath.washington.edu/people/helena-liu)
   - [\@Helena-Yuhan-Liu](https://github.com/Helena-Yuhan-Liu)
   - (TODO)
