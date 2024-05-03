@@ -47,7 +47,7 @@ Starting point:
   - _Mingxuan_: I'd like to experiment with this idea.
 * Which level of biological realisms does the learning need to comply to? Which observables are available at the synapse as input to a learning rule?
   - _Danish_:  Very interesting question that I would like to explore.
-* Level of biological realism and impact on performace - Dale law.
+* Level of biological realism and impact on performance - Dale law.
   - _Jose_: Looking into this
 * Distribution of inhibitory and excitatory neurons using Dale's law
   - _Sara_: First exploratory and interesting results, warrant further investigation
