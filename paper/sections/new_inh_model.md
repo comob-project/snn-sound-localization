@@ -4,7 +4,7 @@
 Why a more biological inspired model? 
 - Existance of both ITDs and ILDs for azimuthal sounds localization
 - Problem of ITD sensitivity: their duration is in the range of microseonds whereas neuronal dynamics work in the millisecond range.
-- Jeffress model existance in mammals is not sure: 3 main critical issues
+- Jeffress model existence in mammals is not sure: 3 main critical issues
   - axonal delay lines absence in mammalian MSO
   - contralateral inhibition role not considered in Jeffress
   - peaks of MSO responses outside physiological range: slopes as the encoding part of the curves

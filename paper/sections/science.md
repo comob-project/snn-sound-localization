@@ -47,7 +47,7 @@
 * Third, use filter-and-fire neurons (e.g. M = 3 connections per axon). 
 
 ## Learning delays 
-Many studies which incoroprate axonal and/or dendritic delays include them as non-learnable parameters (refs) like our base model. Here we explore how these phase delays can be learned through two approaches.
+Many studies which incorporate axonal and/or dendritic delays include them as non-learnable parameters (refs) like our base model. Here we explore how these phase delays can be learned through two approaches.
 
 ### With dilated convolutions with learnable spacings (DCLS)
 First, with DCLS (Hammouamri et al., 2023; Khalfaoui-Hassani et al., 2023).
@@ -57,7 +57,7 @@ Key points:
 * Learns both weights and delays. 
 * Visualisation of results: 
     * x - learned delay, y - learned weight.
-    * Hidden units seperate data spatio-temporally. 
+    * Hidden units separate data spatio-temporally. 
 
 ### With a differentiable delay layer (DDL)
 Second, by introducing a differentiable delay layer.

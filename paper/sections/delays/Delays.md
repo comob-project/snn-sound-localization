@@ -19,7 +19,7 @@ In this work we propose a delay learning algorithm that is simple and efficient.
 
 The DDL is, mainly, based on a 1D version of the spatial transformer (STN) network \citealp{JSZK2015}. The STN is a differentiable module that can be added into convolutional neural networks (CNNs) architectures to empower them with the ability to spatially transform feature maps in a differentiable way. This addition leads to CNNs models that are invariant to various spatial transformations like translation, scaling and rotation. Image manipulations are inherently  not differentiable, because pixels are a discrete. However, this problem is overcome by the application of an interpolation  (for example bi-linear) after the spatial transformation. 
 
-The DDL is a 1D version of the spatial transformer where the only transformation done is translation. Translation of a spike along the time dimension can be thought of as a translation of a pixel along the spatial coordinates. The general affine transformation matrix for the 2D case takes the form in the following euqation:
+The DDL is a 1D version of the spatial transformer where the only transformation done is translation. Translation of a spike along the time dimension can be thought of as a translation of a pixel along the spatial coordinates. The general affine transformation matrix for the 2D case takes the form in the following equation:
 	
 $$ \begin{bmatrix} 
 	sr_1 & sr_2 & t_x\\
