@@ -1,23 +1,23 @@
-## Learning Delays
+### Learning Delays
 
 This section introduces a simple method to solve the sound localization problem with only learnable delays
 
-### Introduction
+#### Introduction
 
 Studying the computational properties of axonal transmissions goes as far back as in \citealp{LAJ1948}. In this study, it was shown that with the right network setup, axonal delays can be utilized to transform a temporal cue to a spatial one for sound localization. This study was a leading study in terms of using delays explicitly to explain a neuronal function. It paved the way for others to follow, like the study by \citealp{KLWH2001}, where they investigated the question of how ITD computation maps can arise ontogenetically in the laminar nucleus of the barn owl. They showed that interaural time differences (ITD) computational maps emerge from the combined effect of a Hebbian spike-based learning rule and its transmission along the presynaptic axon. Thus, from this study, another role of axonal delays can be inferred. They shape network structure when coupled with temporal learning rules. Based on this insight, several studies investigated the combined effect of spike timing-dependent plasticity (STDP), axonal conduction delays and oscillatory activity on recurrent connections in spiking networks. \citealp{KBTG2013} demonstrated the selective potentiation of recurrent connections when the beforementioned computational considerations are taken into account. Also, \citealp{HKTI2016} showed that neural selection for memory formation depends on neural competition. In turn, for neural competition to emerge in recurrent networks, spontaneously induced neural oscillation coupled with STDP and axonal delays are a perquisite. 
 
 Coupling conduction delays with STDP seems like a reasonable choice. The sign of the STDP rule depends on the order of post- and pre-synpatic spiking, which axonal delays can effectively reverse. For example, if the presynaptic spikes arrive at the synapse before the backpropagated action potential this would lead a synpatic depression. However, reducing the axonal transmission speed would lead to potentiation. In this line of thought, \citealp{MAVT2017} studied the combined role of delays and STDP on the emergent synaptic structure in neural networks. It was shown that, qualitatively different connectivity patterns arise due to the interplay between axonal and dendritic delays, as the synapse and cell body can have different temporal spike order. 
 
-Aside from their role in modeling cortical functions or shaping a network's synaptic structure, another line of research emerged from the seminal work by \citealp{EMI2006}. They showed that when including conduction delays and spike-timing dependent plasticity (STDP) into their simulation of realistic neural models, polychronous groups of neurons emerge. These groups show time-locked spiking pattern with millisecond precision. Subsequent studies investigated the properties and functions of such neuronal groups. For example, \citealp{BSEI2010} demonstrated the natural emergence of large memory content and working memory when the neuronal model exploits temporal codes. Specifically, short term plasticity can briefly strengthen the synapses of specific polychronous neuronal groups (PNG) resulting in an enchantment in their spontaneous reactivation rates.  In a qualitatively different study, \citealp{EIAS2018} showed that networks that exhibit PNG possess potential capabilities that might solve the dynamic binding problem. These networks respond with stable saptio-temporal spike trains when presented with input images in the form of randomized Poisson spike trains. The functionality of these kind of networks emerged due to the interplay of various factors including: i) random distribution of axonal delays ii) STDP ii) lateral, bottom-up and top-down synaptic connections. 
+Aside from their role in modeling cortical functions or shaping a network's synaptic structure, another line of research emerged from the seminal work by \citealp{EMI2006}. They showed that when including conduction delays and spike-timing dependent plasticity (STDP) into their simulation of realistic neural models, polychronous groups of neurons emerge. These groups show time-locked spiking pattern with millisecond precision. Subsequent studies investigated the properties and functions of such neuronal groups. For example, \citealp{BSEI2010} demonstrated the natural emergence of large memory content and working memory when the neuronal model exploits temporal codes. Specifically, short term plasticity can briefly strengthen the synapses of specific polychronous neuronal groups (PNG) resulting in an enchantment in their spontaneous reactivation rates.  In a qualitatively different study, \citealp{EIAS2018} showed that networks that exhibit PNG possess potential capabilities that might solve the dynamic binding problem. These networks respond with stable spatio-temporal spike trains when presented with input images in the form of randomized Poisson spike trains. The functionality of these kind of networks emerged due to the interplay of various factors including: i) random distribution of axonal delays ii) STDP ii) lateral, bottom-up and top-down synaptic connections. 
 
 Finally, it should be noted that most of the studies that incorporate axonal and/or dendritic delays, include them as a non-learnable parameter. Few studies investigated the possibility of training transmission delays in order to enhance the computational capabilities of spiking neural networks (SNN). \citealp{TM2017} proposed an algorithm that modifies the axonal delays and synaptic efficacy in both supervised and unsupervised approaches.  The learning method used approximates the Expectation-Maximization (EM) algorithm and after training, the network learns to  map spatio-temporal input-output spike patterns. Thus, EM is one way to train SNN that are cast as probabilistic models. Another approach that exploits the massive infrastructure that is laid out the deep learning literature is the work by \citealp{HHM2023}. In this work, delays are represented as 1D convolutions through time, where the kernels include a single per-synapse non-zero weight. The temporal position of these non-zero weights corresponds to the desired delays. The proposed method co-trains weights and delays and is based on the Dilated Convolution
 with Learnable Spacings (DCLS) algorithm [\citealp{ITT2023}].  
 
-In this work we propose a delay learning algorithm that is simple and efficient. The delay learning is mediated by a differentiable delay layer (DDL). This layer can be inserted between any two layers in an SNN in order to learn the appropriate delay to solve a machine learning task. This DDL is architecture agnostic. Also, the delays can be learned independently of weights. 
+In this work we propose a delay learning algorithm that is simple and efficient. The delay learning is mediated by a differentiable delay layer (DDL). This layer can be inserted between any two layers in an SNN in order to learn the appropriate delay to solve a machine learning task. This DDL is architecture agnostic. Also, the method is designed to learn delays separately from synaptic weights. 
 
 ### Methods
 
-The DDL is, mainly, based on a 1D version of the spatial transformer (STN) network \citealp{JSZK2015}. The STN is a differentiable module that can be added into conventional neural networks (CNNs) architectures to empower them with the ability to spatially transform feature maps in a differentiable way. This addition leads to CNNs models that are invariant to various spatial transformations like translation, scaling and rotation. Image manipulations are inherently  not differentiable, because pixels are a discrete. However, this problem is overcome by the application of an interpolation  (for example bi-linear) after the spatial transformation. 
+The DDL is, mainly, based on a 1D version of the spatial transformer (STN) network \citealp{JSZK2015}. The STN is a differentiable module that can be added into convolutional neural networks (CNNs) architectures to empower them with the ability to spatially transform feature maps in a differentiable way. This addition leads to CNNs models that are invariant to various spatial transformations like translation, scaling and rotation. Image manipulations are inherently  not differentiable, because pixels are a discrete. However, this problem is overcome by the application of an interpolation  (for example bi-linear) after the spatial transformation. 
 
 The DDL is a 1D version of the spatial transformer where the only transformation done is translation. Translation of a spike along the time dimension can be thought of as a translation of a pixel along the spatial coordinates. The general affine transformation matrix for the 2D case takes the form in the following euqation:
 	
@@ -45,22 +45,26 @@ $$ \begin{bmatrix}
 \end{bmatrix}
 $$
 	
-Conventionally, for the spatial transformer, after the projection of the target grid onto the source grid comes the process of interpolation as the transformed pixel might not coincide with a representative one in the source grid/image. Hence, interpolation is performed to estimate the value of the transformed pixel from the surrounding ones. However, applying this process to spike trains can lead to a distortion of the spikes as the allowed values are only 1s and 0s. To avoid this, the translation element ${t_x}$ should be multiples of the minimum delay. Thus, any transformed spike location from the target grid will find a matching spike location in the source grid. Interpolation (for example bi-linear) will pick the coincident source spike with a weighting of one and provide zero weighting for any other nearby spikes.  This process is summarized visually in [](#DDL). The input spike trains to the DDL should be padded by zeros so as to not lose information after translation. 
+Conventionally, for the spatial transformer, after the projection of the target grid onto the source grid comes the process of interpolation as the transformed pixel might not coincide with a representative one in the source grid/image. Hence, interpolation is performed to estimate the value of the transformed pixel from the surrounding ones. However, applying this process to spike trains can lead to a distortion of the spikes as the allowed values are only 1s and 0s. To avoid this, the translation element ${t_x}$ should be multiples of the minimum delay. Thus, any transformed spike location from the target grid will find a matching spike location in the source grid. Interpolation (for example bi-linear) will pick the coincident source spike with a weighting of one and provide zero weighting for any other nearby spikes.  This process is summarized visually in Fig. 1. The input spike trains to the DDL should be padded by zeros so as to not lose information after translation. 
+<br>
+<br>
+<p align="center">
+<img src="DDL.png" alt="DDL" width="600"/>
+</p>
+<center>Figure 1:  Structure of the DDL. The DDL shifts an input spike train by applying translation then interpolation.</center>
+<br>	 
+<br>
+Only the DDL is needed to solve the sound localization problem, where the output classes are the target IPD. As shown in Fig. 2, the DDL inserted between the input and output nodes is sufficient to solve the sound localization problem. In this cases, the weights are set to one and the biases to zero.
+<br>
+<br>
+<p align="center">
+<img src="Network.png" alt="Network" width="600"/>
+</p>
 
-```{figure} sections/delays/DDL.png
-:label: DDL
+Figure 2: The model architecture. The DLL inserted between the input and out nodes is sufficient to solve the sound localization problem. The output nodes are IPD classes spanning the range ${[-90^o,~85^o]~in~5^o}$ steps.
 
-Structure of the DDL. The DDL shifts an input spike train by applying translation then interpolation.
-```
-
-Only the DDL is needed to solve the sound localization problem, where the output classes are the target IPD. As shown in [](#DelayNetwork), the DDL inserted between the input and output nodes is sufficient to solve the sound localization problem. In this cases, the weights are set to one and the biases to zero.
-
-```{figure} sections/delays/Network.png
-:label:DelayNetwork
-
-The model architecture. The DLL inserted between the input and out nodes is sufficient to solve the sound localization problem. The output nodes are IPD classes spanning the range ${[-90^o,~85^o]~in~5^o}$ steps.
-```
-
+<br>	 
+<br>
 Though the DLL shifts the spike trains in a differentiable way, this shift has a meaningful impact through a multiplicative synapse. Also, to facilitate learning, a non-spiking output was utilized. Thus, these two points taken together, the voltage at the output takes the form:
 
 $$
@@ -75,29 +79,51 @@ $$
 (u_{1i}(t) - u_{2i}(t))^2 = u_{1i}(t)^2 -2*u_{1i}(t)*u_{2i}(t) + u_{2i}(t)^2
 $$
 
+The synaptic delay learning method, employing Dilated Convolutions with Learnable Spacings, operates by delaying spike trains through a 1D convolution featuring a single non-zero element, equivalent to the synaptic weight, positioned at the appropriate delay value. A distinctive aspect of this method lies in its utilization of Gaussian interpolation to identify the optimal delay. This approach is crucial because delay values are discrete, making them challenging to learn via backpropagation. However, employing interpolation overcomes this obstacle, facilitating the learning of delays with weights through backpropagation through time in arbitrarily deep SNNs. As we have implemented the method precisely as described in the original paper (with the exception of hyperparameters), we direct the reader to the original paper for a comprehensive understanding\citealp{HHM2023}.
 ### Results and discussion
 
-In this section, the problem complexity is increased up to 36 output units spanning an IPD range of ${[-90,~85]}$ with a step of ${5^o}$. Employing the DDL to solve such a task leads to the spike raster plots shown in [](#DelaySpikeHistograms).
-
-```{figure} sections/delays/Results_1.png
-:label: DelaySpikeHistograms
-
-Spike histograms for IPDs before and after training.
-```
-
-To facilitate the search for a solution while using the DDL, we assume that the delay lines coming from one ear is fixed, while the delay lines from the other ear is adaptable starting from an initial default value. Thus, the learned delays can be thought of as the change in delays, which is added to the default delays. This approach leads to the results shown in [](#DelaySpikeHistograms)B, where the top of the spike histograms is fixed, while the bottom half has a graded shift in its spike plots. Such results were achieved with the application of time constant decay that leads to a decrease in loss as shown in [](#DelayLossDist)A. 
-
-```{figure} sections/delays/loss-and-dist.png
-:label: DelayLossDist
-
-Performance metrics one. A) Loss as a function of the epochs. B) The difference between the True and predicted IPDs in a test batch.
-```
-
-Further analysis of such solutions warrants testing them in different forms. In this regards, we start by displaying the distribution of the errors between the true IPDs and predicted IPDs in a test batch as shown in [](#DelayLossDist)B, which shows an almost log-normal distribution. In addition, we show the confusion matrix for both the training and testing batches on the right images of [](#DelayConfuse), and the difference between the true and predicted IPDs on the left images of [](#DelayConfuse).
-
-
-```{figure} sections/delays/Confuse.png
-:label: DelayConfuse
-
-Performance metrics two. Here is shown the distribution and confusion matrix between true IPD values and A) training batch IPD estimates, B) testing batch IPD estimates.
-```
+In this section, the problem complexity is increased up to 36 output units spanning an IPD range of ${[-90,~85]}$ with a step of ${5^o}$. Employing the DDL to solve such a task leads to the spike raster plots shown in Fig. 3.
+<br>
+<br>
+<p align="center">
+<img src="Results 1.png" alt="Results 1" width="1200"/>
+</p>
+<center>Figure 3: Spike histograms for IPDs before and after training.</center>
+<br>	 
+<br>
+To facilitate the search for a solution while using the DDL, we assume that the delay lines coming from one ear is fixed, while the delay lines from the other ear is adaptable starting from an initial default value. Thus, the learned delays can be thought of as the change in delays, which is added to the default delays. This approach leads to the results shown in Fig. 3b, where the top of the spike histograms is fixed, while the bottom half has a graded shift in its spike plots. Such results were achieved with the application of time constant decay that leads to a decrease in loss as shown in Fig. 4a. 
+<br>
+<br>
+<p align="center">
+<img src="Loss and dist.png" alt="Loss and dist" width="1000"/>
+</p>
+<center>Figure 4: Performance metrics one. A) Loss as a function of the epochs. B) The difference between the True and predicted IPDs in a test batch.</center>
+<br>	 
+<br>
+Further analysis of such solutions warrants testing them in different forms. In this regards, we start by displaying the distribution of the errors between the true IPDs and predicted IPDs in a test batch as shown in Fig. 4b, which shows an almost log-normal distribution. In addition, we show the confusion matrix for both the training and testing batches on the right images of Fig. 5, and the difference between the true and predicted IPDs on the left images of Fig. 5.
+<br>
+<br>
+<p align="center">
+<img src="Confuse.png" alt="Confuse" width="1000"/>
+</p>
+<center>Figure 5: Performance metrics two. Here is shown the distribution and confusion matrix between true IPD values and A) training batch IPD estimates, B) testing batch IPD estimates.</center>
+<br>	 
+<br>
+Similar to the other cases, the DCLS architecture is trained for classification across 12 classes, as shown in Figure 6. While delays were manually added to the data in other cases, it is not feasible to ascertain if the method learns identical delay values due to the implementation of varied conduction delays for each synapse. However, in terms of performance, similar accuracy is achieved.
+<br>	 
+<br>
+<p align="center">
+<img src="Confuse_dcls.png" alt="Confuse" width="1000"/>
+</p>
+<center>Figure 6: The same performance metrics for DCLS</center>
+<br>	 
+<br>
+Learning synaptic delays with weights enables the visualization of the 'receptive field' of postsynaptic neurons, as illustrated in Figure 7. Five randomly chosen neurons from the hidden layer are plotted, revealing clear spatiotemporal separation of excitation and inhibition.
+<br>	 
+<br>
+<p align="center">
+<img src="0-5.png" alt="Confuse" width="500"/>
+</p>
+<center>Figure 7: Receptive fields of 5 randomly chosen postsynaptic neurons. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (excitation or inhibition), with transparency denoting magnitude.</center>
+<br>	 
+<br>
