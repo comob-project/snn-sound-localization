@@ -42,9 +42,9 @@ If you add a contribution, please use one of the following templates (see exampl
 * - [Zach Friedenberger](https://zachfriedenberger.github.io/)
   - [\@ZachFriedenberger](https://github.com/ZachFriedenberger)
   - (TODO)
-* - [Helena Yuhan Liu](https://amath.washington.edu/people/helena-liu)
+* - [Yuhan Helena Liu](https://amath.washington.edu/people/helena-liu)
   - [\@Helena-Yuhan-Liu](https://github.com/Helena-Yuhan-Liu)
-  - (TODO)
+  - (Smoothing, writing)
 * - Jose Gomes?
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
   - (TODO)
