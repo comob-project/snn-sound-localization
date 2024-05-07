@@ -26,7 +26,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
-  - (TODO)
+  - (Wrote the paper ([](sections/new_inh_model.md)) and conducted research ([](../research/TODO)).)
 * - Karim Habashy
   - [\@KarimHabashy](https://github.com/KarimHabashy)
   - (TODO)
@@ -71,7 +71,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Alberto Antonietti](https://www.deib.polimi.it/eng/people/details/669646)
   - [\@alberto-antonietti](https://github.com/alberto-antonietti)
-  - (TODO)
+  - (Supervised research (Francesco De Santis) and revised the paper ([](sections/new_inh_model.md)))
 * - Lavínia Takarabe
   - [\@laviniamitiko](https://github.com/laviniamitiko)
   - (TODO)
