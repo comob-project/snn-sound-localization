@@ -38,7 +38,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Rory Byrne](https://rory.bio/)
   - [\@rorybyrne](https://github.com/rorybyrne)
-  - (TODO)
+  - Organised the source code structure, conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Zach Friedenberger](https://zachfriedenberger.github.io/)
   - [\@ZachFriedenberger](https://github.com/ZachFriedenberger)
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
