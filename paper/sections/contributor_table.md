@@ -38,16 +38,16 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Rory Byrne](https://rory.bio/)
   - [\@rorybyrne](https://github.com/rorybyrne)
-  - (TODO)
+  - Organised the source code structure, conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Zach Friedenberger](https://zachfriedenberger.github.io/)
   - [\@ZachFriedenberger](https://github.com/ZachFriedenberger)
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Helena Yuhan Liu](https://amath.washington.edu/people/helena-liu)
   - [\@Helena-Yuhan-Liu](https://github.com/Helena-Yuhan-Liu)
   - (TODO)
-* - Jose Gomes?
+* - Jose Gomes (Portugal, PhD)
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
-  - (TODO)
+  - Conducted research ([](../research/Dales_law.ipynb)).
 * - ???
   - [\@a-dtk](https://github.com/a-dtk)
   - (TODO)
@@ -96,4 +96,22 @@ If you add a contribution, please use one of the following templates (see exampl
 * - Divyansh Gupta
   - [\@guptadivyansh](https://github.com/guptadivyansh)
   - (TODO)
+* - Gabryel Mason-Williams (UK undergrad)
+  - ???
+  - Conducted research ([](../research/Analysing-Trained-Networks-Part2.ipynb)).
+* - Josh Bourne (UK MSc student)
+  - ???
+  - Conducted research ([](../research/Analysing-Trained-Networks-Part2.ipynb)).
+* - Zekai Xu (UK MSc student)
+  - ???
+  - Conducted research ([](../research/Analysing-Trained-Networks-Part2.ipynb)).
+* - Leonidas Richter (Germany, PhD)
+  - ???
+  - Conducted research ([](../research/Learning_delays.ipynb)).
+* - Chen Li (UK MSc)
+  - ???
+  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
+* - Peter Crowe (Germany, Undergraduate)
+  - ???
+  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).  
 ```
