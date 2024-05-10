@@ -18,9 +18,20 @@ flowchart LR
     SN --> V250[Version with 250 Hz Input]
     SN --> ATN[Analysing trained networks]
     SN --> Tau[Optimizing the membrane time constant]
-    Tau --> AnTau[Analysing solutions for different time constants]
-    V250 --> AnTau
-    ATN --> AnTau
+    subgraph Minimal trainable model
+        Tau --> AnTau[Analysing solutions for different time constants]
+        V250 --> AnTau
+        ATN --> AnTau
+    end
+    subgraph Learning delays
+        DDL
+        DCLS
+    end
+    subgraph Alternative neuron models
+        FF
+        Dale
+        DThr
+    end
 ```
 
 ## Introductory notebooks
