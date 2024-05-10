@@ -32,10 +32,10 @@ If you add a contribution, please use one of the following templates (see exampl
   - Research and writing on learning delays ([](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../sections/delays/)) and help with project management ([](../research/4-Quick_Start.ipynb)).  
 * - Mingxuan Hong
   - [\@mxhong](https://github.com/mxhong)
-  - Conducted research ([](../../research/Altering_output_neurons.ipynb), [](../../research/Dynamic_threshold.ipynb)).
+  - Conducted research ([](../research/Altering_output_neurons.ipynb), [](../research/Dynamic_threshold.ipynb)).
 * - [Dilay Fidan Erçelik](https://dilayercelik.github.io/)
   - [\@dilayercelik](https://github.com/dilayercelik)
-  - Conducted research ([](../../research/4-Quick_Start.ipynb), [](../../research/Quick_Start_250HzClassification_CleanVersion.ipynb)).
+  - Conducted research ([](../research/4-Quick_Start.ipynb), [](../research/Quick_Start_250HzClassification_CleanVersion.ipynb)).
 * - [Rory Byrne](https://rory.bio/)
   - [\@rorybyrne](https://github.com/rorybyrne)
   - Organised the source code structure, conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
@@ -44,7 +44,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Helena Yuhan Liu](https://amath.washington.edu/people/helena-liu)
   - [\@Helena-Yuhan-Liu](https://github.com/Helena-Yuhan-Liu)
-  - Conducted research ([](../../research/SNN_sound_W1W2_threshold_plot.ipynb)).
+  - Conducted research ([](../research/SNN_sound_W1W2_threshold_plot.ipynb)).
 * - Jose Gomes (Portugal, PhD)
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
   - Conducted research ([](../research/Dales_law.ipynb)).
@@ -53,10 +53,10 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - Sara Evers?
   - [\@saraevers](https://github.com/saraevers)
-  - Conducted research ([](../../research/IE-neuron-distribution.ipynb)).
+  - Conducted research ([](../research/IE-neuron-distribution.ipynb)).
 * - Ido Aizenbud
   - [\@ido4848](https://github.com/ido4848)
-  - Conducted research ([](../../research/Alt-Filter-and-Fire_Neuron_Model_SNN.ipynb)).
+  - Conducted research ([](../research/Alt-Filter-and-Fire_Neuron_Model_SNN.ipynb)).
 * - Balázs Mészáros
   - [\@mbalazs98](https://github.com/mbalazs98)
   - Wrote the paper (DCLS based delay learning in the appendix). Conducted research ([](../research/Quick_Start_random.ipynb), [](../research/Quick_Start_Delay_DCLS.ipynb)).
@@ -92,7 +92,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Gabriel Béna](https://neural-reckoning.org/gabriel_bena.html)
   - [\@GabrielBena](https://github.com/GabrielBena)
-  - Conducted research ([](../../research/Analysing-Trained-Networks-Part2.ipynb), [](../../research/Dales_law.ipynb)).
+  - Conducted research ([](../research/Analysing-Trained-Networks-Part2.ipynb), [](../research/Dales_law.ipynb)).
 * - Divyansh Gupta
   - [\@guptadivyansh](https://github.com/guptadivyansh)
   - (TODO)
