@@ -14,24 +14,21 @@ The following lists the notebooks, authors, summary and related notebooks in thi
     : The template notebook suggested as a starting point, based on the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) that kicked off this project. (Author: Dan Goodman.)
 
 [](../research/4-Quick_Start.ipynb)
-    : Condensed version of [](../research/3-Starting-Notebook.ipynb) using the shorter membrane time constants from [](../research/Optimizing-Membrane-Time-Constant.ipynb) and Dale's law from [](../research/Dales_law.ipynb).
+    : Condensed version of [](../research/3-Starting-Notebook.ipynb) using the shorter membrane time constants from [](../research/Optimizing-Membrane-Time-Constant.ipynb) and Dale's law from [](../research/Dales_law.ipynb). (Author: Dilay Fidan Erçelik, Karim Habashy, Marcus Ghosh.)  
 
 ## Individual notebooks
 
 [](../research/Alt-Filter-and-Fire_Neuron_Model_SNN.ipynb)
-    : Using an alternative neuron model. (Author: Ido Aizenbud.)
+    : Using an alternative neuron model. (Author: Ido Aizenbud based on work from Dilay Fidan Erçelik.)
 
 [](../research/Altering_output_neurons.ipynb)
-    : Comparison of three different ways of reading out the network's decision (average membrane potential, maximum mebrane potential, spiking outputs) with short and long time constants. (Author: Mingxuan Hong.)
+    : Comparison of three different ways of reading out the network's decision (average membrane potential, maximum membrane potential, spiking outputs) with short and long time constants. (Author: Mingxuan Hong.)
 
 [](../research/Analysing-Trained-Networks-Part2.ipynb)
     : Group project from an early workshop looking at hidden unit spiking activity and single unit ablations. Found that some hidden neurons don't spike, and ablating those does not harm performance. Builds on [](../research/Analysing-Trained-Networks.ipynb). (Author: Gabriel Béna, Josh Bourne, Tomas Fiers, Tanushri Kabra, Zekai Xu. TODO SURNAMES.)
 
 [](../research/Dales_law.ipynb)
-    : Investigation into the results of imposing Dale's law. Incorporated into [](../research/4-Quick_Start.ipynb). (Author: Marcus Ghosh, Gabriel Béna, Jose Gomes.)
-
-[](../research/IE-neuron-distribution.ipynb)
-    : Follow-up to [](../research/Dales_law.ipynb), fixing some mistakes and adding some unfinished analyses. (Author: Sara Evers.)
+    : Investigation into the results of imposing Dale's law. Incorporated into [](../research/4-Quick_Start.ipynb). Uses a fix from [](../research/IE-neuron-distribution.ipynb). (Author: Marcus Ghosh, Gabriel Béna, Jose Gomes.)
 
 [](../research/Dynamic_threshold.ipynb)
     : Adds an adaptive threshold to the neuron model and compares results. Conclusion is that the dynamic threshold does not help in this case. (Author: Mingxuan Hong.)
@@ -76,3 +73,6 @@ This subsection includes notebooks whose content got merged into an updated note
 
 [](../research/Optimizing-Membrane-Time-Constant.ipynb)
     : Analyses how performance depends on membrane time constant. Folded into [TODO REMOVE THIS TEXT WHEN NOTEBOOK MERGED](../research/time-constant-solutions.ipynb). (Author: Zach Friedenberger, Chen Li, Peter Crowe.)
+
+[](../research/IE-neuron-distribution.ipynb)
+    : Fixed a mistake in an earlier version of [](../research/Dales_law.ipynb). (Author: Sara Evers.)
