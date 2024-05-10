@@ -1,6 +1,7 @@
 The following lists the notebooks, authors, summary and related notebooks in this project.
 
 % this will only appear on the online version, not in the printed version
+
 ```{mermaid}
 flowchart LR
     SN[Starting Notebook] --> QS[Quick Start Notebook]
