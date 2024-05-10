@@ -26,10 +26,10 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
-  - Research and writing on a more detailed model ([](./sections/new_inh_model.md)).   
+  - Conducted research (TODO INCLUDE LINK), wrote the paper ([](#inh-model))
 * - Karim Habashy 
   - [\@KarimHabashy](https://github.com/KarimHabashy)
-  - Research and writing on learning delays ([](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](./sections/delays/Delays.md)) and help with project management ([](../research/4-Quick_Start.ipynb)).  
+  - Conducted research ([](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)), wrote the paper ([](#delay-section)), project management ([](../research/4-Quick_Start.ipynb))
 * - Mingxuan Hong
   - [\@mxhong](https://github.com/mxhong)
   - Conducted research ([](../research/Altering_output_neurons.ipynb), [](../research/Dynamic_threshold.ipynb)).
@@ -71,7 +71,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Alberto Antonietti](https://www.deib.polimi.it/eng/people/details/669646)
   - [\@alberto-antonietti](https://github.com/alberto-antonietti)
-  - Supervised Francesco De Santis and wrote ([](./sections/new_inh_model.md)).
+  - Supervised Francesco De Santis, wrote the paper ([](#inh-model)).
 * - Lavínia Takarabe
   - [\@laviniamitiko](https://github.com/laviniamitiko)
   - (TODO)

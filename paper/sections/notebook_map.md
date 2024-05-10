@@ -1,5 +1,25 @@
 The following lists the notebooks, authors, summary and related notebooks in this project.
 
+% this will only appear on the online version, not in the printed version
+```{mermaid}
+flowchart LR
+    SN[Starting Notebook] --> QS[Quick Start Notebook]
+    Dale --> QS
+    Tau --> QS
+    SN --> FF[Filter-and-Fire Neuron Model]
+    SN --> AON[Altering Output Neurons]
+    ATN --> AW[Analysing trained networks - workshop edition]
+    SN --> Dale[Sound localisation following Dale's law]
+    SN --> DThr[Dynamic threshold]
+    SN --> Exc[Sound localisation using excitatory-only inputs]
+    SN --> DDL[Learning delays]
+    SN --> DCLS[Dilated Convolution with Learnable Spacings]
+    SN --> Rob[Robustness to Noise and Dropout]
+    SN --> V250[Version with 250 Hz Input]
+    SN --> ATN[Analysing trained networks]
+    SN --> Tau[Optimizing the membrane time constant]
+```
+
 ## Introductory notebooks
 
 [](../research/1-Background.md)
@@ -25,7 +45,7 @@ The following lists the notebooks, authors, summary and related notebooks in thi
     : Comparison of three different ways of reading out the network's decision (average membrane potential, maximum membrane potential, spiking outputs) with short and long time constants. (Author: Mingxuan Hong.)
 
 [](../research/Analysing-Trained-Networks-Part2.ipynb)
-    : Group project from an early workshop looking at hidden unit spiking activity and single unit ablations. Found that some hidden neurons don't spike, and ablating those does not harm performance. Builds on [](../research/Analysing-Trained-Networks.ipynb). (Author: Gabriel Béna, Josh Bourne, Tomas Fiers, Tanushri Kabra, Zekai Xu. TODO SURNAMES.)
+    : Group project from an early workshop looking at hidden unit spiking activity and single unit ablations. Found that some hidden neurons don't spike, and ablating those does not harm performance. Builds on [](../research/Analysing-Trained-Networks.ipynb). (Author: Gabriel Béna, Josh Bourne, Tomas Fiers, Tanushri Kabra, Zekai Xu.)
 
 [](../research/Dales_law.ipynb)
     : Investigation into the results of imposing Dale's law. Incorporated into [](../research/4-Quick_Start.ipynb). Uses a fix from [](../research/IE-neuron-distribution.ipynb). (Author: Marcus Ghosh, Gabriel Béna, Jose Gomes.)

@@ -27,5 +27,16 @@ The current plan for writing up the paper is as follows:
 
 ## Current known contributors
 
+```{note} On this page, not all links to sections of the paper work, [follow this link for the working version](./paper.md#contributors).
+```
+
 ```{include} sections/contributor_table.md
+```
+
+## Notebook map
+
+```{note} On this page, not all links to sections of the paper work, [follow this link for the working version](./paper.md#notebook-map).
+```
+
+```{include} sections/notebook_map.md
 ```
