@@ -1,12 +1,12 @@
 The following lists the notebooks, authors, summary and related notebooks in this project.
 
 % this will only appear on the online version, not in the printed version
+
 ```{mermaid}
 flowchart LR
-    SN[Starting Notebook] --> QS[Quick Start Notebook]
-    Dale --> QS
+    SN[Starting Notebook] --> FF[Filter-and-Fire Neuron Model]
+    Dale --> QS[Quick Start Notebook]
     Tau --> QS
-    SN --> FF[Filter-and-Fire Neuron Model]
     SN --> AON[Altering Output Neurons]
     ATN --> AW[Analysing trained networks - workshop edition]
     SN --> Dale[Sound localisation following Dale's law]
@@ -18,6 +18,20 @@ flowchart LR
     SN --> V250[Version with 250 Hz Input]
     SN --> ATN[Analysing trained networks]
     SN --> Tau[Optimizing the membrane time constant]
+    subgraph Minimal trainable model
+        Tau --> AnTau[Analysing solutions for different time constants]
+        V250 --> AnTau
+        ATN --> AnTau
+    end
+    subgraph Learning delays
+        DDL
+        DCLS
+    end
+    subgraph Alternative neuron models
+        FF
+        Dale
+        DThr
+    end
 ```
 
 ## Introductory notebooks
@@ -68,6 +82,9 @@ flowchart LR
 [](../research/Quick_Start_250HzClassification.ipynb), [](../research/Quick_Start_250HzClassification_CleanVersion.ipynb)
     : Analysis of results with a higher frequency input stimulus and different membrane time constants for hidden and output layers. Conclusion is that smaller time constant matters for hidden layer but not for output layer. (Author: Dilay Fidan Erçelik.)
 
+[](../research/time-constant-solutions.ipynb)
+    : Deeper analysis of strategies found by trained networks as time constants vary. Added firing rate regularisation. Extends [](../research/Optimizing-Membrane-Time-Constant.ipynb) (Author: Dan Goodman.)
+
 [](../research/Workshop_1_Write_Up.md)
     : Write-up of what happened at the first workshop. (Author: Marcus Ghosh.)
 
@@ -92,7 +109,7 @@ This subsection includes notebooks whose content got merged into an updated note
     : Early work on analysing the strategies learned by trained networks. Folded into [](../research/Analysing-Trained-Networks-Part2.ipynb). (Author: Dan Goodman.)
 
 [](../research/Optimizing-Membrane-Time-Constant.ipynb)
-    : Analyses how performance depends on membrane time constant. Folded into [TODO REMOVE THIS TEXT WHEN NOTEBOOK MERGED](../research/time-constant-solutions.ipynb). (Author: Zach Friedenberger, Chen Li, Peter Crowe.)
+    : Analyses how performance depends on membrane time constant. Folded into [](../research/time-constant-solutions.ipynb). (Author: Zach Friedenberger, Chen Li, Peter Crowe.)
 
 [](../research/IE-neuron-distribution.ipynb)
     : Fixed a mistake in an earlier version of [](../research/Dales_law.ipynb). (Author: Sara Evers.)

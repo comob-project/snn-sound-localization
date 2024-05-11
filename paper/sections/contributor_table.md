@@ -23,7 +23,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - Managed the project, wrote the paper, conducted research ([](../research/4-Quick_Start.ipynb), [](../research/Dales_law.ipynb)), gave the Cosyne tutorial.
 * - [Dan Goodman](http://neural-reckoning.org/)
   - [\@thesamovar](https://github.com/thesamovar)
-  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb)).
+  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb), [](../research/time-constant-solutions.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
   - Conducted research (TODO INCLUDE LINK), wrote the paper ([](#inh-model))
