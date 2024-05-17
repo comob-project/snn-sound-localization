@@ -27,7 +27,8 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 ### Methods
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in. 
 
-![network_diagram](network_diagram.png){width=300 height=200}
+![network_diagram](network_diagram.png)
+<img src="image.jpg" alt="Description" width="300" height="200">
 *The end-to-end system with the network diagram*
 
 The principal inputs to the network are the spectrogram of a sound stimulus arriving at both ears and the azimuth angle from which univocal values of ITD and ILD are computed. With regards to the spectrogram, we covered the whole human audible range of sound between a minimum frequency of 20 Hz and a maximum of 20 kHz. We subdivided it into 3500 channels since this value is the most likely estimate of the number of inner hair cells (IHCs) present in the human cochlea. With the intent to mimic the physiological distribution of IHCs along the basilar membrane, the width of each frequency channel was not constant throughout the range but grew exponentially []. 
