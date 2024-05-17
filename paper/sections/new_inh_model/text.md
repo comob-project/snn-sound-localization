@@ -29,7 +29,7 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href=fig1>Figure 1</a>.
 
 <p id=fig1>
-  <img src="network_diagram.png" alt="network_diagram">
+  <img src="lso_mso.png" alt="network_diagram">
 </p>
 <p><em>Figure 1: The end-to-end system with the network diagram</em></p>
 
@@ -62,7 +62,7 @@ Regarding simulations in which the MSO receives only excitatory inputs (<a href=
 <p id=fig3>
   <img src=blocked_inh.png" alt="blocked_inhibition">
 </p>
-<p><em>Figure 2: Loss of contraletaral ITD peak-coding for the four different neurons in the left MSO: the control condition (with activated inhibitory inputs) is shown in blue, whereas the condition with blocked inhibition to the MSO is depicted by the curves in red; in the latter scenario, firing-rate values are higher with respect to the former and peak values correspond to null ITD values in all four neurons, so that the coding for each neuron for a specific azimuth angle is now lost.
+<p><em>Figure 2: Loss of contraletaral ITD peak-coding for the four different neurons in the left MSO: the control condition (with activated inhibitory inputs) is shown in blue, whereas the condition with blocked inhibition to the MSO is depicted by the curves in red; in the latter scenario, firing-rate values are higher with respect to the former and peaks correspond to null ITD values in all four neurons, so that the coding for each neuron for a specific azimuth angle is now lost.
 </em></p>
 
 The achievements of this work are to be considered significant in the investigation of the mechanisms used by the mammalian brainstem to perform sound localization. The computational model developed is in fact a good validation platform for the most recent theories concerning the processing of the two binaural cues, ITDs, and
