@@ -1,3 +1,4 @@
+(delay-section)=
 ## Learning Delays
 
 This section introduces a simple method to solve the sound localization problem with only learnable delays

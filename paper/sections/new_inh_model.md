@@ -1,3 +1,4 @@
+(inh-model)=
 ## Contralateral glycinergic inhibition as key factor in creating ITD sensitivity
 
 ### Intro
