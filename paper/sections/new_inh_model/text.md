@@ -24,14 +24,13 @@ The first steps into a better understanding of the MSO functioning were made tha
 The same study of Brand et al, together with a following one by Pecka et al [], explored also the physical mechanisms underlying the shift in peaks activity towards contralateral ITD values. Since the presence of axonal delay lines had been discarded, there had to be another neural mechanism capable of compensating for the external ITD value, causing a growth in the activity of MSO neurons for gradually more and more contralateral sounds. The results shown how the two inhibitory inputs to the MSO, which were discarded in the Jeffres model, had instead a central role in this process. By blocking the glycinergic inhibition to the MSO neurons by means of the application of its antagonist, strychnine, it was observed the loss of the peak shift in all their response activity. Having now a symmetry in all the neuron responses, with a peak in the activity corresponding to null ITD values (and so to a 0° azimuth angle), all the information present in the MSO responses had been lost. Inhibition have thus a central role in identifying the ITD values in the MSO, whether that the coding strategy adopted consists in a peak-coding or in a rate-coding one. However, even in this case, although numerous proposals have been made, it is still unclear how the two inhibitory inputs manage to cause this higher excitability of MSO neurons for contralateral sounds.
 Some experimental studies have reported how inhibitory inputs, especially the contralateral one, can arrive slightly in advance of the excitatory inputs from the corresponding sides, thus going to influence the way ipsilateral and contralateral inputs add up in the MSO neurons and thereby generate a maximum response for contralateral ITD values. Nevertheless, other work has characterized the hypothesis of anticipation of inhibitory inputs as implausible. For this reason, in our work, we explored the validity of another hypothesis related solely to the shape of post-synaptic potentials (PSPs), both excitatory and inhibitory, by going to test different sets of time constants that then govern the shape of PSPs.
 
-![network_diagram\label{mylabel}](network_diagram.png)
 
 ### Methods
-Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in \ref{mylabel}. 
+### Methods
+Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href="#network-diagram">Figure</a>.
 
-<p>
+<p id="network-diagram">
 <img src="network_diagram.png" alt="network_diagram">
-  \label{mylabel}
 <p>
 <em>The end-to-end system with the network diagram</em>
 </p>
