@@ -29,7 +29,7 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href=fig1>Figure 1</a>.
 
 <p id=fig1>
-  <img src="lso_mso.png" alt="network_diagram">
+  <img src="network_diagram.png" alt="network_diagram">
 </p>
 <p><em>Figure 1: The end-to-end system with the network diagram</em></p>
 
@@ -47,10 +47,10 @@ For the validation of the complete brainstem network, including both LSO and MSO
 The MSO response was tested both in physiological conditions and with blocked inhibitory inputs, as in the experiments of Brand et al. and Pecka et al.
 
 ### Results 
-The responses in terms of average firing rate for varying the azimuth angle from which the 100 Hz pure tone arrives are shown in <a href="fig2">Figure 2</a>. 
+The responses in terms of average firing rate for varying the azimuth angle from which the 100 Hz pure tone arrives are shown in <a href=fig2>Figure 1</a>.
 
-<p id="fig2">
-  <img src=lso_mso.png" alt="lso_mso_rates">
+<p id=fig2>
+  <img src="lso_mso.png" alt="lso_mso_rates">
 </p>
 <p><em>Figure 2: Left LSO (on the left) and Left MSO (on the right) mean firing-rate response after stimulation with a 100 Hz pure tone sound for 1 second at different azimuth angles</em></p>
 
@@ -60,7 +60,7 @@ Regarding instead the MSO, the different curves represent the activity of neuron
 Regarding simulations in which the MSO receives only excitatory inputs (<a href=fig3>Figure 3</a>. ), a loss in the coding of different contralateral angles is evidenced by a symmetric firing-rate curve, with all the peak values being higher and shifted towards 0° angles with respect to the physiological activity, as measured experimentally in [].
 
 <p id=fig3>
-  <img src=blocked_inh.png" alt="blocked_inhibition">
+  <img src="blocked_inh.png" alt="blocked_inhibition">
 </p>
 <p><em>Figure 2: Loss of contraletaral ITD peak-coding for the four different neurons in the left MSO: the control condition (with activated inhibitory inputs) is shown in blue, whereas the condition with blocked inhibition to the MSO is depicted by the curves in red; in the latter scenario, firing-rate values are higher with respect to the former and peaks correspond to null ITD values in all four neurons, so that the coding for each neuron for a specific azimuth angle is now lost.
 </em></p>
