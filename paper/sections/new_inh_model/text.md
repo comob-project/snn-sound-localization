@@ -29,6 +29,7 @@ Inspired by the neurophysiological data, we implemented a complex spiking neural
 
 <p>
 <img src="network_diagram.png" alt="network_diagram" width="600" height="200">
+<p>
 <em>The end-to-end system with the network diagram</em>
 </p>
 
