@@ -50,7 +50,7 @@ The MSO response was tested both in physiological conditions and with blocked in
 The responses in terms of average firing rate for varying the azimuth angle from which the 100 Hz pure tone arrives are shown in <a href=fig2>Figure 2</a>. 
 
 <p id=fig2>
-  <img src=lso_mso.jpg" alt="lso_mso_rates">
+  <img src=lso_mso.png" alt="lso_mso_rates">
 </p>
 <p><em>Figure 2: Left LSO (on the left) and Left MSO (on the right) mean firing-rate response after stimulation with a 100 Hz pure tone sound for 1 second at different azimuth angles</em></p>
 
@@ -60,7 +60,7 @@ Regarding instead the MSO, the different curves represent the activity of neuron
 Regarding simulations in which the MSO receives only excitatory inputs (<a href=fig2>Figure 2</a>. ), a loss in the coding of different contralateral angles is evidenced by a symmetric firing-rate curve, with all the peak values being higher and shifted towards 0° angles with respect to the physiological activity, as measured experimentally in [].
 
 <p id=fig3>
-  <img src=blocked_inh.jpg" alt="blocked_inhibition">
+  <img src=blocked_inh.png" alt="blocked_inhibition">
 </p>
 <p><em>Figure 2: Loss of contraletaral ITD peak-coding for the four different neurons in the left MSO: the control condition (with activated inhibitory inputs) is shown in blue, whereas the condition with blocked inhibition to the MSO is depicted by the curves in red; in the latter scenario, firing-rate values are higher with respect to the former and peak values correspond to null ITD values in all four neurons, so that the coding for each neuron for a specific azimuth angle is now lost.
 </em></p>
