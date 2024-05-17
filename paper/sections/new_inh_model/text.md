@@ -26,8 +26,7 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 
 
 ### Methods
-### Methods
-Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href="#network-diagram">Figure</a>.
+Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href="#network-diagram">Figure 1</a>.
 
 <p id="network-diagram">
 <img src="network_diagram.png" alt="network_diagram">
