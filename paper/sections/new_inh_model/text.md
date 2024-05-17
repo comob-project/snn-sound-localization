@@ -7,7 +7,7 @@ Why a more biological inspired model?
 - Jeffress model existence in mammals is not sure
 - axonal delay lines absence in mammalian MSO
 - peaks of MSO responses only for contralateral sounds, outside physiological range? Slopes as the encoding part of the curves
-- experiments with inhibition blocked (glycine antagonist strychnine) show loss of ITD-coding in the MSO principal cells {cite:t}`pecka`.
+- experiments with inhibition blocked (glycine antagonist strychnine) show loss of ITD-coding in the MSO principal cells {cite:t}`Gelfand2010`.
 
 ### Introduction Text 
 For the vast majority of animals, sound localization is realized through two classes of hidden acoustic cues: binaural and spectral cues. In humans, binaural cues alone are sufficient to discriminate azimuth angles between 0-180 degrees, whereas psychoacoustic evidence has shown how spectral cues have a role in the solution of front-back ambiguities and in angle recognition along the vertical plane (i.e. elevation angles) []. Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies. 
