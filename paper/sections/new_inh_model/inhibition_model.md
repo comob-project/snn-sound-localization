@@ -5,7 +5,22 @@ Here we use a more biologically inspired model to overcome some limitations that
 
 
 ### Introduction 
-For the vast majority of animals, sound localization is realized through two classes of hidden acoustic cues: binaural and spectral cues. In humans, binaural cues alone are sufficient to discriminate azimuth angles between -90° to +90° degrees, whereas psychoacoustic evidence has shown how spectral cues have a role in the solution of front-back ambiguities and in angle recognition along the vertical plane (i.e. elevation angles) [@Gelfand2010]. Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies. 
+
+{cite:t}`10.7554/eLife.01312` showed that it was not efficient at integrating across frequencies, was biased in the presence of acoustic noise, and generalised poorly to sounds outside of the training set.
+
+In this project, we asked what strategies would be found when jointly optimising for both encoding and decoding using modern machine learning methods to train a network end-to-end.
+
+### Methods
+
+The model consists of the following pathway, illustrated in {ref}`basic-arch`: IPD $\rightarrow$ stimulus $\rightarrow$ input neurons $\rightarrow$ hidden layer neurons $\rightarrow$ readout neurons.
+
+```{figure} ../research/diagrams/arch-stimuli.png
+:label: basic-arch
+
+Overall model architecture.
+```
+
+For the vast majority of animals, sound localization is realized through two classes of hidden acoustic cues: binaural and spectral cues. In humans, binaural cues alone are sufficient to discriminate azimuth angles between -90° to +90° degrees, whereas psychoacoustic evidence has shown how spectral cues have a role in the solution of front-back ambiguities and in angle recognition along the vertical plane (i.e. elevation angles) {cite:t}'Gelfand2010'. Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies. 
 It is clear at first glance how ITDs are longer for species with large head sizes, conversely, these are much shorter for smaller animals, and therefore harder to be neuronally encoded. ILDs on the other hand occur when the wavelength of the sound stimulus is shorter than the size of the animal's head, which then generates a significant attenuation at the contralateral ear. For this reason, ILDs' significance with respect to ITDs' is greater in smaller animals with a middle ear specialised for the transmission of high frequencies (thus having a high-frequency hearing range). This was the case with early mammals, which in fact only developed structures dedicated to processing ILDs.
 Even today, many small mammals rely exclusively on ILDs to perform sound localization and the main neural structure involved in the processing of this cue is the Lateral Superior Olive (LSO), a nucleus placed within the superior olivary complex in the mammalian brainstem. Only afterwards the selective pressure led some mammalian species to evolve a second specialized structure, the Medial Superior Olive (MSO), for the processing of ITDs solely. This was probably due to an increase in body size that provided production of low-frequency communication calls and thus the need to implement coding of ITDs as well [@Grothe2014].
 Humans, whose hearing range is shifted towards lower frequencies with respect to many mammals, possess both a large LSO and a well-developed MSO. As a matter of fact, psychoacoustic evidence has shown how both ITDs and ILDs are used for horizontal sound localization. In particular, the MSO can be considered as a refined processing stage with respect to the LSO for the localization of low-frequency sounds, at which ILD cues are not available [@Grothe2014].
@@ -25,10 +40,12 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 ### Methods
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework [@spreizer_2022_6368024]. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in <a href=fig1>Figure 1</a>.
 
-<p id=fig1>
-  <img src="network_diagram.png" alt="network_diagram">
-</p>
-<p><em>Figure 1: The end-to-end brainstem model with the network diagram. The number of neurons for each population is written in the respective block.</em></p>
+
+```{figure} ..network_diagram.png
+:label: basic-network_diagram
+
+Figure 1: The end-to-end brainstem model with the network diagram. The number of neurons for each population is written in the respective block
+```
 
 The principal inputs to the network are the spectrogram of a sound stimulus arriving at both ears and the azimuth angle from which univocal values of ITD and ILD are computed. With regards to the spectrogram, we covered the whole human audible range of sound between a minimum frequency of 20 Hz and a maximum of 20 kHz. We subdivided it into 3500 channels since this value is the most likely estimate of the number of inner hair cells (IHCs) present in the human cochlea. With the intent to mimic the physiological distribution of IHCs along the basilar membrane, the width of each frequency channel was not constant throughout the range but grew exponentially [@Fettiplace2023].
 For modelling of the auditory nerve fibres (ANFs), we used the `pulse_packet_generator`, a built-in NEST device that produces a spike train containing Gaussian spike clusters centred around given times. 
