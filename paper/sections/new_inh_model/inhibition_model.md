@@ -2,7 +2,7 @@
 
 ### TL;DR
 Here we use a more biologically inspired model to overcome some limitations that have been highlighted in the classic Jeffress model, whose existence, in mammals is debated. In fact, axonal delay lines have not been found in the mammalian MSO. Another problem is that ITD duration is in the range of tens of microseconds whereas neuronal dynamics work in the millisecond range. We focused our attention on the inhibition, which was found both anatomically (there are inhibitory ipsilateral and contralateral pathways) and experiments with inhibition blocked (by a glycine antagonist: strychnine) show a loss of ITD-coding in the MSO.
-CONTUA
+
 
 ### Introduction 
 For the vast majority of animals, sound localization is realized through two classes of hidden acoustic cues: binaural and spectral cues. In humans, binaural cues alone are sufficient to discriminate azimuth angles between -90° to +90° degrees, whereas psychoacoustic evidence has shown how spectral cues have a role in the solution of front-back ambiguities and in angle recognition along the vertical plane (i.e. elevation angles) [@Gelfand2010]. Focusing on binaural cues, the two main signals exploited by different animals in creating an acoustic spatiality are interaural time and level differences (ITDs and ILDs). Their role and their dominance over each other depend mainly on animal head size and hearing range in terms of frequencies. 
