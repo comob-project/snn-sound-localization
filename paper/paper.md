@@ -8,7 +8,8 @@ authors:
     email: mghosh@imperial.ac.uk
   - name: Francesco De Santis
     affiliations:
-      - NearLab, Politecnico di Milano
+      - Politecnico di Milano
+    orcid: 0009-0005-8393-9658
   - name: Dilay Ercelik 
     affiliations: 
       - University College London
@@ -29,7 +30,8 @@ authors:
       - Sorbonne University
   - name: Alberto Antonietti
     affiliations:
-      - NearLab, Politecnico di Milano
+      - Politecnico di Milano
+    orcid: 0000-0003-0388-6321
   - name: Dan F. M. Goodman
     affiliations:
       - Imperial College London
