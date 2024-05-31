@@ -26,7 +26,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb), [](../research/time-constant-solutions.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
-  - (Conducted research ([](../research/5-new_inh_model.ipynb)) and wrote the paper ([](sections/new_inh_model/inhibition_model.md)))
+  - (Conducted research ([](../research/new_inh_model.ipynb)) and wrote the paper ([](sections/new_inh_model/inhibition_model.md)))
 * - Karim Habashy
   - [\@KarimHabashy](https://github.com/KarimHabashy)
   - Conducted research ([](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)), wrote the paper ([](#delay-section)), project management ([](../research/4-Quick_Start.ipynb))
