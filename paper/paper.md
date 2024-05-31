@@ -99,7 +99,7 @@ In this section, each subsection is the detailed results as written up by the au
 ```{include} sections/basicmodel/basicmodel.md
 ```
 
-```{include} sections/new_inh_model.md
+```{include} sections/new_inh_model/inhibition_model.md
 ```
 
 ```{include} sections/delays/Delays.md

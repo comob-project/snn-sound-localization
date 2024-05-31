@@ -31,7 +31,7 @@ Some experimental studies have reported how inhibitory inputs, especially the co
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework [@spreizer_2022_6368024]. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in {ref}`network_diagram`.
 
 
-```{figure} network_diagram.png
+```{figure} sections/new_inh_model/network_diagram.png
 :label: network_diagram
 
 Figure 1: The end-to-end brainstem model with the network diagram. The number of neurons for each population is written in the respective block
@@ -54,7 +54,7 @@ The MSO response was tested both in physiological conditions and with blocked in
 As for the LSO response in {ref}`lso_mso`, in our results we obtained the desired subtraction process described in [Introduction]: considering for the sake of simplicity the left LSO, when the sound arrives from a source placed at 90° (i.e., right), the right ear receives sounds earlier and more intensely than the left. As the azimuth angle proceeds toward 0° (frontal position), the firing rate of the left LSO increases while maintaining a constant slope. This steep segment is the most informative part of the left LSO response curve, as a high sensitivity to changing input azimuth angles is guaranteed. Once past 0°, the firing rate ceases to increase steadily, and the response flattens out to high-rate values. Here, the ipsilateral (left) excitation dominates due to louder sounds.
 
 
-```{figure} ..lso_mso.png
+```{figure} sections/new_inh_model/lso_mso.png
 :label: lso_mso
 
 Figure 2: Mean firing-rate responses of the left LSO (on the left) and the left MSO (on the right) after stimulation with a 100 Hz pure tone sound for 1 second at different azimuth angles. For the MSO, four neurons with different time constants are shown. Neuron 1 responds maximally for input at +15°, Neuron 2 at +30°, Neuron 3 at +45°, and Neuron 4 at +90°.
@@ -65,7 +65,7 @@ Regarding the MSO instead ({ref}`lso_mso`), the different curves represent the a
 Regarding simulations in which the MSO receives only excitatory inputs ({ref}`blocked_inh`), a loss in the coding of different contralateral angles is evidenced by a symmetric firing rate curve, with all the peak values being higher and shifted towards 0° angles with respect to the physiological activity, as measured experimentally in [@Brand] and [@Pecka2008].
 
 
-```{figure} ..blocked_inh.png
+```{figure} sections/new_inh_model/blocked_inh.png
 :label: blocked_inh
 
 Figure 3: Loss of contralateral ITD peak-coding for the four different neurons in the left MSO: the control condition (with physiological inhibitory inputs) is shown in blue, whereas the curves in red depict the condition with blocked inhibition to the MSO; in the latter scenario, firing-rate values are higher with respect to the former and peaks are shifted to null ITD values, so that the coding of each neuron for a specific azimuth angle is now lost.
