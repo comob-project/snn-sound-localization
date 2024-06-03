@@ -131,3 +131,6 @@ dmypy.json
 paper/_build
 _build
 research/tempdata
+
+# Vs code 
+.vscode
