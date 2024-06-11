@@ -23,19 +23,19 @@ If you add a contribution, please use one of the following templates (see exampl
   - Managed the project, wrote the paper, conducted research ([](../research/4-Quick_Start.ipynb), [](../research/Dales_law.ipynb)), gave the Cosyne tutorial.
 * - [Dan Goodman](http://neural-reckoning.org/)
   - [\@thesamovar](https://github.com/thesamovar)
-  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb)).
+  - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb), [](../research/time-constant-solutions.ipynb)).
 * - Francesco De Santis
   - [\@francescodesantis](https://github.com/francescodesantis)
-  - (TODO)
-* - Karim Habashy
+  - Conducted research (TODO INCLUDE LINK), wrote the paper ([](#inh-model))
+* - Karim Habashy 
   - [\@KarimHabashy](https://github.com/KarimHabashy)
-  - (TODO)
+  - Conducted research ([](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)), wrote the paper ([](#delay-section)), project management ([](../research/4-Quick_Start.ipynb))
 * - Mingxuan Hong
   - [\@mxhong](https://github.com/mxhong)
-  - (TODO)
+  - Conducted research ([](../research/Altering_output_neurons.ipynb), [](../research/Dynamic_threshold.ipynb)).
 * - [Dilay Fidan Erçelik](https://dilayercelik.github.io/)
   - [\@dilayercelik](https://github.com/dilayercelik)
-  - (TODO)
+  - Conducted research ([](../research/4-Quick_Start.ipynb), [](../research/Quick_Start_250HzClassification_CleanVersion.ipynb)).
 * - [Rory Byrne](https://rory.bio/)
   - [\@rorybyrne](https://github.com/rorybyrne)
   - Organised the source code structure, conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
@@ -44,22 +44,22 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Helena Yuhan Liu](https://amath.washington.edu/people/helena-liu)
   - [\@Helena-Yuhan-Liu](https://github.com/Helena-Yuhan-Liu)
-  - (TODO)
+  - Conducted research ([](../research/SNN_sound_W1W2_threshold_plot.ipynb)).
 * - Jose Gomes (Portugal, PhD)
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
   - Conducted research ([](../research/Dales_law.ipynb)).
 * - ???
   - [\@a-dtk](https://github.com/a-dtk)
   - (TODO)
-* - Sara Evers?
+* - Sara Evers [sara.evers@curie.fr]
   - [\@saraevers](https://github.com/saraevers)
-  - (TODO)
+  - Conducted research ([](../research/IE-neuron-distribution.ipynb)).
 * - Ido Aizenbud
   - [\@ido4848](https://github.com/ido4848)
-  - (TODO)
+  - Conducted research ([](../research/Alt-Filter-and-Fire_Neuron_Model_SNN.ipynb)).
 * - Balázs Mészáros
   - [\@mbalazs98](https://github.com/mbalazs98)
-  - Wrote the paper (DCLS based delay learning in the appendix). Conducted research ([](../research/Quick_Start_random.ipynb), [](../research/Quick_Start_Delay_DCLS.ipynb))
+  - Wrote the paper (DCLS based delay learning in the appendix). Conducted research ([](../research/Quick_Start_random.ipynb), [](../research/Quick_Start_Delay_DCLS.ipynb)).
 * - Sebastian Schmitt
   - [\@schmitts](https://github.com/schmitts)
   - (TODO)
@@ -71,7 +71,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Alberto Antonietti](https://www.deib.polimi.it/eng/people/details/669646)
   - [\@alberto-antonietti](https://github.com/alberto-antonietti)
-  - (TODO)
+  - Supervised Francesco De Santis, wrote the paper ([](#inh-model)).
 * - Lavínia Takarabe
   - [\@laviniamitiko](https://github.com/laviniamitiko)
   - (TODO)
@@ -92,7 +92,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - (TODO)
 * - [Gabriel Béna](https://neural-reckoning.org/gabriel_bena.html)
   - [\@GabrielBena](https://github.com/GabrielBena)
-  - (TODO)
+  - Conducted research ([](../research/Analysing-Trained-Networks-Part2.ipynb), [](../research/Dales_law.ipynb)).
 * - Divyansh Gupta
   - [\@guptadivyansh](https://github.com/guptadivyansh)
   - (TODO)
@@ -113,5 +113,11 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - Peter Crowe (Germany, Undergraduate)
   - ???
-  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).  
+  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
+* - [Brendan Bicknell]()
+  - ??? 
+  - Supervised Dilay Fidan Erçelik.  
+* - [Volker Bormuth](https://www.labojeanperrin.fr/?people40)
+  - ???
+  - Supervised Marcus Ghosh & students at Sorbonne University.
 ```

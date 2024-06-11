@@ -25,7 +25,75 @@ The current plan for writing up the paper is as follows:
 ```{attention} Action 3: participate in writing up the paper
 ```
 
+## Referencing
+
+If contributing to the paper, it helps if we all stick to a standard way of doing referencing (citations and internal references).
+
+Code for figures should look something like this:
+
+````
+```{figure} ../research/diagrams/arch-stimuli.png
+:label: basic-arch
+
+Overall model architecture.
+```
+````
+
+The path is relative to the file ``paper/paper.md``. You can reference this figure in the text by writing something like:
+
+````
+See {ref}`basic-arch`
+````
+
+You can even do subpanels of figures and reference those, e.g.:
+
+````
+```{figure}
+:label: basic-results
+
+(confusion-matrix)=
+![Confusion matrix.](sections/basicmodel/confusion.png)
+
+(hidden-firing-rates)=
+![Hidden neuron firing rates.](sections/basicmodel/hidden-firing-rates.png)
+
+Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
+```
+````
+
+You can do label and reference section headings, which might look like this:
+
+````
+(basic-model)=
+## A minimal trainable model of IPD processing
+````
+
+and referenced as
+
+````
+See {ref}`basic-model`
+````
+
+For papers, include the paper in ``paper.bib`` using standard BiBTeX notation, and then reference in one of the following ways:
+
+````
+[@Zenke2018] - single reference will look like (Zenke et al. 2018).
+[@Zenke2018;Yin2019] - multiple references (don't do [@Zenke2018][@Yin2019] which will look ugly).
+{cite:t}`@Zenke2018` will look like Zenke et al. (2018) for referencing as part of a sentence.
+````
+
 ## Current known contributors
 
+```{note} On this page, not all links to sections of the paper work, [follow this link for the working version](./paper.md#contributors).
+```
+
 ```{include} sections/contributor_table.md
+```
+
+## Notebook map
+
+```{note} On this page, not all links to sections of the paper work, [follow this link for the working version](./paper.md#notebook-map).
+```
+
+```{include} sections/notebook_map.md
 ```
