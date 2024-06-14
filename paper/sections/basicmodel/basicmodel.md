@@ -96,6 +96,10 @@ Analysis of the trained networks show that it uses an unexpected strategy ({ref}
 Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
 ```
 
+A number of features emerge from this analysis. The first is that the tuning curves of the hidden neurons have a very regular structure of having a high baseline firing rate with a dip around a "least preferred" delay that varies uniformly in the range $-\pi/2$ to $\pi/2$. Indeed, the tuning curves $i$ can be very well fit with the function $a+be^{-(\alpha-\alpha_i)^2/2\sigma_\alpha^2}$ where $\alpha$ is the IPD, $\alpha_i=-\pi/2+i\pi/N_h$ is the "least preferred" IPD, and $a, b, \sigma_\alpha$ are parameters to fit ({ref}`tuning-curves-hidden`, orange lines). This would look likely to be consistent with some form of optimal coding theory that minimises the effect of the Poisson noise in the spike counts, although we did not pursue this explanation.
+
+The second feature is that, surprisingly, spike timing does not appear to play a significant role in this network. Indeed, if we predict the output of the network purely using the firing rates of the input stimulus passed through the weight matrices $W_{ih}$ and $W_{ho}$ plus a sigmoid function for the input to hidden layer, we get an excellent approximation for the hidden neurons ({ref}`tuning-curves-hidden`, blue lines) and a qualitatively good fit for the output neurons ({ref}`tuning-curves-output`, blue lines).
+
 TODO: EXPLAIN THE STRATEGY.
 
 * Hidden unit tuning curves are behaving as rate-based neurons (rate approx)
