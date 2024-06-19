@@ -98,14 +98,17 @@ Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_
 
 A number of features emerge from this analysis. The first is that the tuning curves of the hidden neurons have a very regular structure of having a high baseline firing rate with a dip around a "least preferred" delay that varies uniformly in the range $-\pi/2$ to $\pi/2$. Indeed, the tuning curves $i$ can be very well fit with the function $a+be^{-(\alpha-\alpha_i)^2/2\sigma_\alpha^2}$ where $\alpha$ is the IPD, $\alpha_i=-\pi/2+i\pi/N_h$ is the "least preferred" IPD, and $a, b, \sigma_\alpha$ are parameters to fit ({ref}`tuning-curves-hidden`, orange lines). This would look likely to be consistent with some form of optimal coding theory that minimises the effect of the Poisson noise in the spike counts, although we did not pursue this explanation.
 
-The second feature is that, surprisingly, spike timing does not appear to play a significant role in this network. Indeed, if we predict the output of the network purely using the firing rates of the input stimulus passed through the weight matrices $W_{ih}$ and $W_{ho}$ plus a sigmoid function for the input to hidden layer, we get an excellent approximation for the hidden neurons ({ref}`tuning-curves-hidden`, blue lines) and a qualitatively good fit for the output neurons ({ref}`tuning-curves-output`, blue lines).
+The second feature is that spike timing does not appear to play a significant role in this network. This may initially appear suprising but in fact it is inevitable because of the coding scheme we have used where the initial layer of neurons fire Poisson spikes, and there is only one spiking layer, meaning there is no scope for spike times to be used (a limitation of this model realised late in the process). Indeed, if we predict the output of the network purely using the firing rates of the input stimulus passed through the weight matrices $W_{ih}$ and $W_{ho}$ plus a static nonlinearity for the input to hidden layer, we get an excellent approximation for the hidden neurons ({ref}`tuning-curves-hidden`, blue lines) and a qualitatively good fit for the output neurons ({ref}`tuning-curves-output`, blue lines). Specifically, if $r_i(t)$ is the instantaneous time-varying firing rate of input neuron $i$ we approximate the instantaneous hidden units firing rates by the function:
 
-TODO: EXPLAIN THE STRATEGY.
+$$r_h(t)=\begin{cases}
+0 & \mbox{if } r_i(t)\leq 1 \\
+\frac{1}{t_\mathrm{refrac}+\tau\log\frac{r_i(t)}{r_i(t)-1}} & \mbox{if } r_i(t)>1 \\
+\end{cases}$$
 
-* Hidden unit tuning curves are behaving as rate-based neurons (rate approx)
-* Hidden unit tuning curves follow an idealised reversed Gaussian shape (idealised)
+This function is the firing rate of a leaky integrate-and-fire neuron $\tau v^\prime=r_i(t)-v$ with a refractory period $t_\mathrm{refrac}$ (which is $\mathrm{d}t$ in our case because of the way it is simulated) if the function $r_i(t)$ were constant over time, but it fits well even with a time-varying $r_i(t)$. From this we can take an average over time to get the mean firing rate. The output units do not spike so their activity is simply approximated by $r_o(t)=\sum_h W_{ho}r_h(t)$.
+
+TODO:
 * $W_{ho}$ has a very clear Ricker / mexican hat structure. If we fit this, we get a good approximation of the output firing rates.
-* Overall, the network appears to have learned a strategy of finding tuning curves that minimise the effect of Poisson noise, using the overcomplete basis set of input spike trains to achieve the right hidden neuron firing rates. There is no strong evidence of spike-based processing.
 
 TODO: DEPENDENCE ON TAU.
 
