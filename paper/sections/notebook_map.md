@@ -83,7 +83,7 @@ flowchart LR
     : Analysis of results with a higher frequency input stimulus and different membrane time constants for hidden and output layers. Conclusion is that smaller time constant matters for hidden layer but not for output layer. (Author: Dilay Fidan Erçelik.)
 
 [](../research/time-constant-solutions.ipynb)
-    : Deeper analysis of strategies found by trained networks as time constants vary. Added firing rate regularisation. Extends [](../research/Optimizing-Membrane-Time-Constant.ipynb) (Author: Dan Goodman.)
+    : Deeper analysis of strategies found by trained networks as time constants vary. Added firing rate regularisation. Extends [](../research/Optimizing-Membrane-Time-Constant.ipynb). Written up in more detail in [](#basic-model). (Author: Dan Goodman.)
 
 [](../research/Workshop_1_Write_Up.md)
     : Write-up of what happened at the first workshop. (Author: Marcus Ghosh.)
