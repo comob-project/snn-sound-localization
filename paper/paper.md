@@ -93,14 +93,7 @@ downloads:
 
 
 +++ {"part": "abstract"}
-Neuroscientists are increasingly initiating large-scale collaborations which bring together tens to hundreds of researchers. 
-However, while these projects represent a step-change in scale, they retain a traditional structure with centralised funding, participating laboratories and data sharing on publication.
-Inspired by an open-source project in pure mathematics, we set out to test the feasibility of an alternative structure by running a grassroots, massively collaborative project in computational neuroscience.   
-To do so, we launched a public Git repository, with code for training spiking neural networks to solve a sound localisation task via surrogate gradient descent. 
-We then invited anyone to use this code as a springboard for exploring questions of interest to them, and encouraged participants to share their work both asynchronously through Git and synchronously at monthly online workshops.  
-At a scientific level, our work demonstrates how a range of biologically-relevant parameters, from time delays to membrane decays and levels of inhibition, impact sound localisation in networks of leaky-integrate-and-fire units.     
-At a more macro-level, our project brought together 35 researchers from multiple countries, and provided hands-on research experience to early career participants and opportunities for supervision and leadership development to later career participants.  
-Looking ahead, our project provides a glimpse of what open, collaborative science could look like and provides a necessary, tentative step towards it.  
+Neuroscientists are increasingly initiating large-scale collaborations which bring together tens to hundreds of researchers. However, while these projects represent a step-change in scale, they retain a traditional structure with centralised funding, participating laboratories and data sharing on publication. Inspired by an open-source project in pure mathematics, we set out to test the feasibility of an alternative structure by running a grassroots, massively collaborative project in computational neuroscience. To do so, we launched a public Git repository, with code for training spiking neural networks to solve a sound localisation task via surrogate gradient descent. We then invited anyone to use this code as a springboard for exploring questions of interest to them, and encouraged participants to share their work both asynchronously through Git and synchronously at monthly online workshops. At a scientific level, our work demonstrates how a range of biologically-relevant parameters, from time delays to membrane decays and levels of inhibition, impact sound localisation in networks of leaky-integrate-and-fire units.     At a more macro-level, our project brought together 35 researchers from multiple countries, and provided hands-on research experience to early career participants and opportunities for supervision and leadership development to later career participants. Looking ahead, our project provides a glimpse of what open, collaborative science could look like and provides a necessary, tentative step towards it.  
 +++
 
 # Introduction
