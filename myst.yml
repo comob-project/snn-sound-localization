@@ -9,7 +9,6 @@ project:
   github: https://github.com/comob-project/snn-sound-localization
   # bibliography: []
   exclude:
-    - web/**
     - ReadMe.md
     - paper/sections/**
   abbreviations:
