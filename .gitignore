@@ -134,3 +134,4 @@ research/tempdata
 
 # Vs code 
 .vscode
+.DS_Store

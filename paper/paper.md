@@ -73,7 +73,7 @@ authors:
       - Politecnico di Milano
     orcid: 0000-0003-0388-6321
 
-- name: Dan F. M. Goodman
+  - name: Dan F. M. Goodman
     affiliations:
       - Imperial College London
     orcid: 0000-0003-1007-6474
