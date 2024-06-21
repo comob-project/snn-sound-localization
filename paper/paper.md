@@ -13,8 +13,9 @@ authors:
 
   - name: Francesco De Santis
     affiliations:
-      - NearLab, Politecnico di Milano
-
+      - Politecnico di Milano
+    orcid: 0009-0005-8393-9658
+    
   - name: Tomas Fiers
     affiliations: 
       - University of Nottingham
@@ -69,9 +70,10 @@ authors:
 
   - name: Alberto Antonietti
     affiliations:
-      - NearLab, Politecnico di Milano
+      - Politecnico di Milano
+    orcid: 0000-0003-0388-6321
 
-  - name: Dan F. M. Goodman
+- name: Dan F. M. Goodman
     affiliations:
       - Imperial College London
     orcid: 0000-0003-1007-6474
@@ -134,7 +136,7 @@ In this section, each subsection is the detailed results as written up by the au
 ```{include} sections/basicmodel/basicmodel.md
 ```
 
-```{include} sections/new_inh_model.md
+```{include} sections/new_inh_model/inhibition_model.md
 ```
 
 ```{include} sections/delays/Delays.md
