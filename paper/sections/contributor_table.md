@@ -113,5 +113,11 @@ If you add a contribution, please use one of the following templates (see exampl
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - Peter Crowe (Germany, Undergraduate)
   - ???
-  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).  
+  - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
+* - [Brendan Bicknell]()
+  - ??? 
+  - Supervised Dilay Fidan Erçelik.  
+* - [Volker Bormuth](https://www.labojeanperrin.fr/?people40)
+  - ???
+  - Supervised Marcus Ghosh & students at Sorbonne University.
 ```
