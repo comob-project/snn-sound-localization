@@ -14,6 +14,7 @@ The aim of the model was to address a long standing question about how and why t
 
 In this project, we asked what strategies would be found when jointly optimising for both encoding and decoding using modern machine learning methods to train a network end-to-end.
 
+(basic-methods)=
 ### Methods
 
 The model consists of the following pathway, illustrated in {ref}`basic-arch`: IPD $\rightarrow$ stimulus $\rightarrow$ input neurons $\rightarrow$ hidden layer neurons $\rightarrow$ readout neurons.

@@ -9,65 +9,44 @@ The classic model of ITD sensitivity is the delay line model of {cite:t}`Jeffres
 The starting point of this project was to ask: what solutions would you find if you directly optimised a spiking neural network to localise sounds? How would those solutions depend on the available neural mechanisms and statistics of the sound? Could we understand the solutions found in a simple way? What properties would the solution have in terms of robustness to noise, generalisation, and so forth? Could the solutions found by optimisation throw light on features found in the auditory systems of different animals? 
 
 ## A simple spiking neural network model
-* To explore how networks of spiking neurons can localise sound, we first considered a simple model, akin to the Jeffress model (ref).
-* Our model consisted of a single layer of leaky integrate-and-fire (LIF) units with inputs from two populations (representing the left and right ears) and feed-forward connections to a layer of non-spiking output units (Fig.x).
-* As inputs we used sine wave signals which arrived at each ear with an inter-aural phase difference (IPD).
-* Each ear contained a population of units with uniform phase delays, which generated independent Poisson spike trains (Methods).
-* We discretised the range of IPDs into classes and trained networks, using supervised surrogate gradient descent (ref), to report the most likely IPD range for a given input.
-* Using this setup we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer (Zach's notebook); emphasising the role of coincidence detection in this task. 
-* Building on this base model, we explored two main questions: how changing the neuron model, alters the networks behaviour and how the phase delays (within each ear) can be learned. 
+
+We started with a simple, trainable spiking neural network model (described in more detail in [](#basic-methods)) carrying out a highly abstracted sound localisation task. The task is to estimate the ITD of a pure tone (sine wave) at a fixed frequency. This is equivalent to estimating the interaural phase difference (IPD) since the ITD is ambiguous for a sine wave. The model consists of a layer of spiking input neurons, a single hidden layer of spiking neurons, and a non-spiking output layer of neurons. There are two subpopulations of input neurons corresponding to the two ears, with signals to one ear delayed with respect to the other. Each neuron within a subpopulation has a different phase delay. These neurons are all-to-all connected to the layer on hidden neurons with a trainable weight matrix. In this way, during training the model is free to *select* the neurons with the appropriate phase delays to get the desired properties for the hidden layer neurons. This lets the model learn to make use of delays without having to directly implement trainable delays, as this is a challenging problem (although note that a number of groups did manage to make this work, discussed below in [](#overview-delays)).
+
+Input neurons fired spikes according to a Poisson process with a time-varying rate determined by the input stimulus. Hidden layer neurons were leaky integrate-and-fire neurons. Output neurons were leaky neurons with no spiking. Each output neuron is associated to a particular IPD, and the estimated IPD of the model is the identity of the most active output neuron.
+
+Using this setup, we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer ([](../research/Optimizing-Membrane-Time-Constant.ipynb)). This initially suggested that coincidence detection played an important role. However, further analysis in [](../../research/time-constant-solutions.ipynb) (described in more detail in [](#basic-model)) showed that in fact, the network was not using a coincidence detection strategy, or indeed a spike timing strategy. Rather, it appears to be using an approach similar to the equalisation-cancellation theory {cite:p}`durlach_equalization_1963;culling_equalization-cancellation_2020` of subtracting various pairs of signals to find the point where they approximately cancel. Careful analysis of the trained model showed that it could be extremely well approximated by a 6-parameter model that is quite easy to describe, but does not obviously correspond to any known features of the auditory system.
+
+Building on this base model, we explored two main questions: how changing the neuron model alters the network's behaviour and how the phase delays (within each ear) can be learned.
     
 ## Alternative neuron models  
-* Here we explore how changing the hidden unit's neuron model impacts the network. 
 
-### Dale's principal 
-* In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale's principal (ref), 
-* and the Jeffress model uses all excitatory neurons.  
-* In contrast, most artificial neural networks, including our base model, allow single units to have both positive and negative output weights.
-* To test the impact of restricting units to being either excitatory or inhibitory, we trained our base model across a range of inhibitory:excitatory unit ratios, and tested it's performance on unseen, test data. 
-* We found that networks which balanced excitation and inhibition performed significantly better than both inhibition-only networks - which perform at chance level as no spikes propagate from the hidden to output layer, and excitation-only networks - which were roughly 30% less accurate than balanced networks; 
-* highlighting the importance of inhibition in this model.  
-* To understand where in the network inhibition is required, we then trained a second set of networks in which we forced either the input or hidden units to be all excitatory, and set the remaining units to be half inhibitory and half excitatory.
-* Networks with all excitatory hidden units performed as well as networks with balanced units, while networks with purely excitatory inputs performed significantly worse (Fig. x), demonstrating a role for inhibition in the input-hidden connections / delay lines.    
+### Dale's principle 
 
-### Filter-and-fire 
-* Unlike most point neuron models, in which pairs are connected by a single weight, many biological neurons make multiple contacts with their post-synaptic partners at different points along their dendritic tree.
-* These contacts evoke post-synaptic potentials (PSPs) with distinct temporal dynamics, depending on their distance from the soma, with distal/proximal contacts inducing prolonged/brief PSPs (ref).
-* These features are captured by the filter-and-fire neuron model (F&F) (ref), in which units make multiple contacts with their partners and each input is convolved with a distance-from-soma dependent synaptic filter.  
-* While networks of F&F units outperform networks of LIF units on a temporal version of MNIST (ref), we hypothesised that this difference would be magnified in our sound localisation task, given it's natural temporal structure. 
+In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale's principle. In contrast, most neural network models, including our base model, allow single units to have both positive and negative output weights.
 
-* To test this, we conducted three experiments. 
-* First, convolve input_spikes with one single filter, with fixed tau hyperparameters. 
-* Second, convolve input_spikes with different, random filters (try with, and without delay ranges = a random fixed delay value or just 0); here, we don't use fixed tau hyperparameters and instead randomly sample them from predefined ranges.
-* Third, use filter-and-fire neurons (e.g. M = 3 connections per axon). 
+To test the impact of restricting units to being either excitatory or inhibitory, we trained our base model across a range of inhibitory:excitatory unit ratios, and tested it's performance on unseen, test data ([](../research/Dales_law.ipynb)). We found that networks which balanced excitation and inhibition performed significantly better than both inhibition-only networks - which perform at chance level as no spikes propagate from the hidden to output layer, and excitation-only networks - which were roughly 30% less accurate than balanced networks.
 
+To understand where in the network inhibition is required, we then trained a second set of networks in which we forced either the input or hidden units to be all excitatory, and set the remaining units to be half inhibitory and half excitatory. Networks with all excitatory hidden units performed as well as networks with balanced units, while networks with purely excitatory inputs performed significantly worse, demonstrating a role for inhibition in the input-hidden connections / delay lines.
+
+Inhibition therefore plays an important role in this model, in line with experimental data that shows that blocking inhibition eliminates ITD-sensitivity in the medial superior olive [@Brand2002;@Pecka2008].
+
+### Filter-and-fire
+
+Unlike most point neuron models, in which pairs are connected by a single weight, many biological neurons make multiple contacts with their post-synaptic partners at different points along their dendritic tree. These contacts evoke post-synaptic potentials (PSPs) with distinct temporal dynamics, depending on their distance from the soma, with distal/proximal contacts inducing prolonged/brief PSPs. These features are captured by the filter-and-fire neuron model (F&F) [@beniaguev_dendro_plexing_2024], in which units make multiple contacts with their partners and each input is convolved with a distance-from-soma dependent synaptic filter. While networks of F&F units outperform networks of LIF units on a temporal version of MNIST, we hypothesised that this difference would be magnified in our sound localisation task, given it's natural temporal structure. We found that while training performance was increased using the F&F model, test performance was much worse, suggesting overfitting.
+
+(overview-delays)=
 ## Learning delays 
-Many studies which incorporate axonal and/or dendritic delays include them as non-learnable parameters (refs) like our base model. Here we explore how these phase delays can be learned through two approaches.
+Many studies which incorporate axonal and/or dendritic delays include them as non-learnable parameters like our base model. Here we explore how these phase delays can be learned through two approaches.
 
-### With dilated convolutions with learnable spacings (DCLS)
-First, with DCLS (Hammouamri et al., 2023; Khalfaoui-Hassani et al., 2023).
-Key points: 
-* Use 1D convolutions through time to simulate delays between consecutive layers.
-* Where the kernels include a single non-zero weight per-synapse, which corresponds to the desired delay.  
-* Learns both weights and delays. 
-* Visualisation of results: 
-    * x - learned delay, y - learned weight.
-    * Hidden units separate data spatio-temporally. 
+The first method was to use the method of dilated convolutions with learnable spacings (DCLS) [@hassani2023dilated;@hammouamri2024learning]. This method uses a 1D convolution through time to simulate delays between consecutive layers. The kernels include a single non-zero weight per-synapse, which corresponds to the desired delay. This method can learn both weights and delays.
 
-### With a differentiable delay layer (DDL)
-Second, by introducing a differentiable delay layer.
-Key points: 
-* Can be placed between any two layers in an SNN.  
-* Can train weights and delays independently. 
-* It would be great to include experimental or conceptual comparisons between DCLS and DDL. 
+The second method was by introducing a differentiable delay layer (DDL). This method uses a combination of translation and interpolation, where the interpolation allows the delays to be differentiable even though time steps are discrete. This can be placed between any two layers in a spiking neural network, and also allows weights and delays to be trained separately. This work is described in more detail in [](#delay-section).
 
-## A more biologically plausible model (new_inh_model)
-* Finally, we developed a more detailed model in which we used over 170,000 units, with conductance-based synapses, to approximate the structure of the mammalian brainstem circuit (Methods).
-* In short, input spectrograms representing sounds at azimuth angles from -90° to +90° were converted into spikes,
-* then passed forward to populations representing the globular and spherical bushy cells, and subsequently the lateral and medial superior olivary nuclei, from which we readout sound source angle predictions (Fig. x). 
-* Note that, unlike the work with our simple model, we used no learnable parameters in this model, and instead based parameters on neurophysiological data. 
-* For example, the MSO units had excitatory inputs from both the ipsi and contralateral SBCs and dominant inhibition from contralateral GBCs (Fig. x).  
+Both methods were able to perform well and eliminate the artificial phase delays introduced in the basic model.
 
-Results: 
-* 
+## Detailed inhibition-based model
 
+Finally, we developed a more detailed model in which we used over 170,000 units, with conductance-based synapses, to approximate the structure of the mammalian brainstem circuit (see more details in [](#inhib-model)).
+In short, input spectrograms representing sounds at azimuth angles from -90° to +90° were converted into spikes, then passed forward to populations representing the globular and spherical bushy cells, and subsequently the lateral and medial superior olivary nuclei, from which we readout sound source angle predictions. Note that, unlike the work with our simple model, we used no learnable parameters in this model, and instead based parameters on neurophysiological data. For example, the MSO units had excitatory inputs from both the ipsi and contralateral SBCs and dominant inhibition from contralateral GBCs.
+
+The model was able to produce realisic tuning curves for lateral and medial superior olive (LSO, MSO) neurons). Turning off inhibition shifted ITD sensitivity to the midline, as in [@Brand2002;@Pecka2008].
