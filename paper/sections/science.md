@@ -1,17 +1,12 @@
-## Collective introduction 
+## Introduction 
 
-* (Based on new_inh_model.md)
-* For most animals, sound localization is realised through two classes of acoustic signals: binaural and spectral cues. 
-* In humans, binaural cues are sufficient to discriminate sounds in the azimuth plane, while spectral cues help to discriminate vertical angles and resolve font-back ambiguities (ref). 
-* Focussing on binaural cues, animals exploit two differences in the signals arriving at each ear: their interaural time and level difference (ITD and ILD).
-* Though the relative importance of these two cues for a given animal, depends on it's head size and range of audible frequencies (ref). 
-* As our audible range is centred on lower frequencies than other mammals (ref) and y (ref), it has long been assumed that we mainly use ITDs when discriminating between different azimuth angles, 
-* and, the predominant model of human sound localisation, known as the Jeffress model, relies solely on ITDs (ref).
-* In this model, the acoustic signals arriving at each ear are converted into spike trains, and then passed along monoaural delay lines to a bank of binaural coincidence detectors, via excitatory synapses.
-* As each detector receives each monoaural signal with some delay, each is sensitive to a particular range of ITDs. For example, a sound heard from the left, will proceed through the left delays ahead of the right, until they converge at a coincidence detector tuned to that temporal offset.  
-* Finally, the outputs of these coincidence detectors are summed over time and used to estimate the sounds location (Fig. x). 
-* However, while such delay lines were found in the avian Nucleus Laminaris (ref) equivalent structures are yet to be found in mammals, and experiments suggest a role for inhibition, as well as excitation in sound localisation (refs).  
-* With these caveats in mind, we set out to explore sound localisation through both simple, and more biologically plausible spiking neural network models.  
+We chose sound localisation using interaural time differences as the topic of the original [Cosyne tutorial that kicked off this project](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500`. The reasoning was that the tutorial was about spiking neural networks, and their unique distinguishing feature is the way that time is processed, something that is particularly important in the sound localisation circuit.
+
+We are able to localise sound by detecting location- or direction-specific cues in the signals that arrive at our ears. One of the most important source of cues (although not the only one) come from differences in the signal between two ears, including both timing and level differences (interaural timing difference or ITD, and interaural level difference or ILD). Humans are able to detect arrival time differences in some cases as small as 20 $\mu$s.
+
+The classic model of ITD sensitivity is the delay line model of {cite:t}`Jeffress1948` in which an array of binaural coincidence detector neurons receive inputs from the two ears with different delays. When the neural delays exactly match the acoustic delays induced by the sound location, the neuron is most active, and therefore the identity of the most active neuron can tell you the direction of the sound. This model was shown to be inefficient with respect to neural noise by {cite:t}`McAlpine2003`, who proposed an alternative model based on average firing rates of the two binaural hemispheres. This model was shown to be optimally robust to neural noise. {cite:t}`goodman_decoding_2013` showed that this model performed too poorly to account for behavioural data, especially in situations where sounds had complex and unknown spectral properties, or in the presence of background noise, and proposed an alternative based on a perceptron-like neural network that was both robust to neural noise and performed well across a range of conditions.
+
+The starting point of this project was to ask: what solutions would you find if you directly optimised a spiking neural network to localise sounds? How would those solutions depend on the available neural mechanisms and statistics of the sound? Could we understand the solutions found in a simple way? What properties would the solution have in terms of robustness to noise, generalisation, and so forth? Could the solutions found by optimisation throw light on features found in the auditory systems of different animals? 
 
 ## A simple spiking neural network model
 * To explore how networks of spiking neurons can localise sound, we first considered a simple model, akin to the Jeffress model (ref).

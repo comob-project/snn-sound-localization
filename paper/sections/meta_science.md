@@ -10,6 +10,8 @@ We provided a [](../research/3-Starting-Notebook.ipynb) to give participants an 
 
 Our starting notebook used a combination of NumPy [@harris2020array], Matplotlib [@Hunter2007], and PyTorch [@paszke_pytorch_2019]. The code for surrogate gradient descent was based on Friedemann Zenke's SPyTorch tutorial [@zenke_spytorch_2019;@Zenke2018].
 
+Note that we didn't require participants to use our starting notebook, and indeed in [](#inhib-model), De Santis and Antonietti implemented a very different model from scratch.
+
 ### GitHub
 Like many open-source efforts, [our public GitHub repository](https://github.com/comob-project/snn-sound-localization) was the heart of our project. This provided us with three main benefits. First, it made joining the project as simple as cloning and committing to the repository. Second, it allowed us to collaborate asynchronously. That is, we could easily complete work in our own time, and then share it with the group. Third, it allowed us to track contributions to the project. Measured in this way, 26 individuals contributed to the project. However, interpreting this number is challenging, as these contributions vary significantly in size, and participants who worked in pairs or small groups, often contributed under a single username. We return to this point in the [](#discussion).
 

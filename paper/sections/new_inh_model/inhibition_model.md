@@ -1,6 +1,13 @@
 (inhib-model)=
 ## Contralateral glycinergic inhibition as a key factor in creating ITD sensitivity
 
+```{list-table}
+* - Section authors
+  - Francesco De Santis, Alberto Antonietti
+* - Notebooks
+  - [](../research/new_inh_model.ipynb)
+```
+
 ### Highlights
 Here we use a more biologically inspired model to overcome some limitations that have been highlighted in the classic Jeffress model, whose existence, in mammals, is still debated. In fact, axonal delay lines have not been found in the mammalian MSO. We focused then our attention on the inhibitory inputs to the MSO, which were found both anatomically (there are inhibitory ipsilateral and contralateral pathways) and computationally (in our model) to have a central role for coding ITDs. Experiments with inhibition blocked (by a glycine antagonist: strychnine) shown indeed a loss of ITD-coding in the MSO.
 

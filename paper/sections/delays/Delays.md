@@ -1,6 +1,13 @@
 (delay-section)=
 ## Learning Delays
 
+```{list-table}
+* - Section authors
+  - Karim Habashy
+* - Notebooks
+  - [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)
+```
+
 This section introduces a simple method to solve the sound localization problem with only learnable delays.
 
 ### Introduction

@@ -1,6 +1,13 @@
 (basic-model)=
 ## A minimal trainable model of IPD processing
 
+```{list-table}
+* - Section authors
+  - Dan Goodman
+* - Notebooks
+  - [](../research/time-constant-solutions.ipynb)
+```
+
 This section describes the initial model developed for the [Cosyne tutorial that served as the starting point for this project](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500`. It also describes some small variants of this basic model produced in the course of the project, which can be seen in the notebook [](../research/time-constant-solutions.ipynb).
 
 The aim of the model was to address a long standing question about how and why the brain localises sounds in the way it does, restricted specifically in this case to interaural phase differences (IPDs) cues used at low frequencies. A common strand in this research is to consider a population of binaurally responsive neurons, each with a different frequency and IPD tuning, summarised by their best frequency (BF) and best delay (BD), i.e. the frequency and delay/phase at which they give their strongest response. From this spatial-temporal *encoding* of the sound, a second network attempts to *decode* the sound location. In the place theory of {cite:t}`10.1037/h0061495`, the encoding is done by coincidence detection neurons arrayed so that each neuron receives a sound from the left and right ear with different conduction delays. Decoding proceeds as follows. When the conduction delays match the acoustic delays induced by the arrival time difference of the sound at the two ears, the neuron fires at a maximal rate because of the coincidence detection. Doubt was cast on this theory by {cite:t}`10.1038/86049`, who argued that it was not robust to neural noise, and proposed instead a "hemispheric code" that encodes the sound in the difference in the average firing rates of neurons whose best delay is positive versus negative. While this optimises robustness to neural noise, {cite:t}`10.7554/eLife.01312` showed that it was not efficient at integrating across frequencies, was biased in the presence of acoustic noise, and generalised poorly to sounds outside of the training set.
