@@ -18,7 +18,7 @@ authors:
     
   - name: Tomas Fiers
     affiliations: 
-      - University of Nottingham
+      - Ghent University
 
   - name: Dilay Fidan Erçelik 
     affiliations: 
