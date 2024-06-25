@@ -8,6 +8,8 @@ project:
     - COMOB, the project for collaborative modelling of the brain
   github: https://github.com/comob-project/snn-sound-localization
   # bibliography: []
+  math:
+    '\argmax': '\operatorname{argmax}'
   exclude:
     - ReadMe.md
     - paper/sections/**
@@ -18,7 +20,6 @@ project:
     SNN: spiking neural network
     COMOB: collaborative modelling of the brain
     LIF: leaky integrate-and-fire
-    F&F: filter-and-fire
     DCLS: dilated convolutions with learnable spacings
     DDL: differentiable delay layer
     MSO: medial superior olive

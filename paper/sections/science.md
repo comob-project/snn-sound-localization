@@ -24,7 +24,7 @@ Building on this base model, we explored two main questions: how changing the ne
 
 ### Dale's principle 
 
-In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale's principle [@10.1177/003591573502800330;@10.1001/jama.1954.02940400080039;@10.1016/S0361-9230(99)00100-8]. In contrast, most neural network models, including our base model, allow single units to have both positive and negative output weights.
+In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale's principle [@10.1177/003591573502800330;@10.1001/jama.1954.02940400080039;@DalesPrinciple]. In contrast, most neural network models, including our base model, allow single units to have both positive and negative output weights.
 
 To test the impact of restricting units to being either excitatory or inhibitory, we trained our base model across a range of inhibitory:excitatory unit ratios, and tested it's performance on unseen, test data ([](../research/Dales_law.ipynb)). We found that networks which balanced excitation and inhibition performed significantly better than both inhibition-only networks - which perform at chance level as no spikes propagate forward, and excitation-only networks - which were roughly 30% less accurate than balanced networks.
 

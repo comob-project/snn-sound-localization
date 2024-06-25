@@ -52,7 +52,7 @@ If you add a contribution, please use one of the following templates (see exampl
 * - ???
   - [\@a-dtk](https://github.com/a-dtk)
   - (TODO)
-* - Sara Evers [sara.evers@curie.fr]
+* - Sara Evers
   - [\@saraevers](https://github.com/saraevers)
   - Conducted research ([](../research/IE-neuron-distribution.ipynb)).
 * - Ido Aizenbud

@@ -121,6 +121,7 @@ $$W_ho\approx a(1-(\delta/\sigma_\delta)^2) e^{-\delta^2/2\sigma_\delta^2}+b$$
 
 where $\delta=o-N_c h / N_h$, $h$ and $o$ are the indices of the hidden and output neurons, $N_h$ is the number of hidden neurons, $N_c$ the number of output neurons, and $a$, $b$ and $\sigma_\delta$ are parameters to estimate. Using this approximation and the rate-based approximation from before, we get the orange curves in {ref}`tuning-curves-output`. If we use both the Ricker wavelet approximation of $W_{ho}$ and the idealised tuning curves, we get the green curves. All in all, this gives us a 6 parameter model that fits the data extremely well, a significant reduction on the 896 parameters for the full model ($N_\psi N_h+N_h N_c$).
 
+(basic-discussion)=
 ### Discussion
 
 This subproject was an extension of the original notebook [](../research/3-Starting-Notebook.ipynb) with the aim of understanding the solutions found in more detail. We successfully found a 6-parameter reduced model that behaves extremely similarly to the full model, and we can therefore say that we have largely understood the nature of this solution. We did not look in detail for a deep mathematical reason why this is the solution that is found, and this would make for an interesting follow-up. Are these tuning curves and weights Bayes optimal to reduce the effect of the Poisson spiking noise, for example?

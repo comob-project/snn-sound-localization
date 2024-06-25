@@ -71,10 +71,10 @@ flowchart LR
     : Results of imposing an excitatory only constraint on the neurons. Appears to find solutions that are more like what would be expected from the Jeffress model. (Author: TODO who is luis-rr???.)
 
 [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb) and [](../research/Solving_problem_with_delay_learning.ipynb)
-    : Delay learning using differentiable delay layer, written up in [](#learning-delays) (Author: Karim Habashy.)
+    : Delay learning using differentiable delay layer, written up in [](#delay-section) (Author: Karim Habashy.)
 
 [](../research/Quick_Start_Delay_DCLS.ipynb)
-    : Delay learning using Dilated Convolution with Learnable Spacings, written up in [](#learning-delays). (Author: Balázs Mészáros.)
+    : Delay learning using Dilated Convolution with Learnable Spacings, written up in [](#delay-section). (Author: Balázs Mészáros.)
 
 [](../research/Noise_robustness.ipynb)
     : Test effects of adding Gaussian noise and/or dropout during training phase. Conclusion is that dropout does not help and adding noise decreases performance. (Author: TODO: Who is a-dtk???.)
