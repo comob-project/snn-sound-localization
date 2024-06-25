@@ -28,9 +28,10 @@ authors:
     affiliations: 
       - University of Sussex
 
-  - name: Zach Friedenberger
+  - name: Zachary Friedenberger
     affiliations:
       - University of Ottawa
+    orcid: 0000-0002-2205-3387
 
   - name: Gabriel Béna
     affiliations:
