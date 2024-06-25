@@ -8,6 +8,7 @@ If you add a contribution, please use one of the following templates (see exampl
 * Conducted research (please give a link to your notebook formatted like this ``[](../research/3-Starting-Notebook.ipynb)``, or specify another sort of contribution)
 * Supervised research (please give the name of your supervisee)
 
+(contributor-table)=
 ```{list-table} Contributors, ordered by GitHub commits.
 :header-rows: 1
 :label: contributors-table
