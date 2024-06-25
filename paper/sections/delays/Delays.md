@@ -8,7 +8,7 @@
   - [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)
 ```
 
-This section introduces a simple method to solve the sound localization problem with only learnable delays.
+This section introduces a simple method to solve the sound localization problem with only learnable delays. Additionally, it discusses a method that learns both weights and delays, introduced in {cite:p}`HHM2023`.
 
 ### Introduction
 
@@ -81,7 +81,7 @@ $$
 (u_{1i}(t) - u_{2i}(t))^2 = u_{1i}(t)^2 -2*u_{1i}(t)*u_{2i}(t) + u_{2i}(t)^2
 $$
 
-The synaptic delay learning method, employing Dilated Convolutions with Learnable Spacings, operates by delaying spike trains through a 1D convolution featuring a single non-zero element, equivalent to the synaptic weight, positioned at the appropriate delay value. A distinctive aspect of this method lies in its utilization of Gaussian interpolation to identify the optimal delay. This approach is crucial because delay values are discrete, making them challenging to learn via backpropagation. However, employing interpolation overcomes this obstacle, facilitating the learning of delays with weights through backpropagation through time in arbitrarily deep SNNs. As we have implemented the method precisely as described in the original paper (with the exception of hyperparameters), we direct the reader to the original paper for a comprehensive understanding{cite:p}`HHM2023`.
+The synaptic delay learning method, employing Dilated Convolutions with Learnable Spacings, operates by delaying spike trains through a 1D convolution featuring a single non-zero element, equivalent to the synaptic weight, positioned at the appropriate delay value. This method also uses interpolation to identify the optimal delay, facilitating the learning of delays with weights through backpropagation through time in arbitrarily deep SNNs. As we have implemented the method precisely as described in the original paper (with the exception of hyperparameters), we direct the reader to the original paper for a comprehensive understanding{cite:p}`HHM2023`.
 
 ### Results and discussion
 
