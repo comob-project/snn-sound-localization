@@ -53,9 +53,11 @@ authors:
     affiliations: 
       - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
 
-  - name: Helena Yuhan Liu
+  - name: Yuhan Helena Liu
     affiliations: 
-      - University of Washington       
+      - Princeton Neuroscience Institute, Princeton University, Princeton, NJ, USA
+      - Department of Applied Mathematics, University of Washington, Seattle, WA, USA
+    orcid: 0000-0001-7269-8338         
 
   - name: Sara Evers 
     affiliations:
@@ -156,3 +158,5 @@ In this section, each subsection is the detailed results as written up by the au
 * MG is supported by Schmidt Sciences, LLC. Previously, MG was a Fellow of Paris Region Fellowship Program - supported by the Paris Region, and funding from the European Union's Horizon 2020 research and innovation program under the Marie Skłodowska-Curie grant agreement No 945298-ParisRegionFP.  
 * FS and AA work is fully funded by the project “EBRAINS-Italy (European Brain ReseArch INfrastructureS-Italy),” granted by the Italian National Recovery and Resilience Plan (NRRP), M4C2, funded by the European Union –NextGenerationEU (Project IR0000011, CUP B51E22000150006, “EBRAINS-Italy”).
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
+* YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
+* VB is supported by the European Research Council (ERC) under the European Union's Horizon 2020 research innovation program, grant agreement number 715980.
