@@ -13,12 +13,13 @@ authors:
 
   - name: Francesco De Santis
     affiliations:
-      - Politecnico di Milano
+      - Department of Electronics, Information and Bioengineering, Politecnico di Milano, Milano, Italy
     orcid: 0009-0005-8393-9658
     
   - name: Tomas Fiers
     affiliations: 
-      - Ghent University
+      - Department of Data Analysis, Ghent University, Ghent, Belgium
+    orcid: 0000-0002-1938-6025
 
   - name: Dilay Fidan Erçelik 
     affiliations: 
@@ -26,7 +27,8 @@ authors:
 
   - name: Balázs Mészáros
     affiliations: 
-      - University of Sussex
+      - School of Engineering and Informatics, University of Sussex, Falmer, Brighton, United Kingdom
+    orcid: 0000-0002-1261-4523
 
   - name: Zachary Friedenberger
     affiliations:
@@ -59,7 +61,8 @@ authors:
 
   - name: Ido Aizenbud
     affiliations:
-      - The Hebrew University of Jerusalem
+      - Edmond and Lily Safra Center for Brain Sciences (ELSC), The Hebrew University of Jerusalem, Jerusalem 91904, Israel
+    orcid: 0009-0006-6855-567X
 
   - name: Brendan Bicknell  
     affiliations: 
@@ -71,7 +74,7 @@ authors:
 
   - name: Alberto Antonietti
     affiliations:
-      - Politecnico di Milano
+      - Department of Electronics, Information and Bioengineering, Politecnico di Milano, Milano, Italy
     orcid: 0000-0003-0388-6321
 
   - name: Dan F. M. Goodman
@@ -142,3 +145,8 @@ In this section, each subsection is the detailed results as written up by the au
 
 ```{include} sections/delays/Delays.md
 ```
+
+# Funding and Acknowledgements
+
+* FS and AA work is fully funded by the project “EBRAINS-Italy (European Brain ReseArch INfrastructureS-Italy),” granted by the Italian National Recovery and Resilience Plan (NRRP), M4C2, funded by the European Union –NextGenerationEU (Project IR0000011, CUP B51E22000150006, “EBRAINS-Italy”).
+* BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
