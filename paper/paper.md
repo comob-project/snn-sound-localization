@@ -3,7 +3,8 @@ title: Spiking neural network models of sound localisation via a massively colla
 authors:
   - name: Marcus Ghosh
     affiliations:
-      - Imperial College London
+      - Laboratoire Jean Perrin, Institut de Biologie Paris-Seine, CNRS, Sorbonne Université, Paris, France
+      - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
     orcid: 0000-0002-2428-4605
     email: mghosh@imperial.ac.uk
 
@@ -37,7 +38,7 @@ authors:
 
   - name: Gabriel Béna
     affiliations:
-      - Imperial College London
+      - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
 
   - name: Jose Gomes
     affiliations:
@@ -45,11 +46,12 @@ authors:
 
   - name: Mingxuan Hong
     affiliations: 
-      - University of
+      - Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong SAR, China
+    orcid: 0009-0004-7311-8656 
 
   - name: Rory Byrne
     affiliations: 
-      - Imperial College London
+      - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
 
   - name: Helena Yuhan Liu
     affiliations: 
@@ -70,7 +72,7 @@ authors:
 
   - name: Volker Bormuth
     affiliations: 
-      - Sorbonne University
+      - Laboratoire Jean Perrin, Institut de Biologie Paris-Seine, CNRS, Sorbonne Université, Paris, France
 
   - name: Alberto Antonietti
     affiliations:
@@ -79,7 +81,7 @@ authors:
 
   - name: Dan F. M. Goodman
     affiliations:
-      - Imperial College London
+      - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
     orcid: 0000-0003-1007-6474
 
 license: CC-BY-4.0
@@ -148,5 +150,6 @@ In this section, each subsection is the detailed results as written up by the au
 
 # Funding and Acknowledgements
 
+* MG is supported by Schmidt Sciences, LLC. Previously, MG was a Fellow of Paris Region Fellowship Program - supported by the Paris Region, and funding from the European Union's Horizon 2020 research and innovation program under the Marie Skłodowska-Curie grant agreement No 945298-ParisRegionFP.  
 * FS and AA work is fully funded by the project “EBRAINS-Italy (European Brain ReseArch INfrastructureS-Italy),” granted by the Italian National Recovery and Resilience Plan (NRRP), M4C2, funded by the European Union –NextGenerationEU (Project IR0000011, CUP B51E22000150006, “EBRAINS-Italy”).
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
