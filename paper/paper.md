@@ -109,11 +109,13 @@ Neuroscientists are increasingly initiating large-scale collaborations which bri
 ```{include} sections/intro.md
 ```
 
+(metascience)=
 # Towards open collaborative science 
 
 ```{include} sections/meta_science.md
 ```
 
+(science)=
 # Training SNNs for sound localisation
 
 ```{include} sections/science.md
@@ -135,6 +137,7 @@ Neuroscientists are increasingly initiating large-scale collaborations which bri
 ```{include} sections/notebook_map.md
 ```
 
+(appendices)=
 # Appendices
 
 In this section, each subsection is the detailed results as written up by the author of those results.
