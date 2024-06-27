@@ -80,9 +80,6 @@ If you add a contribution, please use one of the following templates (see exampl
   - [\@danishbizkit](https://github.com/danishbizkit)
   - (TODO)
 * - ???
-  - [\@pfcgit](https://github.com/pfcgit)
-  - (TODO)
-* - ???
   - [\@luis-rr](https://github.com/luis-rr)
   - (TODO)
 * - Pietro Monticone
@@ -113,7 +110,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - ???
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - Peter Crowe (Germany, Undergraduate)
-  - ???
+  - [\@pfcrowe](https://github.com/pfcrowe)
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
 * - [Brendan Bicknell]()
   - ??? 
