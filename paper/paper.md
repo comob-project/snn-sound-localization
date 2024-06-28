@@ -34,7 +34,8 @@ authors:
 
   - name: Zachary Friedenberger
     affiliations:
-      - University of Ottawa
+      - Centre for Neural Dynamics and Artificial Intelligence, University of Ottawa, Ottawa, Ontario, Canada
+      - Department of Physics, University of Ottawa, Ottawa, Ontario, Canada
     orcid: 0000-0002-2205-3387
 
   - name: Gabriel Béna
@@ -161,6 +162,7 @@ In this section, each subsection is the detailed results as written up by the au
 * MG is supported by Schmidt Sciences, LLC. Previously, MG was a Fellow of Paris Region Fellowship Program - supported by the Paris Region, and funding from the European Union's Horizon 2020 research and innovation program under the Marie Skłodowska-Curie grant agreement No 945298-ParisRegionFP.  
 * FS and AA work is fully funded by the project “EBRAINS-Italy (European Brain ReseArch INfrastructureS-Italy),” granted by the Italian National Recovery and Resilience Plan (NRRP), M4C2, funded by the European Union –NextGenerationEU (Project IR0000011, CUP B51E22000150006, “EBRAINS-Italy”).
 * DFE is funded by the SURF programme (undergraduate research fellowship) from the Simons Foundation (SCGB). 
+* ZF is funded by a NSERC PGS-D Scholarship. 
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
 * YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
 * VB is supported by the European Research Council (ERC) under the European Union's Horizon 2020 research innovation program, grant agreement number 715980.
