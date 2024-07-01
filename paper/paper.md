@@ -10,7 +10,7 @@ authors:
 
   - name: Karim Habashy
     affiliations: 
-      - University of Bristol
+      - School of Psychological Science, University of Bristol, United Kingdom
 
   - name: Francesco De Santis
     affiliations:
@@ -41,10 +41,6 @@ authors:
   - name: Gabriel Béna
     affiliations:
       - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
-
-  - name: Jose Gomes
-    affiliations:
-      - University of
 
   - name: Mingxuan Hong
     affiliations: 
