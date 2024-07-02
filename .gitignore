@@ -129,3 +129,12 @@ dmypy.json
 .pyre/
 
 paper/_build
+_build
+research/tempdata
+
+# Vs code 
+.vscode
+.DS_Store
+
+# typst
+typst.exe

@@ -18,7 +18,7 @@ Zachary Friedenberger (Canada, PhD)
 1. How do membrane time constants affect network performance? 
 2. If we train the membrane time constants - what distribution emerges?   
 3. Do heterogenous time constants improve performance?   
-4. What happens if we allow seperate time constants per layer?  
+4. What happens if we allow separate time constants per layer?  
 
 #### Results
 1. Model performance decreases as the membrane time constant increases 
@@ -81,5 +81,5 @@ Regularize network spiking (e.g. using a lower and upper bound)
 #### Discussion 
 Before lunch and at the end of the day we regrouped to share our progress. For the latter discussion we were joined by Alessandro Galloni (USA, Postdoc) and Boris Marin (Brazil, Assistant Professor).  
 
-Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a resonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synpases, heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task. 
+Based on results from the time constants team, we agreed that we should all use a shorter time constant when training the networks and there was a general consensus that we should base our analysis on networks trained until convergence. We agreed that the breakout room format worked well (though 5 may be a reasonable limit on team size), and were pleased to hear that those not coding themselves learnt a lot from following along. Looking ahead we decided that we should meet on a monthly basis (starting in September) and agreed that a local meetup format would be great. Ideas for future work included: conductance-based synapses, heterogeneity (e.g. activation functions) and work on a reinforcement learning version of the task. 
 

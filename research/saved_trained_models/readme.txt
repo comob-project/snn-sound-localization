@@ -1,0 +1,1 @@
+Please only put SMALL models in here, not huge multi gigabyte binaries!

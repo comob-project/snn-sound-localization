@@ -120,6 +120,8 @@ This notebook is a good starting point for your own experiments.
 
 ```{admonition} How to work with Google Colab ☁
 :class: dropdown
+**NOTE: the Colab rocket icon button mentioned below is not currently working, you need to download a copy of the notebook and drop it into Colab for the moment.**
+
 On the [](research/Starting-Notebook) page, **via the rocket icon at the top, click "Colab"** (or go there directly via [this link][colab-start-nb]).
 
 For an intro to the Colab interface and its keyboard shortcuts, see [here][colab-help].
@@ -151,15 +153,6 @@ If you are already familiar with such instructions however, the summary is:
     $ jupyter notebook
     ```
 4. Make a copy of `research/Starting-Notebook.ipynb` and work in that copy.
-
-&nbsp;
-
-Detailed steps (click to expand):
-
-<!-- Factoring out to external file, as it's quite long -->
-```{include} web/content/detailed-installation-steps.md
-```
-````
 
 Besides duplicating the starting notebook, you could also do one of the following:
 
@@ -215,19 +208,7 @@ After your commit, the website will be automatically rebuilt. Your notebook shou
 
 All our notebooks and research notes appear under the 'Research' rubric to the left.
 
-You can **comment** on notebooks and other pages of this website (feel free to try it out here):
-
-```{admonition} How to comment on a page 💬
-:class: dropdown
-
-Select some text, and in the tooltip that pops up, click 'Annotate'. You'll be prompted to login or sign up for a _Hypothesis_ account, after which you can comment and reply.
-
-Instead of commenting on some specific part ("Annotations"), you can also comment on the entire page ("Page notes"). To do so, click the little sticky note icon in the gray sidebar on the far right of the page. In this sidebar you can also see others' comments.
-```
-
-
-
 
 ## 7. Help write the paper
 
-Once the story is clearer, we'll start an Overleaf document and start writing up the paper. If you can, please join in on this! Write the paragraph(s) for your work, comment on the overall flow of the text and improve it, etc.
+The paper is being edited in the same repository using [MyST markdown](https://mystmd.org).
