@@ -47,7 +47,7 @@ authors:
       - Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong SAR, China
     orcid: 0009-0004-7311-8656 
 
-  - name: Rory T Byrne
+  - name: Rory T. Byrne
     affiliations: 
       - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
       - Department of Engineering, University of Cambridge, United Kingdom
@@ -68,9 +68,10 @@ authors:
       - Edmond and Lily Safra Center for Brain Sciences (ELSC), The Hebrew University of Jerusalem, Jerusalem 91904, Israel
     orcid: 0009-0006-6855-567X
 
-  - name: Brendan Bicknell  
+  - name: Brendan A. Bicknell  
     affiliations: 
-      - University College London
+      - Gatsby Computational Neuroscience Unit, University College London, London, UK 
+    orcid: 0000-0002-2307-2109
 
   - name: Volker Bormuth
     affiliations: 
@@ -158,6 +159,7 @@ In this section, each subsection is the detailed results as written up by the au
 * MG is supported by Schmidt Sciences, LLC. Previously, MG was a Fellow of Paris Region Fellowship Program - supported by the Paris Region, and funding from the European Union's Horizon 2020 research and innovation program under the Marie Skłodowska-Curie grant agreement No 945298-ParisRegionFP.  
 * FS and AA work is fully funded by the project “EBRAINS-Italy (European Brain ReseArch INfrastructureS-Italy),” granted by the Italian National Recovery and Resilience Plan (NRRP), M4C2, funded by the European Union –NextGenerationEU (Project IR0000011, CUP B51E22000150006, “EBRAINS-Italy”).
 * DFE is funded by the SURF programme (undergraduate research fellowship) from the Simons Foundation (SCGB). 
+* DFE and BAB acknowledge the use of the UCL Myriad High Performance Computing Facility (Myriad@UCL), and associated support services, in the completion of this work.
 * ZF is funded by a NSERC PGS-D Scholarship. 
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
 * YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
