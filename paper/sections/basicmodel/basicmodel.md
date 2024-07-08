@@ -19,10 +19,10 @@ In this project, we asked what strategies would be found when jointly optimising
 
 The model consists of the following pathway, illustrated in {ref}`basic-arch`: IPD $\rightarrow$ stimulus $\rightarrow$ input neurons $\rightarrow$ hidden layer neurons $\rightarrow$ readout neurons.
 
-```{figure} ../research/diagrams/arch-stimuli.png
-:label: basic-arch
+```{figure} ./sections/_figures/model-diagram.png
+:label: basic-archS
 
-Overall model architecture.
+Overall model architecture. Sinusoidal audio signals are passed through two populations of units, with a range of preassigned delays, representing the left and right ears. These units generate Poisson spike trains which pass forward to a layer of leaky-integrate and fire (LIF) units, then a layer of leaky-integrator output units from which we readout the networks estimate of the interaural phase difference (IPD). 
 ```
 
 The IPD is an angle uniformly randomly selected in $\alpha\in[-\pi/2,\pi/2]$ (frontal plane only).
