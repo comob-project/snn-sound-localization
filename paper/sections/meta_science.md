@@ -1,6 +1,12 @@
 ## Workflow
 Our project grew out of a tutorial at the [Cosyne conference](https://www.cosyne.org/) (2022) for which we provided [video lectures and code online](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500`. Participants joining the project were encouraged to review this material, and then to work through an introductory Jupyter Notebook {cite:p}`Kluyver2016jupyter` containing Python code, figures and markdown text, which taught them how to train a spiking neural network to perform a sound localisation task. Participants were then directed to our website where we maintained a list of open scientific and technical questions for inspiration. For example, how does the use of different neuron models impact network performance and can we learn input delays with gradient descent? Then, with a proposed or novel question in hand, participants were free to approach their work as they wished. In practice, much like a "typical" research project, most work was conducted individually, shared at monthly online meetings and then iteratively improved upon. For example, several early career researchers tackled questions full-time as their dissertation or thesis work and benefited from external input at monthly workshops.
 
+```{figure} ./sections/_figures/COMOB_workflow.png
+:label: COMOB_workflow
+
+Our workflow. To on-board new participants we provided text, videos and code outlining our scientific starting point. This material formed a springboard for participants to pursue research either individually or in small groups. We then iteratively improved on this work through monthly online workshops and by writing this paper together through an open, collaborative process.      
+```
+
 We consciously decided on this free-form structure to experiment with the feasibility of a more bottom-up approach to doing team science, with minimal top-down supervision. We discuss the advantages and disadvantages of this approach in the [](#discussion).
 
 ## Infrastructure
