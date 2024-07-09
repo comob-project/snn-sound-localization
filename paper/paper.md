@@ -53,15 +53,17 @@ authors:
       - Department of Engineering, University of Cambridge, United Kingdom
     orcid: 0009-0000-6236-1125 
 
+  - name: Juan Luis Riquelme  
+    affiliations:
+      - Max Planck Institute for Brain Research, Frankfurt, Germany
+      - School of Life Sciences, Technical University of Munich, Freising, Germany
+    orcid: 0000-0003-4604-7405
+
   - name: Yuhan Helena Liu
     affiliations: 
       - Princeton Neuroscience Institute, Princeton University, Princeton, NJ, USA
       - Department of Applied Mathematics, University of Washington, Seattle, WA, USA
     orcid: 0000-0001-7269-8338         
-
-  - name: Sara Evers 
-    affiliations:
-      - Sorbonne University
 
   - name: Ido Aizenbud
     affiliations:
@@ -162,5 +164,6 @@ In this section, each subsection is the detailed results as written up by the au
 * DFE and BAB acknowledge the use of the UCL Myriad High Performance Computing Facility (Myriad@UCL), and associated support services, in the completion of this work.
 * ZF is funded by a NSERC PGS-D Scholarship. 
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
+* JLR was funded by the Max Plank Society. 
 * YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
 * VB is supported by the European Research Council (ERC) under the European Union's Horizon 2020 research innovation program, grant agreement number 715980.

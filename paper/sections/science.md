@@ -12,6 +12,12 @@ Building on this literature, and our Cosyne tutorial, the starting point of this
 
 We started with a simple, spiking neural network model (described in more detail in [](#basic-methods)) trained to solve a highly abstracted sound localisation task. 
 
+```{figure} ./sections/_figures/model-diagram.png
+:label: basic-archS
+
+Overall model architecture. Sinusoidal audio signals are passed through two populations of units, with a range of preassigned delays, representing the left and right ears. These units generate Poisson spike trains which pass forward to a layer of leaky-integrate and fire (LIF) units, then a layer of leaky-integrator output units from which we readout the networks estimate of the interaural phase difference (IPD). 
+```
+
 The task is to estimate the ITD of a pure tone (sine wave) at a fixed frequency. This is equivalent to estimating the interaural phase difference (IPD) since the ITD is ambiguous for a sine wave. The model consists of three layers. First, a layer of spiking input neurons which fire spikes according to a Poisson process with a time-varying rate determined by the input stimulus. This layer is divided into two subpopulations corresponding to the two ears, with signals to one ear delayed with respect to the other. Each neuron within a subpopulation has a different phase delay. Next, comes a single hidden layer of leaky integrate-and-fire (LIF) neurons, and an output layer of leaky, non-spiking neurons. Each output neuron is associated to a particular IPD, and the estimated IPD of the model is the identity of the most active output neuron. 
 
 The input neurons are all-to-all connected to the layer of hidden neurons via a trainable weight matrix. In this way, during training the model is free to *select* the neurons with the appropriate phase delays to generate the desired properties for the hidden layer neurons. This lets the model learn to make use of delays without having to directly implement trainable delays, as this is a challenging problem (which we tackled later in [](#overview-delays)).
