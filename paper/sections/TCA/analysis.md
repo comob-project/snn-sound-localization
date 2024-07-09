@@ -24,7 +24,7 @@ Rank 6 decomposition of spiking during training of the simple model
 
 To test variability between different instances of the simple model we trained 50 models on the same training data and compared the neuron and temporal factors of the rank 1 decomposition. Neuron factors were sorted by activation strength to align the most significant neurons across models and factors were normalised. Performing clustering analysis of the neuron factors between models helps to elucidate the ensembles responsible for learning the task. The dendrogram from the clustering provided a visual representation of these relationships, with models grouped together showcasing more similar model dynamics compared to those further apart. Here we can see grouping of models into 2 major categories in [](#clustering). 
 
-Sampling models from each cluster shows that clusters with a higher number of active neurons tend to have better training accuracy but do not consistently achieve better test accuracy. In fact, clusters with fewer active neurons sometimes demonstrate better generalisation which had a slightly higher test accuracy despite fewer active neurons. This suggests that models with a moderate number of active neurons can achieve a balance between training effectiveness and test generalisation, potentially leading to more robust solutions. 
+Sampling models from each cluster shows that clusters with a higher number of active neurons tend to have better training accuracy but do not consistently achieve better test accuracy. In fact, clusters with fewer active neurons sometimes demonstrate better generalisation which had a slightly higher test accuracy despite fewer active neurons. This suggests that models with a moderate number of active neurons can achieve a balance between training effectiveness and test generalisation, potentially leading to more robust solutions. This discrepency in accuracies can be seen in [](#cluster_acc).
 
 Comparing the activation of neural assemblies with more ranks as in [](#clustering) shows similar tuning across trails and models suggesting the models learn the same task but are able to do so with a range of subsets of neurons at the cost of accuracy. 
 
@@ -32,6 +32,11 @@ Comparing the activation of neural assemblies with more ranks as in [](#clusteri
 ```{figure} sections/TCA/clustering.png
 :label: clustering
 Hierarchical clustering of neuron factors across models
+```
+
+```{figure} sections/TCA/cluster_acc.png
+:label: cluster_acc
+Training and test accuracy of models in each cluster
 ```
 
 ```{figure} sections/TCA/temporal_av.png
