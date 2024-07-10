@@ -47,6 +47,11 @@ authors:
       - Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong SAR, China
     orcid: 0009-0004-7311-8656 
 
+  - name: Umar Abubacar
+    affiliations:
+      - COMBYNE lab, University of Surrey, Guildford, United Kingdom
+    orcid: 0009-0006-3128-9005 
+
   - name: Rory T. Byrne
     affiliations: 
       - Department of Electrical and Electronic Engineering, Imperial College London, United Kingdom
@@ -164,6 +169,7 @@ In this section, each subsection is the detailed results as written up by the au
 * DFE and BAB acknowledge the use of the UCL Myriad High Performance Computing Facility (Myriad@UCL), and associated support services, in the completion of this work.
 * ZF is funded by a NSERC PGS-D Scholarship. 
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
+* UA is supported by the UK Engineering and Physical Sciences Research Council (EPSRC) DTP Studentship 2753922 for the University of Surrey.
 * JLR was funded by the Max Plank Society. 
 * YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
 * VB is supported by the European Research Council (ERC) under the European Union's Horizon 2020 research innovation program, grant agreement number 715980.
