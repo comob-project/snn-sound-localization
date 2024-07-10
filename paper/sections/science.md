@@ -46,11 +46,11 @@ Unlike most point neuron models, in which pairs are connected by a single weight
 
 (overview-delays)=
 ## Learning delays 
-As in our base model, many studies which incorporate axonal and/or dendritic delays include them as non-learnable parameters. Here we explore how these phase delays can be learned through two approaches.
+As in our base model, many studies incorporate axonal and/or dendritic delays as non-learnable parameters. Here, we explore how these phase delays, as well as synaptic delays, can be learned through two approaches.
 
-The first method was to use dilated convolutions with learnable spacings (DCLS) [@hassani2023dilated;@hammouamri2024learning]. This method uses a 1D convolution through time to simulate delays between consecutive layers. The kernels include a single non-zero weight per-synapse, which corresponds to the desired delay. This method can learn both weights and delays.
+The first method was to develop a differentiable delay layer (DDL). This method uses a combination of translation and interpolation, where the interpolation allows the delays to be differentiable even though time steps are discrete. This can be placed between any two layers in a spiking neural network, and is capable of solving the task without weight training. This work is described in more detail in [](#delay-section).
 
-The second method was to develop a differentiable delay layer (DDL). This method uses a combination of translation and interpolation, where the interpolation allows the delays to be differentiable even though time steps are discrete. This can be placed between any two layers in a spiking neural network, and also allows weights and delays to be trained separately. This work is described in more detail in [](#delay-section).
+While we were developing our DDL-based method, a paper introducing synaptic delays using dilated convolutions with learnable spacings (DCLS) was published [@hassani2023dilated;@hammouamri2024learning], prompting us to explore this approach as well. This method also relies on interpolation and is very similar to the DDL method, serving as a generalization for synaptic delays. It uses a 1D convolution through time to simulate delays between consecutive layers. The kernels include a single non-zero weight per synapse, which corresponds to the desired delay. This method co-trains weights and delays.
 
 We found that both methods performed well and eliminated the artificial phase delays introduced in the basic model.
 
