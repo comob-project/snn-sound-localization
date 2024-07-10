@@ -8,7 +8,7 @@ authors:
     orcid: 0000-0002-2428-4605
     email: mghosh@imperial.ac.uk
 
-  - name: Karim Habashy
+  - name: Karim G. Habashy
     affiliations: 
       - School of Psychological Science, University of Bristol, United Kingdom
     orcid: 0009-0006-2635-129X
