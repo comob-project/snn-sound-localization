@@ -34,7 +34,7 @@ Comparing the activation of neural assemblies with more ranks as in [](#clusteri
 Hierarchical clustering of neuron factors across models
 ```
 
-```{figure} sections/TCA/cluster_acc.png
+```{figure} sections/TCA/cluster_accs.png
 :label: cluster_acc
 Training and test accuracy of models in each cluster
 ```
