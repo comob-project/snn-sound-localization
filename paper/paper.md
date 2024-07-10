@@ -138,6 +138,7 @@ Neuroscientists are increasingly initiating large-scale collaborations which bri
 ```{include} sections/discussion.md
 ```
 
+(contributors)=
 # Contributors
 
 ```{include} sections/contributor_table.md
