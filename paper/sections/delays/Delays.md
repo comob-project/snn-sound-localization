@@ -1,5 +1,5 @@
 (delay-section)=
-## Learning Delays
+## Learning delays
 
 ```{list-table}
 * - Section authors

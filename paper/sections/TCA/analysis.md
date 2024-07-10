@@ -1,23 +1,29 @@
 (tca-section)=
-## TCA Analysis
-### Introduction
+## Tensor component analysis
 
-In the analysis of neural networks through TCA, we've explored the representation and learning dynamics of multiple models by examining their neuron, trial, and temporal factors. TCA helps decompose multidimensional data into core components that capture the essential structure and relationships inherent in the neural activities across different dimensions. This analysis provides a clear insight into how models encode and process information over multiple trials, revealing the underlying mechanisms that drive their performance and behaviour. By employing hierarchical clustering with Ward's method, we've specifically focused on assessing the similarity in neuron factor representations across models, which has elucidated the consistency and diversity of neural encoding across different training instances.
+```{list-table}
+* - Section authors
+  - Umar Abubacar
+* - Notebooks
+  - [](../research/TCA-analysis.ipynb)
+```
+
+We used tensor component analysis (TCA) to explore the representation and learning dynamics of multiple models by examining their neuron, trial, and temporal factors. TCA helps decompose multidimensional data into core components that capture the essential structure and relationships inherent in the neural activities across different dimensions. This analysis provides a clear insight into how models encode and process information over multiple trials, revealing the underlying mechanisms that drive their performance and behaviour. By employing hierarchical clustering with Ward's method, we focused on assessing the similarity in neuron factor representations across models, which has elucidated the consistency and diversity of neural encoding across different training instances.
 
 ### Results
 
-We use nonnegative tensor component analysis (TCA) to examine spiking activity from the hidden layer of a neural network. Gaussian smoothing is applied to the spike events, and trials are stacked into a single tensor. The rank-1 decomposition in [](#rank1) during training illustrates the model's learning process, characterised by increased activity across all IPD bins through a subset of hidden neurons. The analysis highlights predominant firing within two critical intervals in the time domain: 0-25ms and 50-75ms, which aligns with periods of active input signals.
+We use nonnegative tensor component analysis (TCA) to examine spiking activity from the hidden layer of a neural network. Gaussian smoothing is applied to the spike events, and trials are stacked into a single tensor. The rank-1 decomposition in [](#rank1) during training illustrates the learning process of the model, characterised by increased activity across all IPD bins through a subset of hidden neurons. The analysis highlights predominant firing within two critical intervals in the time domain: 0-25ms and 50-75ms, which aligns with periods of active input signals.
 
 ```{figure} sections/TCA/rank-1.png
 :label: rank1
-Rank 1 decomposition of spiking during training of the simple model
+Rank 1 decomposition of spiking during training of the simple model.
 ```
 
-To capture the categorical dynamics within the model, the optimal number of components was determined by minimising reconstruction error and maximising component similarity. An optimal count of six ranks was identified for the model and are shown in [](#rank6). The factors derived from tensor component analysis reveal distinct patterns of neural activation across time, highlighting the dynamic nature of responses to stimuli. Specifically when looking at trail factors, Factor 5 is responsive to the extreme IPDs of +π/2 and -π/2, while Factors 1 and 4 focus on more central IPDs. Factors 2 and 3 indicate neuron assemblies responsive to IPDs towards -π/2 as is Factor 6 to +π/2. 
+To capture the categorical dynamics within the model, the optimal number of components was determined by minimising reconstruction error and maximising component similarity. An optimal count of six ranks was identified for the model and are shown in [](#rank6). The factors derived from tensor component analysis reveal distinct patterns of neural activation across time, highlighting the dynamic nature of responses to stimuli. Specifically when looking at trail factors, Factor 5 is responsive to the extreme IPDs of $\pi/2$ and $-\pi/2$, while Factors 1 and 4 focus on more central IPDs. Factors 2 and 3 indicate neuron assemblies responsive to IPDs towards $-\pi/2$ as is Factor 6 to $\pi/2$. 
 
 ```{figure} sections/TCA/rank-6.png
 :label: rank6
-Rank 6 decomposition of spiking during training of the simple model
+Rank 6 decomposition of spiking during training of the simple model.
 ```
 
 ### Model variability
@@ -31,17 +37,17 @@ Comparing the activation of neural assemblies with more ranks as in [](#clusteri
 <!-- Split figure of clustering and temporal_av -->
 ```{figure} sections/TCA/clustering.png
 :label: clustering
-Hierarchical clustering of neuron factors across models
+Hierarchical clustering of neuron factors across models.
 ```
 
 ```{figure} sections/TCA/cluster_accs.png
 :label: cluster_acc
-Training and test accuracy of models in each cluster
+Training and test accuracy of models in each cluster.
 ```
 
 ```{figure} sections/TCA/temporal_av.png
 :label: temporal_av
-Temporal factors across models
+Temporal factors across models.
 ```
 
 Visualising the mean and standard deviation of temporal factors across models shows a common pattern of activation within the hidden layer neurons. The representation in [](#temporal_av) highlights periods of peak neuronal activity. The shifts in peak timings across different models suggest variability in how these models prioritise processing delays related to inputs. Such differences likely stem from the weights learned by each model, reflecting the phase differences prioritised.

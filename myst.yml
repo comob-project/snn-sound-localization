@@ -36,6 +36,7 @@ project:
     EM: expectation-maximization
     STN: spatial transformer network
     CNN: convolutional neural network
+    TCA: tensor component analysis
 site:
   template: book-theme
   title: COMOB Sound Localization Project
