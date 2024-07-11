@@ -8,9 +8,10 @@ authors:
     orcid: 0000-0002-2428-4605
     email: mghosh@imperial.ac.uk
 
-  - name: Karim Habashy
+  - name: Karim G. Habashy
     affiliations: 
       - School of Psychological Science, University of Bristol, United Kingdom
+    orcid: 0009-0006-2635-129X
 
   - name: Francesco De Santis
     affiliations:
@@ -46,6 +47,11 @@ authors:
     affiliations: 
       - Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong SAR, China
     orcid: 0009-0004-7311-8656 
+
+  - name: Umar Abubacar
+    affiliations:
+      - COMBYNE lab, University of Surrey, Guildford, United Kingdom
+    orcid: 0009-0006-3128-9005 
 
   - name: Rory T. Byrne
     affiliations: 
@@ -106,7 +112,7 @@ downloads:
 
 
 +++ {"part": "abstract"}
-Neuroscientists are increasingly initiating large-scale collaborations which bring together tens to hundreds of researchers. However, while these projects represent a step-change in scale, they retain a traditional structure with centralised funding, participating laboratories and data sharing on publication. Inspired by an open-source project in pure mathematics, we set out to test the feasibility of an alternative structure by running a grassroots, massively collaborative project in computational neuroscience. To do so, we launched a public Git repository, with code for training spiking neural networks to solve a sound localisation task via surrogate gradient descent. We then invited anyone, anywhere to use this code as a springboard for exploring questions of interest to them, and encouraged participants to share their work both asynchronously through Git and synchronously at monthly online workshops. At a scientific level, our work demonstrates how a range of biologically-relevant parameters, from time delays to membrane decays and levels of inhibition, impact sound localisation in networks of leaky-integrate-and-fire units. At a more macro-level, our project brought together 35 researchers from multiple countries, and provided hands-on research experience to early career participants and opportunities for supervision and leadership development to later career participants. Looking ahead, our project provides a glimpse of what open, collaborative science could look like and provides a necessary, tentative step towards it.  
+Neuroscientists are increasingly initiating large-scale collaborations which bring together tens to hundreds of researchers. However, while these projects represent a step-change in scale, they retain a traditional structure with centralised funding, participating laboratories and data sharing on publication. Inspired by an open-source project in pure mathematics, we set out to test the feasibility of an alternative structure by running a grassroots, massively collaborative project in computational neuroscience. To do so, we launched a public Git repository, with code for training spiking neural networks to solve a sound localisation task via surrogate gradient descent. We then invited anyone, anywhere to use this code as a springboard for exploring questions of interest to them, and encouraged participants to share their work both asynchronously through Git and synchronously at monthly online workshops. At a scientific level, our work demonstrates how a range of biologically-relevant parameters, from time delays to membrane decays and levels of inhibition, impact sound localisation in networks of spiking units. At a more macro-level, our project brought together 35 researchers from multiple countries, provided hands-on research experience to early career participants, and opportunities for supervision and teaching to later career participants. Looking ahead, our project provides a glimpse of what open, collaborative science could look like and provides a necessary, tentative step towards it.  
 +++
 
 # Introduction
@@ -132,6 +138,7 @@ Neuroscientists are increasingly initiating large-scale collaborations which bri
 ```{include} sections/discussion.md
 ```
 
+(contributors)=
 # Contributors
 
 ```{include} sections/contributor_table.md
@@ -150,10 +157,16 @@ In this section, each subsection is the detailed results as written up by the au
 ```{include} sections/basicmodel/basicmodel.md
 ```
 
-```{include} sections/new_inh_model/inhibition_model.md
+```{include} sections/TCA/analysis.md
 ```
 
 ```{include} sections/delays/Delays.md
+```
+
+```{include} sections/filter_and_fire_model/filter_and_fire.md
+```
+
+```{include} sections/new_inh_model/inhibition_model.md
 ```
 
 # Funding and Acknowledgements
@@ -164,6 +177,7 @@ In this section, each subsection is the detailed results as written up by the au
 * DFE and BAB acknowledge the use of the UCL Myriad High Performance Computing Facility (Myriad@UCL), and associated support services, in the completion of this work.
 * ZF is funded by a NSERC PGS-D Scholarship. 
 * BM is funded by the be.AI Leverhulme Doctoral Scholarships (Leverhulme Trust).
+* UA is supported by the UK Engineering and Physical Sciences Research Council (EPSRC) DTP Studentship 2753922 for the University of Surrey.
 * JLR was funded by the Max Plank Society. 
 * YHL is supported by NSERC PGS-D, FRQNT B2X, and Pearson Fellowship.
 * VB is supported by the European Research Council (ERC) under the European Union's Horizon 2020 research innovation program, grant agreement number 715980.

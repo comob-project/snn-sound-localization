@@ -112,10 +112,13 @@ If you add a contribution, please use one of the following templates (see exampl
 * - Peter Crowe (Germany, Undergraduate)
   - [\@pfcrowe](https://github.com/pfcrowe)
   - Conducted research ([](../research/Optimizing-Membrane-Time-Constant.ipynb)).
+* - Umar Abubacar
+  - [\@UmarAbubacar](https://github.com/UmarAbubacar)
+  - Conducted research ([](../research/TCA-analysis.ipynb)) and wrote the paper ([](#tca-section)).
 * - [Brendan Bicknell]()
-  - ??? 
+  - ???
   - Supervised Dilay Fidan Erçelik.  
 * - [Volker Bormuth](https://www.labojeanperrin.fr/?people40)
   - ???
-  - Supervised Marcus Ghosh & students at Sorbonne University.
+  - Developed teaching materials and used the project to teach two university courses. Supervised Marcus Ghosh & students at Sorbonne University.
 ```
