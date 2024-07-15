@@ -163,8 +163,8 @@ In this section, each subsection is the detailed results as written up by the au
 ```{include} sections/delays/Delays.md
 ```
 
-```{include} sections/filter_and_fire_model/filter_and_fire.md
-```
+%```{include} sections/filter_and_fire_model/filter_and_fire.md
+%```
 
 ```{include} sections/new_inh_model/inhibition_model.md
 ```
