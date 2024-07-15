@@ -1,13 +1,3 @@
-```{attention}
-Hello contributors! I have inserted a table of names, websites and GitHub usernames of contributors from the repository below. There is a lot of information missing. Please can you submit pull requests modifying the file [paper/sections/contributor_table.md](https://github.com/comob-project/snn-sound-localization/blob/main/paper/sections/contributor_table.md) to update your information, and also get in touch with us if you would like to be listed as an author. Either email [Dan Goodman](mailto:d.goodman@imperial.ac.uk) or join the [SNUFA discord channel](https://discord.gg/aYvgGakrVK) ``#sound-localisation-paper``.
-```
-
-If you add a contribution, please use one of the following templates (see examples below):
-
-* Wrote the paper (plus which section if you would like to specify)
-* Conducted research (please give a link to your notebook formatted like this ``[](../research/3-Starting-Notebook.ipynb)``, or specify another sort of contribution)
-* Supervised research (please give the name of your supervisee)
-
 (contributor-table)=
 ```{list-table} Contributors, ordered by GitHub commits.
 :header-rows: 1
@@ -49,9 +39,9 @@ If you add a contribution, please use one of the following templates (see exampl
 * - Jose Gomes (Portugal, PhD)
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
   - Conducted research ([](../research/Dales_law.ipynb)).
-* - ???
+* - (Unknown)
   - [\@a-dtk](https://github.com/a-dtk)
-  - (TODO)
+  - Conducted research ([](../research/Noise_robustness.ipynb)).
 * - Sara Evers
   - [\@saraevers](https://github.com/saraevers)
   - Conducted research ([](../research/IE-neuron-distribution.ipynb)).
@@ -63,7 +53,7 @@ If you add a contribution, please use one of the following templates (see exampl
   - Wrote the paper (DCLS based delay learning in the appendix). Conducted research ([](../research/Quick_Start_random.ipynb), [](../research/Quick_Start_Delay_DCLS.ipynb)).
 * - Sebastian Schmitt
   - [\@schmitts](https://github.com/schmitts)
-  - (TODO)
+  - Conducted research (background on neuromorphic hardware in [](../research/Background.md)).
 * - [Rowan Cockett](http://row1.ca/)
   - [\@rowanc1](https://github.com/rowanc1)
   - MyST technical support

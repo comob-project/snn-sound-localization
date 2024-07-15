@@ -87,6 +87,16 @@ For papers, include the paper in ``paper.bib`` using standard BiBTeX notation, a
 ```{note} On this page, not all links to sections of the paper work, [follow this link for the working version](./paper.md#contributors).
 ```
 
+```{attention}
+Hello contributors! I have inserted a table of names, websites and GitHub usernames of contributors from the repository below. There is a lot of information missing. Please can you submit pull requests modifying the file [paper/sections/contributor_table.md](https://github.com/comob-project/snn-sound-localization/blob/main/paper/sections/contributor_table.md) to update your information, and also get in touch with us if you would like to be listed as an author. Either email [Dan Goodman](mailto:d.goodman@imperial.ac.uk) or join the [SNUFA discord channel](https://discord.gg/aYvgGakrVK) ``#sound-localisation-paper``.
+```
+
+If you add a contribution, please use one of the following templates (see examples below):
+
+* Wrote the paper (plus which section if you would like to specify)
+* Conducted research (please give a link to your notebook formatted like this ``[](../research/3-Starting-Notebook.ipynb)``, or specify another sort of contribution)
+* Supervised research (please give the name of your supervisee)
+
 ```{include} sections/contributor_table.md
 ```
 
