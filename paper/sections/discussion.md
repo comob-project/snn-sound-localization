@@ -17,4 +17,4 @@ Ultimately, while the project explored many interesting directions, which will f
 
 ## Conclusions
 
-This paper does not present a scientific breakthrough. However, it does demonstrate the feasibility of open research projects: which bring together large number of participants across countries and career stages to work together collaboratively on scientific projects. Moreover, several follow-up research projects are planned based on pilot data from our work, and we plan to launch a second COMOB project soon. 
+This paper does not present a scientific breakthrough. However, it does demonstrate the feasibility of open research projects which bring together large number of participants across countries and career stages to work together collaboratively on scientific projects. Moreover, several follow-up research projects are planned based on pilot data from our work, and we plan to launch a second COMOB project soon. 

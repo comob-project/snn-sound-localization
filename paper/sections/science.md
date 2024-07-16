@@ -1,6 +1,6 @@
 ## Introduction 
 
-In the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500` on spiking neural networks (SNNs) that launched this project, we used a sound localisation task. Reasoning that sound localisation requires the precise temporal processing of spikes at which these networks would excel.  
+In the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500` on spiking neural networks (SNNs) that launched this project, we used a sound localisation task. We reasoned that sound localisation requires the precise temporal processing of spikes at which these networks would excel.  
 
 Animals localise sounds by detecting location- or direction-specific cues in the signals that arrive at their ears. Some of the most important sources of cues (although not the only ones) come from differences in the signals between two ears, including both level and timing differences. Respectively, termed interaural level difference (ILD) and interaural timing difference (ITD). In some cases humans are able to detect arrival time differences as small as 20 $\mu$s.
 
@@ -24,7 +24,7 @@ The input neurons are all-to-all connected to the layer of hidden neurons via a 
 
 Using this setup, we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer ([](../research/Optimizing-Membrane-Time-Constant.ipynb)). This initially suggested that coincidence detection played an important role. However, further analysis in [](../../research/time-constant-solutions.ipynb) (described in more detail in [](#basic-model)) showed that in fact, the network was not using a coincidence detection strategy, or indeed a spike timing strategy. Rather, it appears to be using an approach similar to the equalisation-cancellation theory {cite:p}`durlach_equalization_1963;culling_equalization_cancellation_2020` by subtracting various pairs of signals to find the point where they approximately cancel. Careful analysis of the trained model showed that it could be extremely well approximated by a 6-parameter model that is quite easy to describe, but does not obviously correspond to any known features of the auditory system. 
 
-As an alternative approach, we also used Tensor Component Analysis (TCA) {cite:p}`Williams2018` to explore the spiking activity of this model, and to compare it across multiple trained networks [](#tca-section).
+As an alternative approach, we also used Tensor Component Analysis (TCA) {cite:p}`Williams2018` to explore the spiking activity of this model, and to compare it across multiple trained networks ([](#tca-section)).
 
 Building on this base model, we explored two main questions: how changing the neuron model alters the network's behaviour and how the phase delays (within each ear) can be learned.
     
