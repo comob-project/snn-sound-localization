@@ -8,7 +8,7 @@
   - Contribution
 * - [Tomas Fiers](https://tomasfiers.net/)
   - [\@tfiers](https://github.com/tfiers)
-  - Built the website infrastructure.
+  - Built the website infrastructure, created {ref}`basic-archS` based on Dan's sketch of the model architecture.
 * - [Dan Goodman](http://neural-reckoning.org/)
   - [\@thesamovar](https://github.com/thesamovar)
   - Conceived the project, wrote the paper, wrote and recorded the Cosyne tutorial. Conducted research ([](../research/3-Starting-Notebook.ipynb), [](../research/time-constant-solutions.ipynb)).
