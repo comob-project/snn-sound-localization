@@ -34,6 +34,7 @@ Code for figures should look something like this:
 ````
 ```{figure} ../research/diagrams/arch-stimuli.png
 :label: basic-arch
+:width: 100%
 
 Overall model architecture.
 ```
@@ -50,6 +51,7 @@ You can even do subpanels of figures and reference those, e.g.:
 ````
 ```{figure}
 :label: basic-results
+:width: 100%
 
 (confusion-matrix)=
 ![Confusion matrix.](sections/basicmodel/confusion.png)

@@ -57,6 +57,7 @@ Conventionally, for the spatial transformer, after the projection of the target 
 
 ```{figure} sections/delays/DDL.png
 :label: DDL
+:width: 100%
 Structure of the DDL. The DDL shifts an input spike train by applying translation then interpolation.
 ```
 
@@ -64,6 +65,7 @@ Only the DDL is needed to solve the sound localization problem, where the output
 
 ```{figure} sections/delays/Network.png
 :label:DelayNetwork
+:width: 60%
 The model architecture. The DLL inserted between the input and out nodes is sufficient to solve the sound localization problem. The output nodes are IPD classes spanning the range ${[-90^o,~85^o]~in~5^o}$ steps.
 ```
 
@@ -87,6 +89,7 @@ In this section, the problem complexity is increased up to 36 output units spann
 
 ```{figure} sections/delays/Results_1.png
 :label: DelaySpikeHistograms
+:width: 100%
 Spike histograms for IPDs before and after training.
 ```
 
@@ -94,6 +97,7 @@ To facilitate the search for a solution while using the DDL, we assume that the 
 
 ```{figure} sections/delays/loss-and-dist.png
 :label: DelayLossDist
+:width: 100%
 Performance metrics one. A) Loss as a function of the epochs. B) The difference between the True and predicted IPDs in a test batch.
 ```
 
@@ -102,6 +106,7 @@ Further analysis of such solutions warrants testing them in different forms. In 
 
 ```{figure} sections/delays/Confuse.png
 :label: DelayConfuse
+:width: 100%
 Performance metrics two. Here is shown the distribution and confusion matrix between true IPD values and A) training batch IPD estimates, B) testing batch IPD estimates.
 ```
 
@@ -110,11 +115,13 @@ Similar to the other cases, the DCLS architecture is trained for classification 
 
 ```{figure} sections/delays/Confuse_dcls.png
 :label: DelaySpikeHistograms2
+:width: 100%
 The same performance metrics for DCLS
 ```
 Learning synaptic delays with weights enables the visualization of the 'receptive field' of postsynaptic neurons, as illustrated in [](#rf). Five randomly chosen neurons from the hidden layer are plotted, revealing clear spatiotemporal separation of excitation and inhibition.
 
 ```{figure} sections/delays/0-5.png
 :label: rf
+:width: 100%
 Receptive fields of 5 randomly chosen postsynaptic neurons. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (excitation or inhibition), with transparency denoting magnitude.
 ```

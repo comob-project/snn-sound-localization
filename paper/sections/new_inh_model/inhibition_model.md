@@ -41,6 +41,7 @@ Inspired by the neurophysiological data, we implemented a complex spiking neural
 
 ```{figure} sections/new_inh_model/network_diagram.png
 :label: network_diagram
+:width: 100%
 
 The end-to-end brainstem model with the network diagram. The number of neurons for each population is written in the respective block
 ```
@@ -64,6 +65,7 @@ As for the LSO response in {ref}`lso_mso`, in our results we obtained the desire
 
 ```{figure} sections/new_inh_model/lso_mso.png
 :label: lso_mso
+:width: 100%
 
 Mean firing-rate responses of the left LSO (on the left) and the left MSO (on the right) after stimulation with a 100 Hz pure tone sound for 1 second at different azimuth angles. For the MSO, four neurons with different time constants are shown. Neuron 1 responds maximally for input at +15°, Neuron 2 at +30°, Neuron 3 at +45°, and Neuron 4 at +90°.
 ```
@@ -75,6 +77,7 @@ Regarding simulations in which the MSO receives only excitatory inputs ({ref}`bl
 
 ```{figure} sections/new_inh_model/blocked_inh.png
 :label: blocked_inh
+:width: 100%
 
 Figure 3: Loss of contralateral ITD peak-coding for the four different neurons in the left MSO: the control condition (with physiological inhibitory inputs) is shown in blue, whereas the curves in red depict the condition with blocked inhibition to the MSO; in the latter scenario, firing-rate values are higher with respect to the former and peaks are shifted to null ITD values, so that the coding of each neuron for a specific azimuth angle is now lost.
 ```

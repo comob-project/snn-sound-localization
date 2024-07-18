@@ -3,6 +3,7 @@ Our project grew out of a tutorial at the [Cosyne conference](https://www.cosyne
 
 ```{figure} ./sections/_figures/COMOB_workflow.png
 :label: COMOB_workflow
+:width: 100%
 
 Our workflow. To on-board new participants we provided text, videos and code outlining our scientific starting point. This material formed a springboard for participants to pursue research either individually or in small groups. We then iteratively improved on this work through monthly online workshops and by writing this paper together through an open, collaborative process.      
 ```

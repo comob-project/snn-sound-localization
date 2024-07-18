@@ -21,6 +21,7 @@ The model consists of the following pathway, illustrated in {ref}`basic-arch`: I
 
 ```{figure} ./sections/_figures/model-diagram.png
 :label: basic-arch
+:width: 100%
 
 Overall model architecture. Sinusoidal audio signals are passed through two populations of units, with a range of preassigned delays, representing the left and right ears. These units generate Poisson spike trains which pass forward to a layer of leaky-integrate and fire (LIF) units, then a layer of leaky-integrator output units from which we readout the networks estimate of the interaural phase difference (IPD). 
 ```
@@ -51,6 +52,7 @@ where $R_\mathrm{max}$ is the maximum firing rate. Spikes are then generated via
 
 ```{figure} sections/basicmodel/stimuli-examples.png
 :label: example-stimuli
+:width: 100%
 
 Examples of generated input spike trains.
 ```
@@ -73,35 +75,38 @@ The loss function we use is composed of two terms. The first is the cross entrop
 
 ### Results
 
-This approach is able to train a network that can perform the task well ({ref}`basic-results`), using very few neurons ($N_\psi=100$ input neurons per ear, $N_h=8$ hidden neurons and $N_c=12$ output neurons). Mean absolute error in IPD is $\sim 2.6$ deg ({ref}`confusion-matrix`). Hidden neuron firing rates are between 110 and 150 sp/s ({ref}`hidden-firing-rates`).
+This approach is able to train a network that can perform the task well, using very few neurons ($N_\psi=100$ input neurons per ear, $N_h=8$ hidden neurons and $N_c=12$ output neurons). Mean absolute error in IPD is $\sim 2.6$ deg ({ref}`confusion-matrix`). Hidden neuron firing rates are between 110 and 150 sp/s ({ref}`hidden-firing-rates`).
 
-```{figure}
-:label: basic-results
-
-(confusion-matrix)=
-![Confusion matrix.](sections/basicmodel/confusion.png)
-
-(hidden-firing-rates)=
-![Hidden neuron firing rates.](sections/basicmodel/hidden-firing-rates.png)
-
-Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
+```{figure} sections/basicmodel/confusion.png
+:label: confusion-matrix
+:width: 60%
+Confusion matrix. Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
 ```
 
-Analysis of the trained networks show that it uses an unexpected strategy ({ref}`basic-strategy`). Firstly, the hidden layer neurons might have been expected to behave like the encoded neurons in Jeffress' place theory, and like recordings of neurons in the auditory system, with a low baseline response and an increase for a preferred phase difference (best phase). However, very reliably they find an inverse strategy of having a high baseline response with a reduced response at a least preferred phase difference ({ref}`tuning-curves-hidden`). Note that the hidden layer neurons have been reordered in order of their least preferred delay to highlight this structure. These shapes are consistently learned, but the ordering is random. By contrast, the output neurons have the expected shape ({ref}`tuning-curves-output`). Interestingly, the tuning curves are much flatter at the extremes close to an IPD of $\pm \pi/2$. We can get further insight into the strategy found by plotting the weight matrices $W_{ih}$ from input to hidden layer, and $W_{ho}$ from hidden layer to output, as well as the product $W_{io}=W_{ih}\cdot W_{ho}$ which would give the input-output matrix for a linearised version of the network ({ref}`basic-weights`).
+```{figure} sections/basicmodel/hidden-firing-rates.png
+:label: hidden-firing-rates
+:width: 60%
+Hidden neuron firing rates. Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
+```
 
-```{figure}
-:label: basic-strategy
+Analysis of the trained networks show that it uses an unexpected strategy. Firstly, the hidden layer neurons might have been expected to behave like the encoded neurons in Jeffress' place theory, and like recordings of neurons in the auditory system, with a low baseline response and an increase for a preferred phase difference (best phase). However, very reliably they find an inverse strategy of having a high baseline response with a reduced response at a least preferred phase difference ({ref}`tuning-curves-hidden`). Note that the hidden layer neurons have been reordered in order of their least preferred delay to highlight this structure. These shapes are consistently learned, but the ordering is random. By contrast, the output neurons have the expected shape ({ref}`tuning-curves-output`). Interestingly, the tuning curves are much flatter at the extremes close to an IPD of $\pm \pi/2$. We can get further insight into the strategy found by plotting the weight matrices $W_{ih}$ from input to hidden layer, and $W_{ho}$ from hidden layer to output, as well as the product $W_{io}=W_{ih}\cdot W_{ho}$ which would give the input-output matrix for a linearised version of the network ({ref}`basic-weights`).
 
-(tuning-curves-hidden)=
-![Tuning curves of hidden neurons.](sections/basicmodel/tuning-hidden.png)
+```{figure} sections/basicmodel/tuning-hidden.png
+:label: tuning-curves-hidden 
+:width: 100%
+Tuning curves of hidden neurons. Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+```
 
-(tuning-curves-output)=
-![Tuning curves of hidden neurons. The dashed red lines indicate the estimated IPD if that neuron is the most active.](sections/basicmodel/tuning-output.png)
+```{figure} sections/basicmodel/tuning-output.png
+:label: tuning-curves-output
+:width: 100%
+Tuning curves of hidden neurons. The dashed red lines indicate the estimated IPD if that neuron is the most active.Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+```
 
-(basic-weights)=
-![Weight matrices, with hidden neurons reordered by best delay.](sections/basicmodel/weights.png)
-
-Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+```{figure} sections/basicmodel/weights.png
+:label: basic-weights
+:width: 100%
+Weight matrices, with hidden neurons reordered by best delay. Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
 ```
 
 A number of features emerge from this analysis. The first is that the tuning curves of the hidden neurons have a very regular structure of having a high baseline firing rate with a dip around a "least preferred" delay that varies uniformly in the range $-\pi/2$ to $\pi/2$. Indeed, the tuning curves $i$ can be very well fit with the function $a+be^{-(\alpha-\alpha_i)^2/2\sigma_\alpha^2}$ where $\alpha$ is the IPD, $\alpha_i=-\pi/2+i\pi/N_h$ is the "least preferred" IPD, and $a, b, \sigma_\alpha$ are parameters to fit ({ref}`tuning-curves-hidden`, orange lines). This would look likely to be consistent with some form of optimal coding theory that minimises the effect of the Poisson noise in the spike counts, although we did not pursue this explanation.

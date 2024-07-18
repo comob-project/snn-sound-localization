@@ -14,6 +14,7 @@ We started with a simple, spiking neural network model (described in more detail
 
 ```{figure} ./sections/_figures/model-diagram.png
 :label: basic-archS
+:width: 100%
 
 Overall model architecture. Sinusoidal audio signals are passed through two populations of units, with a range of preassigned phase delays, representing the left and right ears. These units generate Poisson spike trains which pass forward to a layer of leaky-integrate and fire (LIF) units, then a layer of leaky-integrator output units from which we readout the networks estimate of the interaural phase difference (IPD). 
 ```

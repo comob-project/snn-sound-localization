@@ -16,6 +16,7 @@ We use nonnegative tensor component analysis (TCA) to examine spiking activity f
 
 ```{figure} sections/TCA/rank-1.png
 :label: rank1
+:width: 100%
 Rank 1 decomposition of spiking during training of the simple model.
 ```
 
@@ -23,6 +24,7 @@ To capture the categorical dynamics within the model, the optimal number of comp
 
 ```{figure} sections/TCA/rank-6.png
 :label: rank6
+:width: 100%
 Rank 6 decomposition of spiking during training of the simple model.
 ```
 
@@ -37,16 +39,19 @@ Comparing the activation of neural assemblies with more ranks as in [](#clusteri
 <!-- Split figure of clustering and temporal_av -->
 ```{figure} sections/TCA/clustering.png
 :label: clustering
+:width: 100%
 Hierarchical clustering of neuron factors across models.
 ```
 
 ```{figure} sections/TCA/cluster_accs.png
 :label: cluster_acc
+:width: 100%
 Training and test accuracy of models in each cluster.
 ```
 
 ```{figure} sections/TCA/temporal_av.png
 :label: temporal_av
+:width: 100%
 Temporal factors across models.
 ```
 
