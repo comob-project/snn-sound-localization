@@ -153,7 +153,7 @@ Neuroscientists are increasingly initiating large-scale collaborations which bri
 (appendices)=
 # Appendices
 
-In this section, each subsection is the detailed results as written up by the author of those results.
+In this section, we provide detailed write-ups of our scientific results.
 
 ```{include} sections/basicmodel/basicmodel.md
 ```

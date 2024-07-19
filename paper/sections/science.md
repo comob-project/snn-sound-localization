@@ -1,12 +1,12 @@
 ## Introduction 
 
-In the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500` on spiking neural networks (SNNs) that launched this project, we used a sound localisation task. We reasoned that sound localisation requires the precise temporal processing of spikes at which these networks would excel.  
+In the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500` on spiking neural networks (SNNs) that launched this project, we used a sound localisation task. Reasoning that sound localisation requires the precise temporal processing of spikes at which these networks would excel.  
 
 Animals localise sounds by detecting location- or direction-specific cues in the signals that arrive at their ears. Some of the most important sources of cues (although not the only ones) come from differences in the signals between two ears, including both level and timing differences. Respectively, termed interaural level difference (ILD) and interaural timing difference (ITD). In some cases humans are able to detect arrival time differences as small as 20 $\mu$s.
 
 The classic model of ITD sensitivity is the delay line model of {cite:t}`Jeffress1948` in which an array of binaural coincidence detector neurons receive inputs from the two ears with different delays. When a neurons' delays exactly match the acoustic delays induced by the sound location, it will be maximally active. Therefore, the identity of the most active neuron indicates the direction of the sound. This model is widely accepted, though was shown to be inefficient with respect to neural noise by {cite:t}`McAlpine2003`, who proposed an alternative model based on the two binaural hemispheres average firing rates - which is optimally robust to neural noise. However, {cite:t}`goodman_decoding_2013` showed that these models perform too poorly to account for behavioural data, especially in situations where sounds had complex and unknown spectral properties, or in the presence of background noise, and proposed an alternative based on a perceptron-like neural network - which is both robust to neural noise and performed well across a range of conditions. 
 
-Building on this literature, and our Cosyne tutorial, the starting point of this project was to ask: what solutions would you find if you directly optimised a spiking neural network to localise sounds? How would those solutions depend on the available neural mechanisms and statistics of the sound? Could we understand the solutions found in a simple way? What properties would the solution have in terms of robustness to noise, generalisation, and so forth? Could the solutions found by optimisation throw light on features found in the auditory systems of different animals? 
+Building on this literature, and our Cosyne tutorial, the starting point of this project was to ask: what solutions would you find if you directly optimised a spiking neural network to localise sounds? How would those solutions depend on the available neural mechanisms and statistics of the sound? Could we understand the solutions found in a simple way? What properties would the solution have in terms of robustness to noise, generalisation, and so forth? And could the solutions found by optimisation throw light on features found in the auditory systems of different animals? 
 
 ## A simple spiking neural network model
 
@@ -39,7 +39,7 @@ To test the impact of restricting units to being either excitatory or inhibitory
 
 To understand where in the network inhibition is required, we then trained a second set of networks in which we forced either the input or hidden units to be all excitatory, and set the remaining units to be half inhibitory and half excitatory. Networks with all excitatory hidden units performed as well as networks with balanced units, while networks with purely excitatory inputs performed significantly worse, demonstrating a role for inhibition in the input-hidden connections / delay lines.
 
-Inhibition therefore plays an important role in this model, in line with experimental data that shows that blocking inhibition eliminates ITD-sensitivity in the medial superior olive [@Brand2002;@Pecka2008].
+Inhibition therefore plays an important role in this model, in line with experimental data that shows that blocking inhibition eliminates ITD-sensitivity in the medial superior olive [@Brand2002;@Pecka2008]. 
 
 ### Filter-and-fire
 
@@ -61,4 +61,4 @@ Finally, we developed a more detailed model in which we used over 170,000 units,
 
 In short, input spectrograms representing sounds at azimuth angles from -90° to +90° were converted into spikes, then passed forward to populations representing the globular and spherical bushy cells, and subsequently the lateral and medial superior olivary nuclei, from which we readout sound source angle predictions. Note that, unlike the work with our base model, we used no learnable parameters in this model, and instead based parameters on neurophysiological data. For example, the MSO units had excitatory inputs from both the ipsi and contralateral SBCs and dominant inhibition from contralateral GBCs.
 
-The model generated realistic tuning curves for lateral and medial superior olive (LSO and MSO) neurons. Moreover, removing inhibition shifted ITD sensitivity to the midline, as in [@Brand2002;@Pecka2008].
+This model generated realistic tuning curves for lateral and medial superior olive (LSO and MSO) neurons. Moreover, removing inhibition shifted ITD sensitivity to the midline, as in [@Brand2002;@Pecka2008].
