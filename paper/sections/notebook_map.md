@@ -1,39 +1,5 @@
 The following lists the notebooks, authors, summary and related notebooks in this project.
 
-% this will only appear on the online version, not in the printed version
-
-```{mermaid}
-flowchart LR
-    SN[Starting Notebook] --> FF[Filter-and-Fire Neuron Model]
-    Dale --> QS[Quick Start Notebook]
-    Tau --> QS
-    SN --> AON[Altering Output Neurons]
-    ATN --> AW[Analysing trained networks - workshop edition]
-    SN --> Dale[Sound localisation following Dale's law]
-    SN --> DThr[Dynamic threshold]
-    SN --> Exc[Sound localisation using excitatory-only inputs]
-    SN --> DDL[Learning delays]
-    SN --> DCLS[Dilated Convolution with Learnable Spacings]
-    SN --> Rob[Robustness to Noise and Dropout]
-    SN --> V250[Version with 250 Hz Input]
-    SN --> ATN[Analysing trained networks]
-    SN --> Tau[Optimizing the membrane time constant]
-    subgraph Minimal trainable model
-        Tau --> AnTau[Analysing solutions for different time constants]
-        V250 --> AnTau
-        ATN --> AnTau
-    end
-    subgraph Learning delays
-        DDL
-        DCLS
-    end
-    subgraph Alternative neuron models
-        FF
-        Dale
-        DThr
-    end
-```
-
 ## Introductory notebooks
 
 [](../research/1-Background.md)

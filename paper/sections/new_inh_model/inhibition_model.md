@@ -3,7 +3,7 @@
 
 ```{list-table}
 * - Section authors
-  <!-- - Francesco De Santis, Alberto Antonietti -->
+  - Anonymous
 * - Notebooks
   - [](../research/new_inh_model.ipynb)
 ```
