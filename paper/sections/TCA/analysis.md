@@ -3,7 +3,7 @@
 
 ```{list-table}
 * - Section authors
-  - Umar Abubacar
+  <!-- - Umar Abubacar -->
 * - Notebooks
   - [](../research/TCA-analysis.ipynb)
 ```

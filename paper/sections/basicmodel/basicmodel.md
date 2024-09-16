@@ -3,7 +3,7 @@
 
 ```{list-table}
 * - Section authors
-  - Dan Goodman
+  <!-- - Dan Goodman -->
 * - Notebooks
   - [](../research/time-constant-solutions.ipynb)
 ```

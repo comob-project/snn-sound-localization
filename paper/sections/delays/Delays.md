@@ -3,8 +3,8 @@
 
 ```{list-table}
 * - Section authors
-  - Karim G. Habashy
-  - Balázs Mészáros
+  <!-- - Karim G. Habashy
+  - Balázs Mészáros -->
 * - Notebooks
   - [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)
 ```

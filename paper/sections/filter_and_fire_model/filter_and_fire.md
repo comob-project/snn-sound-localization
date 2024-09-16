@@ -2,7 +2,7 @@
 
 ```{list-table}
 * - Section authors
-  - Dilay Fidan Erçelik
+  <!-- - Dilay Fidan Erçelik -->
 * - Notebooks
   - [](../research/Quick_Start_250HzClassification_CleanVersion.ipynb)
 ```
