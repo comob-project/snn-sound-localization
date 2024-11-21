@@ -7,6 +7,7 @@
   - Balázs Mészáros
 * - Notebooks
   - [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb), [](../research/Solving_problem_with_delay_learning.ipynb)
+- [](../research/Quick_Start_Delay_DCLS.ipynb)
 ```
 
 This section introduces a simple method to solve the sound localization problem with only learnable delays. Additionally, it discusses a method that learns both weights and delays, introduced in {cite:p}`hammouamri2024learning`.
@@ -117,12 +118,12 @@ Similar to the other cases, the DCLS architecture is trained for classification 
 ```{figure} sections/delays/Confuse_dcls.png
 :label: DelaySpikeHistograms2
 :width: 100%
-The same performance metrics for DCLS
+Distributions of true and estimated IPD values, along with their corresponding confusion matrices for the training and test sets, obtained using the DCLS algorithm.
 ```
 Learning synaptic delays with weights enables the visualization of the 'receptive field' of postsynaptic neurons, as illustrated in [](#rf). Five randomly chosen neurons from the hidden layer are plotted, revealing clear spatiotemporal separation of excitation and inhibition.
 
 ```{figure} sections/delays/0-5.png
 :label: rf
 :width: 100%
-Receptive fields of 5 randomly chosen postsynaptic neurons. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (excitation or inhibition), with transparency denoting magnitude.
+Receptive fields of 5 randomly chosen neurons in the hidden layer. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (excitation or inhibition), with transparency denoting magnitude. Excitation and inhibition appear to be spatiotemporally separated.
 ```
