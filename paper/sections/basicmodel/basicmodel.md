@@ -54,7 +54,7 @@ where $R_\mathrm{max}$ is the maximum firing rate. Spikes are then generated via
 :label: example-stimuli
 :width: 100%
 
-Examples of generated input spike trains.
+Examples of generated input spike trains. Each plot shows a raster plot of input spikes for a different sample. The subtitle of each plot gives the true interaural time difference (ITD). The x-axis is time in steps for the whole input duration, and the y-axis is input neuron index. Input neurons are in two groups, with each "ear" consisting of 100 neurons. Within each group, the spikes are delayed by an increasing amount from a minimum to maximum delay. Spikes are produced by a Poisson process with a time-varying firing rate given by a sinusoid.
 ```
 
 The $2N_\psi$ input neurons are connected all-to-all to a "hidden layer" of $N_h$ spiking neurons. These are standard leaky integrate-and-fire neurons with a membrane potential $v$ that in the absence of spikes evolves over time according to the differential equation:
@@ -80,13 +80,13 @@ This approach is able to train a network that can perform the task well, using v
 ```{figure} sections/basicmodel/confusion.png
 :label: confusion-matrix
 :width: 60%
-Confusion matrix. Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
+Confusion matrix. True interaural phase difference (IPD) is shown on the x-axis, and estimated IPD on the y-axis. Colour scale is yellow-blue, so a perfect result would be indicated by a yellow diagonal on a blue background. This plot shows the results of training the network with tone frequency $f=50$ Hz, membrane time constant $\tau=2$ ms, number of input neurons per neuron $N_\psi=100$, number of hidden layer units $N_h=8$, and number of discrete IPD categories $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
 ```
 
 ```{figure} sections/basicmodel/hidden-firing-rates.png
 :label: hidden-firing-rates
 :width: 60%
-Hidden neuron firing rates. Results of training the network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$. Mean absolute IPD errors are $\sim 2.6$ deg.
+Hidden neuron firing rates, with the same setup as in [](#confusion-matrix).
 ```
 
 Analysis of the trained networks show that it uses an unexpected strategy. Firstly, the hidden layer neurons might have been expected to behave like the encoded neurons in Jeffress' place theory, and like recordings of neurons in the auditory system, with a low baseline response and an increase for a preferred phase difference (best phase). However, very reliably they find an inverse strategy of having a high baseline response with a reduced response at a least preferred phase difference ({ref}`tuning-curves-hidden`). Note that the hidden layer neurons have been reordered in order of their least preferred delay to highlight this structure. These shapes are consistently learned, but the ordering is random. By contrast, the output neurons have the expected shape ({ref}`tuning-curves-output`). Interestingly, the tuning curves are much flatter at the extremes close to an IPD of $\pm \pi/2$. We can get further insight into the strategy found by plotting the weight matrices $W_{ih}$ from input to hidden layer, and $W_{ho}$ from hidden layer to output, as well as the product $W_{io}=W_{ih}\cdot W_{ho}$ which would give the input-output matrix for a linearised version of the network ({ref}`basic-weights`).
@@ -94,19 +94,19 @@ Analysis of the trained networks show that it uses an unexpected strategy. First
 ```{figure} sections/basicmodel/tuning-hidden.png
 :label: tuning-curves-hidden 
 :width: 100%
-Tuning curves of hidden neurons. Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+Tuning curves of hidden neurons. Each plot shows the interaural phase difference (IPD) tuning curve of one of the eight hidden layer neurons in the model. The x-axis shows the IPD and the y-axis the normalised firing rate. The black curves show the results for the trained spiking neural network. The orange curves show the best fit by a translated and scaled Gaussian curve. The blue curves show the fit for a rate-based approximation where spike times are ignored. Parameters are as in [](#confusion-matrix): $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
 ```
 
 ```{figure} sections/basicmodel/tuning-output.png
 :label: tuning-curves-output
 :width: 100%
-Tuning curves of hidden neurons. The dashed red lines indicate the estimated IPD if that neuron is the most active.Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+Tuning curves of output neurons. Each plot shows the interaural phase difference (IPD) tuning curve of one of the eight hidden layer neurons in the model. The x-axis shows the IPD and the y-axis the normalised firing rate. The black curves show the results for the trained spiking neural network. The blue lines show the fit with a rate-based approximation that ignores spike times. The orange lines show the results if we ignore the trained weight matrix and use the Ricker wavelet approximation described in the text. The green curve shows the tuning curves if we use both approximations, and additionally use the idealised Gaussian fits for the hidden neurons. The dashed red lines indicate the estimated IPD if that neuron is the most active. Parameters are as in [](#confusion-matrix): $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
 ```
 
 ```{figure} sections/basicmodel/weights.png
 :label: basic-weights
 :width: 100%
-Weight matrices, with hidden neurons reordered by best delay. Strategy found by trained network with $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
+Weight matrices, with hidden neurons reordered by their worst delays. The left image shows the weight matrix from the input layer to the hidden layer. The middle image from the hidden layer to output layer. The right image shows the product of these two, which would be the equivalent weight matrix from the input to output layers if there were no nonlinearity in the system. Colours are on a hot cold scale, with hot colours corresponding to negative weights, cold colours to positive weights, and white corresponding to zero weight. Note that the colour scale is different for each image. Parameters are as in [](#confusion-matrix): $f=50$ Hz, $\tau=2$ ms, $N_\psi=100$, $N_h=8$, $N_c=12$.
 ```
 
 A number of features emerge from this analysis. The first is that the tuning curves of the hidden neurons have a very regular structure of having a high baseline firing rate with a dip around a "least preferred" delay that varies uniformly in the range $-\pi/2$ to $\pi/2$. Indeed, the tuning curves $i$ can be very well fit with the function $a+be^{-(\alpha-\alpha_i)^2/2\sigma_\alpha^2}$ where $\alpha$ is the IPD, $\alpha_i=-\pi/2+i\pi/N_h$ is the "least preferred" IPD, and $a, b, \sigma_\alpha$ are parameters to fit ({ref}`tuning-curves-hidden`, orange lines). This would look likely to be consistent with some form of optimal coding theory that minimises the effect of the Poisson noise in the spike counts, although we did not pursue this explanation.
@@ -122,7 +122,7 @@ This function is the firing rate of a leaky integrate-and-fire neuron $\tau v^\p
 
 Finally, we note that the weight matrix $W_{ho}$ visible in {ref}`basic-weights` seems to have a very regular structure of weights that have a broad excitation and a narrowly tuned inhibition (an unusual pattern). Indeed, we can fit this well with a Ricker wavelet (or "Mexican hat") function:
 
-$$W_ho\approx a(1-(\delta/\sigma_\delta)^2) e^{-\delta^2/2\sigma_\delta^2}+b$$
+$$W_{ho}\approx a(1-(\delta/\sigma_\delta)^2) e^{-\delta^2/2\sigma_\delta^2}+b$$
 
 where $\delta=o-N_c h / N_h$, $h$ and $o$ are the indices of the hidden and output neurons, $N_h$ is the number of hidden neurons, $N_c$ the number of output neurons, and $a$, $b$ and $\sigma_\delta$ are parameters to estimate. Using this approximation and the rate-based approximation from before, we get the orange curves in {ref}`tuning-curves-output`. If we use both the Ricker wavelet approximation of $W_{ho}$ and the idealised tuning curves, we get the green curves. All in all, this gives us a 6 parameter model that fits the data extremely well, a significant reduction on the 896 parameters for the full model ($N_\psi N_h+N_h N_c$).
 
