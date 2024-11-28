@@ -68,16 +68,16 @@ flowchart LR
     : Adds an adaptive threshold to the neuron model and compares results. Conclusion is that the dynamic threshold does not help in this case. (Author: Mingxuan Hong.)
 
 [](../research/Excitatory-only-localisation.ipynb)
-    : Results of imposing an excitatory only constraint on the neurons. Appears to find solutions that are more like what would be expected from the Jeffress model. (Author: TODO who is luis-rr???.)
+    : Results of imposing an excitatory only constraint on the neurons. Appears to find solutions that are more like what would be expected from the Jeffress model. (Author: Juan Luis Riquelme.)
 
 [](../research/Learning_delays.ipynb), [](../research/Learning_delays_major_edit2.ipynb) and [](../research/Solving_problem_with_delay_learning.ipynb)
-    : Delay learning using differentiable delay layer, written up in [](#learning-delays) (Author: Karim Habashy.)
+    : Delay learning using differentiable delay layer, written up in [](#delay-section) (Author: Karim Habashy.)
 
 [](../research/Quick_Start_Delay_DCLS.ipynb)
-    : Delay learning using Dilated Convolution with Learnable Spacings, written up in [](#learning-delays). (Author: Balázs Mészáros.)
+    : Delay learning using Dilated Convolution with Learnable Spacings, written up in [](#delay-section). (Author: Balázs Mészáros.)
 
 [](../research/Noise_robustness.ipynb)
-    : Test effects of adding Gaussian noise and/or dropout during training phase. Conclusion is that dropout does not help and adding noise decreases performance. (Author: TODO: Who is a-dtk???.)
+    : Test effects of adding Gaussian noise and/or dropout during training phase. Conclusion is that dropout does not help and adding noise decreases performance. (Author: Unknown (\@a-dtk).)
 
 [](../research/Quick_Start_250HzClassification.ipynb), [](../research/Quick_Start_250HzClassification_CleanVersion.ipynb)
     : Analysis of results with a higher frequency input stimulus and different membrane time constants for hidden and output layers. Conclusion is that smaller time constant matters for hidden layer but not for output layer. (Author: Dilay Fidan Erçelik.)
