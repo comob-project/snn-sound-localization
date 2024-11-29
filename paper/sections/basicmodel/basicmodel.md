@@ -17,14 +17,7 @@ In this project, we asked what strategies would be found when jointly optimising
 (basic-methods)=
 ### Methods
 
-The model consists of the following pathway, illustrated in {ref}`basic-arch`: IPD $\rightarrow$ stimulus $\rightarrow$ input neurons $\rightarrow$ hidden layer neurons $\rightarrow$ readout neurons.
-
-```{figure} ./sections/_figures/model-diagram.png
-:label: basic-arch
-:width: 100%
-
-Overall model architecture. Sinusoidal audio signals are passed through two populations of units, with a range of preassigned delays, representing the left and right ears. These units generate Poisson spike trains which pass forward to a layer of leaky-integrate and fire (LIF) units, then a layer of leaky-integrator output units from which we readout the networks estimate of the interaural phase difference (IPD). 
-```
+The model consists of the following pathway, illustrated in {ref}`basic-archS`: IPD $\rightarrow$ stimulus $\rightarrow$ input neurons $\rightarrow$ hidden layer neurons $\rightarrow$ readout neurons.
 
 The IPD is an angle uniformly randomly selected in $\alpha\in[-\pi/2,\pi/2]$ (frontal plane only).
 
@@ -72,6 +65,8 @@ We then interpret $x_k$ as the estimated probability that $\alpha\in I_k$. Our e
 The network is trained by defining a loss function that increases the further away the network behaviour is from what we would like (defined in detail below), and then using the surrogate gradient descent method [@Zenke2018;@10.1109/MSP.2019.2931595]. Full details on training parameters can be found in the notebook [](../research/3-Starting-Notebook.ipynb).
 
 The loss function we use is composed of two terms. The first is the cross entropy or negative log likelihood loss that measures how far our predicted probability distribution $x_k$ is from the true probability distribution (which has value 1 for the correct $k$ and 0 for all other $k$). The second term, which is not used in all the notebooks in this project, is an optional regularisation term. In [](../research/time-constant-solutions.ipynb) we regularise based on the firing rates of the hidden layer neurons. We compute the firing rate for each hidden neuron $r_m$. If this is below a mimimum threshold $r_-$ it contributes nothing to the loss, otherwise we compute $L_m=((r_m-r_-)/(r_+-r_-))^2$ for each neuron for a constant $r_+$ explained below. We now compute the average and multiply a constant $L=c\sum_m L_m/N_h$. The constant $r_+$ is the maximum firing rate we would like to see in the network, so that $L_m=1$ if $r_m=r_+$. The constant $c$ is chosen to be the expected initial cross-entropy loss of the network before training. This makes sure that a firing rate of $r_m=r_+$ is heavily penalised relative to the cross-entropy loss, but that any firing rate below $r_-$ is fine. We chose $r_-=100$ sp/s and $r_+=200$ sp/s.
+
+For the results in this section, the model is trained on $128^2=16,384$ samples in batches of 128, 100 epochs using the Adam optimiser {cite:p}`kingma2017adammethodstochasticoptimization` with a learning rate of 0.001. The network needs to be retrained for each frequency, in this section we only use $f=50$ Hz. Test results are shown for a fresh draw of 4,096 samples.
 
 ### Results
 
