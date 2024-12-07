@@ -41,7 +41,7 @@ Since the absence of a clear and shared hypothesis in the literature, we decided
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework [@spreizer_2022_6368024]. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in {ref}`network_diagram`.
 
 
-```{figure} sections/new_inh_model/network_diagram.png
+```{figure} sections/new_inh_model/network_diagram.tiff
 :label: network_diagram
 :width: 100%
 
@@ -57,8 +57,8 @@ With regards to the spectrogram, we covered the whole human audible range of sou
 For modeling of ANFs, we used the `pulse_packet_generator`, a built-in NEST device that produces a spike train containing Gaussian spike clusters centered around given times. 
 These devices mimic the actual behaviour of ANFs subjected to a pure tonal stimulus, which, like all other neuronal populations involved in sound processing, manifest a phase-locked response. The firing of these neurons tends to occur only at a certain restricted phase of the incoming sine wave of sound, due to the working principle of the inner hair cells placed in the cochlea [@Yin2019]. `pulse_packet_generator` allowed us to define the number of spikes in each packet (varying accordingly to the ILD), with spike times that are normally distributed with respect to the central time of the pulse. A source of noise was introduced by setting the standard deviation of the random displacement from the center of the pulse equal to 0.1 ms.
 
-All other cell populations were implemented through iaf_cond_alpha models (a simple implementation of a spiking neuron in NEST using integrate-and-fire dynamics with conductance-based synapses and a postsynaptic change of conductance modeled by an alpha function). With this model we implemented in a manner faithful to their biological counterparts the bushy cells (spherical and globular, SBCs and GBCs) located in the anteroventral part of the cochlear nuclei, the glycinergic neurons located in the medial and lateral trapezoidal body (MNTB and LNTB), and finally the main cells of the lateral superior olives (LSOs). All the default parameters of this NEST model were kept unchanged apart from the membrane capacitance ‘C_m’, which was lowered to 1 pF to ensure sufficiently quick membrane time constants as seen experimentally in these neurons {cite:t}`Pecka2008`. 
-
+All other cell populations were implemented through iaf_cond_alpha models (a simple implementation of a spiking neuron in NEST using integrate-and-fire dynamics with conductance-based synapses and a postsynaptic change of conductance modeled by an alpha function). With this model we implemented in a manner faithful to their biological counterparts the bushy cells (spherical and globular, SBCs and GBCs) located in the anteroventral part of the cochlear nuclei, the glycinergic neurons located in the medial and lateral trapezoidal body (MNTB and LNTB), and finally the main cells of the lateral superior olives (LSOs). All the default parameters of this NEST model were kept unchanged apart from the membrane capacitance ‘C_m’, which was lowered to 1 pF to ensure sufficiently quick membrane time constants as seen experimentally in these neurons {cite:t}`Cao2007`. 
+o2007
 The MSO principal cells were instead implemented through the `iaf_cond_beta model`. The use of a beta function to replicate the postsynaptic change of conductance allowed us to change independently the time constants of rise and fall of the conductance change and thus modify both the excitatory and inhibitory post-synaptic potential shapes in the MSO. In this way, we could explore different sets of values and attempt to validate our hypothesis about how inhibitory inputs can code for different ITD values in MSO cells, see [](#inhib-intro).
 
 For the validation of the complete brainstem network, including both LSO and MSO of both sides, sound stimuli with frequencies of 100 Hz and 1 s duration from different spatial positions were tested. Specifically, we gave the model azimuth angles ranging from -90° to +90° with an interval of 15°. 
@@ -68,7 +68,7 @@ The MSO response was tested both in physiological conditions and with blocked in
 As for the LSO response in {ref}`lso_mso`, in our results we obtained the desired subtraction process described in [](#inhib-intro): considering for the sake of simplicity the left LSO, when the sound arrives from a source placed at 90° (i.e., right), the right ear receives sounds earlier and more intensely than the left. As the azimuth angle proceeds toward 0° (frontal position), the firing rate of the left LSO increases while maintaining a constant slope. This steep segment is the most informative part of the left LSO response curve, as a high sensitivity to changing input azimuth angles is guaranteed. Once past 0°, the firing rate ceases to increase steadily, and the response flattens out to high-rate values. Here, the ipsilateral (left) excitation dominates due to louder sounds.
 
 
-```{figure} sections/new_inh_model/lso_mso.png
+```{figure} sections/new_inh_model/lso_mso.tiff
 :label: lso_mso
 :width: 100%
 
@@ -80,7 +80,7 @@ Regarding the MSO instead ({ref}`lso_mso`), the different curves represent the a
 Regarding simulations in which the MSO receives only excitatory inputs ({ref}`blocked_inh`), a loss in the coding of different contralateral angles is evidenced by a symmetric firing rate curve, with all the peak values being higher and shifted towards 0° angles with respect to the physiological activity, as measured experimentally in {cite:t}`Pecka2008`.
 
 
-```{figure} sections/new_inh_model/blocked_inh.png
+```{figure} sections/new_inh_model/blocked_inh.tiff
 :label: blocked_inh
 :width: 100%
 
