@@ -63,16 +63,16 @@ All other cell populations were implemented through iaf_cond_alpha models (a sim
 (table1)=
 | **Parameter**          | **Value**        | **Description**                                   |
 |-------------------------|------------------|---------------------------------------------------|
-| \(C_m\) (pF)           | 250 pF           | Membrane capacitance                              |
-| \(g_L\) (nS)           | 16.6667 nS       | Leak conductance                                  |
-| \(E_L\) (mV)           | -70 mV           | Leak reversal potential (resting potential)       |
-| \(refr_T\) (ms)        | 2 ms             | Duration of refractory period                     |
-| \(V_{th}\) (mV)        | -55 mV           | Spike threshold potential                         |
-| \(V_{reset}\) (mV)     | -60 mV           | Reset potential                                   |
-| \(E_{exc}\) (mV)       | 0 mV             | Excitatory reversal potential                     |
-| \(E_{inh}\) (mV)       | -85 mV           | Inhibitory reversal potential                     |
-| \(\tau_{syn,exc}\) (ms)| 0.2 ms           | Synaptic time constant of excitatory synapse      |
-| \(\tau_{syn,inh}\) (ms)| 2 ms             | Synaptic time constant of inhibitory synapse      |
+| C_m (pF)           | 250 pF           | Membrane capacitance                              |
+| g_L (nS)           | 16.6667 nS       | Leak conductance                                  |
+| E_L (mV)           | -70 mV           | Leak reversal potential (resting potential)       |
+| refr_T (ms)        | 2 ms             | Duration of refractory period                     |
+| V_th (mV)        | -55 mV           | Spike threshold potential                         |
+| V_reset (mV)     | -60 mV           | Reset potential                                   |
+| E_exc (mV)       | 0 mV             | Excitatory reversal potential                     |
+| E_inh (mV)       | -85 mV           | Inhibitory reversal potential                     |
+| tau_syn,exc (ms)| 0.2 ms           | Synaptic time constant of excitatory synapse      |
+| tau_syn,inh (ms)| 2 ms             | Synaptic time constant of inhibitory synapse      |
 
 **Table 1:** Key parameters for the *iaf_cond_alpha* neural model, including membrane properties, spike-related parameters, and synaptic properties.
 
