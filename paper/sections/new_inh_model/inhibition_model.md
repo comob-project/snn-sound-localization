@@ -57,11 +57,28 @@ With regards to the spectrogram, we covered the whole human audible range of sou
 For modeling of ANFs, we used the `pulse_packet_generator`, a built-in NEST device that produces a spike train containing Gaussian spike clusters centered around given times. 
 These devices mimic the actual behaviour of ANFs subjected to a pure tonal stimulus, which, like all other neuronal populations involved in sound processing, manifest a phase-locked response. The firing of these neurons tends to occur only at a certain restricted phase of the incoming sine wave of sound, due to the working principle of the inner hair cells placed in the cochlea [@Yin2019]. `pulse_packet_generator` allowed us to define the number of spikes in each packet (varying accordingly to the ILD), with spike times that are normally distributed with respect to the central time of the pulse. A source of noise was introduced by setting the standard deviation of the random displacement from the center of the pulse equal to 0.1 ms.
 
-All other cell populations were implemented through iaf_cond_alpha models (a simple implementation of a spiking neuron in NEST using integrate-and-fire dynamics with conductance-based synapses and a postsynaptic change of conductance modeled by an alpha function). With this model we implemented in a manner faithful to their biological counterparts the bushy cells (spherical and globular, SBCs and GBCs) located in the anteroventral part of the cochlear nuclei, the glycinergic neurons located in the medial and lateral trapezoidal body (MNTB and LNTB), and finally the main cells of the lateral superior olives (LSOs). All the default parameters of this NEST model were kept unchanged apart from the membrane capacitance ‘C_m’, which was lowered to 1 pF to ensure sufficiently quick membrane time constants as seen experimentally in these neurons {cite:t}`Cao2007`. 
-o2007
+All other cell populations were implemented through iaf_cond_alpha models (a simple implementation of a spiking neuron in NEST using integrate-and-fire dynamics with conductance-based synapses and a postsynaptic change of conductance modeled by an alpha function). With this model we implemented in a manner faithful to their biological counterparts the bushy cells (spherical and globular, SBCs and GBCs) located in the anteroventral part of the cochlear nuclei, the glycinergic neurons located in the medial and lateral trapezoidal body (MNTB and LNTB), and finally the main cells of the lateral superior olives (LSOs). All the default parameters of this NEST model were kept unchanged (see [](#table1)) apart from the membrane capacitance ‘C_m’, which was lowered to 1 pF to ensure sufficiently quick membrane time constants as seen experimentally in these neurons {cite:t}`Cao2007`. 
+
+![iaf_cond_alpha parameters]
+(table1)=
+| **Parameter**          | **Value**        | **Description**                                   |
+|-------------------------|------------------|---------------------------------------------------|
+| \(C_m\) (pF)           | 250 pF           | Membrane capacitance                              |
+| \(g_L\) (nS)           | 16.6667 nS       | Leak conductance                                  |
+| \(E_L\) (mV)           | -70 mV           | Leak reversal potential (resting potential)       |
+| \(refr_T\) (ms)        | 2 ms             | Duration of refractory period                     |
+| \(V_{th}\) (mV)        | -55 mV           | Spike threshold potential                         |
+| \(V_{reset}\) (mV)     | -60 mV           | Reset potential                                   |
+| \(E_{exc}\) (mV)       | 0 mV             | Excitatory reversal potential                     |
+| \(E_{inh}\) (mV)       | -85 mV           | Inhibitory reversal potential                     |
+| \(\tau_{syn,exc}\) (ms)| 0.2 ms           | Synaptic time constant of excitatory synapse      |
+| \(\tau_{syn,inh}\) (ms)| 2 ms             | Synaptic time constant of inhibitory synapse      |
+
+**Table 1:** Key parameters for the *iaf_cond_alpha* neural model, including membrane properties, spike-related parameters, and synaptic properties.
+
 The MSO principal cells were instead implemented through the `iaf_cond_beta model`. The use of a beta function to replicate the postsynaptic change of conductance allowed us to change independently the time constants of rise and fall of the conductance change and thus modify both the excitatory and inhibitory post-synaptic potential shapes in the MSO. In this way, we could explore different sets of values and attempt to validate our hypothesis about how inhibitory inputs can code for different ITD values in MSO cells, see [](#inhib-intro).
 
-![Brainstem network Diagram]
+![Brainstem network data]
 
 | **Cell Type** | **Model**                     | **Convergence**                    | **Numerosity** | **Number - Frequency Channels ratio** |
 |---------------|-------------------------------|-------------------------------------|----------------|----------------------------------------|
@@ -70,9 +87,9 @@ The MSO principal cells were instead implemented through the `iaf_cond_beta mode
 | GBCs          | *iaf_cond_alpha*             | 1 : 1 to MNTB PCs                  | 1750           | 0.5                                    |
 | MNTB PCs      | *iaf_cond_alpha*             | 1 : 1 to LSO PCs,<br>1 : 1 to MSO PCs | 1750           | 0.5                                    |
 | LSO PCs       | *iaf_cond_alpha*             | -                                   | 1750           | 0.5                                    |
-| MSO PCs       | *iaf_cond_beta*             | -                                   | 17500          | 3.5                                    |
+| MSO PCs       | *iaf_cond_beta*             | -                                   | 7000          | 3.5                                    |
 
-**Table:** Brainstem network data about different populations cell types, NEST models used, convergence, numerosity, and mean number of cells within a single frequency channel.
+**Table 2:** Brainstem network data about different populations cell types, NEST models used, convergence, numerosity, and mean number of cells within a single frequency channel.
 
 
 For the validation of the complete brainstem network, including both LSO and MSO of both sides, sound stimuli with frequencies of 100 Hz and 1 s duration from different spatial positions were tested. Specifically, we gave the model azimuth angles ranging from -90° to +90° with an interval of 15°. 
