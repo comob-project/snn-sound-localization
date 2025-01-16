@@ -14,7 +14,7 @@ This section introduces a simple method to solve the sound localization problem 
 
 ### Introduction
 
-:::{Warning}
+:::{warning}
 Karim here: I have checked the main intro and the intro here and I see no common passages. Thus, I recommend moving all to main intro after the first paragraph. However, if done so, the main intro of delays would be visibly larger than the other sections. In this regard, I leave to you guys to remove any passages you guys deem not necessary as both of you will have the bigger picture. I have made some small edits to improve it, I hope that helps. 
 :::
 

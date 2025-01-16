@@ -59,8 +59,9 @@ These devices mimic the actual behaviour of ANFs subjected to a pure tonal stimu
 
 All other cell populations were implemented through `iaf_cond_alpha models` (a simple implementation of a spiking neuron in NEST using integrate-and-fire dynamics with conductance-based synapses and a postsynaptic change of conductance modeled by an alpha function). With this model we implemented in a manner faithful to their biological counterparts the bushy cells (spherical and globular, SBCs and GBCs) located in the anteroventral part of the cochlear nuclei, the glycinergic neurons located in the medial and lateral trapezoidal body (MNTB and LNTB), and finally the main cells of the lateral superior olives (LSOs). All the default parameters of this NEST model were kept unchanged (see {ref}`iaf_data`.) apart from the membrane capacitance ‘C_m’, which was lowered to 1 pF to ensure sufficiently quick membrane time constants as seen experimentally in these neurons {cite:t}`Cao2007`. 
 
-![iaf_cond_alpha parameters]
+:::{table} Key parameters for the *iaf_cond_alpha* neural model, including membrane properties, spike-related parameters, and synaptic properties.
 :label: iaf_data
+
 | **Parameter**          | **Value**        | **Description**                                   |
 |-------------------------|------------------|---------------------------------------------------|
 | C_m (pF)           | 250 pF           | Membrane capacitance                              |
@@ -73,12 +74,12 @@ All other cell populations were implemented through `iaf_cond_alpha models` (a s
 | E_inh (mV)       | -85 mV           | Inhibitory reversal potential                     |
 | tau_syn,exc (ms)| 0.2 ms           | Synaptic time constant of excitatory synapse      |
 | tau_syn,inh (ms)| 2 ms             | Synaptic time constant of inhibitory synapse      |
-
-**Table 1:** Key parameters for the *iaf_cond_alpha* neural model, including membrane properties, spike-related parameters, and synaptic properties.
+:::
 
 The MSO principal cells were instead implemented through the `iaf_cond_beta model`. The use of a beta function to replicate the postsynaptic change of conductance allowed us to change independently the time constants of rise and fall of the conductance change and thus modify both the excitatory and inhibitory post-synaptic potential shapes in the MSO. In this way, we could explore different sets of values and attempt to validate our hypothesis about how inhibitory inputs can code for different ITD values in MSO cells, see [](#inhib-intro).
 
-![Brainstem network data]
+:::{table} Brainstem network data about different populations cell types, NEST models used, convergence, numerosity, and mean number of cells within a single frequency channel.
+:label: table_brainstem
 
 | **Cell Type** | **Model**                     | **Convergence**                    | **Numerosity** | **Number - Frequency Channels ratio** |
 |---------------|-------------------------------|-------------------------------------|----------------|----------------------------------------|
@@ -89,8 +90,7 @@ The MSO principal cells were instead implemented through the `iaf_cond_beta mode
 | LSO PCs       | *iaf_cond_alpha*             | -                                   | 1750           | 0.5                                    |
 | MSO PCs       | *iaf_cond_beta*             | -                                   | 7000          | 3.5                                    |
 
-**Table 2:** Brainstem network data about different populations cell types, NEST models used, convergence, numerosity, and mean number of cells within a single frequency channel.
-
+:::
 
 For the validation of the complete brainstem network, including both LSO and MSO of both sides, sound stimuli with frequencies of 100 Hz and 1 s duration from different spatial positions were tested. Specifically, we gave the model azimuth angles ranging from -90° to +90° with an interval of 15°. 
 The MSO response was tested both in physiological conditions and with blocked inhibitory inputs, as in the experiments of Brand et al. and Pecka et al.
@@ -115,7 +115,7 @@ Regarding simulations in which the MSO receives only excitatory inputs ({ref}`bl
 :label: blocked_inh
 :width: 100%
 
-Figure 3: Loss of contralateral ITD peak-coding for the four different neurons in the left MSO: the control condition (with physiological inhibitory inputs) is shown in blue, whereas the curves in red depict the condition with blocked inhibition to the MSO; in the latter scenario, firing-rate values are higher with respect to the former and peaks are shifted to null ITD values, so that the coding of each neuron for a specific azimuth angle is now lost.
+Loss of contralateral ITD peak-coding for the four different neurons in the left MSO: the control condition (with physiological inhibitory inputs) is shown in blue, whereas the curves in red depict the condition with blocked inhibition to the MSO; in the latter scenario, firing-rate values are higher with respect to the former and peaks are shifted to null ITD values, so that the coding of each neuron for a specific azimuth angle is now lost.
 ```
 
 The achievements of this work are to be considered significant in the investigation of the mechanisms used by the mammalian brainstem to perform sound localization. The computational model developed is a good validation platform for the most recent theories concerning the processing of the ITDs in the MSO. This model has shown, for pure tones of 100 Hz frequency, the physiological functioning of LSO and MSO. The peak-coding strategy applied for the identification of contralateral angles in each MSO can be considered a refinement of the rate-based localization of sounds happening in the LSO. As described in the [](#inhib-intro), this type of redundancy is also justified by the evolutionary history of spatial hearing mechanisms in mammals.
