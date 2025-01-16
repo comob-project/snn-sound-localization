@@ -41,7 +41,7 @@ Since the absence of a clear and shared hypothesis in the literature, we decided
 Inspired by the neurophysiological data, we implemented a complex spiking neural network in Python using the NEST Simulator framework [@spreizer_2022_6368024]. The different neuronal populations composing the brainstem circuit and their interconnections are depicted in {ref}`network_diagram`.
 
 
-```{figure} sections/new_inh_model/network_diagram.tiff
+```{figure} sections/new_inh_model/network_diagram.png
 :label: network_diagram
 :width: 100%
 
@@ -99,7 +99,7 @@ The MSO response was tested both in physiological conditions and with blocked in
 As for the LSO response in {ref}`lso_mso`, in our results we obtained the desired subtraction process described in [](#inhib-intro): considering for the sake of simplicity the left LSO, when the sound arrives from a source placed at 90° (i.e., right), the right ear receives sounds earlier and more intensely than the left. As the azimuth angle proceeds toward 0° (frontal position), the firing rate of the left LSO increases while maintaining a constant slope. This steep segment is the most informative part of the left LSO response curve, as a high sensitivity to changing input azimuth angles is guaranteed. Once past 0°, the firing rate ceases to increase steadily, and the response flattens out to high-rate values. Here, the ipsilateral (left) excitation dominates due to louder sounds.
 
 
-```{figure} sections/new_inh_model/lso_mso.tiff
+```{figure} sections/new_inh_model/lso_mso.png
 :label: lso_mso
 :width: 100%
 
@@ -111,7 +111,7 @@ Regarding the MSO instead ({ref}`lso_mso`), the different curves represent the a
 Regarding simulations in which the MSO receives only excitatory inputs ({ref}`blocked_inh`), a loss in the coding of different contralateral angles is evidenced by a symmetric firing rate curve, with all the peak values being higher and shifted towards 0° angles with respect to the physiological activity, as measured experimentally in {cite:t}`Pecka2008`.
 
 
-```{figure} sections/new_inh_model/blocked_inh.tiff
+```{figure} sections/new_inh_model/blocked_inh.png
 :label: blocked_inh
 :width: 100%
 
