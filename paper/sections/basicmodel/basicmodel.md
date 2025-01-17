@@ -41,7 +41,7 @@ Next, we make these neurons spiking by giving them a time varying firing rate:
 
 $$R_{ij}(t)=R_\mathrm{max}((1+\sin\theta_{ij}(t))/2)^2$$
 
-where $R_\mathrm{max}$ is the maximum firing rate. Spikes are then generated via an inhomogeneous Poisson process with intensity $R_{ij}(t)$. Some example raster plots are shown in {ref}`example-stimuli`.
+where $R_\mathrm{max}$ is the maximum firing rate, which we set as 600 sp/s. Spikes are then generated via an inhomogeneous Poisson process with intensity $R_{ij}(t)$. Some example raster plots are shown in {ref}`example-stimuli`.
 
 ```{figure} sections/basicmodel/stimuli-examples.png
 :label: example-stimuli
