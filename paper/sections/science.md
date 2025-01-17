@@ -1,3 +1,4 @@
+(science-intro)=
 ## Introduction 
 
 In the [Cosyne tutorial](https://neural-reckoning.github.io/cosyne-tutorial-2022/) {cite:p}`10.5281/zenodo.7044500` on spiking neural networks (SNNs) that launched this project, we used a sound localisation task. Reasoning that sound localisation requires the precise temporal processing of spikes at which these networks would excel.  
