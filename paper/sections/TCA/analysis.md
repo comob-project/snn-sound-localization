@@ -8,7 +8,7 @@
   - [](../research/TCA-analysis.ipynb)
 ```
 
-We used tensor component analysis (TCA) to explore the representation and learning dynamics of multiple models by examining their neuron, trial, and temporal factors. TCA helps decompose multidimensional data into core components that capture the essential structure and relationships inherent in the neural activities across different dimensions. This analysis provides a clear insight into how models encode and process information over multiple trials, revealing the underlying mechanisms that drive their performance and behaviour. By employing hierarchical clustering with Ward's method, we focused on assessing the similarity in neuron factor representations across models, which has elucidated the consistency and diversity of neural encoding across different training instances.
+We used tensor component analysis (TCA) to explore the representation and learning dynamics of multiple models by examining their neuron, trial, and temporal factors {cite:p}`Williams2018`. TCA helps decompose multidimensional data into core components that capture the essential structure and relationships inherent in the neural activities across different dimensions. This analysis provides a clear insight into how models encode and process information over multiple trials, revealing the underlying mechanisms that drive their performance and behaviour. By employing hierarchical clustering with Ward's method, we focused on assessing the similarity in neuron factor representations across models, which has elucidated the consistency and diversity of neural encoding across different training instances.
 
 ### Results
 
