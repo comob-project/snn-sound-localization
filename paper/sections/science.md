@@ -54,7 +54,7 @@ The first method was to develop a differentiable delay layer (DDL). This method 
 
 While we were developing our DDL-based method, a paper introducing synaptic delays using dilated convolutions with learnable spacings (DCLS) was published [@hassani2023dilated;@hammouamri2024learning], prompting us to explore this approach as well. This method also relies on interpolation and is very similar to the DDL method, serving as a generalization for synaptic delays. It uses a 1D convolution through time to simulate delays between consecutive layers. The kernels include a single non-zero weight per synapse, which corresponds to the desired delay. This method co-trains weights and delays.
 
-We found that both methods performed well and eliminated the artificial phase delays introduced in the basic model.
+We found that both methods performed well and eliminated the artificial phase delays introduced in the basic model, although the DCLS reached a lower level of error overall.
 
 ## Detailed inhibition-based model
 
