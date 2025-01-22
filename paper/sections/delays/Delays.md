@@ -105,7 +105,7 @@ Left: Evolution of training loss of the differential delay layer model as a func
 ```{figure} sections/delays/Confuse.png
 :label: DelayConfuse
 :width: 100%
-Analysis of classifications by the trained differential delay layer model. Date is shown for errors made on the training data set (A) and test data set (B). Left shows a histogram of the true IPDs (blue) and estimated IPDs (orange). Right shows the confusion matrices on a blue-yellow colour scale (so perfect prediction would correspond to a blue image with a yellow diagonal).
+Analysis of classifications by the trained differential delay layer model. Data are shown for errors made on the training data set (A) and test data set (B). Left shows a histogram of the true IPDs (blue) and estimated IPDs (orange). Right shows the confusion matrices on a blue-yellow colour scale (so perfect prediction would correspond to a blue image with a yellow diagonal).
 ```
 
 Next we show results for the dilated convolutions with learnable spacings (DCLS) algorithm, in this case using 12 IPD classes instead of 36, in [](#DelaySpikeHistograms2). Performance of this algorithm for this task was better, with a mean absolute error on the test dataset of $4.2^\circ$.
@@ -113,7 +113,7 @@ Next we show results for the dilated convolutions with learnable spacings (DCLS)
 ```{figure} sections/delays/Confuse_dcls.png
 :label: DelaySpikeHistograms2
 :width: 100%
-Analysis of classifications by the trained dilated convolutions with learnable spacings (DCLS) model. Date is shown for errors made on the training data set (A) and test data set (B). Left shows a histogram of the true IPDs (blue) and estimated IPDs (orange). Right shows the confusion matrices on a blue-yellow colour scale (so perfect prediction would correspond to a blue image with a yellow diagonal).
+Analysis of classifications by the trained dilated convolutions with learnable spacings (DCLS) model. Data are shown for errors made on the training data set (A) and test data set (B). Left shows a histogram of the true IPDs (blue) and estimated IPDs (orange). Right shows the confusion matrices on a blue-yellow colour scale (so perfect prediction would correspond to a blue image with a yellow diagonal).
 ```
 
 Learning synaptic delays with weights enables the visualization of the 'receptive field' of postsynaptic neurons, as illustrated in [](#rf). Five randomly chosen neurons from the hidden layer are plotted, revealing clear spatiotemporal separation of excitation and inhibition.
