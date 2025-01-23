@@ -98,9 +98,10 @@ authors:
 
 license: CC-BY-4.0
 export:
-  - format: docx
   - format: tex
-    template: lapreprint
+    template: plain_latex_book
+  # - format: tex+pdf
+  #   template: plain_latex_book
   - format: pdf
     id: paper
     template: lapreprint-typst

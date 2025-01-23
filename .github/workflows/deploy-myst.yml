@@ -38,7 +38,7 @@ jobs:
       - name: Install Typst for PDF builds
         uses: typst-community/setup-typst@v3
       - name: Build HTML Assets
-        run: myst build --html --typst
+        run: myst build --html # --typst # removed --typst for now because it doesn't fully support everything
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

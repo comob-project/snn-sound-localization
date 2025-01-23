@@ -14,12 +14,6 @@ This is the repository behind the _SNN Sound Localization_ project. Check out [t
 
 To edit and build locally, [install node and myst following these instructions](https://mystmd.org/guide/quickstart).
 
-To build the paper, run the following from the root directory:
-
-```
-myst build paper/paper.md --pdf
-```
-
 To edit locally:
 
 ```
@@ -27,3 +21,21 @@ myst start
 ```
 
 Then click the link in the terminal (probably ``http://localhost:3000``).
+
+### LaTeX build
+
+At the moment, the typst build has some problems with equations. Use
+
+```
+myst build paper/paper.md --tex
+```
+
+and then you need to edit the generated latex in ``_build/exports/paper_tex`` as follows:
+
+1. Change first line to ``\documentclass[a4paper,11pt]{article}``. This is because we use the book preprint from mystmd as it works best at time of writing, but we don't want a book.
+2. Remove the ``\frontmatter`` and ``\mainmatter`` commands because it's not a book.
+3. Remove the formatting if desired from ``\title`` and ``\author``.
+4. Replace commas and ``and`` in the ``author{}`` with ``\and`` to spread across multiple lines correctly.
+5. For each section authors table, add ``[!h]`` to the end of the table declaration otherwise it puts it at the top of the page.
+
+It should then build with a standard ``pdlatex-bibtex-pdflatex*2`` build.
