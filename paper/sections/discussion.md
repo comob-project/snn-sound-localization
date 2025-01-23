@@ -17,4 +17,4 @@ Ultimately, while the project explored many interesting directions, which will f
 
 ## Conclusions
 
-This paper does not present a scientific breakthrough. However, it does demonstrate the feasibility of open research projects which bring together large number of participants across countries and career stages to work together collaboratively on scientific projects. Looking ahead, we hope that by lowering the barrier to entry, these projects will welcome a wider and more diverse set of expertise and perspectives, generate new ideas and lead to discoveries beyond what any single group could realise. 
+This paper does not present a scientific breakthrough. However, it does demonstrate the feasibility of open research projects which bring together a large number of participants across countries and career stages to work together collaboratively on scientific projects. Looking ahead, we hope that by lowering the barrier to entry, these projects will welcome a wider and more diverse set of expertise and perspectives, generate new ideas and lead to discoveries beyond what any single group could realise. 
