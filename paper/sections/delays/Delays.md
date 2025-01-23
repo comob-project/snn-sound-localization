@@ -20,7 +20,7 @@ Aside from their role in modeling cortical functions or shaping a network's syna
 
 Finally, it should be noted that most of the studies that incorporate axonal and/or dendritic delays, include them as a non-learnable parameter. Few studies investigated the possibility of training transmission delays in order to enhance the computational capabilities of spiking neural networks (SNN). {cite:t}`TM2017` proposed an algorithm that modifies the axonal delays and synaptic efficacy in both supervised and unsupervised approaches.  The learning method involved approximates the Expectation-Maximization (EM) algorithm and, after training, the network learns to map spatio-temporal input-output spike patterns. Thus, EM is one way to train SNNs that are cast as probabilistic models. Another approach that exploits recent developments in deep learning is {cite:t}`hammouamri2024learning`. In this work, delays are represented as 1D convolutions through time, where the kernels include a single per-synapse non-zero weight. The temporal position of these non-zero weights corresponds to the desired delays. The proposed method co-trains weights and delays and is based on the Dilated Convolution with Learnable Spacings (DCLS) algorithm {cite:p}`ITT2023`.
 
-In this work we propose a delay learning algorithm that is simple and efficient. The delay learning is mediated by a differentiable delay layer (DDL). This layer can be inserted between any two layers in an SNN in order to learn the appropriate delay to solve a machine learning task. This DDL is architecture agnostic. Also, the method is designed to learn delays separately from synaptic weights. 
+In this work, we propose a delay learning algorithm that is simple and efficient. The delay learning is mediated by a differentiable delay layer (DDL). This layer can be inserted between any two layers in an SNN in order to learn the appropriate delay to solve a machine learning task. This DDL is architecture agnostic. Also, the method is designed to learn delays separately from synaptic weights. 
 
 ### Methods
 
@@ -43,7 +43,7 @@ $$ \begin{bmatrix}
 \end{bmatrix}
 $$ 
 		
-In the above equation, ${sr_1,~sr_2,~sr_3,~sr_4}$ are the elements responsible for the linear transformations of scaling and rotation. $t_x$ and $t_y$ are the translations in the x-axis and y-axis respectively. $x_t$ and $y_t$ are the location of a spike/pixel (in case of spikes $y = 0$) in the target/output grid, while $x_s$ and $y_s$ are the location of the source grid. A grid can be an image or a 2D array of spike trains. For the case of only translation along the x-axis, the affine transformation matrix becomes: 
+In the above equation, ${sr_1,~sr_2,~sr_3,~sr_4}$ are the elements responsible for the linear transformations of scaling, rotation and shear. $t_x$ and $t_y$ are the translations in the x-axis and y-axis respectively. $x_t$ and $y_t$ are the location of a spike/pixel (in case of spikes $y = 0$) in the target/output grid, while $x_s$ and $y_s$ are the location of the source grid. A grid can be an image or a 2D array of spike trains. For the case of only translation along the x-axis, the affine transformation matrix becomes: 
 	
 $$ \begin{bmatrix} 
 	1 & 0 & t_x\\
@@ -86,7 +86,7 @@ In addition to the DDL, we also use the dilated convolutions with learnable spac
 
 ### Results and discussion
 
-For the DDL we discretised IPDs into 36 classes from $-90^\circ$ to $+85^circ$ in $5^\circ$ increments. To simplify learning, we fix delays from one ear and only allow delays from the other ear to be learned. This can be seen in switch from the vertical bands of blue spikes in [](#DelaySpikeHistograms)A before learning, to the diagonal bands in [](#DelaySpikeHistograms)B after learning.
+For the DDL we discretised IPDs into 36 classes from $-90^\circ$ to $+85^\circ$ in $5^\circ$ increments. To simplify learning, we fix delays from one ear and only allow delays from the other ear to be learned. This can be seen in switch from the vertical bands of blue spikes in [](#DelaySpikeHistograms)A before learning, to the diagonal bands in [](#DelaySpikeHistograms)B after learning.
 
 ```{figure} sections/delays/Results_1.png
 :label: DelaySpikeHistograms
@@ -121,5 +121,5 @@ Learning synaptic delays with weights enables the visualization of the 'receptiv
 ```{figure} sections/delays/0-5.png
 :label: rf
 :width: 100%
-Receptive fields of 5 randomly chosen neurons in the hidden layer of the differentiable delay layer model. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (blue=excitation, red=inhibition), with transparency denoting magnitude. Excitation and inhibition appear to be spatiotemporally separated.
+Receptive fields of 5 randomly chosen neurons in the hidden layer of the dilated convolutions with learnable spacings model. The x-axis represents the presynaptic neuron index, while the y-axis displays the learned delay value. Colors indicate the sign of the weight (blue=excitation, red=inhibition), with transparency denoting magnitude. Excitation and inhibition appear to be spatiotemporally separated.
 ```
