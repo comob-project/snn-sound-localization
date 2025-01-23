@@ -1,7 +1,7 @@
 (contributor-table)=
 ```{list-table} Contributors, ordered by GitHub commits as of 2024-07-16.
 :header-rows: 1
-:label: contributors-table
+:label: contributor-table
 
 * - Name
   - GitHub
