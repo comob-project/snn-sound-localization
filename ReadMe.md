@@ -37,5 +37,7 @@ and then you need to edit the generated latex in ``_build/exports/paper_tex`` as
 3. Remove the formatting if desired from ``\title`` and ``\author``.
 4. Replace commas and ``and`` in the ``author{}`` with ``\and`` to spread across multiple lines correctly.
 5. For each section authors table, add ``[!h]`` to the end of the table declaration otherwise it puts it at the top of the page.
+6. Remove ``\tableofcontents``
+7. Add ``\begin{abstract}`` and ``\end{abstract}`` around the abstract.
 
 It should then build with a standard ``pdlatex-bibtex-pdflatex*2`` build.
