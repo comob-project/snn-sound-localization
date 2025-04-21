@@ -1,5 +1,5 @@
 ---
-title: Spiking neural network models of sound localisation via a massively collaborative process
+title: Spiking neural network models of interaural time difference extraction via a massively collaborative process
 authors:
   - name: Marcus Ghosh
     affiliations:

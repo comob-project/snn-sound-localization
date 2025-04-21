@@ -39,5 +39,6 @@ and then you need to edit the generated latex in ``_build/exports/paper_tex`` as
 5. For each section authors table, add ``[!h]`` to the end of the table declaration otherwise it puts it at the top of the page.
 6. Remove ``\tableofcontents``
 7. Add ``\begin{abstract}`` and ``\end{abstract}`` around the abstract.
+8. Remove the table in the contributors section and replace it with the following text: "Full list of contributions available online at \url{https://comob-project.github.io/snn-sound-localization/paper\#contributors}."
 
 It should then build with a standard ``pdlatex-bibtex-pdflatex*2`` build.
