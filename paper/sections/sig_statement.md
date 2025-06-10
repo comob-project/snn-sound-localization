@@ -1,4 +1,3 @@
 (sig-statement)=
-## Significance statement
 
 How should we structure large-scale scientific efforts? Massively collaborative projects, which anyone, anywhere, can contribute to, are one option. We ran a computational neuroscience project like this for two years and, here, share our results and experiences. At a scientific level, our work investigated how networks of simulated neurons can localise sound. At a more macro-level, our project brought together 31 researchers from multiple countries and provided research and training opportunities. Overall, our work demonstrates the potential for massively collaborative projects to transform how science is structured.
