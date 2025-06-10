@@ -9,7 +9,7 @@ Building on this literature, and a tutorial we ran {cite:p}`10.5281/zenodo.70445
 
 Two things are worth noting here. First, our solutions may be very different to optimal solutions or other neural network-based solutions. This literature is reviewed in {cite:t}`Grumiaux2022`, including classical engineering approaches such as beamforming, and deep learning approaches such as convolutional neural networks, recurrent neural networks and attention-based networks. Secondly, our setup is fairly limited in terms of the available cues and network structure: we only use pure tones, we have no spectral or cross-frequency cues, we fix the level so we have no interaural level differences, etc. We would not necessarily expect this approach to explain a wide range of observed phenomena, but it may still throw light on some fundamental aspects of interaural time or phase difference circuits.
 
-## A simple spiking neural network model
+## Materials and methods
 
 We started with a simple, spiking neural network model (described in more detail in [](#basic-methods)) trained to solve a highly abstracted sound localisation task. 
 
@@ -24,15 +24,15 @@ The task is to estimate the interaural phase difference (IPD) of a pure tone (si
 
 The input neurons are all-to-all connected to the layer of hidden neurons via a trainable weight matrix. In this way, during training the model is free to *select* the neurons with the appropriate phase delays to generate the desired properties for the hidden layer neurons. This lets the model learn to make use of delays without having to directly implement trainable delays, as this is a challenging problem (which we tackled later in [](#overview-delays)).
 
+## Results
 Using this setup, we successfully trained SNNs on this task, and found that accuracy increased as we reduced the membrane time constant of the units in the hidden layer ([](../research/Optimizing-Membrane-Time-Constant.ipynb)). This initially suggested that coincidence detection played an important role. However, further analysis in [](../../research/time-constant-solutions.ipynb) (described in more detail in [](#basic-model)) showed that in fact, the network was not using a coincidence detection strategy, or indeed a spike timing strategy. Rather, it appears to be using an approach similar to the equalisation-cancellation theory {cite:p}`durlach_equalization_1963;culling_equalization_cancellation_2020` by subtracting various pairs of signals to find the point where they approximately cancel. Careful analysis of the trained model showed that it could be extremely well approximated by a 6-parameter model that is quite easy to describe, but does not obviously correspond to any known features of the auditory system. 
 
 As an alternative approach, we also used Tensor Component Analysis (TCA) {cite:p}`Williams2018` to explore the spiking activity of this model, and to compare it across multiple trained networks ([](#tca-section)).
 
 Building on this base model, we explored two main questions: how changing the neuron model alters the network's behaviour and how the phase delays (within each ear) can be learned.
     
-## Alternative neuron models  
-
-### Dale's principle 
+### Alternative neuron models  
+#### Dale's principle 
 
 In biological networks most neurons release the same set of transmitters from all of their synapses, and so can be broadly be considered to be excitatory or inhibitory to their post-synaptic partners; a phenomenon known as Dale's principle [@10.1177/003591573502800330;@DalesPrinciple]. In contrast, most neural network models, including our base model, allow single units to have both positive and negative output weights.
 
@@ -42,12 +42,12 @@ To understand where in the network inhibition is required, we then trained a sec
 
 Inhibition therefore plays an important role in this model, in line with experimental data that shows that blocking inhibition eliminates ITD-sensitivity in the medial superior olive [@Brand2002;@Pecka2008]. 
 
-### Filter-and-fire
+#### Filter-and-fire
 
 Unlike most point neuron models, in which pairs are connected by a single weight, many biological neurons make multiple contacts with their post-synaptic partners at different points along their dendritic tree. These contacts evoke post-synaptic potentials (PSPs) with distinct temporal dynamics, depending on their distance from the soma, with distal/proximal contacts inducing prolonged/brief PSPs. These features are captured by the filter-and-fire neuron model (F&F) [@beniaguev_dendro_plexing_2024], in which units make multiple contacts with their partners and each input is convolved with a distance-from-soma dependent synaptic filter. While networks of F&F units outperform networks of LIF units on a temporal version of MNIST, we hypothesised that this difference would be magnified in our sound localisation task, given it's natural temporal structure. We found that while training performance was increased using the F&F model, test performance was much worse, suggesting overfitting. 
 
 (overview-delays)=
-## Learning delays 
+### Learning delays 
 As in our base model, many studies incorporate axonal and/or dendritic delays as non-learnable parameters. Here, we explore how these phase delays, as well as synaptic delays, can be learned through two approaches.
 
 The first method was to develop a differentiable delay layer (DDL). This method uses a combination of translation and interpolation, where the interpolation allows the delays to be differentiable even though time steps are discrete. This can be placed between any two layers in a spiking neural network, and is capable of solving the task without weight training. This work is described in more detail in [](#delay-section).
@@ -56,7 +56,7 @@ While we were developing our DDL-based method, a paper introducing synaptic dela
 
 We found that both methods performed well and eliminated the artificial phase delays introduced in the basic model, although DCLS reached a lower level of error overall.
 
-## Detailed inhibition-based model
+### Detailed inhibition-based model
 
 Finally, we developed a more detailed model in which we used over 170,000 units, with conductance-based synapses, to approximate the structure of the mammalian brainstem circuit (see more details in [](#inhib-model)). 
 
