@@ -47,7 +47,7 @@
 * - Jose Gomes (Portugal, PhD)
   - [\@JoseGomesJPG](https://github.com/JoseGomesJPG)
   - Conducted research ([](../research/Dales_law.ipynb)).
-* - (Unknown)
+* - Alicja Dutkiewicz
   - [\@a-dtk](https://github.com/a-dtk)
   - Conducted research ([](../research/Noise_robustness.ipynb)).
 * - Ido Aizenbud
